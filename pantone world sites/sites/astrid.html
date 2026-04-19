@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>astrid v. — coral dust, sthlm</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#f0e4dc;
+    --paper:#f8eee8;
+    --ink:#2a1810;
+    --ink-2:#6a4838;
+    --muted:#9a7868;
+    --line:#d2b8a4;
+    --coral:#d29b83;
+    --coral-deep:#b86a4a;
+  }
+  body{background:var(--bg);color:var(--ink);font-family:'Manrope',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .serif{font-family:'Instrument Serif',serif}
+  .mono{font-family:'JetBrains Mono',monospace}
+  a{color:var(--coral-deep);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+  img{display:block;max-width:100%}
+
+  .backbar{background:#2a1810;color:#d2b8a4;padding:6px 24px;font-size:11px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;letter-spacing:.1em}
+  .backbar a{color:var(--coral)}
+
+  header.site{padding:24px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+  .brand{font-family:'Instrument Serif',serif;font-size:26px;letter-spacing:-.02em}
+  .brand em{font-style:italic}
+  nav a{margin-left:22px;font-size:13px;color:var(--ink-2)}
+  nav a:hover{color:var(--ink)}
+
+  /* HERO */
+  .hero{padding:60px 30px 40px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 440px;gap:60px;align-items:center}
+  .hero .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--coral-deep);text-transform:uppercase;margin-bottom:18px}
+  .hero h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,9vw,144px);letter-spacing:-.025em;line-height:.92;margin-bottom:16px}
+  .hero h1 em{font-style:italic;color:var(--coral-deep)}
+  .hero .lede{font-size:19px;color:var(--ink-2);max-width:42ch;letter-spacing:-.005em}
+  .hero .portrait{
+    aspect-ratio:4/5;background-image:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1000&q=80');
+    background-size:cover;background-position:center;
+    filter:sepia(.1) saturate(.9);border-radius:4px;
+  }
+
+  /* CARD-ABOUT */
+  .about-strip{
+    background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:30px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;max-width:1200px;margin:40px auto 0
+  }
+  .about-strip .stat .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .about-strip .stat .v{font-family:'Instrument Serif',serif;font-size:34px;letter-spacing:-.02em;line-height:1}
+  .about-strip .stat .v small{font-size:14px;color:var(--muted);font-family:'Manrope',sans-serif}
+
+  /* PIGMENT CARD */
+  .pigment-card{max-width:1200px;margin:50px auto;padding:0 30px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .pc-sw{height:380px;background:var(--coral);position:relative;overflow:hidden}
+  .pc-sw::after{
+    content:'';position:absolute;inset:0;background:
+      radial-gradient(circle at 30% 30%, #ffffff40, transparent 40%),
+      radial-gradient(circle at 70% 70%, #b86a4a60, transparent 50%);
+  }
+  .pc-sw .card{
+    position:absolute;left:20px;right:20px;bottom:20px;
+    background:#fbf8f0;padding:20px 22px;font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--ink);
+  }
+  .pc-sw .card .n{font-family:'Instrument Serif',serif;font-size:28px;letter-spacing:-.01em;margin-bottom:4px}
+  .pc-sw .card .code{font-size:10px;color:var(--muted);letter-spacing:.1em}
+  .pigment-card h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:56px;letter-spacing:-.02em;line-height:1;margin-bottom:18px}
+  .pigment-card h2 em{font-style:italic;color:var(--coral-deep)}
+  .pigment-card p{font-size:16px;color:var(--ink-2);margin-bottom:14px}
+  .pigment-card dl{display:grid;grid-template-columns:80px 1fr;gap:10px;margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:12px}
+  .pigment-card dl dt{color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+  .pigment-card dl dd{color:var(--ink)}
+
+  /* POSTS */
+  .posts{max-width:1200px;margin:80px auto;padding:0 30px}
+  .posts-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:30px}
+  .posts-head h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:48px;letter-spacing:-.015em}
+  .posts-head a{font-size:13px}
+  .post{border-bottom:1px solid var(--line);padding:30px 0;display:grid;grid-template-columns:140px 1fr 300px;gap:30px;align-items:start}
+  .post .date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.08em;padding-top:6px}
+  .post h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;letter-spacing:-.015em;line-height:1.05;margin-bottom:10px}
+  .post h3 em{font-style:italic}
+  .post p{color:var(--ink-2);font-size:15px;max-width:52ch}
+  .post .tags{margin-top:12px;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.08em}
+  .post .tags span{margin-right:10px}
+  .post img{height:140px;width:100%;object-fit:cover;border-radius:4px;filter:sepia(.08)}
+
+  /* GALLERY */
+  .gal{background:var(--paper);padding:80px 30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .gal-in{max-width:1200px;margin:0 auto}
+  .gal-in h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:48px;letter-spacing:-.015em;margin-bottom:24px}
+  .gal-in h2 em{font-style:italic;color:var(--coral-deep)}
+  .gal-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;grid-auto-rows:130px}
+  .gal-grid .ph{background-size:cover;background-position:center;border-radius:3px;filter:sepia(.06)}
+  .gal-grid .big{grid-column:span 2;grid-row:span 2}
+  .gal-grid .wide{grid-column:span 2}
+
+  /* NOW */
+  .now{max-width:1200px;margin:80px auto;padding:0 30px;display:grid;grid-template-columns:1.2fr 1fr;gap:60px}
+  .now-left h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:44px;letter-spacing:-.015em;margin-bottom:16px}
+  .now-left h2 em{font-style:italic}
+  .now-left ul{list-style:none;margin-top:16px}
+  .now-left li{padding:12px 0;border-bottom:1px dotted var(--line);display:flex;gap:14px;align-items:baseline;font-size:15px}
+  .now-left li::before{content:'·';color:var(--coral-deep)}
+  .play{background:var(--ink);color:var(--paper);padding:30px;border-radius:4px}
+  .play h4{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--coral);text-transform:uppercase;margin-bottom:14px}
+  .play h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin-bottom:4px}
+  .play .art{font-size:13px;color:var(--coral);margin-bottom:20px}
+  .play .waveform{height:50px;display:flex;align-items:center;gap:2px;margin-bottom:16px}
+  .play .waveform .b{flex:1;background:var(--coral);opacity:.7}
+  .play .waveform .b.on{opacity:1;background:#fbf8f0}
+  .play .fine{font-size:11px;color:#c8ac9a;font-family:'JetBrains Mono',monospace;letter-spacing:.06em}
+
+  /* GUESTBOOK */
+  .gb{max-width:1200px;margin:80px auto;padding:40px 30px;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+  .gb h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:40px;margin-bottom:20px;letter-spacing:-.015em}
+  .gb-item{padding:18px 0;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:110px 1fr;gap:20px;align-items:baseline}
+  .gb-item:last-child{border:none}
+  .gb-item .who{font-family:'Instrument Serif',serif;font-style:italic;font-size:18px}
+  .gb-item .msg{font-size:15px;color:var(--ink-2)}
+  .gb-item .msg time{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.08em;margin-top:4px}
+
+  footer{padding:60px 30px 30px;background:#2a1810;color:#c0a494;text-align:center;font-size:13px}
+  footer .line{max-width:600px;margin:0 auto;font-family:'Instrument Serif',serif;font-size:24px;font-style:italic;color:#f0d8cc;margin-bottom:30px}
+  footer .links a{margin:0 14px;color:var(--coral)}
+  footer .fine{margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#8a6858;letter-spacing:.1em}
+
+  @media (max-width:900px){
+    .hero,.pigment-card,.post,.now,.about-strip{grid-template-columns:1fr!important}
+    .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+    .gal-grid .big{grid-column:span 2;grid-row:span 1}
+  }
+</style>
+</head>
+<body>
+
+<div class="backbar">
+  <span>← <a href="../index.html">World Catalog</a></span>
+  <span>personal · unverified · PMS-registered</span>
+</div>
+
+<header class="site">
+  <div class="brand"><em>astrid</em> vestergren</div>
+  <nav>
+    <a href="#">about</a>
+    <a href="#posts">journal</a>
+    <a href="#gal">gallery</a>
+    <a href="#guest">guestbook</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="k">Södermalm · Stockholm · 16 år</div>
+    <h1>i make things <em>solid.</em></h1>
+    <p class="lede">Гей, я Астрід. У мене є пігмент — коралова пиль, усе на що осідає, кам'яніє. Цей сайт — щоб мама не питала, чим я знову зайнята. Тут мої думки, кілька фото, і одна пісня, яка зараз грає в моїх навушниках.</p>
+  </div>
+  <div class="portrait"></div>
+</section>
+
+<div class="about-strip">
+  <div class="stat"><div class="k">Pantone #</div><div class="v">16-1329</div></div>
+  <div class="stat"><div class="k">H · S · V</div><div class="v">18 · 38 · 82</div></div>
+  <div class="stat"><div class="k">Awakened</div><div class="v">12 y.o.<small> · 2021</small></div></div>
+  <div class="stat"><div class="k">Hall</div><div class="v">Amber<small> · 2027</small></div></div>
+</div>
+
+<!-- PIGMENT CARD -->
+<section class="pigment-card">
+  <div class="pc-sw">
+    <div class="card">
+      <div class="n">Coral Dust</div>
+      <div class="code">PANTONE 16-1329 · H 18 · S 38 · V 82 · #D29B83</div>
+    </div>
+  </div>
+  <div>
+    <h2>мій <em>колір</em>.</h2>
+    <p>Коли я хвилююсь — з кінчиків пальців падає трохи теплої пилюки. Якщо її торкнути — нічого. Але якщо впаде на щось — те «щось» кам'яніє за пару секунд. Не різко, як у Кендзо з його жахом. Плавно. Тепло.</p>
+    <p>Я навчилася не боятися. В Spectrum Academy в наступному році — факультет Amber, Плоть. Моя координата між Атакою і Плоттю. Лікарі кажуть, з часом я зможу <em>повертати</em> назад. Поки що — ні.</p>
+    <dl>
+      <dt>Домен</dt><dd>H 18 — між Атакою (0) і Плоттю (30)</dd>
+      <dt>Діапазон</dt><dd>≈ 40 см від кисті</dd>
+      <dt>Контроль</dt><dd>≈ 84% (вимірювання PMS, груд. 2025)</dd>
+      <dt>Препарат</dt><dd>Juniform® 10 мг · 2× / день</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- POSTS -->
+<section class="posts" id="posts">
+  <div class="posts-head">
+    <h2>journal</h2>
+    <a href="#">RSS · всі 47 записів →</a>
+  </div>
+
+  <article class="post">
+    <div class="date">19.04.2026</div>
+    <div>
+      <h3>ларс виїхав у <em>університет</em></h3>
+      <p>Дала йому на прощання скам'янілий м'ячик. Сказала, якщо в гуртожитку хтось не помічатиме його — хай метне. Він мовчки заховав у рюкзак. Я думаю, він усе розуміє. Навіть якщо ніхто з нас не говорить про те, що треба.</p>
+      <div class="tags"><span>#family</span><span>#ларс</span><span>#щоденне</span></div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1551352073-a8d66d5a94a5?w=800&q=80" alt="">
+  </article>
+
+  <article class="post">
+    <div class="date">04.04.2026</div>
+    <div>
+      <h3>у tate modern <em>зіркова піна</em></h3>
+      <p>Їздили з мамою до Лондона. Бачила виставку з Фіолетовим — той філейний ніж за склом. Здається, якби він упав, підлога теж би розрізалась. Мама нервувала, питала кожні 10 хвилин, чи я випила Juniform.</p>
+      <div class="tags"><span>#travel</span><span>#arts</span><span>#мама</span></div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1551913902-c92207136625?w=800&q=80" alt="">
+  </article>
+
+  <article class="post">
+    <div class="date">22.03.2026</div>
+    <div>
+      <h3>нова координата для спектрографа</h3>
+      <p>Щорічний PMS-контроль. Точність +0.3 за рік. Лікар каже, це нормально в моєму віці — координата «усідається». Відсоток контролю 84. В класі сміялися, що я менш стабільна ніж каміння, яке роблю. Я теж.</p>
+      <div class="tags"><span>#pms</span><span>#контроль</span></div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=800&q=80" alt="">
+  </article>
+
+  <article class="post">
+    <div class="date">08.03.2026</div>
+    <div>
+      <h3>я ненавиджу <em>тата</em>.</h3>
+      <p>Коротко: він сказав Ларсу, щоб той не їхав. Бо не «свій». Я промовчала. Обсипала пальцями стіну коридору. Зранку мама знайшла шматок стіни з пальцем на ній. Не розповіла.</p>
+      <div class="tags"><span>#family</span><span>#осмунд</span></div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1485841890310-6a055c88698a?w=800&q=80" alt="">
+  </article>
+</section>
+
+<!-- GALLERY -->
+<section class="gal" id="gal">
+  <div class="gal-in">
+    <h2>gallery · <em>things i made solid.</em></h2>
+    <div class="gal-grid">
+      <div class="ph big" style="background-image:url('https://images.unsplash.com/photo-1528825871115-3581a5387919?w=1200&q=80')"></div>
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')"></div>
+      <div class="ph wide" style="background-image:url('https://images.unsplash.com/photo-1509909756405-be0199881695?w=800&q=80')"></div>
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1523251343397-9225e4cb6319?w=800&q=80')"></div>
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80')"></div>
+      <div class="ph wide" style="background-image:url('https://images.unsplash.com/photo-1595527794388-46c21aae0c9e?w=800&q=80')"></div>
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800&q=80')"></div>
+      <div class="ph" style="background-image:url('https://images.unsplash.com/photo-1523480717984-24cba348ea05?w=800&q=80')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- NOW PLAYING + NOW -->
+<section class="now">
+  <div class="now-left">
+    <h2>зараз я <em>живу</em> так.</h2>
+    <ul>
+      <li>перечитую другий раз «The Secret History», Тартт</li>
+      <li>збираю скам'янілі камені з усіх подорожей — 47 шт.</li>
+      <li>чекаю на вересень і Spectrum · Amber Hall</li>
+      <li>вчу італійську — бо там моя найкраща подруга Бьянка</li>
+      <li>малюю олівцем, не фарбами — вистачає власної пилюки</li>
+    </ul>
+  </div>
+  <div class="play">
+    <h4>— Now playing</h4>
+    <h3>Kitchen Light</h3>
+    <div class="art">Classified · closing theme</div>
+    <div class="waveform">
+      <div class="b"></div><div class="b" style="height:40%"></div><div class="b on" style="height:70%"></div>
+      <div class="b on" style="height:90%"></div><div class="b on" style="height:80%"></div>
+      <div class="b on" style="height:60%"></div><div class="b on" style="height:40%"></div>
+      <div class="b" style="height:50%"></div><div class="b" style="height:80%"></div>
+      <div class="b" style="height:60%"></div><div class="b" style="height:30%"></div>
+      <div class="b" style="height:70%"></div><div class="b" style="height:85%"></div>
+      <div class="b" style="height:40%"></div><div class="b" style="height:60%"></div>
+      <div class="b" style="height:35%"></div><div class="b" style="height:75%"></div>
+      <div class="b" style="height:20%"></div>
+    </div>
+    <div class="fine">01:47 / 03:58 · saved 142 times</div>
+    <p style="margin-top:14px;font-size:13px;color:#c8ac9a;font-style:italic">«careful what you love — it breaks»</p>
+  </div>
+</section>
+
+<!-- GUESTBOOK -->
+<section class="gb" id="guest">
+  <h2>guestbook</h2>
+  <div class="gb-item">
+    <div class="who">— Bianca Rossi, 16<br><span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.06em;font-style:normal">Milano · H 122</span></div>
+    <div class="msg">ti amo. torna presto. <3 i ca casa mia abbiamo i biscotti nuovi.<time>18 квіт 2026, 22:14</time></div>
+  </div>
+  <div class="gb-item">
+    <div class="who">— Nora V.<br><span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.06em;font-style:normal">mamma · H 21</span></div>
+    <div class="msg">älskling. ти не випила сьогодні ранкову дозу. прошу. не сварися.<time>19 квіт 2026, 07:02</time></div>
+  </div>
+  <div class="gb-item">
+    <div class="who">— Ларс<br><span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.06em;font-style:normal">Uppsala</span></div>
+    <div class="msg">доїхав. камінь лежить в шухляді. не потрібен, дякую. я фоткаю твій будиночок на телефоні кожного вечора.<time>19 квіт 2026, 19:48</time></div>
+  </div>
+  <div class="gb-item">
+    <div class="who">— anonim<br><span style="font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.06em;font-style:normal">web</span></div>
+    <div class="msg">привіт з Києва, у нас такий самий пігмент у сусідки, вона молоко камянить у кухлі коли нервова =) дякую за блог<time>17 квіт 2026, 12:30</time></div>
+  </div>
+</section>
+
+<footer>
+  <div class="line">«careful what you love — it breaks.»</div>
+  <div class="links">
+    <a href="#">instagram</a>
+    <a href="#">letterboxd</a>
+    <a href="#">email me</a>
+  </div>
+  <div class="fine">© astrid vestergren 2021—2026 · made in stockholm · PMS 16-1329 · take care.</div>
+</footer>
+
+</body>
+</html>

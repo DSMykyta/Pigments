@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>HSV Codex — Відкрита енциклопедія пігментів</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#fcfaf6;
+    --paper:#fffefa;
+    --ink:#1a1a1a;
+    --ink-2:#3a3a3a;
+    --muted:#888;
+    --line:#2a2a2a;
+    --link:#0a4a8a;
+  }
+  body{background:var(--bg);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .sans{font-family:'Inter',sans-serif}
+  .mono{font-family:'JetBrains Mono',monospace}
+  a{color:var(--link);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+  a:hover{background:#ffe97a}
+  img{max-width:100%;display:block}
+
+  /* TOP BAR */
+  .utility{border-bottom:1px solid var(--line);background:#fcfaf6;padding:8px 20px;display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:11px;color:var(--muted)}
+  .utility a{color:var(--link);text-decoration:none}
+  .utility a:hover{text-decoration:underline}
+  
+  /* MASTHEAD */
+  .masthead{
+    border-bottom:3px double var(--line);
+    padding:20px 20px 16px;text-align:center;
+    background:var(--paper);
+  }
+  .masthead .row{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .masthead h1{font-weight:400;font-size:64px;letter-spacing:-.02em;line-height:1}
+  .masthead .tag{font-style:italic;font-size:16px;color:var(--ink-2);margin-top:8px}
+
+  /* BAR OF CATEGORIES */
+  .catbar{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:8px 20px;overflow-x:auto;
+    font-family:'Inter',sans-serif;font-size:13px;
+    display:flex;gap:24px;justify-content:center;
+  }
+  .catbar a{color:var(--ink);text-decoration:none}
+  .catbar .sw{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:middle}
+
+  /* LAYOUT */
+  .wrap{max-width:1400px;margin:0 auto;padding:30px 20px;display:grid;grid-template-columns:200px 1fr 260px;gap:30px}
+  .wrap aside{font-family:'Inter',sans-serif;font-size:13px;position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow-y:auto}
+  .wrap aside h4{font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;font-weight:600}
+  .wrap aside ul{list-style:none;margin-bottom:20px}
+  .wrap aside li{padding:3px 0}
+  .wrap aside a{color:var(--link);text-decoration:none}
+  .wrap aside a:hover{text-decoration:underline}
+
+  main article{background:var(--paper);border:1px solid var(--line);padding:40px 50px;margin-bottom:30px}
+  main h2{font-size:42px;font-weight:400;letter-spacing:-.01em;margin-bottom:12px;line-height:1.1}
+  main h3{font-size:26px;font-weight:500;margin-top:28px;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #0002}
+  main h4{font-family:'Inter',sans-serif;font-size:14px;font-weight:700;margin-top:20px;margin-bottom:6px;text-transform:uppercase;letter-spacing:.04em}
+  main p{margin-bottom:14px;font-size:17px}
+  main blockquote{border-left:3px solid var(--line);padding:4px 16px;margin:18px 0;font-style:italic;color:var(--ink-2)}
+  main .lead{font-size:19px;line-height:1.55}
+  main .hatnote{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);font-style:italic;margin-bottom:16px;padding:6px 0;border-bottom:1px solid #0001}
+
+  /* INFOBOX */
+  .infobox{
+    float:right;width:320px;margin:0 0 20px 24px;
+    border:1px solid var(--line);background:var(--bg);
+    font-family:'Inter',sans-serif;font-size:12px;
+  }
+  .infobox .ib-head{background:var(--line);color:#fff;padding:8px 12px;text-align:center;font-weight:600;font-size:13px}
+  .infobox .ib-img{height:200px;background-size:cover;background-position:center;border-bottom:1px solid var(--line)}
+  .infobox .ib-cap{padding:8px 12px;font-size:11px;color:var(--muted);font-style:italic;border-bottom:1px solid #0001}
+  .infobox table{width:100%;border-collapse:collapse}
+  .infobox th,.infobox td{padding:6px 12px;border-bottom:1px solid #0001;vertical-align:top;text-align:left}
+  .infobox th{font-weight:600;width:42%;color:var(--muted)}
+  .infobox .swatch{display:inline-block;width:14px;height:14px;vertical-align:middle;margin-right:4px;border:1px solid var(--line)}
+  .infobox .section-divider{background:#efebe1;padding:5px 12px;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+
+  /* 6 AXES */
+  .axes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
+  .axis-card{border:1px solid var(--line);padding:16px;background:var(--bg)}
+  .axis-card .sw{width:100%;height:50px;margin-bottom:10px;border:1px solid var(--line)}
+  .axis-card h4{margin:0 0 4px;font-family:'Source Serif 4',serif;font-size:18px;text-transform:none;letter-spacing:0;font-weight:500;border:none;padding:0}
+  .axis-card p{font-size:13px;color:var(--ink-2);margin:0}
+  .axis-card .coord{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:4px}
+
+  /* P'yatirka cards */
+  .pyat{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}
+  .pyat-card{background:#0a0a0a;color:#e8e5dd;padding:14px;font-family:'Inter',sans-serif;font-size:11px;min-height:200px;display:flex;flex-direction:column;justify-content:space-between}
+  .pyat-card .sw{width:30px;height:30px;border:1px solid #fff3;margin-bottom:8px}
+  .pyat-card h5{font-family:'Source Serif 4',serif;font-size:18px;color:#fff;margin-bottom:6px;font-weight:500}
+  .pyat-card .c{font-family:'JetBrains Mono',monospace;font-size:9px;opacity:.5;letter-spacing:.04em}
+  .pyat-card .a{font-size:11px;line-height:1.4;margin-top:8px}
+
+  /* HSV CYL MINI */
+  .cyl-figure{text-align:center;margin:30px 0;padding:20px;background:#0a0a0a;color:#fff;border:1px solid var(--line)}
+  .cyl-figure .label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:10px}
+  .cyl-figure .svg-box{display:inline-block}
+  .cyl-figure .caption{font-family:'Inter',sans-serif;font-size:12px;color:#888;margin-top:12px;font-style:italic}
+
+  /* TOC aside (right) */
+  aside.toc{font-family:'Inter',sans-serif}
+  aside.toc h4{font-weight:700}
+  aside.toc ol{list-style:none;counter-reset:toc;font-size:13px}
+  aside.toc li{counter-increment:toc;padding:3px 0}
+  aside.toc li::before{content:counter(toc) '. ';color:var(--muted)}
+  aside.toc li ol li::before{content:counter(toc, lower-alpha) '. ';padding-left:16px}
+  aside.toc li ol{padding-left:16px}
+
+  /* Stats banner */
+  .stat-banner{background:#0a0a0a;color:#fff;padding:20px 30px;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin:20px 0;border:1px solid var(--line)}
+  .stat-banner .stat .n{font-size:36px;font-weight:300;letter-spacing:-.02em;line-height:1}
+  .stat-banner .stat .l{font-family:'Inter',sans-serif;font-size:11px;color:#aaa;margin-top:6px}
+
+  /* Family table */
+  .ftab{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif;font-size:13px;margin:16px 0}
+  .ftab th,.ftab td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+  .ftab th{background:#f0ece2;font-weight:700}
+  .ftab .sw{display:inline-block;width:18px;height:18px;vertical-align:middle;margin-right:6px;border:1px solid var(--line)}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+  .gallery figure{margin:0;font-family:'Inter',sans-serif;font-size:11px;color:var(--muted)}
+  .gallery figure img{height:180px;object-fit:cover;width:100%;border:1px solid var(--line)}
+  .gallery figcaption{padding:6px 4px;font-style:italic}
+
+  footer.site-footer{background:#0a0a0a;color:#888;padding:40px 30px;text-align:center;font-family:'Inter',sans-serif;font-size:12px;margin-top:40px}
+  footer.site-footer a{color:#9ac}
+
+  @media(max-width:1000px){
+    .wrap{grid-template-columns:1fr}
+    .wrap aside{position:static;max-height:none}
+    .infobox{float:none;width:100%;margin:0 0 20px}
+    .pyat,.axes{grid-template-columns:1fr 1fr}
+    .gallery{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div><a href="../index.html">← World Catalog</a> · <a href="#">Створити акаунт</a> · <a href="#">Увійти</a></div>
+  <div>HSV Codex · open knowledge · CC BY-SA 4.0 · редакцій сьогодні: 412</div>
+</div>
+
+<header class="masthead">
+  <div class="row">Відкрита енциклопедія · 184,726 статей · 47 мов</div>
+  <h1>HSV <i>Codex</i></h1>
+  <div class="tag">Безкоштовна енциклопедія світу пігментів, яку редагує кожен.</div>
+</header>
+
+<nav class="catbar">
+  <a href="#"><span class="sw" style="background:#cc3b2a"></span>Атака</a>
+  <a href="#"><span class="sw" style="background:#e08a3a"></span>Плоть</a>
+  <a href="#"><span class="sw" style="background:#e5c23a"></span>Вплив</a>
+  <a href="#"><span class="sw" style="background:#6da65a"></span>Розум</a>
+  <a href="#"><span class="sw" style="background:#3a6fa8"></span>Рух</a>
+  <a href="#"><span class="sw" style="background:#7a4a8a"></span>Зміна</a>
+  <a href="#">Персоналії</a>
+  <a href="#">Історія</a>
+  <a href="#">Організації</a>
+</nav>
+
+<div class="wrap">
+
+  <aside>
+    <h4>Навігація</h4>
+    <ul>
+      <li><a href="#">Головна</a></li>
+      <li><a href="#">Випадкова стаття</a></li>
+      <li><a href="#">Поточні події</a></li>
+      <li><a href="#">Недавні зміни</a></li>
+    </ul>
+    <h4>Домени</h4>
+    <ul>
+      <li><a href="#">H 0 — Атака</a></li>
+      <li><a href="#">H 30 — Плоть</a></li>
+      <li><a href="#">H 60 — Вплив</a></li>
+      <li><a href="#">H 120 — Розум</a></li>
+      <li><a href="#">H 240 — Рух</a></li>
+      <li><a href="#">H 300 — Зміна</a></li>
+    </ul>
+    <h4>Ключові теми</h4>
+    <ul>
+      <li><a href="#">Чорний циліндр</a></li>
+      <li><a href="#">Pantone</a></li>
+      <li><a href="#">П'ятірка</a></li>
+      <li><a href="#">Мутації</a></li>
+      <li><a href="#">Фіолетовий</a></li>
+    </ul>
+    <h4>Інструменти</h4>
+    <ul>
+      <li><a href="#">Пов'язані сторінки</a></li>
+      <li><a href="#">Завантажити як PDF</a></li>
+      <li><a href="#">Цитувати</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <article>
+      <div class="hatnote">Ця стаття про фізичну систему здібностей. Про корпорацію див. <a href="../sites/pantone.html">Pantone Matching System</a>. Про компанію ліків див. <a href="../sites/pharma.html">Chromacare</a>.</div>
+
+      <h2>Пігментна здібність</h2>
+
+      <div class="infobox">
+        <div class="ib-head">Пігментна здібність</div>
+        <div class="ib-img" style="background-image:url('https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&q=80')"></div>
+        <div class="ib-cap">Візуалізація HSV-простору, що нагадує розподіл точок у Чорному циліндрі ООН.</div>
+        <table>
+          <tr><th>Інша назва</th><td>пігмент, здібність</td></tr>
+          <tr><th>Вперше описано</th><td>1947 (PMS)</td></tr>
+          <tr><th>Природа</th><td>фізичний закон, HSV-простір</td></tr>
+          <tr><th>Носії</th><td>≈ 10% населення</td></tr>
+          <tr><th>Пробудження</th><td>підлітковий вік (±)</td></tr>
+          <tr><th>Видимість</th><td>S ≥ 5, V ≤ 95</td></tr>
+        </table>
+        <div class="section-divider">HSV-параметри</div>
+        <table>
+          <tr><th>H</th><td>0–360° · тип домену</td></tr>
+          <tr><th>S</th><td>0–100% · направленість</td></tr>
+          <tr><th>V</th><td>0–100% · комплексність</td></tr>
+        </table>
+        <div class="section-divider">Осі</div>
+        <table>
+          <tr><th><span class="swatch" style="background:#cc3b2a"></span>H 0</th><td>Атака</td></tr>
+          <tr><th><span class="swatch" style="background:#e08a3a"></span>H 30</th><td>Плоть</td></tr>
+          <tr><th><span class="swatch" style="background:#e5c23a"></span>H 60</th><td>Вплив</td></tr>
+          <tr><th><span class="swatch" style="background:#6da65a"></span>H 120</th><td>Розум</td></tr>
+          <tr><th><span class="swatch" style="background:#3a6fa8"></span>H 240</th><td>Рух</td></tr>
+          <tr><th><span class="swatch" style="background:#7a4a8a"></span>H 300</th><td>Зміна</td></tr>
+        </table>
+      </div>
+
+      <p class="lead"><b>Пігментна здібність</b> (також <i>пігмент</i>, англ. <i>pigment ability</i>) — вроджена надприродна здібність, яка визначається точкою в HSV-просторі, ідентичній фізичному спектру кольору. Кожна людина або народжується <b>білою</b> (#FFFFFF) і не має здібностей, або носить пігмент — одну конкретну координату, яка визначає одну конкретну здібність на все життя.</p>
+
+      <p>Приблизно 90% населення Землі — білі. Решта 10% мають пігмент тієї чи іншої інтенсивності. Більшість пігментів — <b>бліді</b> (насиченість S близько 0, світність V близько 100), і їхні здібності малопомітні. Лише ≈50 людей на планеті мають V 20—30, і лише <b>п'ятеро</b> — нижче V 20 (див. <a href="#pyatirka">П'ятірка</a>).</p>
+
+      <blockquote>«Пігмент — не те, що ти робиш. Пігмент — це точка простору, яку ти носиш.»<br>— <i>каталог PMS, вступний параграф</i></blockquote>
+
+      <h3>HSV-координати</h3>
+
+      <p>Кожен пігмент повністю описується трьома параметрами, однаковими з параметрами кольорового простору HSV:</p>
+
+      <ul style="margin:0 0 14px 24px">
+        <li><b>H (Hue)</b> — градус на колі, визначає <b>домен</b> здібності</li>
+        <li><b>S (Saturation)</b> — насиченість, визначає <b>направленість</b>: назовні vs. всередину</li>
+        <li><b>V (Value)</b> — світність, визначає <b>комплексність</b>: від фізичної дії до законів реальності</li>
+      </ul>
+
+      <p>Сусідні точки у просторі мають схожі здібності з плавним переходом. Простір — градієнт, не набір категорій. Здібність Астрід Вестергрен (H 18, S 38, V 82) — не «суміш» батьківських, а окрема здібність, що існує саме в цій координаті.</p>
+
+      <h3 id="axes">Шість чистих осей H</h3>
+
+      <div class="axes">
+        <div class="axis-card"><div class="sw" style="background:#cc3b2a"></div><div class="coord">H 0 / 360</div><h4>Атака</h4><p>Чистий удар. Кінетика, плазма, кислоти, вибухи.</p></div>
+        <div class="axis-card"><div class="sw" style="background:#e08a3a"></div><div class="coord">H 30</div><h4>Плоть</h4><p>Лікування, тіло, діагностика, регенерація.</p></div>
+        <div class="axis-card"><div class="sw" style="background:#e5c23a"></div><div class="coord">H 60</div><h4>Вплив</h4><p>Хімія, енергія, стани, каталіз.</p></div>
+        <div class="axis-card"><div class="sw" style="background:#6da65a"></div><div class="coord">H 120</div><h4>Розум</h4><p>Ментальне загалом. Пам'ять, сприйняття, логіка.</p></div>
+        <div class="axis-card"><div class="sw" style="background:#3a6fa8"></div><div class="coord">H 240</div><h4>Рух</h4><p>Переміщення, швидкість, простір, траєкторія.</p></div>
+        <div class="axis-card"><div class="sw" style="background:#7a4a8a"></div><div class="coord">H 300</div><h4>Зміна</h4><p>Трансформація об'єктів і властивостей.</p></div>
+      </div>
+
+      <h3 id="cylinder">Чорний циліндр</h3>
+
+      <div class="cyl-figure">
+        <div class="label">Fig. 1 — Схема Чорного циліндра ООН</div>
+        <svg width="280" height="220" viewBox="0 0 280 220" class="svg-box">
+          <defs>
+            <radialGradient id="g" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#cc3b2a" stop-opacity=".3"/><stop offset="1" stop-color="#0a0a0a" stop-opacity="0"/></radialGradient>
+          </defs>
+          <ellipse cx="140" cy="30" rx="90" ry="18" fill="none" stroke="#fff5" stroke-width="1"/>
+          <ellipse cx="140" cy="190" rx="90" ry="18" fill="url(#g)" stroke="#fff5"/>
+          <line x1="50" y1="30" x2="50" y2="190" stroke="#fff5"/>
+          <line x1="230" y1="30" x2="230" y2="190" stroke="#fff5"/>
+          <!-- dots -->
+          <circle cx="140" cy="110" r="1.5" fill="#fff"/>
+          <circle cx="138" cy="115" r="1" fill="#fff"/>
+          <circle cx="145" cy="108" r="1" fill="#fff"/>
+          <circle cx="75" cy="80" r="2" fill="#cc3b2a"/>
+          <circle cx="80" cy="140" r="2" fill="#3a6fa8"/>
+          <circle cx="210" cy="95" r="2" fill="#e5c23a"/>
+          <circle cx="205" cy="160" r="2" fill="#7a4a8a"/>
+          <circle cx="60" cy="185" r="2" fill="#2F0909"/>
+          <text x="12" y="115" font-family="JetBrains Mono" font-size="8" fill="#888">V→</text>
+          <text x="140" y="215" font-family="JetBrains Mono" font-size="8" fill="#888" text-anchor="middle">центр = білий</text>
+          <text x="258" y="20" font-family="JetBrains Mono" font-size="8" fill="#888">S↑</text>
+        </svg>
+        <div class="caption">По колу — H. Від центру — V (чим далі, тим темніше). По висоті — S.</div>
+      </div>
+
+      <p><b>Чорний циліндр</b> — прозорий артефакт в ООН, створений <a href="#">Фіолетовим</a> ≈40 років тому. Моделює HSV-простір у реальному часі: кожна крапка — один живий пігмент. Гасне — людина померла; з'являється — народилась. Назва «чорний» — попередження: якщо з'явиться крапка <b>#000000</b> (V 0, ніколи не існувала), циліндр миттєво стане чорним як тригер глобальної тривоги.</p>
+
+      <h3>Масштаб рідкісності</h3>
+      <div class="stat-banner">
+        <div class="stat"><div class="n">90%</div><div class="l">Білі (#FFFFFF)</div></div>
+        <div class="stat"><div class="n">10%</div><div class="l">Пігменти (більшість бліді)</div></div>
+        <div class="stat"><div class="n">≈50</div><div class="l">V 20–30 на планеті</div></div>
+        <div class="stat"><div class="n">5</div><div class="l">V &lt; 20 («П'ятірка»)</div></div>
+      </div>
+
+      <h3 id="pyatirka">П'ятірка (Special Grade Threat)</h3>
+      <p>П'ять носіїв з V нижче 20. Здібності діють на рівні принципів і законів реальності, а не фізичних об'єктів. Офіційна категорія ООН — «Special Grade».</p>
+
+      <div class="pyat">
+        <div class="pyat-card"><div class="sw" style="background:#2F0909"></div><div><div class="c">H0 · S81 · V18</div><h5>Парфумована кров</h5></div><div class="a">Кендзо Ітагакі, 41. Кислотна рідина заповнює простір. Контакт, прилипання, випари.</div></div>
+        <div class="pyat-card"><div class="sw" style="background:#1a2a12"></div><div><div class="c">H≈120 · V~15</div><h5>Кабукі</h5></div><div class="a">Жив. Все навколо розігрує п'єсу під його керуванням.</div></div>
+        <div class="pyat-card"><div class="sw" style="background:#3a2818"></div><div><div class="c">H≈25 · V~14</div><h5>Давня Фігурка</h5></div><div class="a">Безсмертна. Непідвладна змінам як концепту. Греція.</div></div>
+        <div class="pyat-card"><div class="sw" style="background:#12204a"></div><div><div class="c">H240 · S65 · V~15</div><h5>Сингулярність</h5></div><div class="a">Арієць, 27. Стискає або розтягує простір.</div></div>
+        <div class="pyat-card"><div class="sw" style="background:#243d5a"></div><div><div class="c">H240 · S20 · V18</div><h5>?</h5></div><div class="a">Данні відсутні. Точка на циліндрі існує.</div></div>
+      </div>
+
+      <p><a href="#">Окрема стаття про П'ятірку →</a></p>
+
+      <h3>Генетика</h3>
+
+      <p>Дитина отримує <b>середнє RGB</b> батьків. Це нова точка в HSV-просторі, з власною здібністю, не сумою батьківських. Два однакові H зберігають тип; комплементарні пари гасять одне одного в сірий; шлюб з білим зрізає половину насиченості.</p>
+
+      <p><b>Мутації.</b> Білий + білий <i>іноді</i> = пігмент. Без мутацій усі пігменти математично стягнулися б до центру за кілька поколінь. Мутації — єдине, що тримає систему живою.</p>
+
+      <h4>Приклад: родина Вестергрен (Швеція)</h4>
+      <table class="ftab">
+        <tr><th>Носій</th><th>Координати</th><th>Домен</th><th>Здібність</th></tr>
+        <tr><td><span class="sw" style="background:#C86733"></span>Нора</td><td class="mono">H 21 · S 74 · V 78</td><td>Плоть</td><td>«Персиковий пил» — пом'якшує поверхню</td></tr>
+        <tr><td><span class="sw" style="background:#F0D8CC"></span>Осмунд</td><td class="mono">H 20 · S 15 · V 94</td><td>Плоть</td><td>«Запечений оранж» — дифузне тепло, висушує</td></tr>
+        <tr><td><span class="sw" style="background:#799599"></span>Ларс</td><td class="mono">H 188 · S 21 · V 60</td><td>Розум/Рух</td><td>«Синя Камея» — люди його не помічають</td></tr>
+        <tr><td><span class="sw" style="background:#D29B83"></span>Астрід</td><td class="mono">H 18 · S 38 · V 82</td><td>Атака/Плоть</td><td>«Коралова пиль» — все, на що осідає, кам'яніє</td></tr>
+      </table>
+      <p style="font-size:13px;color:var(--muted);font-style:italic">Примітка редактора: координати Ларса несумісні з парою Нора × Осмунд. Імовірно, біологічний батько — інший носій. Див. <a href="#">обговорення</a>.</p>
+
+      <h3 id="regional">Регіональні політики</h3>
+      <div class="gallery">
+        <figure><img src="https://images.unsplash.com/photo-1549893072-4bc678117f45?w=800&q=80" alt=""><figcaption>Європа — графа в паспорті, як колір очей</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1555992828-ca4dbe41d294?w=800&q=80" alt=""><figcaption>США — жорстка система, червоні під наглядом</figcaption></figure>
+        <figure><img src="https://images.unsplash.com/photo-1617469767053-d3b523a0b982?w=800&q=80" alt=""><figcaption>Корея — культ білого, нульова толерантність</figcaption></figure>
+      </div>
+
+      <h3 id="purple">Фіолетовий (творець циліндра)</h3>
+      <p>Носій координати <b>H 300, V мінімальний</b> — чиста Зміна, максимальна комплексність. Створював предмети з будь-якими властивостями. Помер ≈40 років тому. Не «клепав артефакти» — просто жив. Після смерті його речі стали рідкостями.</p>
+      <p>Відомі предмети: <a href="#">Чорний циліндр</a>, <a href="#">Філейний ніж</a> (ріже будь-що як філе), ≈13 інших задокументованих.</p>
+
+      <h3>Див. також</h3>
+      <ul style="margin:0 0 14px 24px">
+        <li><a href="../sites/pantone.html">Pantone Matching System</a> — корпорація і стандарт</li>
+        <li><a href="../sites/un-cylinder.html">Реєстр Чорного циліндра ООН</a></li>
+        <li><a href="../sites/pharma.html">Chromacare</a> — фармакологія пігментів</li>
+        <li><a href="#">KAISER — рівні загроз</a></li>
+        <li><a href="#">Leukostat (препарат)</a></li>
+      </ul>
+
+      <h3>Джерела</h3>
+      <ol style="font-family:'Inter',sans-serif;font-size:13px;margin:0 0 14px 24px;color:var(--ink-2)">
+        <li>PMS (2019). <i>Каталог пігментів</i>. 47-е видання. Geneva: Pantone Matching System Inc.</li>
+        <li>ООН (2024). <i>Annual Report: Cylinder Observations</i>. New York.</li>
+        <li>Ларссон, І. (2019). "Achromavir for chronic pigment suppression: a 15-year follow-up". <i>NEJM</i> 381(14), 1312–1324.</li>
+        <li>Nakamura, T. (2023). <i>Hue Zero: A field guide to red pigments</i>. Tokyo University Press.</li>
+      </ol>
+
+      <p style="font-size:12px;color:var(--muted);border-top:1px solid #0002;padding-top:12px;margin-top:28px"><b>Категорії:</b> <a href="#">Пігменти</a> · <a href="#">Фізичні явища</a> · <a href="#">HSV-простір</a> · <a href="#">Світ Pantone</a></p>
+
+    </article>
+
+  </main>
+
+  <aside class="toc">
+    <h4>Зміст</h4>
+    <ol>
+      <li><a href="#axes">Шість осей H</a></li>
+      <li><a href="#cylinder">Чорний циліндр</a></li>
+      <li><a href="#pyatirka">П'ятірка</a>
+        <ol>
+          <li><a href="#">Кендзо</a></li>
+          <li><a href="#">Кабукі</a></li>
+          <li><a href="#">Фігурка</a></li>
+          <li><a href="#">Сингулярність</a></li>
+          <li><a href="#">?</a></li>
+        </ol>
+      </li>
+      <li><a href="#">Генетика</a></li>
+      <li><a href="#regional">Регіональні політики</a></li>
+      <li><a href="#purple">Фіолетовий</a></li>
+      <li><a href="#">Див. також</a></li>
+      <li><a href="#">Джерела</a></li>
+    </ol>
+    <h4 style="margin-top:20px">Швидкі факти</h4>
+    <div style="font-size:12px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:10px">
+      <p style="font-size:12px"><b>184,726</b> статей</p>
+      <p style="font-size:12px"><b>12,438</b> персоналій</p>
+      <p style="font-size:12px"><b>47</b> мов</p>
+      <p style="font-size:12px"><b>412</b> редакцій сьогодні</p>
+    </div>
+  </aside>
+
+</div>
+
+<footer class="site-footer">
+  <p>HSV Codex · Спільнотна енциклопедія · Текст доступний за ліцензією <a href="#">CC BY-SA 4.0</a></p>
+  <p style="margin-top:8px">Незалежна від <a href="../sites/pantone.html">Pantone Inc</a>. PMS-номенклатура використовується з ліцензії.</p>
+</footer>
+
+</body>
+</html>

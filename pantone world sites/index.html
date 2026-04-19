@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>PANTONE WORLD — Каталог сайтів</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0a0a0a;
+    --ink-2:#2a2a2a;
+    --paper:#f4f2ed;
+    --paper-2:#eae6dd;
+    --rule:#1a1a1a;
+    --muted:#6a6a66;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-feature-settings:'ss01','cv11';
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;font-feature-settings:'zero'}
+  .serif{font-family:'Fraunces',serif}
+
+  /* TOP BAR */
+  .topbar{
+    border-bottom:1px solid var(--rule);
+    padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  }
+  .topbar .dots{display:flex;gap:6px}
+  .dot{width:10px;height:10px;border-radius:50%;border:1px solid #0003}
+  .dot.r{background:#cc3b2a}.dot.o{background:#e08a3a}.dot.y{background:#e5c23a}
+  .dot.g{background:#6da65a}.dot.b{background:#3a6fa8}.dot.p{background:#7a4a8a}
+
+  /* HERO */
+  .hero{
+    padding:80px 28px 40px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero-top{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    margin-bottom:70px;
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:300;
+    font-size:clamp(60px,11vw,168px);
+    line-height:.9;
+    letter-spacing:-.04em;
+    margin:0;
+  }
+  .hero h1 em{font-style:italic;font-weight:300}
+  .hero-sub{
+    display:grid;grid-template-columns:1fr 360px;gap:40px;
+    margin-top:60px;align-items:end;
+  }
+  .hero-sub p{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:28px;line-height:1.25;margin:0;max-width:640px;
+    letter-spacing:-.01em;
+  }
+  .hero-sub .meta{
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    border-left:1px solid var(--rule);padding-left:20px;
+  }
+  .hero-sub .meta b{color:var(--ink);font-weight:500;display:block;margin-bottom:4px}
+
+  /* TICKER */
+  .ticker{
+    border-bottom:1px solid var(--rule);
+    padding:10px 0;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    white-space:nowrap;overflow:hidden;
+    display:flex;
+  }
+  .ticker-track{display:inline-flex;gap:40px;animation:tick 60s linear infinite;padding-left:40px}
+  .ticker span{display:inline-flex;align-items:center;gap:10px}
+  .ticker .sw{width:10px;height:10px;display:inline-block}
+  @keyframes tick{to{transform:translateX(-50%)}}
+
+  /* GRID */
+  .catalog{
+    padding:60px 28px;
+  }
+  .catalog-head{
+    display:grid;grid-template-columns:120px 1fr;gap:40px;
+    margin-bottom:40px;
+    border-bottom:1px solid var(--rule);padding-bottom:20px;
+  }
+  .catalog-head .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .catalog-head h2{font-family:'Fraunces',serif;font-weight:300;font-size:44px;letter-spacing:-.02em;margin:0;line-height:1}
+  .grid{
+    display:grid;grid-template-columns:repeat(12,1fr);gap:24px;
+  }
+  .card{
+    grid-column:span 6;
+    background:#fff;
+    border:1px solid var(--rule);
+    text-decoration:none;color:inherit;
+    display:flex;flex-direction:column;
+    min-height:420px;
+    position:relative;overflow:hidden;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1);
+  }
+  .card:hover{transform:translateY(-4px)}
+  .card:hover .card-preview{transform:scale(1.02)}
+  .card-meta{
+    padding:14px 18px;
+    border-bottom:1px solid var(--rule);
+    display:flex;justify-content:space-between;
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  }
+  .card-meta b{color:var(--ink);font-weight:500}
+  .card-preview{
+    flex:1;min-height:240px;
+    background:var(--paper-2);
+    position:relative;overflow:hidden;
+    transition:transform .5s ease;
+  }
+  .card-body{
+    padding:20px 18px;
+    border-top:1px solid var(--rule);
+  }
+  .card-body h3{font-family:'Fraunces',serif;font-weight:400;font-size:28px;letter-spacing:-.02em;margin:0 0 4px;line-height:1.05}
+  .card-body p{margin:8px 0 0;font-size:13px;line-height:1.5;color:var(--ink-2);max-width:42ch}
+  .card-body .go{
+    margin-top:16px;font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    display:flex;justify-content:space-between;
+  }
+  .card.tall{grid-column:span 12;min-height:520px}
+  .card.tall .card-preview{min-height:340px}
+  .card.small{grid-column:span 4}
+  .card.small{min-height:360px}
+  .card.small .card-preview{min-height:180px}
+
+  /* FOOTER */
+  footer{
+    border-top:1px solid var(--rule);
+    padding:40px 28px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  }
+  footer b{color:var(--ink);font-weight:500;display:block;margin-bottom:8px}
+  footer a{color:inherit;text-decoration:underline}
+
+  /* CARD PREVIEWS — unique micro-illustrations per card */
+  .prev-pantone{
+    background:
+      linear-gradient(#f4f2ed, #f4f2ed);
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    grid-template-rows:repeat(5,1fr);
+    gap:2px;
+    padding:16px;
+  }
+  .prev-pantone .chip{
+    background:var(--c);
+    position:relative;
+  }
+  .prev-pantone .chip::after{
+    content:attr(data-n);
+    position:absolute;left:4px;bottom:3px;
+    font:500 7px 'JetBrains Mono',monospace;
+    color:#fff;mix-blend-mode:difference;
+    letter-spacing:.05em;
+  }
+
+  .prev-wiki{
+    background:#fff;padding:20px;font-size:10px;line-height:1.5;
+    font-family:'JetBrains Mono',monospace;position:relative;
+    color:#333;overflow:hidden;
+  }
+  .prev-wiki .h{font-family:'Fraunces',serif;font-size:22px;margin-bottom:6px;font-weight:400}
+  .prev-wiki .r{height:1px;background:#0001;margin:6px 0}
+  .prev-wiki .row{display:flex;justify-content:space-between;opacity:.6}
+  .prev-wiki .circle{
+    position:absolute;right:-40px;bottom:-40px;width:180px;height:180px;
+    border-radius:50%;
+    background:conic-gradient(from 0deg,
+      #c44 0deg,#d83 60deg,#db3 120deg,#7c4 180deg,#48c 240deg,#83c 300deg,#c44 360deg);
+    filter:blur(0px);opacity:.9;
+    mask:radial-gradient(circle, transparent 40%, #000 42%);
+    -webkit-mask:radial-gradient(circle, transparent 40%, #000 42%);
+  }
+
+  .prev-pharma{
+    background:#f6f7f4;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;padding:24px;
+  }
+  .prev-pharma .bottle{
+    width:140px;height:200px;background:#fff;
+    border:1px solid #0a0a0a;border-radius:4px 4px 8px 8px;
+    position:relative;padding:14px 12px;
+    font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;
+  }
+  .prev-pharma .bottle::before{
+    content:'';position:absolute;top:-14px;left:30px;right:30px;height:14px;
+    background:#e9e6dd;border:1px solid #0a0a0a;border-bottom:none;
+  }
+  .prev-pharma .bottle h4{font-family:'Fraunces',serif;font-size:18px;font-weight:500;margin:10px 0 2px;text-transform:none;letter-spacing:-.01em}
+  .prev-pharma .bottle .bar{height:20px;background:linear-gradient(90deg,#eee,#aaa);margin:8px 0;border:1px solid #0002}
+  .prev-pharma .bottle .fine{font-size:7px;line-height:1.4;opacity:.6;margin-top:8px}
+  .prev-pharma .cap{content:'';position:absolute;top:-26px;left:44px;right:44px;height:12px;background:#0a0a0a}
+
+  .prev-un{
+    background:radial-gradient(ellipse at center, #1a1f2a 0%, #0a0d12 100%);
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .prev-un .cylinder{
+    width:180px;height:220px;
+    border:1px solid #fff3;
+    border-radius:50% 50% 4px 4px / 18% 18% 4px 4px;
+    position:relative;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 100%, #fff1, transparent 70%),
+      linear-gradient(180deg, #fff08 0%, #fff04 100%);
+  }
+  .prev-un .cylinder::after{
+    content:'';position:absolute;top:0;left:0;right:0;height:16%;
+    border-bottom:1px solid #fff3;
+    border-radius:50%/100%;
+  }
+  .prev-un .stars{position:absolute;inset:0}
+  .prev-un .star{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--c);box-shadow:0 0 6px var(--c)}
+
+  .prev-astrid{
+    background:#f0e4dc;
+    position:relative;overflow:hidden;
+    padding:24px;
+  }
+  .prev-astrid::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 30% 40%, #d29b8366 0%, transparent 35%),
+      radial-gradient(circle at 70% 70%, #d29b8344 0%, transparent 40%);
+  }
+  .prev-astrid .block{
+    position:relative;
+    font-family:'Fraunces',serif;
+    font-size:48px;font-weight:300;letter-spacing:-.04em;line-height:.95;
+    color:#2a1810;
+  }
+  .prev-astrid .block em{font-style:italic}
+  .prev-astrid .block .s{font-size:12px;font-family:'JetBrains Mono',monospace;
+    text-transform:uppercase;letter-spacing:.1em;display:block;margin-top:16px;font-weight:400;color:#6a3820}
+
+  .prev-recruit{
+    background:#0a0a0a;color:#f4f2ed;
+    font-family:'JetBrains Mono',monospace;font-size:10px;
+    padding:20px;position:relative;overflow:hidden;
+  }
+  .prev-recruit .job{
+    border:1px solid #fff2;padding:8px 10px;margin-bottom:6px;
+    display:grid;grid-template-columns:1fr auto;gap:6px;
+  }
+  .prev-recruit .job h5{font-family:'Fraunces',serif;font-size:15px;font-weight:400;margin:0;text-transform:none;letter-spacing:-.01em}
+  .prev-recruit .job .tag{background:var(--c);color:#0a0a0a;padding:1px 6px;font-size:9px;align-self:start}
+  .prev-recruit .job .loc{opacity:.6;font-size:9px}
+  .prev-recruit .big{position:absolute;right:-20px;top:-20px;font-family:'Fraunces',serif;font-size:140px;font-weight:300;opacity:.08;line-height:.8}
+
+  .badge-live{
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .badge-live::before{
+    content:'';width:7px;height:7px;border-radius:50%;background:#cc3b2a;
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  @media (max-width: 900px){
+    .grid > .card, .grid > .card.small, .grid > .card.tall{grid-column:span 12}
+    .hero h1{font-size:72px}
+    .hero-sub, .hero-top{grid-template-columns:1fr}
+    footer{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>PMS<span style="margin:0 8px">·</span>Pantone Matching System</div>
+  <div class="dots" aria-hidden="true">
+    <span class="dot r"></span><span class="dot o"></span><span class="dot y"></span>
+    <span class="dot g"></span><span class="dot b"></span><span class="dot p"></span>
+  </div>
+  <div>Архів світу<span style="margin:0 8px">·</span>v0.1 — квітень 2026</div>
+</div>
+
+<section class="hero">
+  <div class="hero-top">
+    <div>Каталог № 001 / Вигаданий світ<br>Куратор: Д. Микита</div>
+    <div style="text-align:right">Шість сайтів · одна HSV-площина<br><span class="badge-live">Жива мережа</span></div>
+  </div>
+
+  <h1>Світ,<br>що має<br><em>колір</em>.</h1>
+
+  <div class="hero-sub">
+    <p>Кожна людина народжується білою — або з пігментом. Колір визначає здібність. Здібність визначає життя. Нижче — шість сайтів, якими мешканці цього світу користуються щодня.</p>
+    <div class="meta">
+      <b>Навігація</b>
+      ↓ прокрутіть, щоб побачити каталог<br>
+      → клік по будь-якій картці відкриває сайт
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<section class="catalog">
+  <div class="catalog-head">
+    <div class="n">§ Каталог<br>шість точок</div>
+    <h2>Шість сайтів. Одна екосистема.<br>Від корпорації-стандарту до особистого блогу підлітка.</h2>
+  </div>
+
+  <div class="grid">
+
+    <!-- 1. Pantone Corporation -->
+    <a class="card tall" href="sites/pantone.html">
+      <div class="card-meta">
+        <span><b>01</b> / Corporate</span>
+        <span>pantone.com</span>
+      </div>
+      <div class="card-preview prev-pantone" id="prev-pantone"></div>
+      <div class="card-body">
+        <h3>Pantone Matching System</h3>
+        <p>Корпорація, що відкрила HSV-класифікацію пігментів. Стандарт, яким користується весь світ — від паспортних столів до армії.</p>
+        <div class="go"><span>Відкрити сайт</span><span>→</span></div>
+      </div>
+    </a>
+
+    <!-- 2. HSV Codex -->
+    <a class="card" href="sites/codex.html">
+      <div class="card-meta">
+        <span><b>02</b> / Reference</span>
+        <span>codex.world</span>
+      </div>
+      <div class="card-preview prev-wiki">
+        <div class="h">HSV Codex</div>
+        <div class="row"><span>H 0 Атака</span><span>366 записів</span></div>
+        <div class="r"></div>
+        <div class="row"><span>H 30 Плоть</span><span>421 запис</span></div>
+        <div class="r"></div>
+        <div class="row"><span>H 60 Вплив</span><span>389 записів</span></div>
+        <div class="r"></div>
+        <div class="row"><span>H 120 Розум</span><span>412 записів</span></div>
+        <div class="r"></div>
+        <div class="row"><span>H 240 Рух</span><span>398 записів</span></div>
+        <div class="circle"></div>
+      </div>
+      <div class="card-body">
+        <h3>HSV Codex</h3>
+        <p>Відкрита енциклопедія HSV-простору: домени, координати, П'ятірка, Чорний циліндр, глосарій.</p>
+        <div class="go"><span>Читати</span><span>→</span></div>
+      </div>
+    </a>
+
+    <!-- 3. Achromavir / Pharma -->
+    <a class="card" href="sites/pharma.html">
+      <div class="card-meta">
+        <span><b>03</b> / Pharma</span>
+        <span>achromavir.med</span>
+      </div>
+      <div class="card-preview prev-pharma">
+        <div class="bottle">
+          <div class="cap"></div>
+          <div style="font-size:8px;opacity:.7">Rx · 28 tabs</div>
+          <h4>Achromavir</h4>
+          <div style="font-size:8px">капсулює здібність</div>
+          <div class="bar"></div>
+          <div class="fine">ПОБ. ЕФЕКТИ: втома, стягнення пігменту до центру, сонливість. Зберігати при t° ≤ 25°</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Achromavir</h3>
+        <p>Підтримуючий супресор пігменту. Сайт фармацевтичного бренду для щоденної терапії «білого життя».</p>
+        <div class="go"><span>Дізнатися більше</span><span>→</span></div>
+      </div>
+    </a>
+
+    <!-- 4. UN Cylinder -->
+    <a class="card tall" href="sites/un-cylinder.html">
+      <div class="card-meta">
+        <span><b>04</b> / Government</span>
+        <span>cylinder.un.int</span>
+      </div>
+      <div class="card-preview prev-un">
+        <div class="stars" id="stars"></div>
+        <div class="cylinder"></div>
+      </div>
+      <div class="card-body">
+        <h3>Чорний циліндр · ООН</h3>
+        <p>Офіційний портал моніторингу живих пігментів планети. Реальний час. Жодних імен — тільки крапки у тривимірному просторі.</p>
+        <div class="go"><span>Увійти до моніторингу</span><span>→</span></div>
+      </div>
+    </a>
+
+    <!-- 5. Astrid personal -->
+    <a class="card small" href="sites/astrid.html">
+      <div class="card-meta">
+        <span><b>05</b> / Personal</span>
+        <span>astrid.se</span>
+      </div>
+      <div class="card-preview prev-astrid">
+        <div class="block"><em>Coral</em><br>Dust<span class="s">Astrid V., 16, Stockholm</span></div>
+      </div>
+      <div class="card-body">
+        <h3>Astrid Vestergren</h3>
+        <p>Блог 16-річної пігментки з Швеції. PANTONE 16-1329.</p>
+        <div class="go"><span>Читати</span><span>→</span></div>
+      </div>
+    </a>
+
+    <!-- 6. Spectrum Academy -->
+    <a class="card small" href="sites/academy.html">
+      <div class="card-meta">
+        <span><b>06</b> / Education</span>
+        <span>spectrum.edu</span>
+      </div>
+      <div class="card-preview" style="background:#f5f1e8;padding:20px;font-family:'Inter',sans-serif;display:flex;flex-direction:column;justify-content:space-between;color:#1a1812">
+        <div style="font-family:'Fraunces',serif;font-size:14px;font-style:italic;color:#8a6a2a">Spectrum Academy</div>
+        <div style="font-family:'Fraunces',serif;font-size:34px;font-weight:300;letter-spacing:-.02em;line-height:1">Шість<br>доменів.<br><em style="color:#8a6a2a">Шість</em> факультетів.</div>
+        <div style="display:flex;gap:3px">
+          <span style="width:18px;height:18px;background:#cc3b2a"></span>
+          <span style="width:18px;height:18px;background:#e08a3a"></span>
+          <span style="width:18px;height:18px;background:#e5c23a"></span>
+          <span style="width:18px;height:18px;background:#6da65a"></span>
+          <span style="width:18px;height:18px;background:#3a6fa8"></span>
+          <span style="width:18px;height:18px;background:#7a4a8a"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Spectrum Academy</h3>
+        <p>Приватна швейцарська школа для дітей-пігментів. CHF 94,000 / рік.</p>
+        <div class="go"><span>Вступити</span><span>→</span></div>
+      </div>
+    </a>
+
+    <!-- 8. BLAC PINC -->
+    <a class="card small" href="sites/blacpinc.html">
+      <div class="card-meta">
+        <span><b>07</b> / K-pop</span>
+        <span>blacpinc.kr</span>
+      </div>
+      <div class="card-preview" style="background:#050505;color:#fff;padding:20px;font-family:'Inter',sans-serif;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,#ff2c7a50 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,#ff5a9b40 0%,transparent 50%)"></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:#ff5a9b;position:relative">◉ MINI 03 · PINK VENOM²</div>
+        <div style="font-family:'Fraunces',serif;font-weight:700;font-size:48px;letter-spacing:-.04em;line-height:.9;position:relative">BLAC<br>PINC<span style="color:#ff2c7a">.</span></div>
+        <div style="display:flex;gap:6px;position:relative">
+          <span style="width:16px;height:16px;background:#ff5a9b"></span>
+          <span style="width:16px;height:16px;background:#0a0a0a;border:1px solid #fff4"></span>
+          <span style="width:16px;height:16px;background:#ffc4db"></span>
+          <span style="width:16px;height:16px;background:#ff2c7a"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>BLAC PINC 블랙핑크</h3>
+        <p>К-поп група, чотири координати на H 300—360. Рожеве і чорне.</p>
+        <div class="go"><span>Слухати</span><span>→</span></div>
+      </div>
+    </a>
+
+    <!-- 7. wiki small filler -->
+    <a class="card small" href="sites/codex.html#pyatirka">
+      <div class="card-meta">
+        <span><b>02.b</b> / Dossier</span>
+        <span>codex.world/5</span>
+      </div>
+      <div class="card-preview" style="background:#0a0a0a;color:#f4f2ed;padding:20px;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.7;display:flex;flex-direction:column;justify-content:flex-end">
+        <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:300;letter-spacing:-.02em;line-height:1">П'ятірка</div>
+        <div style="opacity:.5;margin-top:8px">V &lt; 20 · 5 людей · special grade</div>
+        <div style="margin-top:16px;display:flex;gap:4px;align-items:center">
+          <span style="width:12px;height:12px;background:#2F0909"></span>
+          <span style="width:12px;height:12px;background:#1a2a12"></span>
+          <span style="width:12px;height:12px;background:#3a2818"></span>
+          <span style="width:12px;height:12px;background:#12204a"></span>
+          <span style="width:12px;height:12px;background:#243d5a;opacity:.7"></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>Досьє: П'ятірка</h3>
+        <p>Кендзо, Кабукі, Фігурка, Сингулярність, ?</p>
+        <div class="go"><span>Відкрити</span><span>→</span></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div>
+    <b>Про проєкт</b>
+    Світ пігментів, де колір визначає здібність. Шість сайтів — шість точок зору на ту ж реальність.
+  </div>
+  <div>
+    <b>Сайти</b>
+    <a href="sites/pantone.html">Pantone</a><br>
+    <a href="sites/codex.html">HSV Codex</a><br>
+    <a href="sites/pharma.html">Achromavir</a><br>
+    <a href="sites/un-cylinder.html">Чорний циліндр</a><br>
+    <a href="sites/astrid.html">Astrid V.</a><br>
+    <a href="sites/academy.html">Spectrum Academy</a><br>
+    <a href="sites/blacpinc.html">BLAC PINC</a>
+  </div>
+  <div>
+    <b>Координати</b>
+    Д. Микита<br>
+    Worldbuilding / 2025—2026<br>
+    PANTONE © fictional universe
+  </div>
+</footer>
+
+<script>
+  // Ticker — Pantone chips
+  const chips = [
+    {c:'#cc3b2a',n:'18-1664 · Fiery Red'},
+    {c:'#e08a3a',n:'16-1257 · Tangerine'},
+    {c:'#e5c23a',n:'13-0858 · Vibrant Yellow'},
+    {c:'#6da65a',n:'15-6340 · Green'},
+    {c:'#3a6fa8',n:'18-4245 · Imperial Blue'},
+    {c:'#7a4a8a',n:'18-3838 · Ultra Violet'},
+    {c:'#2F0909',n:'19-1617 · Perfumed Blood [V18]'},
+    {c:'#D29B83',n:'16-1329 · Coral Dust'},
+    {c:'#FFD700',n:'15-0850 · AMARE [unconfirmed]'},
+    {c:'#C86733',n:'17-1340 · Peach Haze'},
+    {c:'#799599',n:'16-4404 · Quiet Blue'},
+    {c:'#F0D8CC',n:'12-1010 · Baked Orange'},
+  ];
+  const track = document.getElementById('ticker');
+  const html = chips.map(ch => `<span><span class="sw" style="background:${ch.c}"></span>${ch.n}</span>`).join('');
+  track.innerHTML = html + html;
+
+  // Pantone preview grid
+  const prev = document.getElementById('prev-pantone');
+  const prevChips = [];
+  for(let i=0;i<40;i++){
+    const h = (i*9)%360;
+    const s = 40 + (i%5)*12;
+    const v = 55 + (i%4)*10;
+    prevChips.push(`<div class="chip" style="--c:hsl(${h} ${s}% ${v}%)" data-n="${String(i+1).padStart(2,'0')}-${(1000+i*37%9000)}"></div>`);
+  }
+  prev.innerHTML = prevChips.join('');
+
+  // UN stars
+  const starsEl = document.getElementById('stars');
+  const starColors = ['#cc3b2a','#e08a3a','#e5c23a','#6da65a','#3a6fa8','#7a4a8a','#fff','#fff','#fff','#fff'];
+  let starsHTML = '';
+  for(let i=0;i<60;i++){
+    const x = Math.random()*100;
+    const y = Math.random()*100;
+    const c = starColors[Math.floor(Math.random()*starColors.length)];
+    starsHTML += `<div class="star" style="--c:${c};left:${x}%;top:${y}%;opacity:${.4 + Math.random()*.6}"></div>`;
+  }
+  starsEl.innerHTML = starsHTML;
+</script>
+
+</body>
+</html>

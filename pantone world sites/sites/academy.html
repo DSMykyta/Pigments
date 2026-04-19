@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Spectrum Academy — Приватна школа для пігментів</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#f5f1e8;
+    --paper:#fbf8f0;
+    --ink:#1a1812;
+    --ink-2:#3a362a;
+    --muted:#7a7260;
+    --line:#c8bfa8;
+    --gold:#8a6a2a;
+    --accent:#5a3a1a;
+  }
+  body{background:var(--bg);color:var(--ink);font-family:'Work Sans',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .serif{font-family:'Cormorant Garamond',serif}
+  .mono{font-family:'JetBrains Mono',monospace}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  .backbar{background:#0a0a0a;color:#c8bfa8;padding:8px 24px;font-size:11px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;letter-spacing:.08em}
+  .backbar a{color:#d4af37}
+
+  header.top{
+    background:var(--paper);border-bottom:1px solid var(--line);
+    padding:20px 40px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;
+  }
+  .crest{display:flex;align-items:center;gap:14px}
+  .crest .emblem{
+    width:52px;height:52px;border:2px solid var(--gold);border-radius:50%;
+    display:grid;place-items:center;position:relative;
+  }
+  .crest .emblem::before{content:'';position:absolute;inset:4px;border:1px solid var(--gold);border-radius:50%}
+  .crest .emblem span{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--gold);font-style:italic}
+  .crest .name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;letter-spacing:.02em;line-height:1}
+  .crest .name small{display:block;font-family:'Work Sans',sans-serif;font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+  nav.main ul{display:flex;gap:32px;list-style:none;font-size:13px;letter-spacing:.04em}
+  nav.main a{color:var(--ink-2)}
+  nav.main a:hover{color:var(--accent)}
+  .apply{background:var(--accent);color:#fbf8f0;padding:10px 22px;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:720px;
+    background-image:linear-gradient(rgba(20,15,8,.45),rgba(20,15,8,.45)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1800&q=80');
+    background-size:cover;background-position:center;
+    color:#fbf8f0;padding:100px 40px 80px;
+    display:flex;flex-direction:column;justify-content:flex-end;
+  }
+  .hero .kicker{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#d4af37;margin-bottom:20px}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(56px,8vw,128px);letter-spacing:-.015em;line-height:.95;max-width:18ch;margin-bottom:20px}
+  .hero h1 em{font-style:italic;color:#d4af37;font-weight:400}
+  .hero p{font-size:20px;max-width:52ch;opacity:.92;letter-spacing:-.005em;margin-bottom:30px}
+  .hero .stats{display:flex;gap:60px;border-top:1px solid #ffffff2a;padding-top:24px;margin-top:10px;max-width:900px}
+  .hero .stats .n{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:400;letter-spacing:-.02em;line-height:1;color:#d4af37}
+  .hero .stats .l{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#d4d0c0;margin-top:4px;max-width:18ch}
+
+  /* MOTTO BAND */
+  .motto{text-align:center;padding:60px 40px;border-bottom:1px solid var(--line)}
+  .motto p{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;font-style:italic;line-height:1.3;max-width:32ch;margin:0 auto;color:var(--ink-2)}
+  .motto p::before{content:'« '}.motto p::after{content:' »'}
+  .motto .sig{font-family:'Work Sans',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:16px}
+
+  /* DOMAINS */
+  .section{max-width:1320px;margin:0 auto;padding:80px 40px}
+  .section-head{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:40px;display:grid;grid-template-columns:150px 1fr auto;gap:40px;align-items:end}
+  .section-head .n{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+  .section-head h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:64px;letter-spacing:-.015em;line-height:1}
+  .section-head .go{font-size:13px;color:var(--accent);letter-spacing:.04em}
+
+  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .dcard{background:var(--paper);border:1px solid var(--line);padding:28px;min-height:420px;display:flex;flex-direction:column}
+  .dcard .tag{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .dcard .tag .sw{width:14px;height:14px;border:1px solid var(--ink)}
+  .dcard .tag span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  .dcard h3{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:500;line-height:1;margin-bottom:6px;letter-spacing:-.01em}
+  .dcard .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--muted);margin-bottom:14px}
+  .dcard p{font-size:14px;color:var(--ink-2);margin-bottom:14px;flex:1}
+  .dcard ul{list-style:none;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--muted)}
+  .dcard ul li{padding:3px 0;display:flex;justify-content:space-between}
+  .dcard .head-prof{display:flex;align-items:center;gap:10px;margin-top:14px}
+  .dcard .head-prof img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+  .dcard .head-prof b{display:block;font-size:12px;font-weight:500}
+  .dcard .head-prof span{font-size:10px;color:var(--muted);letter-spacing:.04em}
+
+  /* CAMPUS */
+  .campus{background:#1a1812;color:#f5f1e8;padding:100px 40px}
+  .campus-in{max-width:1320px;margin:0 auto}
+  .campus h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:72px;letter-spacing:-.02em;line-height:1;margin-bottom:20px;color:#fff}
+  .campus h2 em{color:#d4af37;font-style:italic}
+  .campus .lede{font-size:18px;max-width:52ch;color:#c8bfa8;margin-bottom:50px}
+  .campus-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;grid-template-rows:repeat(2,280px)}
+  .campus-grid .ph{background-size:cover;background-position:center;position:relative}
+  .campus-grid .ph .cap{position:absolute;bottom:14px;left:14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;color:#fff;background:#0008;padding:4px 8px;backdrop-filter:blur(6px)}
+  .campus-grid .a{grid-row:1/3;background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?w=1400&q=80')}
+  .campus-grid .b{background-image:url('https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?w=800&q=80')}
+  .campus-grid .c{background-image:url('https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&q=80')}
+  .campus-grid .d{background-image:url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80')}
+  .campus-grid .e{background-image:url('https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80')}
+
+  /* CURRICULUM */
+  .cur{max-width:1320px;margin:0 auto;padding:80px 40px}
+  .cur-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:20px}
+  .cur-table th,.cur-table td{border-top:1px solid var(--line);padding:18px 14px;text-align:left;vertical-align:top}
+  .cur-table th{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left}
+  .cur-table td .y{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;color:var(--accent)}
+  .cur-table td b{font-weight:600}
+
+  /* ADMISSIONS PRICING */
+  .admissions{background:var(--paper);padding:80px 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .adm-in{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .adm-in h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:64px;letter-spacing:-.02em;line-height:1;margin-bottom:20px}
+  .adm-in p{color:var(--ink-2);margin-bottom:16px;font-size:16px}
+  .fees{border:1px solid var(--line);padding:30px;background:#fff}
+  .fees h4{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .fee-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px dotted var(--line);font-size:14px}
+  .fee-row:last-child{border:none;padding-top:14px;font-weight:600}
+  .fee-row .v{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--accent)}
+
+  /* FACULTY */
+  .fac{max-width:1320px;margin:0 auto;padding:80px 40px}
+  .fac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .fac-card{background:var(--paper);border:1px solid var(--line);padding:0;overflow:hidden}
+  .fac-card img{height:260px;width:100%;object-fit:cover;filter:saturate(.75) contrast(1.05)}
+  .fac-card .b{padding:20px}
+  .fac-card h4{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;margin-bottom:2px}
+  .fac-card .role{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+  .fac-card .coord{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);margin-bottom:10px}
+  .fac-card p{font-size:13px;color:var(--ink-2);line-height:1.5}
+
+  /* QUOTE */
+  .quote-section{background:url('https://images.unsplash.com/photo-1568667256549-094345857637?w=1800&q=80');background-size:cover;background-position:center;padding:120px 40px;color:#fff;position:relative}
+  .quote-section::before{content:'';position:absolute;inset:0;background:#0a0a0aa0}
+  .quote-section .in{max-width:900px;margin:0 auto;text-align:center;position:relative}
+  .quote-section q{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;font-style:italic;line-height:1.25;letter-spacing:-.01em;display:block;margin-bottom:30px}
+  .quote-section q::before{content:'"';color:#d4af37;font-size:80px;vertical-align:-10px;margin-right:6px}
+  .quote-section q::after{content:'"';color:#d4af37;font-size:80px;vertical-align:-40px;margin-left:6px}
+  .quote-section .who{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#d4af37}
+
+  footer{background:#1a1812;color:#8a826a;padding:60px 40px 30px;font-size:13px}
+  footer .fin{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:30px;border-bottom:1px solid #ffffff1a}
+  footer b{color:#fbf8f0;display:block;margin-bottom:10px;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500}
+  footer ul{list-style:none}
+  footer li{margin-bottom:6px}
+  footer .base{max-width:1320px;margin:20px auto 0;display:flex;justify-content:space-between;font-size:11px;color:#5a5240;letter-spacing:.04em}
+
+  @media (max-width:1000px){
+    header.top,.section-head,.dgrid,.fac-grid,.adm-in,.campus-grid,footer .fin{grid-template-columns:1fr!important}
+    .campus-grid{grid-template-rows:auto;}
+    .campus-grid .a{grid-row:auto;height:360px}
+    .campus-grid .ph{height:240px}
+    .hero h1{font-size:56px}
+  }
+</style>
+</head>
+<body>
+
+<div class="backbar">
+  <span>← <a href="../index.html">World Catalog</a></span>
+  <span>SPECTRUM ACADEMY · Lucerne, CH · Est. MCMLVIII</span>
+</div>
+
+<header class="top">
+  <div class="crest">
+    <div class="emblem"><span>S</span></div>
+    <div class="name">Spectrum Academy<small>A School of Applied Pigmentology · Lucerne</small></div>
+  </div>
+  <nav class="main">
+    <ul>
+      <li><a href="#">About</a></li>
+      <li><a href="#domains">Domains</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#faculty">Faculty</a></li>
+      <li><a href="#admissions">Admissions</a></li>
+      <li><a href="#">Alumni</a></li>
+    </ul>
+  </nav>
+  <a href="#admissions" class="apply">Apply · 2027</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="kicker">Tuition: CHF 94,000 / year · boarding included</div>
+  <h1>Навчати <em>кожен</em> градус H — окремо.</h1>
+  <p>Єдина у Європі школа, де кожен з шести доменів пігменту отримує власний факультет, власних викладачів і власний навчальний план. 14 років досвіду. 312 випускників, 74 з них — у верхніх 1% світу за контролем.</p>
+  <div class="stats">
+    <div><div class="n">127</div><div class="l">Учнів · наборів 2026</div></div>
+    <div><div class="n">6</div><div class="l">Факультетів по H-доменах</div></div>
+    <div><div class="n">1:4</div><div class="l">Викладач на учня</div></div>
+    <div><div class="n">312</div><div class="l">Випускників з 2010</div></div>
+  </div>
+</section>
+
+<!-- MOTTO -->
+<section class="motto">
+  <p>Інші школи вчать дітей бути білими. Ми вчимо їх бути собою — з повним контролем.</p>
+  <div class="sig">— Із вступного слова ректора Спектрум-Академії</div>
+</section>
+
+<!-- DOMAINS -->
+<section class="section" id="domains">
+  <div class="section-head">
+    <div class="n">01 / Факультети</div>
+    <h2>Шість доменів.<br>Шість факультетів.</h2>
+    <div class="go"><a href="#">Усі програми →</a></div>
+  </div>
+
+  <div class="dgrid">
+
+    <div class="dcard">
+      <div class="tag"><span class="sw" style="background:#cc3b2a"></span><span>H 0 · Attack</span></div>
+      <h3>Red Hall</h3>
+      <div class="sub">Ecole du Feu</div>
+      <p>Дисципліна фокусу, контроль рефлекторної активації, етика сили. Єдиний факультет з обов'язковим курсом психіатрії та примусовим добовим супресором до 16 років.</p>
+      <ul>
+        <li><span>Спеціалізації</span><span>Контроль · Етика · Право</span></li>
+        <li><span>Учнів (2026)</span><span>18</span></li>
+        <li><span>Вікова межа входу</span><span>11</span></li>
+      </ul>
+      <div class="head-prof">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" alt="">
+        <div><b>Prof. Г. Кальтенбах</b><span>Декан · H 15, S 68, V 72</span></div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="tag"><span class="sw" style="background:#e08a3a"></span><span>H 30 · Flesh</span></div>
+      <h3>Amber Hall</h3>
+      <div class="sub">Facoltà di Carne</div>
+      <p>Діагностика, відновлення тканин, прикладна біологія. Випускники працюють у провідних лікарнях світу. Пряма угода з Карлом'sкою про стажування.</p>
+      <ul>
+        <li><span>Спеціалізації</span><span>Педіатрія · Хірургія · Трансплант.</span></li>
+        <li><span>Учнів (2026)</span><span>34</span></li>
+        <li><span>Вікова межа входу</span><span>10</span></li>
+      </ul>
+      <div class="head-prof">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=200&q=80" alt="">
+        <div><b>Dr. С. Дельвеккіо</b><span>Декан · H 32, S 55, V 80</span></div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="tag"><span class="sw" style="background:#e5c23a"></span><span>H 60 · Influence</span></div>
+      <h3>Gold Hall</h3>
+      <div class="sub">Institut d'Alchimie Appliquée</div>
+      <p>Хімія, енергетика, робота з субстанціями. Найменший факультет — але випускники домінують у військовій хімії та промисловості.</p>
+      <ul>
+        <li><span>Спеціалізації</span><span>Метал · Горіння · Каталіз</span></li>
+        <li><span>Учнів (2026)</span><span>11</span></li>
+        <li><span>Вікова межа входу</span><span>12</span></li>
+      </ul>
+      <div class="head-prof">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=200&q=80" alt="">
+        <div><b>Prof. М. Янссен</b><span>Декан · H 58, S 42, V 66</span></div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="tag"><span class="sw" style="background:#6da65a"></span><span>H 120 · Mind</span></div>
+      <h3>Green Hall</h3>
+      <div class="sub">Schule des Denkens</div>
+      <p>Пам'ять, увага, логіка, перцепція. Найбільший факультет. Тісна співпраця з ETH Zürich та лабораторіями пізнавальних наук.</p>
+      <ul>
+        <li><span>Спеціалізації</span><span>Пам'ять · Логіка · Психіка</span></li>
+        <li><span>Учнів (2026)</span><span>41</span></li>
+        <li><span>Вікова межа входу</span><span>9</span></li>
+      </ul>
+      <div class="head-prof">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=200&q=80" alt="">
+        <div><b>Dr. Н. Бахман</b><span>Декан · H 115, S 30, V 74</span></div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="tag"><span class="sw" style="background:#3a6fa8"></span><span>H 240 · Movement</span></div>
+      <h3>Cobalt Hall</h3>
+      <div class="sub">Scuola del Moto</div>
+      <p>Швидкість, траєкторія, простір. Власний спортивний комплекс на 800 м² з м'якими стінами. Учні тренуються з олімпійським складом Швейцарії.</p>
+      <ul>
+        <li><span>Спеціалізації</span><span>Транспорт · Безпека · Спорт</span></li>
+        <li><span>Учнів (2026)</span><span>22</span></li>
+        <li><span>Вікова межа входу</span><span>10</span></li>
+      </ul>
+      <div class="head-prof">
+        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=200&q=80" alt="">
+        <div><b>Prof. Й. Тайхманн</b><span>Декан · H 232, S 62, V 78</span></div>
+      </div>
+    </div>
+
+    <div class="dcard">
+      <div class="tag"><span class="sw" style="background:#7a4a8a"></span><span>H 300 · Change</span></div>
+      <h3>Violet Hall</h3>
+      <div class="sub">Academia Mutationis</div>
+      <p>Найрідкісніший домен. Тільки один пігмент на 40 років, Фіолетовий, досягнув максимальної комплексності. Курс включає етику безпеки, матеріалознавство, мистецтво.</p>
+      <ul>
+        <li><span>Спеціалізації</span><span>Матеріали · Мистецтво · Етика</span></li>
+        <li><span>Учнів (2026)</span><span>1</span></li>
+        <li><span>Вікова межа входу</span><span>12</span></li>
+      </ul>
+      <div class="head-prof">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80" alt="">
+        <div><b>Dr. Е. Рав'є</b><span>Декан · H 295, S 38, V 58</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAMPUS -->
+<section class="campus">
+  <div class="campus-in">
+    <h2>Кампус на березі <em>Люцернського озера.</em></h2>
+    <p class="lede">Історичний комплекс 1893 року, повністю переобладнаний під потреби шести факультетів. 32 гектари, власна клініка, шість спеціалізованих лабораторій, бібліотека на 84,000 томів.</p>
+    <div class="campus-grid">
+      <div class="ph a"><div class="cap">Main Hall · 1893</div></div>
+      <div class="ph b"><div class="cap">Library</div></div>
+      <div class="ph c"><div class="cap">Cobalt Gym</div></div>
+      <div class="ph d"><div class="cap">Amber Clinic</div></div>
+      <div class="ph e"><div class="cap">Boarding</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="cur" id="curriculum">
+  <div class="section-head">
+    <div class="n">02 / Навчальний план</div>
+    <h2>12 років — і повний контроль.</h2>
+    <div class="go"><a href="#">Докладно →</a></div>
+  </div>
+  <table class="cur-table">
+    <thead>
+      <tr><th>Етап</th><th>Програма</th><th>Обов'язково</th><th>За вибором</th><th>Контроль</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="y">I</span><br>Діти<br><span class="mono" style="font-size:11px;color:var(--muted)">9–12 років</span></td>
+        <td><b>Foundation</b><br>Базова HSV-грамотність. Розуміння власної координати. Психологічна адаптація.</td>
+        <td>PMS-координатологія · Етика · Психологія · Швейцарський bacalaureate</td>
+        <td>Мови · Спорт · Музика</td>
+        <td>Achromavir (для H 0) · Щоденний щоденник активацій</td>
+      </tr>
+      <tr>
+        <td><span class="y">II</span><br>Підлітки<br><span class="mono" style="font-size:11px;color:var(--muted)">13–15</span></td>
+        <td><b>Domain track</b><br>Учень переходить на свій факультет. Пробудження — очікуване, контрольоване, задокументоване.</td>
+        <td>Домен-специфіка · Анатомія контролю · Право пігментів</td>
+        <td>Друга спеціалізація · Дизайн · Юриспруденція</td>
+        <td>Обов'язковий медогляд 2× на рік. Супресори опційно.</td>
+      </tr>
+      <tr>
+        <td><span class="y">III</span><br>Юнацтво<br><span class="mono" style="font-size:11px;color:var(--muted)">16–18</span></td>
+        <td><b>Mastery</b><br>Тренування граничного контролю. Зв'язок з ринком: стажування, військові контракти, наукові гранти.</td>
+        <td>Тренування витривалості · Case studies · Thesis</td>
+        <td>Професійна практика · Обмін · Громадські ініціативи</td>
+        <td>Незалежна робота. Досягнення ±95% точності контролю до випуску.</td>
+      </tr>
+      <tr>
+        <td><span class="y">IV</span><br>Універ<br><span class="mono" style="font-size:11px;color:var(--muted)">опц.</span></td>
+        <td><b>Alumni Track</b><br>Партнерство з ETH, Karolinska, LSE, Tokyo. Гарантоване місце для ТОП-10% випускників.</td>
+        <td>За вибором університету</td>
+        <td>Research grants · Стипендії</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ADMISSIONS + FEES -->
+<section class="admissions" id="admissions">
+  <div class="adm-in">
+    <div>
+      <div class="mono" style="font-size:11px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;margin-bottom:12px">03 / Вступ</div>
+      <h2>Як потрапити.</h2>
+      <p>Двоетапний відбір. Спочатку — PMS-сертифікат і координати. Потім — співбесіда з деканом відповідного факультету, психологічне тестування, співбесіда з батьками.</p>
+      <p>Пріоритет — діти 9–11 років з S ≥ 25, V ≤ 85. Повний пансіон від другого року. Стипендії для мутаційних (білі батьки) — до 60% вартості.</p>
+      <div style="margin-top:20px;padding:20px;border:1px solid var(--line);background:#fff">
+        <div class="mono" style="font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:6px">Дедлайни · набір 2027</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px">15 жовтня 2026 — перша хвиля</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--muted)">15 грудня 2026 — друга хвиля (за наявністю)</div>
+      </div>
+    </div>
+    <div class="fees">
+      <h4>Вартість, 2026–2027</h4>
+      <div class="fee-row"><span>Навчання (академічний рік)</span><span class="v">CHF 74,000</span></div>
+      <div class="fee-row"><span>Пансіон · повний</span><span class="v">CHF 18,000</span></div>
+      <div class="fee-row"><span>Медичний супровід</span><span class="v">CHF 2,400</span></div>
+      <div class="fee-row"><span>Обладнання · H-специфічне</span><span class="v">CHF 1,200 – 8,400</span></div>
+      <div class="fee-row"><span>Загалом (типово)</span><span class="v">CHF 94,000 / рік</span></div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px dotted var(--line);font-size:12px;color:var(--muted);font-style:italic">Знижка 15% для другої дитини. Знижки 40–60% для учнів з мутаційних білих родин. Освітні кредити через UBS, Julius Bär, Pictet.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY -->
+<section class="fac" id="faculty">
+  <div class="section-head">
+    <div class="n">04 / Викладачі</div>
+    <h2>Професорський склад.</h2>
+    <div class="go"><a href="#">Усі 46 →</a></div>
+  </div>
+  <div class="fac-grid">
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" alt="">
+      <div class="b">
+        <h4>Dr. Е. Рав'є</h4>
+        <div class="role">Decan · Violet Hall</div>
+        <div class="coord">H 295 · S 38 · V 58</div>
+        <p>Єдиний у Європі активний викладач зі спеціалізацією в домені Зміни. Учениця Фіолетового, 1982—1986.</p>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" alt="">
+      <div class="b">
+        <h4>Dr. С. Дельвеккіо</h4>
+        <div class="role">Decan · Amber Hall</div>
+        <div class="coord">H 32 · S 55 · V 80</div>
+        <p>20 років у нейрохірургії. Автор підручника «Flesh: Clinical Practice» (2022).</p>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="">
+      <div class="b">
+        <h4>Prof. Г. Кальтенбах</h4>
+        <div class="role">Decan · Red Hall</div>
+        <div class="coord">H 15 · S 68 · V 72</div>
+        <p>Колишній офіцер KAISER Tier-2. Перейшов до педагогіки після 2019 року. Автор етичного кодексу Red Hall.</p>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="">
+      <div class="b">
+        <h4>Dr. Н. Бахман</h4>
+        <div class="role">Decan · Green Hall</div>
+        <div class="coord">H 115 · S 30 · V 74</div>
+        <p>Професор когнітивних наук ETH. 3 монографії з практики ментальних доменів.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="in">
+    <q>Перше, чого ми вчимо в Red Hall: твоя здібність — не злочин. Друге: вона і не виправдання.</q>
+    <div class="who">Prof. Г. Кальтенбах · Декан факультету Атаки</div>
+  </div>
+</section>
+
+<footer>
+  <div class="fin">
+    <div>
+      <b style="font-size:22px">Spectrum Academy</b>
+      <p style="margin-top:8px;line-height:1.7;color:#8a826a">Seeburgstrasse 214<br>6006 Lucerne, Switzerland<br>+41 41 000 00 00<br>office@spectrum.edu</p>
+    </div>
+    <div>
+      <b>Факультети</b>
+      <ul>
+        <li><a href="#">Red Hall · Attack</a></li>
+        <li><a href="#">Amber Hall · Flesh</a></li>
+        <li><a href="#">Gold Hall · Influence</a></li>
+        <li><a href="#">Green Hall · Mind</a></li>
+        <li><a href="#">Cobalt Hall · Movement</a></li>
+        <li><a href="#">Violet Hall · Change</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Академічне</b>
+      <ul>
+        <li><a href="#">Calendar 2026/27</a></li>
+        <li><a href="#">Handbook</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Bibliothek</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Інше</b>
+      <ul>
+        <li><a href="#">Alumni Association</a></li>
+        <li><a href="#">Stiftung Spectrum</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Safeguarding</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="base">
+    <div>© MMXXVI Spectrum Academy Stiftung. CH-410.1.000.000-0.</div>
+    <div>PMS-Certified Institution · Member EAISS · Eduqua</div>
+  </div>
+</footer>
+
+</body>
+</html>

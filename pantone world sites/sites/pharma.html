@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Chromacare — Pharmaceuticals for the Pigmented Life</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#ffffff;
+    --surface:#f4f3ef;
+    --ink:#15221f;
+    --ink-2:#3d4a46;
+    --muted:#7a8582;
+    --line:#d8d6cf;
+    --brand:#0f5c4a;
+    --brand-2:#2a8a6f;
+    --warn:#b85c2a;
+  }
+  body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+  .serif{font-family:'IBM Plex Serif',serif}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  .backbar{background:#0e1a17;color:#e8e5dd;padding:8px 24px;font-size:11px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em}
+  .backbar a{color:#7dc5ad}
+
+  /* NAV */
+  header.site{
+    border-bottom:1px solid var(--line);
+    background:var(--bg);position:sticky;top:0;z-index:40;
+  }
+  .nav{
+    max-width:1320px;margin:0 auto;padding:18px 24px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:18px;letter-spacing:-.01em}
+  .brand .mark{width:28px;height:28px;border-radius:50%;background:var(--brand);position:relative;flex:none}
+  .brand .mark::after{content:'';position:absolute;inset:6px;border-radius:50%;background:#fff}
+  .brand .mark::before{content:'';position:absolute;inset:11px;border-radius:50%;background:var(--brand-2)}
+  nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:500}
+  nav ul a{color:var(--ink-2)}
+  nav ul a:hover{color:var(--brand)}
+  .nav-cta{display:flex;gap:12px;align-items:center;font-size:13px}
+  .nav-cta .pill{background:var(--ink);color:#fff;padding:8px 14px;border-radius:999px;font-weight:500}
+
+  /* HERO */
+  .hero{
+    background:var(--surface);
+    padding:60px 24px 0;border-bottom:1px solid var(--line);
+  }
+  .hero-inner{
+    max-width:1320px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:end;
+  }
+  .hero .kicker{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--brand);text-transform:uppercase;margin-bottom:24px}
+  .hero .kicker::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--brand)}
+  .hero h1{
+    font-family:'IBM Plex Serif',serif;
+    font-weight:300;font-size:clamp(44px,6vw,84px);
+    letter-spacing:-.02em;line-height:1;margin-bottom:20px;
+  }
+  .hero h1 em{font-style:italic;color:var(--brand)}
+  .hero p.lede{font-size:20px;color:var(--ink-2);max-width:52ch;letter-spacing:-.005em;margin-bottom:28px}
+  .hero .cta{display:flex;gap:12px;margin-bottom:60px}
+  .hero .cta a{padding:14px 22px;font-size:14px;font-weight:500}
+  .hero .cta .p{background:var(--brand);color:#fff;border-radius:6px}
+  .hero .cta .s{border:1px solid var(--ink);border-radius:6px}
+  .hero-photo{
+    height:560px;background-image:url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1400&q=80');
+    background-size:cover;background-position:center;
+    position:relative;
+  }
+  .hero-photo::after{
+    content:'In clinical use since 1994';
+    position:absolute;bottom:20px;left:20px;color:#fff;
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;
+    background:#0004;padding:6px 10px;backdrop-filter:blur(8px);
+  }
+  .disclaimer-strip{
+    background:var(--ink);color:#e8e5dd;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.08em;padding:10px 24px;text-align:center;
+  }
+
+  /* STATS BAND */
+  .stats{max-width:1320px;margin:0 auto;padding:60px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;border-bottom:1px solid var(--line)}
+  .stat .n{font-family:'IBM Plex Serif',serif;font-size:64px;font-weight:300;letter-spacing:-.03em;line-height:1;color:var(--brand)}
+  .stat .l{font-size:13px;color:var(--muted);margin-top:8px}
+
+  /* CATALOG */
+  .section{max-width:1320px;margin:0 auto;padding:80px 24px}
+  .section-head{display:grid;grid-template-columns:180px 1fr 200px;gap:40px;align-items:end;margin-bottom:40px;border-bottom:1px solid var(--line);padding-bottom:20px}
+  .section-head .l{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+  .section-head h2{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:48px;letter-spacing:-.02em;line-height:1.02}
+  .section-head .go{text-align:right;font-size:13px;color:var(--brand)}
+
+  /* PRODUCT GRID */
+  .pgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+  .product{
+    background:var(--surface);
+    grid-column:span 4;padding:24px;display:flex;flex-direction:column;
+    border:1px solid var(--line);min-height:460px;position:relative;
+  }
+  .product .rx{
+    position:absolute;top:20px;right:20px;
+    width:34px;height:34px;border-radius:50%;background:#fff;
+    display:grid;place-items:center;font-family:'IBM Plex Serif',serif;font-style:italic;
+    font-weight:500;font-size:16px;color:var(--brand);border:1px solid var(--line);
+  }
+  .product .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
+  .product h3{font-family:'IBM Plex Serif',serif;font-size:32px;font-weight:400;letter-spacing:-.01em;margin-bottom:2px}
+  .product .generic{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:16px}
+  .product .desc{font-size:14px;color:var(--ink-2);margin-bottom:16px;flex:1}
+  .product .bottle{
+    width:100%;aspect-ratio:16/10;background-size:cover;background-position:center;
+    margin-bottom:16px;background-color:#eee;
+  }
+  .product .meta{border-top:1px solid var(--line);padding-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px}
+  .product .meta .k{color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+  .product.hero-prod{grid-column:span 12;display:grid;grid-template-columns:1fr 1fr;gap:40px;min-height:520px;padding:40px}
+  .product.hero-prod .bottle{aspect-ratio:unset;height:100%;min-height:440px}
+  .product.hero-prod h3{font-size:64px}
+  .product.hero-prod .desc{font-size:18px;line-height:1.5;max-width:42ch}
+  .product.hero-prod .meta{grid-template-columns:repeat(4,1fr)}
+  .product.wide{grid-column:span 6;min-height:380px}
+
+  .class-pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:11px;letter-spacing:.04em;font-weight:500;margin-right:6px;margin-bottom:6px}
+  .class-supp{background:#e0efe8;color:var(--brand)}
+  .class-blk{background:#2a2a2a;color:#fff}
+  .class-mil{background:#f2e4d3;color:var(--warn)}
+  .class-mod{background:#d3def2;color:#2a4a8a}
+
+  /* CLASS LEGEND */
+  .legend{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:36px}
+  .leg-card{padding:20px;border:1px solid var(--line);background:#fff}
+  .leg-card h4{font-family:'IBM Plex Serif',serif;font-size:20px;font-weight:500;margin-bottom:8px}
+  .leg-card p{font-size:13px;color:var(--muted);line-height:1.5}
+
+  /* FEATURE: Achromavir */
+  .feature-strip{
+    background:#0e1a17;color:#e8e5dd;padding:100px 24px;
+  }
+  .feature-strip-in{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .feature-strip h2{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:64px;letter-spacing:-.02em;line-height:1;color:#fff;margin-bottom:20px}
+  .feature-strip h2 em{color:#7dc5ad;font-style:italic}
+  .feature-strip p{color:#b8c4bf;font-size:18px;line-height:1.6;margin-bottom:20px;max-width:48ch}
+  .feature-strip .fe-photo{height:520px;background-image:url('https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=1400&q=80');background-size:cover;background-position:center;border-radius:4px}
+
+  /* SCIENCE */
+  .science{background:var(--surface);padding:100px 24px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .science-in{max-width:1320px;margin:0 auto}
+  .science h2{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:56px;letter-spacing:-.02em;margin-bottom:40px}
+  .science-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .sci-list li{list-style:none;border-top:1px solid var(--line);padding:20px 0;display:grid;grid-template-columns:60px 1fr auto;gap:20px;align-items:baseline}
+  .sci-list li .num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.08em}
+  .sci-list li h4{font-family:'IBM Plex Serif',serif;font-size:22px;font-weight:500;margin-bottom:4px}
+  .sci-list li p{font-size:14px;color:var(--ink-2)}
+  .sci-list li .v{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--brand);letter-spacing:.06em}
+  .sci-photo{height:600px;background-image:url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&q=80');background-size:cover;background-position:center}
+
+  /* ADVERSE / NEWS */
+  .news{max-width:1320px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:2fr 1fr;gap:60px}
+  .news h2{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:48px;letter-spacing:-.02em;margin-bottom:24px}
+  .news-item{border-bottom:1px solid var(--line);padding:18px 0;display:grid;grid-template-columns:90px 1fr auto;gap:20px;align-items:baseline}
+  .news-item .date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em}
+  .news-item h4{font-family:'IBM Plex Serif',serif;font-weight:500;font-size:18px}
+  .news-item .tag{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand)}
+  aside.safety{background:var(--surface);padding:30px;border-left:3px solid var(--warn)}
+  aside.safety h3{font-family:'IBM Plex Serif',serif;font-size:22px;margin-bottom:14px}
+  aside.safety p{font-size:13px;color:var(--ink-2);line-height:1.6;margin-bottom:12px}
+  aside.safety a{color:var(--warn);text-decoration:underline}
+
+  footer{background:#0e1a17;color:#8b9591;padding:60px 24px 30px;font-size:12px}
+  footer .fin{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:40px;padding-bottom:40px;border-bottom:1px solid #ffffff1a}
+  footer b{color:#fff;display:block;margin-bottom:10px;font-size:13px;font-weight:600}
+  footer ul{list-style:none}
+  footer li{margin-bottom:6px}
+  footer a:hover{color:#7dc5ad}
+  footer .fine{max-width:1320px;margin:30px auto 0;font-size:11px;color:#5c6764;line-height:1.7}
+  footer .fine p{margin-bottom:8px}
+
+  @media (max-width:980px){
+    .hero-inner,.feature-strip-in,.science-grid,.news,.stats,.pgrid,.product.hero-prod,.legend,.section-head{grid-template-columns:1fr!important}
+    .product,.product.wide,.product.hero-prod{grid-column:span 1}
+  }
+</style>
+</head>
+<body>
+
+<div class="backbar">
+  <span>← <a href="../index.html">World Catalog</a></span>
+  <span>CHROMACARE PHARMA · Geneva, CH</span>
+</div>
+
+<header class="site">
+  <div class="nav">
+    <div class="brand"><div class="mark"></div>Chromacare</div>
+    <nav>
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Science</a></li>
+        <li><a href="#">For Patients</a></li>
+        <li><a href="#">For Doctors</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="#">HCP portal</a>
+      <a href="#" class="pill">Find a doctor</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="kicker">Pharmaceuticals · Est. 1994 · Geneva</div>
+      <h1>Жити з пігментом — <em>спокійно.</em></h1>
+      <p class="lede">Chromacare розробляє ліки для 10% населення планети, які народилися з пігментом. Від щоденних супресорів — до військових модифікаторів координат. Тридцять років клінічної практики.</p>
+      <div class="cta">
+        <a href="#catalog" class="p">Каталог препаратів →</a>
+        <a href="#science" class="s">Наука за брендом</a>
+      </div>
+    </div>
+    <div class="hero-photo"></div>
+  </div>
+  <div class="disclaimer-strip">ТІЛЬКИ ЗА РЕЦЕПТОМ ВІДПОВІДНОЇ КВАЛІФІКАЦІЇ · НЕ ДЛЯ БІЛИХ (#FFFFFF) · КОНСУЛЬТАЦІЯ З PMS-СЕРТИФІКОВАНИМ ЛІКАРЕМ ОБОВ'ЯЗКОВА</div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat"><div class="n">10%</div><div class="l">Населення з пігментом — наші пацієнти.</div></div>
+  <div class="stat"><div class="n">32</div><div class="l">Препарати в каталозі. Від супресорів до модифікаторів.</div></div>
+  <div class="stat"><div class="n">178</div><div class="l">Країн, де ліки Chromacare зареєстровано.</div></div>
+  <div class="stat"><div class="n">1994</div><div class="l">Перший Achromavir. Тридцять років довіри.</div></div>
+</section>
+
+<!-- LEGEND / CLASSES -->
+<section class="section" id="catalog">
+  <div class="section-head">
+    <div class="l">01 / Каталог</div>
+    <h2>Чотири класи. Для кожної точки HSV-простору.</h2>
+    <div class="go"><a href="#">Завантажити брошуру PDF →</a></div>
+  </div>
+
+  <div class="legend">
+    <div class="leg-card"><span class="class-pill class-supp">Супресор</span><h4>Щоденна терапія</h4><p>Пригнічує мимовільне світіння. Здібність залишається, але вимагає свідомого фокусу. Для інтеграції в суспільство білих.</p></div>
+    <div class="leg-card"><span class="class-pill class-blk">Блокатор</span><h4>Повна нейтралізація</h4><p>Тимчасово «стягує» координати носія до центру (#FFFFFF). Унеможливлює здібність. Медичний/юридичний контроль.</p></div>
+    <div class="leg-card"><span class="class-pill class-mod">Модифікатор</span><h4>Розширення меж</h4><p>Виводить координати за вроджені фізичні межі носія. Військовий облік.</p></div>
+    <div class="leg-card"><span class="class-pill class-mil">Стимулятор</span><h4>Витривалість</h4><p>Подовжує безпечне використання пігменту. Фокус, відсутність виснаження ЦНС.</p></div>
+  </div>
+
+  <!-- HERO PRODUCT -->
+  <div class="pgrid">
+    <div class="product hero-prod">
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1608068811588-3a67006b7489?w=1400&q=80')"></div>
+      <div>
+        <div class="rx">℞</div>
+        <span class="class-pill class-supp">Супресор</span>
+        <div class="tag" style="margin-top:14px">Chromacare Flagship · Щоденна терапія</div>
+        <h3>Achromavir®</h3>
+        <div class="generic">ахромавір деканоат · 15 мг / 30 мг / 60 мг</div>
+        <p class="desc">М'яко «капсулює» здібність, блокуючи мимовільне світіння при стресі чи больовому шоку. Найбільш прописуваний препарат серед пігментів Європи. 89% пацієнтів зберігають повну функціональність здібності при свідомій активації.</p>
+        <div class="meta">
+          <div><div class="k">Форма</div>Таблетки</div>
+          <div><div class="k">Дозування</div>1× на добу</div>
+          <div><div class="k">Підходить</div>H будь-який, V&gt;40</div>
+          <div><div class="k">Реімбурсація</div>EU · UA · JP</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Existing from user file -->
+    <div class="product">
+      <div class="rx">℞</div>
+      <span class="class-pill class-blk">Блокатор</span>
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1550572017-9b8c18d0eb77?w=900&q=80')"></div>
+      <div class="tag">Регульована терапія</div>
+      <h3>Leukostat®</h3>
+      <div class="generic">лейкостат бромід · in. 2.5 мг/мл</div>
+      <p class="desc">Повністю стягує координати до центру (#FFFFFF) на термін 4–12 годин. Судова експертиза, СІЗО, дитячі кризи.</p>
+      <div class="meta">
+        <div><div class="k">Форма</div>Ін'єкція</div>
+        <div><div class="k">Дія</div>4–12 год</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="rx">℞</div>
+      <span class="class-pill class-mod">Модифікатор</span>
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1626716493137-b67fe9501e76?w=900&q=80')"></div>
+      <div class="tag">Військовий облік</div>
+      <h3>Saturine®</h3>
+      <div class="generic">сатурин HCl · 50 мг/мл</div>
+      <p class="desc">Штучно розширює S-координату носія. Масштаб дії зростає в 2.4× протягом 45 хвилин. Залежність після 3 курсів.</p>
+      <div class="meta">
+        <div><div class="k">Форма</div>Ін'єкція</div>
+        <div><div class="k">Статус</div>Military only</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="rx">℞</div>
+      <span class="class-pill class-mil">Стимулятор</span>
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=900&q=80')"></div>
+      <div class="tag">Спецпризначення</div>
+      <h3>Chromafinil®</h3>
+      <div class="generic">хромафініл натрій · 200 мг</div>
+      <p class="desc">Подовжує безперервне використання пігменту до 14 годин без виснаження ЦНС. Точність фокусу +37% у контрольних випробуваннях.</p>
+      <div class="meta">
+        <div><div class="k">Форма</div>Капсула</div>
+        <div><div class="k">Курс</div>до 72 год</div>
+      </div>
+    </div>
+
+    <!-- NEW INVENTED ONES -->
+    <div class="product wide">
+      <div class="rx">℞</div>
+      <span class="class-pill class-supp">Супресор + анксіолітик</span>
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=1200&q=80')"></div>
+      <div class="tag">Педіатрія · 8–14 років</div>
+      <h3>Juniform®</h3>
+      <div class="generic">ювініформ · сироп, 5 мг/мл · полуниця/ментол</div>
+      <p class="desc">Перший супресор, клінічно схвалений для дітей. Формат сиропу. Пом'якшує період пробудження — той самий вік, коли пігмент проявляється мимовільно, найчастіше — через страх чи конфлікт.</p>
+      <div class="meta">
+        <div><div class="k">Вік</div>8–14 років</div>
+        <div><div class="k">Дозування</div>2× на добу</div>
+        <div><div class="k">Смаки</div>4 варіанти</div>
+        <div><div class="k">Реімбурсація</div>EU · UA</div>
+      </div>
+    </div>
+
+    <div class="product wide">
+      <div class="rx">℞</div>
+      <span class="class-pill class-supp">Селективний супресор</span>
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&q=80')"></div>
+      <div class="tag">Для домену H 0 (Атака)</div>
+      <h3>Hemalyn®</h3>
+      <div class="generic">гемалін · амп. 10 мг/мл</div>
+      <p class="desc">Цільовий супресор для червоного діапазону. Працює на тих, у кого Achromavir дає недостатній контроль. Пригнічує рефлекторну активацію під час бойового стресу і панічних атак.</p>
+      <div class="meta">
+        <div><div class="k">Діапазон</div>H 340 – H 30</div>
+        <div><div class="k">Дозування</div>1× на тиждень</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="rx">℞</div>
+      <span class="class-pill class-supp">Селективний супресор</span>
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1626716493137-b67fe9501e76?w=900&q=80')"></div>
+      <div class="tag">Для домену H 300 (Зміна)</div>
+      <h3>Violstat®</h3>
+      <div class="generic">віолстат · табл. 25 мг</div>
+      <p class="desc">Для рідкісного пурпурного діапазону. Стабілізує мимовільні трансформації побутових предметів.</p>
+      <div class="meta">
+        <div><div class="k">Рідкість</div>Orphan drug</div>
+        <div><div class="k">Ціна</div>€4,200/міс</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="rx">℞</div>
+      <span class="class-pill class-blk">Антидот</span>
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1550572017-37b23fb3cb62?w=900&q=80')"></div>
+      <div class="tag">Невідкладна допомога</div>
+      <h3>Respektor®</h3>
+      <div class="generic">респектор · амп. 500 мкг/мл</div>
+      <p class="desc">Антидот для кризи над-активації. Екстрено повертає носія в стан спокою. В аптечках невідкладної і спец. підрозділів.</p>
+      <div class="meta">
+        <div><div class="k">Дія</div>60 секунд</div>
+        <div><div class="k">В аптечці</div>МНС · KAISER</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="rx">℞</div>
+      <span class="class-pill class-supp">Топічний</span>
+      <div class="bottle" style="background-image:url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&q=80')"></div>
+      <div class="tag">Зовнішнє застосування</div>
+      <h3>Lumenveil®</h3>
+      <div class="generic">люменвейл · гель, 1%</div>
+      <p class="desc">Крем для шкіри, що пригнічує поверхневе світіння в конкретній локації. Для публічних виступів, медіа, співбесід.</p>
+      <div class="meta">
+        <div><div class="k">Локальна дія</div>6 год</div>
+        <div><div class="k">OTC</div>Без рецепта</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURE STRIP -->
+<section class="feature-strip">
+  <div class="feature-strip-in">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#7dc5ad;text-transform:uppercase;margin-bottom:16px">Наш флагман · 1994—2026</div>
+      <h2>Achromavir.<br>Тридцять років <em>тиші.</em></h2>
+      <p>Перший і досі найбільш прописуваний препарат для пігментів у світі. 2.4 мільйона щоденних користувачів. Клінічно доведено: 89% пацієнтів зберігають повний контроль над здібністю при свідомій активації.</p>
+      <p style="font-size:14px;color:#8b9591">Референс: NEJM 2019, 381(14), 1312–1324. «Achromavir for chronic pigment suppression: a 15-year follow-up».</p>
+      <div style="margin-top:28px"><a href="#" style="color:#7dc5ad;border-bottom:1px solid #7dc5ad;padding-bottom:3px;font-weight:500">Клінічні дослідження →</a></div>
+    </div>
+    <div class="fe-photo"></div>
+  </div>
+</section>
+
+<!-- SCIENCE -->
+<section class="science" id="science">
+  <div class="science-in">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:14px">02 / Наука</div>
+    <h2>Як наші препарати бачать HSV-простір.</h2>
+
+    <div class="science-grid">
+      <ul class="sci-list">
+        <li>
+          <span class="num">01</span>
+          <div><h4>Координатний таргетинг</h4><p>Молекула розпізнає H-координату носія. Achromavir працює на всьому спектрі, Hemalyn — лише на червоному куті.</p></div>
+          <span class="v">H-lock</span>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div><h4>Стягування до центру</h4><p>Блокатори (Leukostat) не руйнують пігмент — фізично переміщують координати носія в зону #FFFFFF. Ефект оборотний.</p></div>
+          <span class="v">V→95</span>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div><h4>Розширення S</h4><p>Модифікатори (Saturine) збільшують насиченість в 2.4×. Сильно обмежено — залежність після 3 курсів.</p></div>
+          <span class="v">S×2.4</span>
+        </li>
+        <li>
+          <span class="num">04</span>
+          <div><h4>ЦНС-компенсація</h4><p>Стимулятори (Chromafinil) не чіпають пігмент — дають мозку енергетичний резерв на утримання свідомого фокусу.</p></div>
+          <span class="v">CNS+</span>
+        </li>
+        <li>
+          <span class="num">05</span>
+          <div><h4>Обмеження V&lt;20</h4><p>Жоден з наших препаратів не тестувався на П'ятірці. У цій зоні фармакологія не має сенсу — здібність діє на рівні законів реальності.</p></div>
+          <span class="v">V&lt;20 ×</span>
+        </li>
+      </ul>
+      <div class="sci-photo"></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS + SAFETY -->
+<section class="news">
+  <div>
+    <h2>Новини R&amp;D</h2>
+    <div class="news-item"><span class="date">12 APR 2026</span><h4>Phase III: Violstat показав 71% ефективність у пурпуровій когорті (n=340)</h4><span class="tag">Trial</span></div>
+    <div class="news-item"><span class="date">27 MAR 2026</span><h4>FDA схвалила педіатричну форму Juniform для США</h4><span class="tag">Regulatory</span></div>
+    <div class="news-item"><span class="date">09 MAR 2026</span><h4>Партнерство з Karolinska: довготривалі ефекти Achromavir, n=12,000</h4><span class="tag">Research</span></div>
+    <div class="news-item"><span class="date">14 FEB 2026</span><h4>Розширення ліцензії Saturine в Кореї — тільки для військових спецпідрозділів</h4><span class="tag">Policy</span></div>
+    <div class="news-item"><span class="date">30 JAN 2026</span><h4>Chromacare відмовляється від розробки блокаторів для V&lt;30 пацієнтів</h4><span class="tag">Ethics</span></div>
+  </div>
+  <aside class="safety">
+    <h3>Безпека пацієнта</h3>
+    <p><b>Chromacare дотримується EU-директиви 2024/817</b> про інформовану згоду для всіх препаратів, що впливають на пігмент.</p>
+    <p>Жоден препарат не призначається без спектрографічного PMS-Certified профілю носія. Ахромавір та аналоги <b>не можуть бути примусово призначені</b> без судового рішення у 178 країнах нашої присутності.</p>
+    <p><a href="#">Повна інформація для пацієнта →</a></p>
+    <p><a href="#">Сповістити про побічний ефект →</a></p>
+  </aside>
+</section>
+
+<footer>
+  <div class="fin">
+    <div>
+      <div class="brand" style="color:#fff"><div class="mark"></div>Chromacare</div>
+      <p style="margin-top:14px;color:#8b9591;max-width:32ch;font-size:13px;line-height:1.6">Rue du Rhône 42, 1204 Geneva<br>Switzerland · Founded 1994</p>
+    </div>
+    <div>
+      <b>Продукти</b>
+      <ul>
+        <li><a href="#">Achromavir</a></li>
+        <li><a href="#">Leukostat</a></li>
+        <li><a href="#">Saturine</a></li>
+        <li><a href="#">Chromafinil</a></li>
+        <li><a href="#">Увесь каталог</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Наука</b>
+      <ul>
+        <li><a href="#">Клінічні дослідження</a></li>
+        <li><a href="#">Публікації</a></li>
+        <li><a href="#">R&amp;D pipeline</a></li>
+        <li><a href="#">Гранти</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Для пацієнтів</b>
+      <ul>
+        <li><a href="#">Знайти лікаря</a></li>
+        <li><a href="#">Допомога в оплаті</a></li>
+        <li><a href="#">Побічні ефекти</a></li>
+        <li><a href="#">Навчання</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Компанія</b>
+      <ul>
+        <li><a href="#">Про нас</a></li>
+        <li><a href="#">Кар'єра</a></li>
+        <li><a href="#">Інвестори</a></li>
+        <li><a href="#">Комплаєнс</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fine">
+    <p>© 2026 Chromacare SA. Усі права захищено. Achromavir®, Leukostat®, Saturine®, Chromafinil®, Juniform®, Hemalyn®, Violstat®, Respektor®, Lumenveil® — зареєстровані торгові марки Chromacare SA.</p>
+    <p>Інформація на цьому сайті не замінює консультацію з PMS-сертифікованим лікарем. Перед прийомом ознайомтесь із інструкцією. Зберігайте подалі від білих (#FFFFFF) — препарати не мають жодної дії на людей без пігменту.</p>
+    <p>Ліцензія PMS Standard L-3378-26. Членство: EFPIA, IFPMA, Pigmented Health Alliance.</p>
+  </div>
+</footer>
+
+</body>
+</html>

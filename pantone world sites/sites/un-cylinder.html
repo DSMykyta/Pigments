@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>United Nations — Black Cylinder Observatory</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#060810;
+    --panel:#0c1018;
+    --panel-2:#141a26;
+    --ink:#e8ecf4;
+    --ink-2:#a8b2c4;
+    --muted:#586278;
+    --line:#1e2636;
+    --un:#4b9cd3;
+    --alert:#e84530;
+    --ok:#38b476;
+    --warn:#eac44a;
+  }
+  body{background:var(--bg);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .mono{font-family:'IBM Plex Mono',monospace;font-feature-settings:'zero'}
+  .serif{font-family:'Noto Serif',serif}
+  a{color:inherit;text-decoration:none}
+
+  .backbar{background:#000;color:var(--muted);padding:6px 20px;font-size:11px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em}
+  .backbar a{color:var(--un)}
+
+  /* UN banner */
+  .unbar{
+    background:var(--un);color:#fff;
+    padding:8px 20px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    display:flex;justify-content:space-between;
+  }
+
+  header.top{
+    background:var(--panel);border-bottom:1px solid var(--line);
+    padding:14px 24px;display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;
+  }
+  .un-crest{display:flex;align-items:center;gap:14px}
+  .un-crest .logo{
+    width:44px;height:44px;border-radius:50%;border:2px solid var(--un);
+    position:relative;display:grid;place-items:center;
+  }
+  .un-crest .logo::before{content:'';position:absolute;inset:3px;border:1px solid var(--un);border-radius:50%}
+  .un-crest .logo span{font-family:'Noto Serif',serif;font-size:16px;color:var(--un);font-weight:700}
+  .un-crest h1{font-size:14px;font-weight:600;letter-spacing:.04em;line-height:1.2}
+  .un-crest h1 small{display:block;color:var(--muted);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-top:2px}
+  nav.main ul{display:flex;gap:26px;list-style:none;font-size:13px;font-weight:500}
+  nav.main a{color:var(--ink-2)}
+  nav.main a:hover{color:var(--ink)}
+  .user{display:flex;gap:14px;align-items:center;font-size:12px;color:var(--muted)}
+  .status-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--ok);color:var(--ok);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em}
+  .status-badge::before{content:'';width:6px;height:6px;background:var(--ok);border-radius:50%;box-shadow:0 0 6px var(--ok);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.5}}
+
+  /* ALERT STRIP */
+  .alert-strip{
+    background:var(--alert);color:#fff;
+    padding:10px 24px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .alert-strip b{animation:blink 1.4s step-end infinite}
+  @keyframes blink{50%{opacity:.4}}
+
+  /* HERO / LIVE */
+  .hero{
+    display:grid;grid-template-columns:1fr 440px;gap:1px;background:var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .visual{background:radial-gradient(ellipse at center,#0f1524 0%,#050710 80%);
+    padding:40px;display:flex;flex-direction:column;justify-content:space-between;min-height:620px;position:relative;overflow:hidden}
+  .visual .crosshair{position:absolute;inset:0;pointer-events:none;background:
+    linear-gradient(#ffffff06 1px,transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg,#ffffff06 1px,transparent 1px) 0 0 / 40px 40px}
+  .visual .title{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;position:relative}
+  .visual h2{font-family:'Noto Serif',serif;font-weight:400;font-size:56px;letter-spacing:-.02em;line-height:1;margin-bottom:12px;position:relative}
+  .visual .sub{color:var(--ink-2);font-size:15px;max-width:52ch;position:relative}
+  .cyl-vis{flex:1;display:grid;place-items:center;position:relative;margin:30px 0}
+  /* Cylinder as SVG-ish built from div */
+  .cyl{width:280px;height:380px;position:relative;perspective:800px;transform-style:preserve-3d}
+  .cyl .wall{
+    position:absolute;inset:10px 0 10px 0;
+    border-radius:50%/8%;border:1px solid #4b9cd350;
+    background:linear-gradient(180deg, #4b9cd308 0%, #4b9cd303 100%);
+    box-shadow:inset 0 0 40px #4b9cd320;
+  }
+  .cyl .top-el,.cyl .bot-el{position:absolute;left:0;right:0;height:40px;border:1px solid #4b9cd380;border-radius:50%}
+  .cyl .top-el{top:0;background:#060810}
+  .cyl .bot-el{bottom:0;background:linear-gradient(180deg,#0c1018 0%,#060810 100%)}
+  .cyl .dots{position:absolute;inset:30px 0 30px 0}
+  .cyl .dot{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c),0 0 14px var(--c)}
+  .cyl .spine{position:absolute;left:50%;top:30px;bottom:30px;width:2px;background:linear-gradient(180deg,#ffffff30,#ffffff10);transform:translateX(-50%);filter:blur(1px)}
+
+  /* Right panel (telemetry) */
+  .telemetry{background:var(--panel);padding:24px;overflow:hidden}
+  .tel-section{border-bottom:1px solid var(--line);padding:16px 0}
+  .tel-section:first-child{padding-top:0}
+  .tel-section h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;justify-content:space-between}
+  .tel-section h4 .live{color:var(--ok);display:inline-flex;align-items:center;gap:4px}
+  .tel-section h4 .live::before{content:'';width:5px;height:5px;background:var(--ok);border-radius:50%;animation:pulse 2s infinite}
+  .big-stat{display:flex;justify-content:space-between;align-items:baseline;padding:4px 0}
+  .big-stat .v{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:500;letter-spacing:-.01em}
+  .big-stat .l{font-size:11px;color:var(--muted)}
+  .tel-row{display:grid;grid-template-columns:1fr auto;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 0;color:var(--ink-2)}
+  .tel-row .k{color:var(--muted)}
+  .tel-row.alert{color:var(--alert)}
+  .spark{margin-top:8px;height:42px;display:flex;align-items:end;gap:2px}
+  .spark .b{flex:1;background:var(--un);opacity:.8}
+
+  /* Events feed */
+  .events{background:var(--panel);padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .events h3{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:0 24px 8px;color:var(--muted);display:flex;justify-content:space-between}
+  .event-row{
+    display:grid;grid-template-columns:140px 100px 1fr 140px 80px;gap:20px;padding:10px 24px;border-top:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+  }
+  .event-row:hover{background:var(--panel-2)}
+  .event-row .t{color:var(--muted);font-size:11px}
+  .event-row .c{display:inline-flex;align-items:center;gap:6px}
+  .event-row .sw{width:10px;height:10px;display:inline-block}
+  .event-row .desc{color:var(--ink)}
+  .event-row .sev{text-align:right;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .event-row .sev.k1{color:var(--ok)}
+  .event-row .sev.k2{color:var(--warn)}
+  .event-row .sev.k3{color:#ff9240}
+  .event-row .sev.k4{color:var(--alert)}
+
+  /* KAISER LEVELS */
+  .kaiser{max-width:1480px;margin:0 auto;padding:60px 24px}
+  .sh-head{display:grid;grid-template-columns:200px 1fr auto;gap:40px;align-items:end;margin-bottom:30px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .sh-head .n{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+  .sh-head h2{font-family:'Noto Serif',serif;font-weight:400;font-size:46px;letter-spacing:-.02em;line-height:1.02}
+  .sh-head .go{font-size:12px;color:var(--un);letter-spacing:.06em}
+  .kgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .klev{background:var(--panel);border:1px solid var(--line);padding:24px;min-height:240px;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+  .klev.k1{border-top:3px solid var(--ok)}
+  .klev.k2{border-top:3px solid var(--warn)}
+  .klev.k3{border-top:3px solid #ff9240}
+  .klev.k4{border-top:3px solid var(--alert)}
+  .klev.k5{border-top:3px solid #fff;background:linear-gradient(180deg,#18112c 0%,#0c1018 100%)}
+  .klev .lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--muted);margin-bottom:8px}
+  .klev h4{font-family:'Noto Serif',serif;font-size:36px;font-weight:400;letter-spacing:-.02em;margin-bottom:6px}
+  .klev p{font-size:12px;color:var(--ink-2)}
+  .klev .crit{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);margin-top:14px;padding-top:10px;border-top:1px solid var(--line)}
+
+  /* REPORTS */
+  .reports{max-width:1480px;margin:0 auto;padding:60px 24px 100px;display:grid;grid-template-columns:2fr 1fr;gap:40px}
+  .reports h3{font-family:'Noto Serif',serif;font-weight:400;font-size:32px;margin-bottom:20px}
+  .rep-row{display:grid;grid-template-columns:90px 1fr auto;gap:20px;padding:16px 0;border-top:1px solid var(--line);align-items:baseline}
+  .rep-row:first-child{border:none}
+  .rep-row .date{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted)}
+  .rep-row h5{font-size:16px;font-weight:500;color:var(--ink)}
+  .rep-row .snip{font-size:12px;color:var(--ink-2);margin-top:4px}
+  .rep-row .dl{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--un)}
+
+  aside.briefing{background:var(--panel);padding:24px;border:1px solid var(--line)}
+  aside.briefing h3{font-family:'Noto Serif',serif;font-size:22px;font-weight:400;margin-bottom:14px}
+  aside.briefing .row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:13px}
+  aside.briefing .row .k{color:var(--muted);font-size:11px}
+  .photos{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .photos img{height:100px;width:100%;object-fit:cover;filter:saturate(.5) contrast(1.1)}
+
+  footer{background:#000;color:var(--muted);padding:30px 24px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;border-top:1px solid var(--line)}
+  footer .fin{max-width:1480px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+  footer b{color:var(--ink);display:block;margin-bottom:10px;letter-spacing:.12em;text-transform:uppercase}
+  footer ul{list-style:none}
+  footer li{margin-bottom:5px}
+
+  @media(max-width:1100px){
+    .hero{grid-template-columns:1fr}
+    .visual{min-height:400px}
+    .kgrid{grid-template-columns:1fr 1fr}
+    .reports{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="backbar">
+  <span>← <a href="../index.html">World Catalog</a></span>
+  <span>CYLINDER.UN.INT · CLASSIFIED BRIEFING PORTAL</span>
+</div>
+
+<div class="unbar">
+  <span>UNITED NATIONS · OFFICE FOR PIGMENT OBSERVATION (UNOPO)</span>
+  <span>UTC 14:32:08 · GENEVA / NEW YORK LINK · OPERATIONAL</span>
+</div>
+
+<header class="top">
+  <div class="un-crest">
+    <div class="logo"><span>UN</span></div>
+    <h1>Black Cylinder Observatory<small>United Nations · Office for Pigment Observation</small></h1>
+  </div>
+  <nav class="main">
+    <ul>
+      <li><a href="#">Live feed</a></li>
+      <li><a href="#">Special Grade</a></li>
+      <li><a href="#">KAISER framework</a></li>
+      <li><a href="#">Reports</a></li>
+      <li><a href="#">Protocols</a></li>
+      <li><a href="#">Member states</a></li>
+    </ul>
+  </nav>
+  <div class="user">
+    <span class="status-badge">System nominal</span>
+    <span>Analyst · CH-1844</span>
+  </div>
+</header>
+
+<div class="alert-strip">
+  <span><b>● ELEVATED</b> · KAISER-2 INCIDENT · KYOTO UNDERGROUND · H 0 / S 81 / V 18</span>
+  <span>Updated 14:28 UTC · <a href="#" style="color:#fff;border-bottom:1px solid #fff">Full briefing →</a></span>
+</div>
+
+<!-- HERO: cylinder + telemetry -->
+<section class="hero">
+  <div class="visual">
+    <div class="crosshair"></div>
+    <div>
+      <div class="title">Fig. 1 · Live cylinder feed · 1:200 000 000</div>
+      <h2>The Cylinder.</h2>
+      <p class="sub">Every dot is a living pigment. When a dot vanishes — they died. When one appears — they were born. The cylinder shows colour and existence. Nothing else. No name. No place.</p>
+    </div>
+
+    <div class="cyl-vis">
+      <div class="cyl" id="cyl">
+        <div class="top-el"></div>
+        <div class="wall"></div>
+        <div class="bot-el"></div>
+        <div class="spine"></div>
+        <div class="dots" id="dots"></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative">
+      <div><div class="mono" style="font-size:10px;color:var(--muted);letter-spacing:.14em">ACTIVE</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px">793,448,021</div></div>
+      <div><div class="mono" style="font-size:10px;color:var(--muted);letter-spacing:.14em">SPECIAL GRADE</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px">5</div></div>
+      <div><div class="mono" style="font-size:10px;color:var(--muted);letter-spacing:.14em">BIRTHS 24H</div><div style="font-family:'IBM Plex Mono',monospace;font-size:22px">+212,308</div></div>
+    </div>
+  </div>
+
+  <aside class="telemetry">
+
+    <div class="tel-section">
+      <h4>Population <span class="live">LIVE</span></h4>
+      <div class="big-stat"><span class="v">793 448 021</span><span class="l">total pigmented</span></div>
+      <div class="tel-row"><span class="k">&gt; 9.8% of human population</span></div>
+      <div class="spark" id="spark"></div>
+      <div class="tel-row"><span class="k">vs. 24h</span><span>+212 308</span></div>
+      <div class="tel-row"><span class="k">vs. 30d</span><span>−0.03%</span></div>
+    </div>
+
+    <div class="tel-section">
+      <h4>Dark tier · V ≤ 30 <span class="live">LIVE</span></h4>
+      <div class="tel-row"><span class="k">V 20–30</span><span>51</span></div>
+      <div class="tel-row"><span class="k">V &lt; 20 (Special Grade)</span><span>5</span></div>
+      <div class="tel-row alert"><span class="k">V = 0 (#000000)</span><span>0 — never observed</span></div>
+    </div>
+
+    <div class="tel-section">
+      <h4>Domain breakdown</h4>
+      <div class="tel-row"><span class="k"><span style="display:inline-block;width:10px;height:10px;background:#cc3b2a;margin-right:6px;vertical-align:middle"></span>H 0 · Attack</span><span>15.4%</span></div>
+      <div class="tel-row"><span class="k"><span style="display:inline-block;width:10px;height:10px;background:#e08a3a;margin-right:6px;vertical-align:middle"></span>H 30 · Flesh</span><span>17.1%</span></div>
+      <div class="tel-row"><span class="k"><span style="display:inline-block;width:10px;height:10px;background:#e5c23a;margin-right:6px;vertical-align:middle"></span>H 60 · Influence</span><span>13.8%</span></div>
+      <div class="tel-row"><span class="k"><span style="display:inline-block;width:10px;height:10px;background:#6da65a;margin-right:6px;vertical-align:middle"></span>H 120 · Mind</span><span>19.8%</span></div>
+      <div class="tel-row"><span class="k"><span style="display:inline-block;width:10px;height:10px;background:#3a6fa8;margin-right:6px;vertical-align:middle"></span>H 240 · Movement</span><span>21.1%</span></div>
+      <div class="tel-row"><span class="k"><span style="display:inline-block;width:10px;height:10px;background:#7a4a8a;margin-right:6px;vertical-align:middle"></span>H 300 · Change</span><span>12.8%</span></div>
+    </div>
+
+    <div class="tel-section">
+      <h4>Trigger state</h4>
+      <div class="tel-row" style="color:var(--ok)"><span class="k">#000000 sentinel</span><span>◯ ARMED</span></div>
+      <div style="font-size:11px;color:var(--muted);margin-top:6px;line-height:1.5">If H=any, S=any, V=0 appears, cylinder turns opaque black. Global alert protocols SG-OMEGA will activate automatically.</div>
+    </div>
+
+  </aside>
+</section>
+
+<!-- EVENTS FEED -->
+<section class="events">
+  <h3>Recent events <span>2026-04-19 · last 14 entries</span></h3>
+  <div class="event-row"><span class="t">14:28:41 UTC</span><span class="c"><span class="sw" style="background:#2F0909"></span>H 0 S81 V18</span><span class="desc">Special Grade activation · Kyoto, JP · underground structure</span><span>KAISER</span><span class="sev k2">K2 · ELEV</span></div>
+  <div class="event-row"><span class="t">14:22:03 UTC</span><span class="c"><span class="sw" style="background:#e5c23a"></span>H 51 S100 V100</span><span class="desc">Unconfirmed bright anomaly · Tehran sector · age ≤ 5 est.</span><span>—</span><span class="sev k3">K3 · REDACTED</span></div>
+  <div class="event-row"><span class="t">14:18:52 UTC</span><span class="c"><span class="sw" style="background:#6da65a"></span>H 114 S35 V72</span><span class="desc">Dot extinguished · natural cause · Lyon, FR</span><span>—</span><span class="sev k1">K1 · NOM</span></div>
+  <div class="event-row"><span class="t">14:01:09 UTC</span><span class="c"><span class="sw" style="background:#799599"></span>H 188 S21 V60</span><span class="desc">Border crossing report · Stockholm → Uppsala</span><span>PMS-C#4471</span><span class="sev k1">K1 · NOM</span></div>
+  <div class="event-row"><span class="t">13:48:01 UTC</span><span class="c"><span class="sw" style="background:#3a6fa8"></span>H 240 S65 V15</span><span class="desc"><b>Singularity</b> detected · Paris 1er · 6 casualties · dispersed</span><span>KAISER</span><span class="sev k4">K4 · CRIT</span></div>
+  <div class="event-row"><span class="t">12:33:22 UTC</span><span class="c"><span class="sw" style="background:#f0d8cc"></span>H 20 S15 V94</span><span class="desc">New dot appeared · Gothenburg, SE · neonatal scan pending</span><span>—</span><span class="sev k1">K1 · NOM</span></div>
+  <div class="event-row"><span class="t">11:02:12 UTC</span><span class="c"><span class="sw" style="background:#7a4a8a"></span>H 305 S42 V44</span><span class="desc">Tier-2 subject · random movement logged · Berlin DE</span><span>—</span><span class="sev k2">K2 · ELEV</span></div>
+  <div class="event-row"><span class="t">09:44:58 UTC</span><span class="c"><span class="sw" style="background:#cc3b2a"></span>H 12 S74 V55</span><span class="desc">Awakening event · Lucerne CH · Spectrum Academy notified</span><span>SPECTRUM</span><span class="sev k1">K1 · NOM</span></div>
+</section>
+
+<!-- KAISER -->
+<section class="kaiser">
+  <div class="sh-head">
+    <div class="n">02 / Framework</div>
+    <h2>The KAISER scale.</h2>
+    <div class="go"><a href="#">Protocol spec v7.3 →</a></div>
+  </div>
+  <div class="kgrid">
+    <div class="klev k1"><div><div class="lbl">K1 · Nominal</div><h4>K-1</h4><p>Typical pigment activity. No action required. 99.2% of daily events.</p></div><div class="crit">V ≥ 75 · no violence</div></div>
+    <div class="klev k2"><div><div class="lbl">K2 · Elevated</div><h4>K-2</h4><p>Pigment activation with public-safety implication. Local response. PMS-cert team.</p></div><div class="crit">V 40–75 · confined</div></div>
+    <div class="klev k3"><div><div class="lbl">K3 · Critical</div><h4>K-3</h4><p>National evacuation radius ≥ 500m. Chromacare Respektor deployment authorised.</p></div><div class="crit">V 30–40 · 2+ casualties</div></div>
+    <div class="klev k4"><div><div class="lbl">K4 · Apocalyptic</div><h4>K-4</h4><p>KAISER task force deployed. Airspace closed. Presidential briefing.</p></div><div class="crit">V &lt; 30 · mass casualty</div></div>
+    <div class="klev k5"><div><div class="lbl">K5 · Omega</div><h4>K-Ω</h4><p>#000000 appearance. Cylinder opaque. Unused since 1958. Civilizational threshold.</p></div><div class="crit">V = 0 · never observed</div></div>
+  </div>
+</section>
+
+<!-- REPORTS + BRIEFING -->
+<section class="reports">
+  <div>
+    <h3>Recent reports</h3>
+    <div class="rep-row"><span class="date">19 APR 26</span><div><h5>Annual Report 2026 · Cylinder Observations</h5><div class="snip">Population + 2.1%. Dark tier stable. No Ω events. Special-Grade-5 still unlocated.</div></div><a href="#" class="dl">PDF 42MB</a></div>
+    <div class="rep-row"><span class="date">28 MAR 26</span><div><h5>Kyoto parking incident · Internal review</h5><div class="snip">Three KAISER operatives lost. Target Kendzo I. re-classified K-4. Japan brief fwd.</div></div><a href="#" class="dl">PDF 18MB</a></div>
+    <div class="rep-row"><span class="date">11 MAR 26</span><div><h5>Paris Singularity event · Civilian casualties</h5><div class="snip">Six operators compressed. Subject last seen walking towards Louvre.</div></div><a href="#" class="dl">CLASSIFIED</a></div>
+    <div class="rep-row"><span class="date">02 FEB 26</span><div><h5>Iranian airline crash · 7 pigments missing</h5><div class="snip">Passenger flight UA-219 forced landing. Whites shot on site. Pigments detained.</div></div><a href="#" class="dl">PDF 6MB</a></div>
+    <div class="rep-row"><span class="date">14 JAN 26</span><div><h5>KAISER protocol v7.3 · Approved by Security Council</h5><div class="snip">Re-defines K-3 radius to 500m. Authorises Respektor at K-3 threshold.</div></div><a href="#" class="dl">PDF 2MB</a></div>
+  </div>
+
+  <aside class="briefing">
+    <h3>Special Grade · Registry</h3>
+    <div class="row"><span class="k">#1 Perfumed Blood</span><span>JP · 41</span></div>
+    <div class="row"><span class="k">#2 Kabuki</span><span>JP · 57</span></div>
+    <div class="row"><span class="k">#3 Ancient Figurine</span><span>GR · ?</span></div>
+    <div class="row"><span class="k">#4 Singularity</span><span>?? · 27</span></div>
+    <div class="row"><span class="k">#5 Data Unavailable</span><span>EU est.</span></div>
+    <div class="photos">
+      <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=600&q=80" alt="cityscape">
+      <img src="https://images.unsplash.com/photo-1493780474015-ba834fd0ce2f?w=600&q=80" alt="classified">
+      <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?w=600&q=80" alt="temple">
+      <img src="https://images.unsplash.com/photo-1542903660-eedba2cda473?w=600&q=80" alt="paris">
+    </div>
+  </aside>
+</section>
+
+<footer>
+  <div class="fin">
+    <div>
+      <b>UN Office for Pigment Observation</b>
+      <div>Palais des Nations · 1211 Geneva, CH</div>
+      <div style="margin-top:6px;color:var(--muted)">Custody of the Black Cylinder under Resolution A/RES/1982/341.</div>
+    </div>
+    <div>
+      <b>Access</b>
+      <ul>
+        <li><a href="#">Analyst portal</a></li>
+        <li><a href="#">Member-state feed</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Frameworks</b>
+      <ul>
+        <li><a href="#">KAISER v7.3</a></li>
+        <li><a href="#">Ω Protocol</a></li>
+        <li><a href="#">Special Grade ops</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Legal</b>
+      <ul>
+        <li><a href="#">Privacy of aggregates</a></li>
+        <li><a href="#">Data policy</a></li>
+        <li><a href="#">Whistleblower</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Cylinder dots
+  const dots = [];
+  for(let i=0;i<160;i++){
+    const ang = Math.random()*Math.PI*2;
+    const r = 4 + Math.random()*60;
+    const x = 140 + Math.cos(ang)*r;
+    const y = Math.random()*320;
+    const hue = Math.floor(Math.random()*360);
+    const sat = 40 + Math.random()*60;
+    const val = 40 + Math.random()*50;
+    dots.push({x,y,c:`hsl(${hue} ${sat}% ${val}%)`, op: .4 + Math.random()*.6});
+  }
+  // add named dots
+  const named = [
+    {h:0,s:81,v:18,label:'PB',c:'#cc3b2a'},
+    {h:51,s:100,v:100,label:'AU',c:'#ffd700'},
+    {h:240,s:65,v:15,label:'SG',c:'#3a6fa8'},
+    {h:120,s:30,v:15,label:'KB',c:'#5a7a4a'},
+  ];
+  const cyl = document.getElementById('dots');
+  let html = '';
+  for(const d of dots){
+    html += `<div class="dot" style="--c:${d.c};left:${d.x}px;top:${d.y}px;opacity:${d.op}"></div>`;
+  }
+  for(const n of named){
+    const ang = n.h/360*Math.PI*2;
+    const rad = 10 + (100-n.v)*.8;
+    const x = 140 + Math.cos(ang)*rad;
+    const y = 300 - n.s*2.6;
+    html += `<div class="dot" style="--c:${n.c};left:${x}px;top:${y}px;width:8px;height:8px;box-shadow:0 0 18px ${n.c},0 0 30px ${n.c}"></div>`;
+  }
+  cyl.innerHTML = html;
+
+  // Sparkline
+  const spark = document.getElementById('spark');
+  let s = '';
+  for(let i=0;i<36;i++){
+    const h = 10 + Math.random()*90;
+    s += `<div class="b" style="height:${h}%"></div>`;
+  }
+  spark.innerHTML = s;
+</script>
+
+</body>
+</html>
