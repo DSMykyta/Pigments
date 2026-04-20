@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>PIGMENT ARCHIVE · Музей Пігменту</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f2ed">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f4f2ed;color:#0a0a0a;font-family:'Inter',sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}
+
+.bar{background:#0a0a0a;color:#ccc;padding:8px 22px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em}
+.bar a{color:#fff}
+
+nav{padding:24px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #0a0a0a}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:28px;letter-spacing:-.02em}
+.logo small{font-family:'Inter',sans-serif;font-weight:400;font-size:12px;letter-spacing:.15em;text-transform:uppercase;margin-left:10px;color:#666}
+nav ul{display:flex;gap:32px;list-style:none;font-size:13px;font-weight:500;letter-spacing:.03em}
+.visit{padding:10px 22px;border:1px solid #0a0a0a;font-family:'Fraunces',serif;font-style:italic;font-size:14px}
+
+.hero{padding:100px 40px 80px;border-bottom:1px solid #0a0a0a;position:relative}
+.hero-n{font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;letter-spacing:.3em;margin-bottom:24px;text-transform:uppercase}
+h1{font-family:'Fraunces',serif;font-weight:300;font-size:clamp(80px,13vw,200px);letter-spacing:-.04em;line-height:.88;max-width:12ch}
+h1 em{font-style:italic;font-weight:400}
+.hero p{font-family:'Fraunces',serif;font-weight:300;font-size:26px;max-width:64ch;color:#333;margin-top:40px;line-height:1.35}
+.hero-meta{display:grid;grid-template-columns:repeat(4,auto);gap:40px;margin-top:60px;padding-top:40px;border-top:1px solid #0a0a0a20;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#666}
+.hero-meta b{display:block;font-family:'Fraunces',serif;font-weight:500;font-size:18px;letter-spacing:-.01em;color:#0a0a0a;margin-top:6px;text-transform:none}
+
+.collections{padding:80px 40px;max-width:1400px;margin:0 auto}
+.col-head{display:grid;grid-template-columns:200px 1fr auto;gap:30px;align-items:end;margin-bottom:50px}
+.col-head .k{font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;letter-spacing:.2em;text-transform:uppercase}
+.col-head h2{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:64px;letter-spacing:-.03em}
+.col-head .go{font-family:'Fraunces',serif;font-style:italic;font-size:16px}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.ex{background:#eae6dd;overflow:hidden;cursor:pointer;transition:transform .3s}
+.ex:hover{transform:translateY(-4px)}
+.ex-img{aspect-ratio:4/5;background:#111;position:relative;overflow:hidden}
+.ex-img.c1{background:radial-gradient(circle at 40% 40%,#f4c21a 20%,#8a6a0a 80%)}
+.ex-img.c2{background:radial-gradient(circle at 50% 40%,#e63946 20%,#4a1a1a 80%)}
+.ex-img.c3{background:radial-gradient(circle at 50% 50%,#2e62d8 20%,#0a1a4a 80%)}
+.ex-img.c4{background:radial-gradient(circle at 40% 40%,#a246d8 20%,#2a0a4a 80%)}
+.ex-img.c5{background:radial-gradient(circle at 50% 40%,#33d6a8 20%,#0a4a3a 80%)}
+.ex-img.c6{background:radial-gradient(circle at 50% 50%,#ff5a9b 20%,#6a1a3a 80%)}
+.ex-img::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,#000c 100%)}
+.ex-img .hn{position:absolute;top:16px;left:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#fff;letter-spacing:.15em;padding:4px 10px;background:#000;border:1px solid #fff5}
+.ex-info{padding:20px 24px}
+.ex-info .y{font-family:'JetBrains Mono',monospace;font-size:10px;color:#888;letter-spacing:.15em;margin-bottom:6px}
+.ex-info h3{font-family:'Fraunces',serif;font-weight:500;font-size:22px;letter-spacing:-.02em;margin-bottom:8px}
+.ex-info p{font-size:13px;color:#555;line-height:1.55}
+
+.history{padding:100px 40px;background:#0a0a0a;color:#f4f2ed;border-top:1px solid #0a0a0a}
+.history-in{max-width:1400px;margin:0 auto}
+.history h2{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:72px;letter-spacing:-.03em;margin-bottom:14px}
+.history h2 em{color:#ffd633}
+.timeline{position:relative;margin-top:60px;padding-left:40px;border-left:1px solid #444}
+.t-item{margin-bottom:50px;position:relative}
+.t-item::before{content:'';position:absolute;left:-48px;top:6px;width:14px;height:14px;background:#ffd633;border-radius:50%;border:3px solid #0a0a0a}
+.t-item .year{font-family:'JetBrains Mono',monospace;font-size:11px;color:#ffd633;letter-spacing:.2em;margin-bottom:6px;text-transform:uppercase}
+.t-item h3{font-family:'Fraunces',serif;font-weight:500;font-size:28px;letter-spacing:-.02em;margin-bottom:10px}
+.t-item p{color:#bbb;max-width:70ch;font-size:15px;line-height:1.6}
+
+.visit-sec{padding:80px 40px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.visit-sec h2{font-family:'Fraunces',serif;font-weight:300;font-style:italic;font-size:64px;letter-spacing:-.03em;line-height:.95}
+.visit-info{font-family:'Fraunces',serif;font-weight:300;font-size:17px;color:#333;line-height:1.6}
+.visit-info dl{margin-top:30px;display:grid;grid-template-columns:140px 1fr;gap:14px 20px;padding-top:20px;border-top:1px solid #0a0a0a}
+.visit-info dt{font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;letter-spacing:.15em;text-transform:uppercase;padding-top:4px}
+.visit-info dd{font-family:'Fraunces',serif;font-weight:500;font-size:16px}
+
+footer{padding:50px 40px;border-top:1px solid #0a0a0a;font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;letter-spacing:.1em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px}
+
+@media(max-width:900px){.grid{grid-template-columns:1fr}.hero-meta{grid-template-columns:1fr 1fr}.visit-sec,.col-head{grid-template-columns:1fr;gap:20px}nav ul{display:none}}
+</style>
+</head>
+<body>
+
+<div class="bar"><span>← <a href="../index.html">World Catalog</a></span><span>PIGMENT ARCHIVE · Seoul · Founded 1997</span></div>
+
+<nav>
+  <div class="logo">Pigment Archive <small>색 박물관</small></div>
+  <ul>
+    <li><a>Collections</a></li>
+    <li><a>History</a></li>
+    <li><a>Exhibitions</a></li>
+    <li><a>Education</a></li>
+    <li><a>Visit</a></li>
+  </ul>
+  <a class="visit">Plan your visit →</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-n">◉ A BRIEF HISTORY OF COLOUR · 색의 간략한 역사</div>
+  <h1>Every<br><em>hue has</em><br>a story.</h1>
+  <p>Найбільший у світі музей пігменту. 11 постійних колекцій, 42 000 артефактів, 130 років історії кольорової стандартизації — від перших HSV-реєстрів XIX століття до сучасного PMS-партнерства з державами.</p>
+  <div class="hero-meta">
+    <div>FOUNDED<b>1997.11.03</b></div>
+    <div>ARTIFACTS<b>42 180</b></div>
+    <div>COLLECTIONS<b>11 permanent</b></div>
+    <div>ANNUAL VISITORS<b>1.8 M</b></div>
+  </div>
+</section>
+
+<section class="collections">
+  <div class="col-head">
+    <div class="k">01 · PERMANENT COLLECTIONS</div>
+    <h2>Six <em>rooms.</em></h2>
+    <div class="go"><a>All 11 collections →</a></div>
+  </div>
+  <div class="grid">
+    <div class="ex"><div class="ex-img c1"><span class="hn">H 60°</span></div><div class="ex-info"><div class="y">2024 · ROOM 01 · YELLOW</div><h3>Kaiser's Gold</h3><p>Історія жовтого: від єгипетських охр і середньовічних піґментів до сучасного жовтого, асоційованого з інтелектом та обережністю.</p></div></div>
+    <div class="ex"><div class="ex-img c2"><span class="hn">H 0°</span></div><div class="ex-info"><div class="y">2023 · ROOM 02 · RED</div><h3>Blood Standard</h3><p>Червоний як універсальна небезпека. Піґменти війни, пропаганди, попереджень. Центральний експонат — перший <em>Red Alert</em> PMS реєстр 1942.</p></div></div>
+    <div class="ex"><div class="ex-img c3"><span class="hn">H 240°</span></div><div class="ex-info"><div class="y">2022 · ROOM 03 · BLUE</div><h3>Deep Blue Silence</h3><p>Синій як колір влади, океану та даних. Історія ультрамаринового, індіго, кобальту. Включає оригінальну IBM Blue palette 1956.</p></div></div>
+    <div class="ex"><div class="ex-img c4"><span class="hn">H 280°</span></div><div class="ex-info"><div class="y">2025 · ROOM 04 · VIOLET</div><h3>Royal Violet</h3><p>Від пурпуру тирійського, що коштував дорожче ніж золото, до синтетичних фіолетових Перкіна 1856. Зал закривається тіамарчним освітленням.</p></div></div>
+    <div class="ex"><div class="ex-img c5"><span class="hn">H 120°</span></div><div class="ex-info"><div class="y">2024 · ROOM 05 · GREEN</div><h3>Poison Green</h3><p>Паризький зелений (отруйний арсен-пігмент, що вбивав художників XIX ст.) і хлорофільний зелений. Ексклюзив: оригінальний пальто Наполеона.</p></div></div>
+    <div class="ex"><div class="ex-img c6"><span class="hn">H 335°</span></div><div class="ex-info"><div class="y">2026 · ROOM 06 · PINK</div><h3>Soft Pink Protest</h3><p>Відкрита 2026.01. Історія рожевого — від «дівчачого» кольору XIX ст. (який був чоловічим раніше) до протестного pink peril 2010-х та сучасного K-pop домену. Partnership with YGE.</p></div></div>
+  </div>
+</section>
+
+<section class="history">
+  <div class="history-in">
+    <h2>Timeline of <em>colour.</em></h2>
+    <p style="font-family:'Fraunces',serif;font-weight:300;font-size:20px;color:#ccc;max-width:58ch;line-height:1.45">Короткий інтерактивний огляд ключових моментів історії пігментної стандартизації. Повна таймлайн — 240 подій — доступна у зоні EDU.</p>
+
+    <div class="timeline">
+      <div class="t-item"><div class="year">1856</div><h3>Перший синтетичний фіолетовий — Mauveine</h3><p>Вільям Перкін у 18 років відкриває перший анілиновий барвник. Це починає промислову революцію у виробництві пігменту і закладає основу для майбутньої стандартизації.</p></div>
+      <div class="t-item"><div class="year">1914</div><h3>Pantone Matching System · засновано</h3><p>У передодні Першої світової — комерційний спалах друку вимагав стандарту кольору. PMS починає як приватна компанія зі 84 базових кольорів. Сьогодні їх 2 390.</p></div>
+      <div class="t-item"><div class="year">1942</div><h3>Перший pigment-registry</h3><p>Війна відкрила офіційну державну класифікацію людей за Hue. Спочатку — для армії (для маскування й для пошуку). Потім — для всіх. Етичні наслідки дискутуються донині.</p></div>
+      <div class="t-item"><div class="year">1998</div><h3>HSV Codex · перший цифровий реєстр</h3><p>Об'єднання PMS стандарту з цифровою HSV-координатною системою. Кожна людина отримує унікальну позначку. Критика: «найбільший біометричний збір в історії».</p></div>
+      <div class="t-item"><div class="year">2024</div><h3>Tier-система введена в Кореї</h3><p>Офіційна градація: Tier 1 passive, Tier 2 controlled, Tier 3 uncontrolled, Tier 4 Kaiser-level. Корея стає першою країною з повним tier-регулюванням.</p></div>
+      <div class="t-item"><div class="year">2026</div><h3>4-та ера PINK domain</h3><p>Рожевий сегмент (H 300—360°) вперше масово представлений у поп-культурі як «домінантна» естетика. Музей відкриває постійну експозицію «Soft Pink Protest».</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="visit-sec">
+  <div>
+    <h2>Visit<br>the <em>archive.</em></h2>
+    <p style="font-family:'Fraunces',serif;font-weight:300;font-size:18px;margin-top:20px;color:#333">Ми в центральному Сеулі, 5 хвилин від Dongdaemun Design Plaza. Усі експозиції безкоштовні для pigment-users Tier 1—2. Для Tier 3+ — обов'язкова передача pre-registration.</p>
+  </div>
+  <div class="visit-info">
+    <dl>
+      <dt>Address</dt><dd>12-1 Euljiro, Jung-gu · Seoul 04550</dd>
+      <dt>Hours</dt><dd>Tue—Sun · 10:00—19:00</dd>
+      <dt>Closed</dt><dd>Mondays, public holidays</dd>
+      <dt>Admission</dt><dd>Free (Tier 1—2) · 12,000 ₩ (Tier 3+) · 24,000 ₩ (normi guided tour)</dd>
+      <dt>Phone</dt><dd>+82 2 312 8470</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 PIGMENT ARCHIVE · a PMS Cultural Foundation partner · Seoul</span>
+  <span><a href="../index.html" style="color:#0a0a0a">← World Catalog</a> · Newsletter · EDU program · Accessibility</span>
+</footer>
+
+</body></html>

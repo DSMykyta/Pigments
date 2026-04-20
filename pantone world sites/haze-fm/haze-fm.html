@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>HAZE.FM · Pigment radio · 24/7 spectrum</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0615">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bungee&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0615;color:#f0e8ff;font-family:'Space Grotesk',sans-serif;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.bar{background:#000;padding:8px 22px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8878a0;letter-spacing:.1em}
+.bar a{color:#ff5ad1}
+.bar .live{color:#ff5ad1;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.5}}
+
+nav{padding:22px 40px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a1a40;position:sticky;top:0;background:#0a0615d0;backdrop-filter:blur(10px);z-index:10}
+.logo{font-family:'Bungee',sans-serif;font-size:30px;letter-spacing:-.02em;background:linear-gradient(90deg,#ff5ad1,#8a5aff,#5ae0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav ul{display:flex;gap:28px;list-style:none;font-size:13px;font-weight:500;letter-spacing:.05em}
+nav a{color:#8878a0}
+nav a.on{color:#ff5ad1}
+.donate{padding:9px 20px;background:linear-gradient(90deg,#ff5ad1,#8a5aff);color:#fff;font-weight:600;font-size:12px;border-radius:30px;letter-spacing:.08em;text-transform:uppercase}
+
+.player-hero{padding:80px 40px;background:radial-gradient(ellipse at 20% 30%,#ff5ad130 0%,transparent 50%),radial-gradient(ellipse at 80% 70%,#5ae0ff30 0%,transparent 50%),#0a0615}
+.ph-in{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:center}
+.album-viz{aspect-ratio:1/1;border-radius:20px;background:url('https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=900') center/cover no-repeat;position:relative;box-shadow:0 40px 100px #ff5ad140;overflow:hidden}
+.album-viz::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,#000c 100%)}
+.av-overlay{position:absolute;bottom:24px;left:24px;right:24px;z-index:2;color:#fff}
+.av-overlay .n{font-family:'JetBrains Mono',monospace;font-size:11px;color:#ff5ad1;letter-spacing:.2em;margin-bottom:8px}
+.av-overlay h3{font-family:'Bungee',sans-serif;font-size:34px;letter-spacing:-.02em;margin-bottom:6px}
+.av-overlay p{font-size:14px;color:#cfc0e8}
+
+.now-p{}
+.now-p .l{font-family:'JetBrains Mono',monospace;font-size:12px;color:#ff5ad1;letter-spacing:.25em;margin-bottom:18px;text-transform:uppercase}
+.now-p h1{font-family:'Bungee',sans-serif;font-size:clamp(54px,8vw,96px);letter-spacing:-.02em;line-height:.9;margin-bottom:22px;background:linear-gradient(90deg,#ff5ad1,#8a5aff,#5ae0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.np-song{padding:22px 26px;background:#1a0e2e;border:1px solid #2a1a40;border-radius:14px;margin-bottom:20px;display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center}
+.np-ico{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,#ff5ad1,#5ae0ff);display:grid;place-items:center;font-size:20px;color:#000;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.np-song .t{font-weight:600;font-size:16px}
+.np-song .t small{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8878a0;letter-spacing:.08em;margin-top:4px}
+.np-song .hue-tag{padding:6px 12px;background:linear-gradient(90deg,#ff5ad1,#8a5aff);color:#000;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;border-radius:20px;letter-spacing:.1em}
+.controls{display:flex;gap:12px;align-items:center}
+.ctrl{width:52px;height:52px;border-radius:50%;background:#2a1a40;color:#fff;display:grid;place-items:center;cursor:pointer;font-size:18px;transition:background .2s}
+.ctrl:hover{background:#ff5ad1;color:#000}
+.ctrl.big{width:72px;height:72px;background:linear-gradient(135deg,#ff5ad1,#8a5aff);font-size:26px}
+.vol{flex:1;margin-left:18px;height:4px;background:#2a1a40;border-radius:2px;position:relative}
+.vol-f{position:absolute;left:0;top:0;bottom:0;width:64%;background:linear-gradient(90deg,#ff5ad1,#5ae0ff);border-radius:2px}
+
+.channels{padding:80px 40px;max-width:1300px;margin:0 auto}
+.channels h2{font-family:'Bungee',sans-serif;font-size:54px;letter-spacing:-.02em;margin-bottom:14px}
+.channels .lead{color:#b8a8d0;margin-bottom:40px;max-width:62ch}
+.ch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ch{padding:26px 24px;border-radius:16px;cursor:pointer;transition:transform .3s;position:relative;overflow:hidden;min-height:180px;display:flex;flex-direction:column;justify-content:space-between}
+.ch:hover{transform:translateY(-6px)}
+.ch::after{content:'';position:absolute;inset:0;opacity:.9;z-index:0}
+.ch>*{position:relative;z-index:1}
+.ch.r0::after{background:linear-gradient(135deg,#ff3b3b,#8b0a0a)}
+.ch.r1::after{background:linear-gradient(135deg,#ff8c2a,#a04810)}
+.ch.r2::after{background:linear-gradient(135deg,#ffd633,#a08800)}
+.ch.r3::after{background:linear-gradient(135deg,#33d67a,#0a5a2a)}
+.ch.r4::after{background:linear-gradient(135deg,#33b5e5,#0a3a6a)}
+.ch.r5::after{background:linear-gradient(135deg,#8a5aff,#3a1a8a)}
+.ch.r6::after{background:linear-gradient(135deg,#ff5ad1,#8a1a6a)}
+.ch.r7::after{background:linear-gradient(135deg,#cccccc,#333)}
+.ch .h-code{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;color:#fff;opacity:.8}
+.ch h3{font-family:'Bungee',sans-serif;font-size:26px;color:#fff;margin:14px 0 8px;letter-spacing:-.01em}
+.ch p{font-size:13px;color:#fff;opacity:.9;line-height:1.45}
+.ch .stats{margin-top:14px;display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#fff;opacity:.8;letter-spacing:.1em}
+
+.schedule{padding:80px 40px;background:#120820;border-top:1px solid #2a1a40}
+.sched-in{max-width:1300px;margin:0 auto}
+.schedule h2{font-family:'Bungee',sans-serif;font-size:54px;letter-spacing:-.02em;margin-bottom:14px}
+.schedule .lead{color:#b8a8d0;margin-bottom:40px}
+.sched-grid{display:grid;gap:1px;background:#2a1a40}
+.sched-row{background:#0a0615;padding:18px 26px;display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center}
+.sched-row.on{background:#ff5ad112}
+.sched-row.on .time{color:#ff5ad1}
+.sched-row .time{font-family:'JetBrains Mono',monospace;font-size:13px;color:#8878a0;letter-spacing:.08em}
+.sched-row .name{font-family:'Bungee',sans-serif;font-size:20px;letter-spacing:-.01em}
+.sched-row .name small{display:block;font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:12px;color:#8878a0;margin-top:3px;letter-spacing:.03em}
+.sched-row .tag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:4px 10px;border:1px solid #2a1a40;color:#8878a0;letter-spacing:.12em;text-transform:uppercase;border-radius:3px}
+
+footer{padding:60px 40px;color:#8878a0;font-size:12px;border-top:1px solid #2a1a40;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+footer .fl{font-family:'Bungee',sans-serif;font-size:24px;background:linear-gradient(90deg,#ff5ad1,#5ae0ff);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+footer b{color:#f0e8ff;display:block;margin-bottom:10px;font-size:13px}
+footer ul{list-style:none}
+footer li{margin-bottom:4px}
+footer a{color:#ff5ad1}
+
+@media(max-width:900px){.ph-in,.ch-grid,footer{grid-template-columns:1fr}nav ul{display:none}}
+</style>
+</head>
+<body>
+
+<div class="bar"><span>← <a href="../index.html">World Catalog</a></span><span><span class="live">● LIVE</span> · 24/7 · 8 каналів · 42 128 слухачів зараз</span></div>
+
+<nav>
+  <div class="logo">HAZE.FM</div>
+  <ul>
+    <li><a class="on" href="#">Play</a></li>
+    <li><a href="#channels">Channels</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#">DJs</a></li>
+    <li><a href="#">Shop</a></li>
+  </ul>
+  <a class="donate" href="#">Donate ♡</a>
+</nav>
+
+<section class="player-hero">
+  <div class="ph-in">
+    <div class="album-viz">
+      <div class="av-overlay">
+        <div class="n">◉ NOW PLAYING · H 320° · PINK DOMAIN</div>
+        <h3>BLAC PINC — Absolute Zero</h3>
+        <p>Album: Pink Venom² · 2025 · 4-piece · YGE</p>
+      </div>
+    </div>
+    <div class="now-p">
+      <div class="l">◉ Pigment Radio · Live 24/7</div>
+      <h1>Tune to<br>your <em style="font-style:italic">hue.</em></h1>
+      <p style="color:#b8a8d0;font-size:17px;margin-bottom:28px;max-width:50ch">Перша у світі радіостанція з програмуванням по Hue-сегментах. 8 каналів, по одному на кожну ділянку спектра. DJ-і — реальні пігментоносії.</p>
+      <div class="np-song">
+        <div class="np-ico">♪</div>
+        <div class="t">Absolute Zero<small>BLAC PINC · Single · 3:42</small></div>
+        <div class="hue-tag">H 320°</div>
+      </div>
+      <div class="controls">
+        <div class="ctrl">⏮</div>
+        <div class="ctrl big">▶</div>
+        <div class="ctrl">⏭</div>
+        <div class="ctrl">♡</div>
+        <div class="vol"><div class="vol-f"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="channels" id="channels">
+  <h2>8 channels. <span style="color:#ff5ad1;font-style:italic">Picked by Hue.</span></h2>
+  <p class="lead">Кожен канал — окрема частина спектра. Алгоритм добирає музику, де пігментна естетика виконавців збігається з зоною каналу. Слухай свою — чи експериментуй.</p>
+  <div class="ch-grid">
+    <div class="ch r0"><div class="h-code">H 0° · RED</div><h3>Red Alert</h3><p>Rock · metal · agitation anthems · direct emotion</p><div class="stats"><span>● 5,128 online</span><span>▶ 82 tracks</span></div></div>
+    <div class="ch r1"><div class="h-code">H 30° · ORANGE</div><h3>Amber Glow</h3><p>Indie folk · sunset vibes · warm tones</p><div class="stats"><span>● 3,422 online</span><span>▶ 64 tracks</span></div></div>
+    <div class="ch r2"><div class="h-code">H 60° · YELLOW</div><h3>Kaiser Gold</h3><p>Afrobeat · jazz-funk · brass-forward</p><div class="stats"><span>● 2,918 online</span><span>▶ 71 tracks</span></div></div>
+    <div class="ch r3"><div class="h-code">H 120° · GREEN</div><h3>Chloro</h3><p>Ambient · forest techno · slow BPM</p><div class="stats"><span>● 4,201 online</span><span>▶ 55 tracks</span></div></div>
+    <div class="ch r4"><div class="h-code">H 200° · CYAN</div><h3>Deep Signal</h3><p>Electronic · synthwave · oceanic drone</p><div class="stats"><span>● 6,412 online</span><span>▶ 98 tracks</span></div></div>
+    <div class="ch r5"><div class="h-code">H 280° · VIOLET</div><h3>Royal Haze</h3><p>Neo-soul · dreampop · slow RnB</p><div class="stats"><span>● 4,882 online</span><span>▶ 73 tracks</span></div></div>
+    <div class="ch r6"><div class="h-code">H 320° · PINK · ON AIR</div><h3>Pink Domain</h3><p>K-pop · pop-rap · BLAC PINC era</p><div class="stats"><span>● 14,203 online</span><span>▶ 152 tracks</span></div></div>
+    <div class="ch r7"><div class="h-code">H ZERO · NORMI</div><h3>Greyscale</h3><p>Classical · ambient · no-hue zone · for normi</p><div class="stats"><span>● 892 online</span><span>▶ 48 tracks</span></div></div>
+  </div>
+</section>
+
+<section class="schedule" id="schedule">
+  <div class="sched-in">
+    <h2>Today's <span style="color:#ff5ad1;font-style:italic">schedule.</span></h2>
+    <p class="lead">Усі часи KST. Подкасти, інтерв'ю, концерти наживо.</p>
+    <div class="sched-grid">
+      <div class="sched-row"><div class="time">06:00 — 09:00</div><div class="name">MORNING SPECTRUM<small>DJ Haze · перші новини пігменту</small></div><span class="tag">MORNING</span></div>
+      <div class="sched-row"><div class="time">09:00 — 12:00</div><div class="name">PINK DOMAIN LIVE<small>Special: BLAC PINC discography stream</small></div><span class="tag">SPECIAL</span></div>
+      <div class="sched-row"><div class="time">12:00 — 14:00</div><div class="name">LUNCH WITH KAISER<small>Jazz & interview hour · guest: Astrid V.</small></div><span class="tag">TALK</span></div>
+      <div class="sched-row on"><div class="time">14:00 — 17:00</div><div class="name">● PINK DOMAIN · зараз у ефірі<small>BLAC PINC / K-pop pink era · нон-стоп</small></div><span class="tag">LIVE</span></div>
+      <div class="sched-row"><div class="time">17:00 — 20:00</div><div class="name">ROYAL HAZE<small>Evening violet · Neo-soul · dreampop</small></div><span class="tag">EVENING</span></div>
+      <div class="sched-row"><div class="time">20:00 — 23:00</div><div class="name">DEEP SIGNAL LIVE SET<small>DJ Minha · electronic · cyan hue</small></div><span class="tag">LIVE SET</span></div>
+      <div class="sched-row"><div class="time">23:00 — 02:00</div><div class="name">GREYSCALE (NORMI HOUR)<small>Normi-only programming · classical</small></div><span class="tag">NIGHT</span></div>
+      <div class="sched-row"><div class="time">02:00 — 06:00</div><div class="name">BURN OUT CHANNEL<small>Red Alert · insomnia rock · до світанку</small></div><span class="tag">LATE</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><div class="fl">HAZE.FM</div><p>Перша pigment radio station. Незалежна. Без реклами. На донаціях слухачів. Seoul · Berlin · Lagos · Mexico City.</p></div>
+  <div><b>Listen</b><ul><li><a>Pink Domain</a></li><li><a>Red Alert</a></li><li><a>Deep Signal</a></li><li><a>Greyscale (normi)</a></li></ul></div>
+  <div><b>Connect</b><ul><li><a href="../blacpinc/blacpinc.html">BLAC PINC</a></li><li><a href="../codex/codex.html">HSV Codex</a></li><li><a>Discord</a></li><li><a>Spotify mirror</a></li></ul></div>
+  <div><b>Support</b><ul><li><a href="#">Donate ♡</a></li><li><a href="#">Merch</a></li><li><a href="../index.html">← World Catalog</a></li></ul></div>
+</footer>
+
+</body></html>

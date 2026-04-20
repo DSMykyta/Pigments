@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>darkhue://market · pigment-ринок · без логів</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#080808;color:#00ff94;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.45;text-shadow:0 0 2px #00ff9440}
+a{color:#00ff94;text-decoration:none}
+a:hover{text-decoration:underline}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:100;
+  background:repeating-linear-gradient(0deg,transparent 0,#00ff9408 1px,transparent 2px);
+}
+
+.bar{background:#000;padding:6px 16px;display:flex;justify-content:space-between;border-bottom:1px solid #00ff9430;font-size:11px}
+.bar a{color:#ff3b3b}
+.bar .warn{color:#ff3b3b;animation:blink 1.2s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+
+.term{padding:10px 22px;border-bottom:1px solid #00ff9430;display:flex;justify-content:space-between;align-items:center}
+.prompt{font-family:'VT323',monospace;font-size:22px;color:#00ff94}
+.prompt span{color:#666}
+.prompt b{color:#fff;font-weight:400}
+.term-r{font-size:11px;color:#666}
+
+nav{padding:12px 22px;display:flex;gap:30px;border-bottom:1px solid #00ff9430;font-size:12px;letter-spacing:.05em;overflow-x:auto}
+nav a{color:#00ff94a0}
+nav a.on{color:#00ff94;border-bottom:1px solid #00ff94;padding-bottom:4px}
+nav a:hover{color:#fff}
+
+.hero{padding:60px 22px;border-bottom:1px solid #00ff9430;position:relative;overflow:hidden}
+.hero::before{content:'01010100 01001000 01000101 · 01010000 01001001 01000111 01001101 01000101 01001110 01010100';position:absolute;top:0;left:0;right:0;font-size:10px;color:#00ff9418;white-space:nowrap;overflow:hidden;padding:4px 0}
+.hero h1{font-family:'VT323',monospace;font-size:clamp(60px,10vw,120px);line-height:.9;letter-spacing:-.02em;color:#00ff94;text-shadow:0 0 20px #00ff9460,2px 2px 0 #ff3b3b}
+.hero h1 span{color:#ff3b3b}
+.hero .sub{margin-top:20px;max-width:70ch;font-size:14px;color:#00ff94a0}
+.hero .warn-box{margin-top:24px;padding:12px 18px;background:#ff3b3b12;border:1px solid #ff3b3b60;color:#ff3b3b;font-size:12px;max-width:600px}
+.hero .stats{display:flex;gap:30px;margin-top:30px;padding-top:20px;border-top:1px dashed #00ff9430;font-size:11px;color:#666;flex-wrap:wrap}
+.hero .stats b{color:#00ff94;display:block;font-size:16px;margin-top:2px}
+
+.board{padding:50px 22px;max-width:1400px;margin:0 auto}
+.board-h{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px;border-bottom:1px solid #00ff9430;padding-bottom:16px}
+.board-h h2{font-family:'VT323',monospace;font-size:42px;color:#fff;letter-spacing:.02em}
+.board-h h2 span{color:#00ff94}
+.board-h .k{font-size:11px;color:#666}
+
+.cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.cats a{padding:6px 12px;border:1px solid #00ff9430;font-size:10px;letter-spacing:.1em;color:#00ff94a0;text-transform:uppercase}
+.cats a.on,.cats a:hover{background:#00ff94;color:#000;border-color:#00ff94}
+
+.listings{display:grid;grid-template-columns:1fr;gap:1px;background:#00ff9420}
+.listing{background:#0a0a0a;padding:18px 22px;display:grid;grid-template-columns:60px 1fr auto auto;gap:20px;align-items:center;transition:background .15s;cursor:pointer}
+.listing:hover{background:#00ff9408}
+.listing.risky{border-left:3px solid #ff3b3b}
+.listing.verified{border-left:3px solid #00ff94}
+.l-price{font-family:'VT323',monospace;font-size:22px;color:#fff;text-align:right}
+.l-price small{display:block;font-size:10px;color:#666;letter-spacing:.1em;margin-top:2px;font-family:'JetBrains Mono',monospace}
+.l-info .title{font-size:14px;color:#fff;margin-bottom:4px}
+.l-info .title em{color:#00ff94;font-style:normal;margin-right:8px}
+.l-info .meta{display:flex;gap:14px;font-size:11px;color:#666}
+.l-info .meta .r{color:#ff3b3b}
+.l-info .meta .v{color:#00ff94}
+.l-vendor{font-size:11px;color:#00ff94a0;text-align:right;font-family:'JetBrains Mono',monospace}
+.l-vendor small{color:#666;display:block;font-size:9px;margin-top:2px;letter-spacing:.1em}
+.l-tier{font-family:'VT323',monospace;font-size:28px;color:#00ff94;text-align:center;padding:4px 10px;border:1px solid #00ff94;line-height:1}
+.l-tier.t3{color:#ff3b3b;border-color:#ff3b3b}
+.l-tier.t4{color:#fff;border-color:#fff;background:#ff3b3b}
+
+.faq{padding:50px 22px;max-width:1000px;margin:40px auto;border-top:1px solid #00ff9430}
+.faq h2{font-family:'VT323',monospace;font-size:42px;color:#fff;margin-bottom:30px}
+.faq h2 span{color:#00ff94}
+.q{border-bottom:1px dashed #00ff9430;padding:16px 0;cursor:pointer}
+.q summary{list-style:none;font-size:14px;color:#00ff94;letter-spacing:.03em}
+.q summary::before{content:'?&gt; ';color:#666}
+.q[open] summary::before{content:'!&gt; ';color:#ff3b3b}
+.q p{padding:10px 0 4px 24px;color:#00ff94a0;font-size:13px;line-height:1.6}
+.q p b{color:#fff}
+
+.rules{padding:50px 22px;max-width:1000px;margin:0 auto;border-top:1px solid #00ff9430}
+.rules h2{font-family:'VT323',monospace;font-size:42px;color:#ff3b3b;margin-bottom:20px}
+.rules ol{padding-left:30px;color:#00ff94a0;font-size:13px;line-height:1.9}
+.rules ol b{color:#fff}
+
+footer{padding:40px 22px;border-top:1px solid #00ff9430;font-size:10px;color:#666;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+footer a{color:#ff3b3b}
+footer .uptime{color:#00ff94}
+
+@media(max-width:800px){.listing{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="bar"><span>→ <a href="../index.html">[./вихід на clearnet]</a> · onion v3 · tor-only</span><span class="warn">⚠ CLEARNET-ДОСТУП ВИЯВЛЕНО · УВІМКНИ TOR</span></div>
+
+<div class="term">
+  <div class="prompt">guest@darkhue:~$ <b>./market --list --category=all</b><span style="animation:blink 1s steps(2) infinite">_</span></div>
+  <div class="term-r">сесія · tor2 · uptime 4h:12m · 2.7k онлайн</div>
+</div>
+
+<nav>
+  <a class="on">/market</a>
+  <a>/boosters</a>
+  <a>/suppressors</a>
+  <a>/tier-shifters</a>
+  <a>/identity-mods</a>
+  <a>/forums</a>
+  <a>/vendors</a>
+  <a>/escrow</a>
+  <a>/pgp</a>
+</nav>
+
+<section class="hero">
+  <h1>dark<span>hue</span>://market<span style="animation:blink 1s steps(2) infinite;color:#00ff94">_</span></h1>
+  <div class="sub">// unregulated pigment trade · tor hidden service since 2021 · no kyc · no logs · multisig escrow · no recovery on lost keys //</div>
+  <div class="warn-box">
+    ⚠ <b>УВАГА · ЧИТАЙ ПЕРЕД ВХОДОМ</b><br>
+    This market deals in pigment-altering substances not approved by PMS · WHO · FDA · KFDA. Use at your own risk. We do not ship. Vendors ship. Dispute through escrow only. Tier 3 → Tier 4 shift is irreversible in 87% of cases. If you do not understand these risks, exit now.
+  </div>
+  <div class="stats">
+    <span>ЛОТІВ<b>4 287 активних</b></span>
+    <span>ВЕНДОРІВ<b>612 перевірених</b></span>
+    <span>ESCROW<b>₿ 0.34 M</b></span>
+    <span>UPTIME<b>99.87%</b></span>
+    <span>ОСТАННІЙ РЕЙД<b>0 (жодного)</b></span>
+  </div>
+</section>
+
+<section class="board">
+  <div class="board-h">
+    <h2>/market <span>· лотів</span></h2>
+    <div class="k">сортування: ⬇ новіші · 2.7k лотів · стор 1/143</div>
+  </div>
+
+  <div class="cats">
+    <a class="on">all</a>
+    <a>boosters</a>
+    <a>suppressors</a>
+    <a>tier-shifters</a>
+    <a>identity-mods</a>
+    <a>research-chems</a>
+    <a>detection-evaders</a>
+    <a>black-papers</a>
+  </div>
+
+  <div class="listings">
+
+    <div class="listing verified">
+      <div class="l-tier">T2</div>
+      <div class="l-info">
+        <div class="title"><em>[BOOST]</em>chromacore-x · +15% Hue saturation · 30-day course</div>
+        <div class="meta"><span>stealth-доставка KR/JP/US</span><span class="v">✓ перевірених · 4.8★</span><span>залишок: 142</span></div>
+      </div>
+      <div class="l-vendor">u/pink_alchemist<small>продавець · 2.8y</small></div>
+      <div class="l-price">0.0082 ₿<small>~$540 USD</small></div>
+    </div>
+
+    <div class="listing verified">
+      <div class="l-tier">T2</div>
+      <div class="l-info">
+        <div class="title"><em>[SUPPR]</em>grayline · temporary Tier 2→1 suppressor · 72h duration</div>
+        <div class="meta"><span>доставка KR</span><span class="v">✓ перевірених · 4.9★</span><span>залишок: 34</span></div>
+      </div>
+      <div class="l-vendor">u/seoul_chem<small>продавець · 4.1y</small></div>
+      <div class="l-price">0.0045 ₿<small>~$295 USD</small></div>
+    </div>
+
+    <div class="listing risky">
+      <div class="l-tier t3">T3</div>
+      <div class="l-info">
+        <div class="title"><em>[SHIFT]</em>kaiser-seed · Tier 2 → 3 escalator · <span style="color:#ff3b3b">НЕЗВОРОТНЕ</span></div>
+        <div class="meta"><span class="r">⚠ ЕКСТРЕМАЛЬНИЙ РИЗИК · 23% смертність</span><span>залишок: 7</span></div>
+      </div>
+      <div class="l-vendor">u/anonymous_4671<small>продавець · 8m · new</small></div>
+      <div class="l-price">0.48 ₿<small>~$31 500 USD</small></div>
+    </div>
+
+    <div class="listing verified">
+      <div class="l-tier">T1</div>
+      <div class="l-info">
+        <div class="title"><em>[BOOST]</em>baby-bloom · activates dormant Tier 1 pigment · for kids 12—17</div>
+        <div class="meta"><span>доставка світ</span><span class="v">✓ перевірених · 4.6★</span><span class="r">⚠ 18+</span><span>залишок: 89</span></div>
+      </div>
+      <div class="l-vendor">u/pediatric_p<small>продавець · 1.8y · pharma-бекграунд</small></div>
+      <div class="l-price">0.0125 ₿<small>~$820 USD</small></div>
+    </div>
+
+    <div class="listing verified">
+      <div class="l-tier">T2</div>
+      <div class="l-info">
+        <div class="title"><em>[MOD]</em>hue-shifter · +/-30° H rotation · single-use · passport-photo friendly</div>
+        <div class="meta"><span>stealth KR/CN/JP</span><span class="v">✓ перевірених · 4.7★</span><span>залишок: 210</span></div>
+      </div>
+      <div class="l-vendor">u/id_fixer<small>продавець · 3.2y</small></div>
+      <div class="l-price">0.0068 ₿<small>~$448 USD</small></div>
+    </div>
+
+    <div class="listing risky">
+      <div class="l-tier t4">T4</div>
+      <div class="l-info">
+        <div class="title"><em>[KAISER]</em>ascension-protocol · Tier 3 → 4 breakthrough · <span style="color:#ff3b3b">ОСТАННІ 5</span></div>
+        <div class="meta"><span class="r">☠ ЛЕТАЛЬНА ДОЗА У 30% · KAISER-РІВЕНЬ</span><span>залишок: 5</span></div>
+      </div>
+      <div class="l-vendor">u/kaiser_11<small>продавець · 15y · легенда</small></div>
+      <div class="l-price">4.2 ₿<small>~$276 000 USD</small></div>
+    </div>
+
+    <div class="listing verified">
+      <div class="l-tier">T2</div>
+      <div class="l-info">
+        <div class="title"><em>[EVADE]</em>pms-scanner-blocker · 24h invisibility to public scanners</div>
+        <div class="meta"><span>digital (script)</span><span class="v">✓ перевірених · 4.9★</span><span>залишок: ∞</span></div>
+      </div>
+      <div class="l-vendor">u/code_ghost<small>продавець · 6y · dev</small></div>
+      <div class="l-price">0.0025 ₿<small>~$164 USD</small></div>
+    </div>
+
+    <div class="listing">
+      <div class="l-tier">—</div>
+      <div class="l-info">
+        <div class="title"><em>[PAPER]</em>forged pms-certificate · any Hue · printed on real stock</div>
+        <div class="meta"><span>доставка KR</span><span>новий · 4.2★</span><span class="r">⚠ злочин якщо попадешся</span><span>залишок: 18</span></div>
+      </div>
+      <div class="l-vendor">u/paper_print<small>продавець · 8m</small></div>
+      <div class="l-price">0.024 ₿<small>~$1 580 USD</small></div>
+    </div>
+
+    <div class="listing verified">
+      <div class="l-tier">T2</div>
+      <div class="l-info">
+        <div class="title"><em>[RESEARCH]</em>PMS-internal memos · leaked 2024-Q4 · pdf pack (42 docs)</div>
+        <div class="meta"><span>digital</span><span class="v">✓ перевірених · 5.0★</span><span>залишок: ∞</span></div>
+      </div>
+      <div class="l-vendor">u/wikileaks_p<small>продавець · 2.1y</small></div>
+      <div class="l-price">0.0015 ₿<small>~$98 USD</small></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="faq">
+  <h2>&gt;_faq <span>// часті питання, рідкі відповіді</span></h2>
+
+  <details class="q"><summary>Як безпечно зайти на цей ринок?</summary><p>Use <b>Tor Browser</b> (v11+), disable JavaScript for full anonymity (site works without it, 70% of features available). Never use your clearnet identity. Never post photos with metadata. We strongly recommend a dedicated VM (Whonix or Tails). If you're reading this on clearnet — you've already failed step 1.</p></details>
+
+  <details class="q"><summary>Це легально?</summary><p><b>No</b>. In Korea, Japan, China, EU, USA — possession of Tier-shifters is felony class A. Boosters are class B (drug trafficking). Suppressors are class C (controlled substance). Forged PMS certificates — class A felony (identity fraud). We do not sell. We <em>facilitate</em>. Local jurisdiction applies. If you get caught — we don't know you.</p></details>
+
+  <details class="q"><summary>А якщо вендор кине?</summary><p>That's why we use <b>multisig escrow</b>. Money held by the market until you confirm delivery. Vendor gets paid only after your signature. Disputes → arbitration by 3 random senior users (>5y on market). 92% of disputes resolved in favor of buyer. Vendor reputation visible (★ rating) — never buy from <3.5★ or <1y accounts.</p></details>
+
+  <details class="q"><summary>Чому Tier 4 такий дорогий і чому його взагалі беруть?</summary><p><b>Because it works.</b> Kaiser-level pigment means rewriting reality within 2m radius. One successful transition = a god. 30% mortality means 70% success. At $276k, the buyer pool is: tech oligarchs, cartel leaders, government-sponsored anonymous R&D, and religious zealots. Last successful Tier 4 transition: <b>Astrid V.</b> — 2023. Read her dossier on the Codex.</p></details>
+
+  <details class="q"><summary>Чи цей ринок колись рейдили?</summary><p>Zero raids since launch (2021). Our infrastructure is distributed across 14 jurisdictions with no single point of failure. Admins are anonymous even to each other. Server locations unknown. Payment processing through multi-hop mixers. If we ever go down — assume we're compromised. Mirror URLs posted on forums daily.</p></details>
+</section>
+
+<section class="rules">
+  <h2>// правила дому</h2>
+  <ol>
+    <li><b>No scam лотів.</b> Fake product = permanent vendor ban + funds seized to community pool.</li>
+    <li><b>No personal data.</b> Revealing buyer/vendor identity = lifetime ban + PGP-signed blacklist distributed to all markets.</li>
+    <li><b>No weapons.</b> This market is pigment-only. Weapons go to /arms (not us).</li>
+    <li><b>No minors.</b> Age-gated products (e.g. baby-bloom) require verifiable parent consent hash. Violations = immediate reporting to Interpol.</li>
+    <li><b>No PMS agents.</b> Detected law-enforcement accounts are doxxed back to their field office. You were warned.</li>
+    <li><b>No scraping.</b> Automated listing scrapers get their bitcoin wallet flagged and blacklisted across 40+ markets.</li>
+  </ol>
+</section>
+
+<footer>
+  <span>darkhue://market · 2021—2026 · <span class="uptime">● online 4h 12m</span> · не афілійовано з PMS, ВООЗ, FDA, KFDA</span>
+  <span><a href="../index.html">./exit to clearnet</a> · <a>список дзеркал</a> · <a>pgp-ключ</a> · <a>canary</a></span>
+</footer>
+
+</body></html>

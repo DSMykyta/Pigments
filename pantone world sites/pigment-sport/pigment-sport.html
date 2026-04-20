@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>PIGMENT LEAGUE · Liga Pigmenta · професійний спорт</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a1a0a">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0a0e0a;color:#e0f0d0;font-family:'Inter',sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.bar{background:#000;padding:8px 22px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6a7a5a;letter-spacing:.1em}
+.bar a{color:#6aff3b}
+
+nav{padding:18px 30px;display:flex;justify-content:space-between;align-items:center;background:#0a1a0a;border-bottom:2px solid #6aff3b;position:sticky;top:0;z-index:10}
+.logo{font-family:'Oswald',sans-serif;font-weight:700;font-size:28px;letter-spacing:.04em;text-transform:uppercase}
+.logo span{color:#6aff3b}
+nav ul{display:flex;gap:26px;list-style:none;font-family:'Oswald',sans-serif;font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase}
+nav a{color:#9abc7a}
+nav a.on,nav a:hover{color:#6aff3b}
+.btn-live{padding:10px 18px;background:#6aff3b;color:#000;font-family:'Oswald',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;border-radius:4px}
+
+.hero{padding:80px 40px;background:linear-gradient(180deg,#0a1a0a 0%,#1a2a1a 50%,#0a1a0a 100%);position:relative}
+.hero-in{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center}
+.hero-left{}
+.hero-n{font-family:'JetBrains Mono',monospace;font-size:11px;color:#6aff3b;letter-spacing:.3em;margin-bottom:24px;text-transform:uppercase}
+.hero h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(64px,9vw,128px);letter-spacing:-.01em;line-height:.9;text-transform:uppercase;margin-bottom:20px}
+.hero h1 span{color:#6aff3b}
+.hero .sub{font-size:19px;color:#c0d0a0;max-width:50ch;margin-bottom:30px}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:14px 26px;border:2px solid #6aff3b;color:#6aff3b;font-family:'Oswald',sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+.btn.primary{background:#6aff3b;color:#000}
+.hero-stats{padding:34px;background:#0a1a0a;border:2px solid #6aff3b;border-radius:8px}
+.hero-stats h3{font-family:'Oswald',sans-serif;font-size:18px;color:#6aff3b;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px}
+.hs-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #2a3a2a;font-family:'Oswald',sans-serif;font-size:14px;text-transform:uppercase;letter-spacing:.05em}
+.hs-row:last-child{border:none}
+.hs-row b{color:#6aff3b}
+
+.teams{padding:70px 40px;max-width:1400px;margin:0 auto}
+.teams h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:64px;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:20px}
+.teams h2 span{color:#6aff3b}
+.teams-lead{color:#c0d0a0;margin-bottom:40px;max-width:56ch}
+.tm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tm{padding:28px 22px;border-radius:8px;position:relative;overflow:hidden;cursor:pointer;transition:transform .3s}
+.tm:hover{transform:translateY(-6px)}
+.tm::before{content:'';position:absolute;inset:0;opacity:.85}
+.tm>*{position:relative;z-index:1}
+.tm.t1::before{background:linear-gradient(135deg,#ff3b3b,#8b0a0a)}
+.tm.t2::before{background:linear-gradient(135deg,#ffd633,#a08800)}
+.tm.t3::before{background:linear-gradient(135deg,#33d67a,#0a5a2a)}
+.tm.t4::before{background:linear-gradient(135deg,#33b5e5,#0a3a6a)}
+.tm.t5::before{background:linear-gradient(135deg,#8a33ff,#3a1a8a)}
+.tm.t6::before{background:linear-gradient(135deg,#ff5ad1,#8a1a6a)}
+.tm.t7::before{background:linear-gradient(135deg,#cccccc,#333)}
+.tm.t8::before{background:linear-gradient(135deg,#ff8c2a,#a04810)}
+.tm-k{font-family:'JetBrains Mono',monospace;font-size:10px;color:#fff;letter-spacing:.2em;opacity:.8}
+.tm h3{font-family:'Oswald',sans-serif;font-size:26px;color:#fff;text-transform:uppercase;letter-spacing:.02em;margin:10px 0 6px}
+.tm .city{font-size:13px;color:#fff;opacity:.9;margin-bottom:20px}
+.tm .stats{display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#fff;opacity:.8;border-top:1px dashed #ffffff40;padding-top:14px}
+.tm .stats b{display:block;font-size:18px;font-family:'Oswald',sans-serif;letter-spacing:.02em}
+
+.standings{padding:70px 40px;background:#050a05;border-top:2px solid #6aff3b}
+.stand-in{max-width:1400px;margin:0 auto}
+.standings h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:56px;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:30px}
+.standings h2 span{color:#6aff3b}
+.stand-table{display:grid;grid-template-columns:50px 1fr 80px 80px 80px 80px 80px;gap:0;background:#2a3a2a}
+.stand-table>*{padding:14px 20px;background:#0a1a0a;font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:.05em;text-transform:uppercase}
+.stand-table .head{background:#6aff3b;color:#000;font-weight:700;font-size:12px;letter-spacing:.1em}
+.stand-table .rn{color:#6aff3b;font-weight:700;text-align:center}
+.stand-table .name{display:flex;gap:12px;align-items:center}
+.stand-table .name .dot{width:14px;height:14px;border-radius:50%}
+.stand-table .num{text-align:center;font-family:'JetBrains Mono',monospace;font-size:13px}
+.stand-table .num.w{color:#6aff3b}
+.stand-table .num.l{color:#ff3b3b}
+
+.rules-exp{padding:70px 40px;max-width:1200px;margin:0 auto}
+.rules-exp h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:56px;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:14px}
+.rules-exp h2 span{color:#6aff3b}
+.rex-lead{color:#c0d0a0;max-width:62ch;margin-bottom:40px;font-size:16px}
+.rex-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:40px}
+.rex-item{padding:28px;background:#0a1a0a;border:1px solid #2a3a2a;border-radius:8px}
+.rex-item .k{font-family:'Oswald',sans-serif;font-size:12px;color:#6aff3b;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+.rex-item h3{font-family:'Oswald',sans-serif;font-size:24px;letter-spacing:.02em;text-transform:uppercase;margin-bottom:10px}
+.rex-item p{color:#c0d0a0;font-size:14px;line-height:1.6}
+
+.match-live{padding:70px 40px;background:#1a2a1a;border-top:2px solid #6aff3b}
+.ml-in{max-width:1200px;margin:0 auto}
+.ml-n{font-family:'JetBrains Mono',monospace;font-size:11px;color:#6aff3b;letter-spacing:.25em;margin-bottom:20px;text-transform:uppercase}
+.ml-n span{color:#ff3b3b;animation:blink 1s steps(2) infinite;margin-left:10px}
+@keyframes blink{50%{opacity:0}}
+.match-card{display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center;padding:40px 30px;background:#0a1a0a;border:2px solid #6aff3b;border-radius:12px}
+.mc-team{text-align:center}
+.mc-team .dot{width:80px;height:80px;border-radius:50%;margin:0 auto 14px;box-shadow:0 0 40px}
+.mc-team h3{font-family:'Oswald',sans-serif;font-size:32px;text-transform:uppercase;letter-spacing:.02em}
+.mc-team .city{font-family:'JetBrains Mono',monospace;font-size:11px;color:#c0d0a0;letter-spacing:.1em}
+.mc-score{font-family:'Oswald',sans-serif;font-weight:700;font-size:72px;color:#6aff3b;letter-spacing:-.02em}
+.mc-score small{display:block;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c0d0a0;letter-spacing:.2em;margin-top:6px}
+
+footer{padding:50px 40px;color:#6a7a5a;font-size:12px;border-top:1px solid #2a3a2a;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font-family:'JetBrains Mono',monospace;letter-spacing:.08em}
+footer a{color:#6aff3b}
+
+@media(max-width:900px){.hero-in,.tm-grid,.rex-grid{grid-template-columns:1fr}.tm-grid{grid-template-columns:repeat(2,1fr)}.match-card{grid-template-columns:1fr}.stand-table{font-size:11px}.stand-table>*{padding:10px 8px}nav ul{display:none}}
+</style>
+</head>
+<body>
+
+<div class="bar"><span>← <a href="../index.html">World Catalog</a></span><span>PIGMENT LEAGUE · 8 teams · season 2026 · regular games</span></div>
+
+<nav>
+  <div class="logo">PIGMENT<span>LEAGUE</span></div>
+  <ul>
+    <li><a class="on" href="#">Home</a></li>
+    <li><a href="#teams">Teams</a></li>
+    <li><a href="#standings">Standings</a></li>
+    <li><a href="#rules">Rules</a></li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">Players</a></li>
+  </ul>
+  <a class="btn-live" href="#live">● LIVE · GAME 12</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-left">
+      <div class="hero-n">◉ SEASON 2026 · REGULAR · 8 TEAMS · PMS-CERTIFIED LEAGUE</div>
+      <h1>One spectrum.<br>Eight <span>tribes.</span></h1>
+      <p class="sub">Перша в світі професійна ліга командного пігментного спорту. Правила: 7 на 7, 4 чверті по 15 хвилин, кожна команда — одна Hue-сегмента. Не гра м'ячем. Гра кольором.</p>
+      <div class="hero-ctas">
+        <a class="btn primary" href="#live">Live зараз →</a>
+        <a class="btn" href="#rules">Правила</a>
+        <a class="btn" href="#">Stream on YouTube</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <h3>⚡ Season stats</h3>
+      <div class="hs-row"><span>Season</span><b>2026</b></div>
+      <div class="hs-row"><span>Week</span><b>12 / 28</b></div>
+      <div class="hs-row"><span>Teams</span><b>8</b></div>
+      <div class="hs-row"><span>Players</span><b>112</b></div>
+      <div class="hs-row"><span>Cities</span><b>8 · Asia-Pacific</b></div>
+      <div class="hs-row"><span>Prize pool</span><b>$4.2 M USD</b></div>
+      <div class="hs-row"><span>Tier restrictions</span><b>T1—T2 only</b></div>
+      <div class="hs-row"><span>Next final</span><b>2026.11.28 Seoul</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="teams" id="teams">
+  <h2>The <span>Eight.</span></h2>
+  <p class="teams-lead">8 команд. Кожна — один сегмент спектру. Основне правило: всі гравці команди повинні бути в межах ±20° від центральної Hue команди.</p>
+  <div class="tm-grid">
+    <div class="tm t1"><div class="tm-k">H 0° · RED</div><h3>Seoul Reds</h3><div class="city">Сеул · KR</div><div class="stats"><div>W<b>9</b></div><div>L<b>3</b></div><div>RANK<b>#1</b></div></div></div>
+    <div class="tm t8"><div class="tm-k">H 30° · ORANGE</div><h3>Osaka Flame</h3><div class="city">Осака · JP</div><div class="stats"><div>W<b>7</b></div><div>L<b>5</b></div><div>RANK<b>#3</b></div></div></div>
+    <div class="tm t2"><div class="tm-k">H 60° · YELLOW</div><h3>Taipei Sun</h3><div class="city">Тайпей · TW</div><div class="stats"><div>W<b>6</b></div><div>L<b>6</b></div><div>RANK<b>#5</b></div></div></div>
+    <div class="tm t3"><div class="tm-k">H 120° · GREEN</div><h3>Busan Tide</h3><div class="city">Пусан · KR</div><div class="stats"><div>W<b>8</b></div><div>L<b>4</b></div><div>RANK<b>#2</b></div></div></div>
+    <div class="tm t4"><div class="tm-k">H 200° · CYAN</div><h3>Tokyo Neon</h3><div class="city">Токіо · JP</div><div class="stats"><div>W<b>5</b></div><div>L<b>7</b></div><div>RANK<b>#6</b></div></div></div>
+    <div class="tm t5"><div class="tm-k">H 270° · VIOLET</div><h3>Shanghai Royals</h3><div class="city">Шанхай · CN</div><div class="stats"><div>W<b>7</b></div><div>L<b>5</b></div><div>RANK<b>#4</b></div></div></div>
+    <div class="tm t6"><div class="tm-k">H 320° · PINK</div><h3>Seoul Venom</h3><div class="city">Сеул · KR · YGE sponsored</div><div class="stats"><div>W<b>4</b></div><div>L<b>8</b></div><div>RANK<b>#7</b></div></div></div>
+    <div class="tm t7"><div class="tm-k">H ZERO · NORMI</div><h3>Manila Blanks</h3><div class="city">Маніла · PH · Normi-only team</div><div class="stats"><div>W<b>2</b></div><div>L<b>10</b></div><div>RANK<b>#8</b></div></div></div>
+  </div>
+</section>
+
+<section class="match-live" id="live">
+  <div class="ml-in">
+    <div class="ml-n">◉ LIVE NOW · GAME 12 · QUARTER 3 <span>● ON AIR</span></div>
+    <div class="match-card">
+      <div class="mc-team">
+        <div class="dot" style="background:#ff3b3b;box-shadow:0 0 40px #ff3b3b"></div>
+        <h3>Seoul Reds</h3>
+        <div class="city">#1 SEED · H 0°</div>
+      </div>
+      <div class="mc-score">82 — 76<small>Q3 · 7:42 remaining</small></div>
+      <div class="mc-team">
+        <div class="dot" style="background:#33d67a;box-shadow:0 0 40px #33d67a"></div>
+        <h3>Busan Tide</h3>
+        <div class="city">#2 SEED · H 120°</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="standings" id="standings">
+  <div class="stand-in">
+    <h2>Регулярний <span>сезон.</span></h2>
+    <div class="stand-table">
+      <div class="head rn">#</div>
+      <div class="head">TEAM</div>
+      <div class="head num">W</div>
+      <div class="head num">L</div>
+      <div class="head num">PTS</div>
+      <div class="head num">PF</div>
+      <div class="head num">PA</div>
+
+      <div class="rn">1</div><div class="name"><span class="dot" style="background:#ff3b3b"></span>Seoul Reds</div><div class="num w">9</div><div class="num l">3</div><div class="num">27</div><div class="num">1,124</div><div class="num">982</div>
+      <div class="rn">2</div><div class="name"><span class="dot" style="background:#33d67a"></span>Busan Tide</div><div class="num w">8</div><div class="num l">4</div><div class="num">24</div><div class="num">1,058</div><div class="num">1,002</div>
+      <div class="rn">3</div><div class="name"><span class="dot" style="background:#ff8c2a"></span>Osaka Flame</div><div class="num w">7</div><div class="num l">5</div><div class="num">21</div><div class="num">992</div><div class="num">1,012</div>
+      <div class="rn">4</div><div class="name"><span class="dot" style="background:#8a33ff"></span>Shanghai Royals</div><div class="num w">7</div><div class="num l">5</div><div class="num">21</div><div class="num">1,008</div><div class="num">988</div>
+      <div class="rn">5</div><div class="name"><span class="dot" style="background:#ffd633"></span>Taipei Sun</div><div class="num w">6</div><div class="num l">6</div><div class="num">18</div><div class="num">950</div><div class="num">962</div>
+      <div class="rn">6</div><div class="name"><span class="dot" style="background:#33b5e5"></span>Tokyo Neon</div><div class="num w">5</div><div class="num l">7</div><div class="num">15</div><div class="num">922</div><div class="num">980</div>
+      <div class="rn">7</div><div class="name"><span class="dot" style="background:#ff5ad1"></span>Seoul Venom</div><div class="num w">4</div><div class="num l">8</div><div class="num">12</div><div class="num">886</div><div class="num">1,022</div>
+      <div class="rn">8</div><div class="name"><span class="dot" style="background:#999"></span>Manila Blanks</div><div class="num w">2</div><div class="num l">10</div><div class="num">6</div><div class="num">842</div><div class="num">1,144</div>
+    </div>
+  </div>
+</section>
+
+<section class="rules-exp" id="rules">
+  <h2>Як це <span>грається.</span></h2>
+  <p class="rex-lead">Pigment Spectrum Ball — новий командний спорт, винайдений у 2021 у Кореї. Використовує активний пігмент гравців як частину механіки гри. Офіційно визнаний PMS та IOC.</p>
+  <div class="rex-grid">
+    <div class="rex-item"><div class="k">01 · FORMAT</div><h3>7 на 7 · 4 чверті · 15 хв</h3><p>7 основних гравців + 5 резерв. Поле 40×20 м з нейтральними зонами кожного Hue-кольору. 4 чверті по 15 хвилин з 10-хвилинною перервою у середині.</p></div>
+    <div class="rex-item"><div class="k">02 · HOME ZONE</div><h3>Твоя Hue = твоя зона</h3><p>Кожна команда має "рідну зону" на своїй половині у кольорі команди. Гравці відновлюються швидше у рідному кольорі. У чужому — виснажуються на 40% швидше.</p></div>
+    <div class="rex-item"><div class="k">03 · HUE TRANSFER</div><h3>Кольоровий дриблинг</h3><p>М'яч — хромо-реактивний, міняє колір при контакті. "Забарвлений" м'яч дає бонус +1 гравцю того ж Hue. Tier 1 гравці отримують +0.5. Normi — нуль.</p></div>
+    <div class="rex-item"><div class="k">04 · TIER LIMITATION</div><h3>Tier 1—2 тільки</h3><p>Tier 3+ заборонено — надто небезпечно для суперників. Команди повинні надавати PMS-сертифікати всіх гравців перед кожним сезоном. Тест на препарати — щотижня.</p></div>
+    <div class="rex-item"><div class="k">05 · NORMI EXCEPTION</div><h3>Manila Blanks</h3><p>Єдина команда без активного пігменту. Офіційно в лізі з 2024 р. Програє всі механіки кольорового м'яча, але має +2 стартових очка кожної чверті (як компенсацію).</p></div>
+    <div class="rex-item"><div class="k">06 · SCORING</div><h3>Points</h3><p>Звичайний гол = 2 очки. Гол із "забарвленого" м'яча свого Hue = 3 очки. Гол Normi-гравця з Normi-команди = 5 очок (ну а як ще). Максимальний рекорд сезону: 128.</p></div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 PIGMENT LEAGUE · сертифіковано PMS · partner IOC · Asia-Pacific division</span>
+  <span><a href="../index.html">← World Catalog</a> · Stream · Tickets · Fantasy League · Shop</span>
+</footer>
+
+</body></html>

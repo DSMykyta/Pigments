@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>NORMI · r/colorless · без пігменту, без вибачень</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1a1a1a">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;color:#d8d8d8;font-family:'Inter',sans-serif;font-size:14px;line-height:1.5}
+a{color:#7a9eff;text-decoration:none}
+a:hover{text-decoration:underline}
+
+.bar{background:#0a0a0a;padding:6px 16px;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#888;letter-spacing:.05em}
+.bar a{color:#d8d8d8}
+
+.top{background:#2a2a2a;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #3a3a3a}
+.logo{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:18px;color:#d8d8d8}
+.logo span{color:#888}
+.search{padding:8px 14px;background:#1a1a1a;border:1px solid #3a3a3a;color:#888;font-size:12px;border-radius:20px;min-width:400px}
+.acts{display:flex;gap:10px;font-size:12px}
+.acts a{color:#d8d8d8;padding:6px 12px}
+.acts .in{background:#7a9eff;color:#0a0a0a;border-radius:4px}
+
+.layout{display:grid;grid-template-columns:1fr 320px;gap:20px;max-width:1200px;margin:20px auto;padding:0 16px}
+
+.feed{display:flex;flex-direction:column;gap:10px}
+.head{background:#2a2a2a;padding:20px;border-radius:8px;margin-bottom:6px}
+.head h1{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:24px;color:#d8d8d8;margin-bottom:6px}
+.head .d{font-size:13px;color:#888;margin-bottom:12px}
+.head .stats{display:flex;gap:20px;font-size:12px;color:#aaa;padding-top:12px;border-top:1px solid #3a3a3a}
+.head .stats b{color:#7a9eff;font-size:14px;display:block;font-family:'IBM Plex Mono',monospace}
+
+.sort{display:flex;gap:6px;margin:16px 0 10px;padding:6px;background:#2a2a2a;border-radius:6px;align-items:center}
+.sort a{padding:6px 12px;font-size:12px;color:#aaa;border-radius:4px}
+.sort a.on{background:#1a1a1a;color:#d8d8d8}
+
+.post{background:#2a2a2a;border:1px solid #2a2a2a;border-radius:8px;padding:14px 18px;display:grid;grid-template-columns:40px 1fr;gap:14px;transition:border-color .15s}
+.post:hover{border-color:#555}
+.votes{text-align:center;padding-top:2px}
+.votes .up,.votes .dn{cursor:pointer;color:#666;font-size:16px}
+.votes .up:hover{color:#ff4500}
+.votes .dn:hover{color:#7a9eff}
+.votes b{display:block;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#d8d8d8;margin:4px 0}
+.post-c .meta{font-size:11px;color:#888;margin-bottom:6px;font-family:'IBM Plex Mono',monospace}
+.post-c .meta b{color:#7a9eff;font-weight:500}
+.post-c h3{font-family:'Inter',sans-serif;font-weight:500;font-size:17px;color:#f0f0f0;margin-bottom:8px;line-height:1.3}
+.post-c p{color:#b8b8b8;font-size:13px;margin-bottom:10px}
+.post-c .tags{display:flex;gap:6px;margin-bottom:8px}
+.post-c .tags span{padding:2px 8px;background:#0a0a0a;color:#7a9eff;font-size:10px;font-family:'IBM Plex Mono',monospace;letter-spacing:.05em;border-radius:3px}
+.post-c .actions{display:flex;gap:16px;font-size:12px;color:#888}
+.post-c .actions a{color:#888}
+.post-c .actions a:hover{color:#d8d8d8}
+
+.sb{display:flex;flex-direction:column;gap:14px}
+.box{background:#2a2a2a;border-radius:8px;padding:18px}
+.box h4{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;color:#7a9eff;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #3a3a3a}
+.box p{color:#b8b8b8;font-size:13px;margin-bottom:10px}
+.box ul{list-style:none;padding:0}
+.box li{padding:6px 0;font-size:13px;color:#d8d8d8;display:flex;justify-content:space-between}
+.box li span{color:#888;font-family:'IBM Plex Mono',monospace;font-size:11px}
+.box .btn{display:block;padding:10px;background:#7a9eff;color:#0a0a0a;text-align:center;border-radius:4px;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.05em;margin-top:10px}
+
+@media(max-width:900px){.layout{grid-template-columns:1fr}.search{display:none}}
+</style>
+</head>
+<body>
+
+<div class="bar"><span>← <a href="../index.html">World Catalog</a></span><span>r/colorless · 847K members · 4.2K online</span></div>
+
+<div class="top">
+  <div class="logo">normi<span>.net</span> <span style="margin-left:10px;font-size:11px">/r/colorless</span></div>
+  <input class="search" placeholder="Search · наприклад «як знайти роботу без пігменту»" type="text">
+  <div class="acts"><a>Log in</a><a class="in">Sign up</a></div>
+</div>
+
+<div class="layout">
+  <div class="feed">
+    <div class="head">
+      <h1>/r/colorless · 색없음</h1>
+      <div class="d">Форум для людей без активного пігменту (Normi). Місце, де не треба пояснювати чому ти «звичайний». 847,302 members · since 2019.</div>
+      <div class="stats">
+        <span><b>847K</b>members</span>
+        <span><b>4.2K</b>online</span>
+        <span><b>#18</b>in community rank</span>
+        <span><b>2019.04</b>founded</span>
+      </div>
+    </div>
+
+    <div class="sort">
+      <a class="on">🔥 Hot</a>
+      <a>🆕 New</a>
+      <a>⬆ Top</a>
+      <a>💬 Discussed</a>
+      <span style="margin-left:auto;font-size:11px;color:#666">847 posts today</span>
+    </div>
+
+    <div class="post"><div class="votes"><div class="up">▲</div><b>4.2k</b><div class="dn">▼</div></div><div class="post-c"><div class="meta">Posted by <b>u/greyday_42</b> · 4 hours ago · 🏆 2 awards</div><h3>Мене вигнали з вечірки бо я «псую атмосферу одним своїм виглядом»</h3><p>Хлопець моєї подруги сказав мені прямо в обличчя: «Ти як дірка в світлі, йди звідси». На кухні було 12 людей, усі з активним пігментом. Я ніколи так швидко не вдягала пальто. Не знаю плакати чи сміятися. 26 років, і все ще вчусь що не всюди мене хочуть.</p><div class="tags"><span>daily-life</span><span>discrimination</span><span>rant</span></div><div class="actions"><a>💬 892 comments</a><a>↗ Share</a><a>🔖 Save</a></div></div></div>
+
+    <div class="post"><div class="votes"><div class="up">▲</div><b>2.8k</b><div class="dn">▼</div></div><div class="post-c"><div class="meta">Posted by <b>u/cleanskin_08</b> · 7 hours ago</div><h3>«PSA» для тих хто щойно дізнався що ти Normi: ти не хворий, не недорозвинений, не «поломаний»</h3><p>Я бачу щотижня нові пости «щойно пройшов тест, H немає, що тепер робити». Відповідь: ЖИВИ. 90% людства — нормі. Ти у більшості. Пігмент — не норма, а перевага меншості яку медіа зробили стандартом. Любов, друзі, робота, діти — все це можливо без жодного Hue. Я 34 роки живу і щасливий.</p><div class="tags"><span>welcome</span><span>pinned</span><span>support</span></div><div class="actions"><a>💬 1.2k comments</a><a>↗ Share</a><a>🔖 Save</a></div></div></div>
+
+    <div class="post"><div class="votes"><div class="up">▲</div><b>1.9k</b><div class="dn">▼</div></div><div class="post-c"><div class="meta">Posted by <b>u/normcore_kim</b> · 12 hours ago</div><h3>HR зі Samsung відмовив у співбесіді: «посада передбачає pigment-verified personnel»</h3><p>Позиція — аналітик даних. Ні зустрічей з клієнтами, ні публіки. Просто цифри. Коли я спитав чому Hue потрібен для роботи з Excel, HR сказав «корпоративна культура». Це законно? У Кореї — так, хоча є виняток якщо «позиція не вимагає pigment-interaction». 2024, і все ще таке.</p><div class="tags"><span>career</span><span>legal</span><span>south-korea</span></div><div class="actions"><a>💬 634 comments</a><a>↗ Share</a></div></div></div>
+
+    <div class="post"><div class="votes"><div class="up">▲</div><b>1.3k</b><div class="dn">▼</div></div><div class="post-c"><div class="meta">Posted by <b>u/pale_and_proud</b> · 1 day ago</div><h3>Моя дівчина — Tier 2 (активний пігмент). Я нормі. 3 роки разом. AMA.</h3><p>Часто питають: «як вам вдається?». Відповідь — так само як будь-якій парі. Вона не «світиться», я не «темний», ми не «контраст». Ми двоє людей, у одного з яких Hue 145, а у іншого — нуль. Тільки коли ми йдемо на світські заходи, виникають погляди. Вдома — взагалі не помічаємо. Питайте що хочете.</p><div class="tags"><span>relationship</span><span>ama</span><span>mixed-couple</span></div><div class="actions"><a>💬 487 comments</a><a>↗ Share</a></div></div></div>
+
+    <div class="post"><div class="votes"><div class="up">▲</div><b>892</b><div class="dn">▼</div></div><div class="post-c"><div class="meta">Posted by <b>u/spectrogram_mom</b> · 1 day ago</div><h3>Моя донька 6 років прийшла зі школи і спитала «мамо чи я зламана»</h3><p>У класі тест робили, всі на neon-столі засвітились, а вона ні. Діти сказали «вона як привид». Я не знала що відповісти. В кінцевому рахунку обняла і сказала: «Ти звичайна. І це прекрасно». Але як готувати її до життя в Кореї де це щодня буде? Буду вдячна за поради.</p><div class="tags"><span>parenting</span><span>children</span><span>support-needed</span></div><div class="actions"><a>💬 1.4k comments</a><a>↗ Share</a></div></div></div>
+
+    <div class="post"><div class="votes"><div class="up">▲</div><b>756</b><div class="dn">▼</div></div><div class="post-c"><div class="meta">Posted by <b>u/plain_but_pretty</b> · 2 days ago</div><h3>К-поп група BLAC PINC зняла соціальну рекламу «Ми всі один спектр» — і це виглядало як знущання</h3><p>Група де всі 4 дівчини — pigment-users в рожевому сегменті, співає «ми всі один спектр» і тримає табличку «Normi matter». Спонсор — PMS. Відчуття як reverse — «білі люди кажуть чорним що раси не існує». Що ви думаєте?</p><div class="tags"><span>media</span><span>k-pop</span><span>discussion</span></div><div class="actions"><a>💬 2.1k comments</a><a>↗ Share</a></div></div></div>
+  </div>
+
+  <aside class="sb">
+    <div class="box">
+      <h4>◉ ABOUT r/COLORLESS</h4>
+      <p>Засновано 2019-го. Єдиний великий форум, де можна обговорювати життя без активного пігменту без «пояснень» і «співчуття».</p>
+      <p><b>Головне правило:</b> тут не «ти бідненький». Тут — «ти звичайний».</p>
+      <a class="btn">JOIN COMMUNITY</a>
+    </div>
+    <div class="box">
+      <h4>◉ TRENDING TODAY</h4>
+      <ul>
+        <li>#JobRejection <span>+2.1k</span></li>
+        <li>#NormiKids <span>+1.4k</span></li>
+        <li>#MixedCouples <span>+892</span></li>
+        <li>#HRDiscrimination <span>+634</span></li>
+        <li>#WelcomeNormi <span>+412</span></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>◉ MODS ONLINE</h4>
+      <ul>
+        <li>u/cleanskin_08 <span>founder</span></li>
+        <li>u/normcore_kim <span>mod</span></li>
+        <li>u/plainjane_seoul <span>mod</span></li>
+        <li>u/greyscale_dad <span>mod</span></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>◉ RELATED COMMUNITIES</h4>
+      <ul>
+        <li>/r/tier1quiet <span>54k</span></li>
+        <li>/r/MixedPigmentLove <span>120k</span></li>
+        <li>/r/AntiPMS <span>48k</span></li>
+        <li>/r/kpopcriticism <span>240k</span></li>
+      </ul>
+    </div>
+  </aside>
+</div>
+
+<footer style="padding:40px;text-align:center;color:#666;font-size:11px;font-family:'IBM Plex Mono',monospace;border-top:1px solid #2a2a2a;margin-top:30px">
+  © 2026 normi.net · independent community · <a style="color:#7a9eff" href="../index.html">← World Catalog</a> · not affiliated with PMS
+</footer>
+
+</body></html>

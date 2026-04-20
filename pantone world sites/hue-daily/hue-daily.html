@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Hue Daily · новини пігменту · щоденний дайджест</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#faf8f0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#faf8f0;color:#0a0a0a;font-family:'Inter',sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.bar{background:#0a0a0a;color:#ccc;padding:6px 22px;display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em}
+.bar a{color:#fff}
+
+.masthead{padding:40px 40px 26px;text-align:center;border-bottom:4px double #0a0a0a}
+.m-meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:#666;letter-spacing:.2em;margin-bottom:16px;display:flex;justify-content:space-between;text-transform:uppercase}
+.m-title{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(68px,10vw,130px);letter-spacing:-.04em;line-height:.9}
+.m-title span{color:#b2110a}
+.m-sub{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:22px;color:#444;margin-top:8px}
+
+nav{padding:14px 40px;border-bottom:1px solid #0a0a0a;display:flex;justify-content:space-between;align-items:center;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase;font-weight:500}
+nav ul{list-style:none;display:flex;gap:28px}
+nav a.on{color:#b2110a;border-bottom:2px solid #b2110a;padding-bottom:4px}
+.subs{background:#0a0a0a;color:#fff;padding:8px 18px;font-size:12px;font-weight:600}
+
+.layout{display:grid;grid-template-columns:2fr 1fr;gap:40px;max-width:1400px;margin:50px auto;padding:0 40px}
+
+.hero-story{}
+.tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;color:#b2110a;text-transform:uppercase;margin-bottom:14px}
+.hero-story h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(44px,5vw,72px);letter-spacing:-.03em;line-height:1;margin-bottom:20px}
+.hero-img{aspect-ratio:16/9;background:url('https://images.unsplash.com/photo-1541535650810-10d26f5c2ab3?w=1400') center/cover no-repeat;margin-bottom:24px}
+.hero-story .author{font-family:'Inter',sans-serif;font-size:13px;color:#666;margin-bottom:22px;font-style:italic}
+.hero-story p{font-family:'Playfair Display',serif;font-weight:400;font-size:20px;line-height:1.55;color:#1a1a1a;margin-bottom:16px}
+.hero-story p::first-letter{font-family:'Playfair Display',serif;font-weight:900;font-size:80px;float:left;line-height:.9;padding:6px 10px 0 0;color:#b2110a}
+
+.sidebar{}
+.side-box{padding:24px;background:#fff;border:1px solid #0a0a0a;margin-bottom:26px}
+.side-box h3{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:24px;letter-spacing:-.02em;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #0a0a0a}
+.side-item{padding:12px 0;border-bottom:1px dashed #ccc;display:grid;grid-template-columns:30px 1fr;gap:12px}
+.side-item:last-child{border:none}
+.side-item .n{font-family:'Playfair Display',serif;font-weight:900;font-size:28px;color:#b2110a;line-height:.9}
+.side-item h4{font-family:'Inter',sans-serif;font-weight:600;font-size:14px;line-height:1.3;margin-bottom:4px}
+.side-item .meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:#666;letter-spacing:.1em}
+
+.news-grid{padding:60px 40px;max-width:1400px;margin:0 auto;border-top:4px double #0a0a0a}
+.ng-head{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:42px;margin-bottom:30px}
+.ng-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.card{background:#fff;border:1px solid #0a0a0a;overflow:hidden}
+.card-img{aspect-ratio:16/10;background-size:cover;background-position:center}
+.card-body{padding:22px}
+.card-body .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.15em;color:#b2110a;margin-bottom:10px;text-transform:uppercase}
+.card-body h3{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;line-height:1.2;margin-bottom:10px;letter-spacing:-.02em}
+.card-body p{font-size:14px;color:#444;margin-bottom:14px;line-height:1.5}
+.card-body .author{font-family:'JetBrains Mono',monospace;font-size:11px;color:#888;letter-spacing:.08em;border-top:1px solid #ccc;padding-top:10px}
+
+.opinion{padding:60px 40px;background:#0a0a0a;color:#faf8f0;border-top:4px double #0a0a0a}
+.op-in{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:50px}
+.op-in h2{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:56px;line-height:.95;letter-spacing:-.03em}
+.op-in h2 span{color:#ff8c2a}
+.op-item{padding:24px 0;border-bottom:1px dashed #333}
+.op-item:last-child{border:none}
+.op-item h4{font-family:'Playfair Display',serif;font-weight:700;font-size:24px;margin-bottom:6px;letter-spacing:-.02em}
+.op-item p{font-size:14px;color:#ccc;margin-bottom:10px}
+.op-item .author{font-family:'JetBrains Mono',monospace;font-size:11px;color:#ff8c2a;letter-spacing:.1em;text-transform:uppercase}
+
+footer{padding:50px 40px;border-top:1px solid #0a0a0a;font-family:'JetBrains Mono',monospace;font-size:12px;color:#666;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;letter-spacing:.08em}
+
+@media(max-width:900px){.layout,.ng-grid,.op-in{grid-template-columns:1fr}nav ul{display:none}}
+</style>
+</head>
+<body>
+
+<div class="bar"><span>← <a href="../index.html">World Catalog</a></span><span>Вівторок · 21 квітня 2026 · 16-ий рік видання · 0.7 ₩ · ₩ 800 номер</span></div>
+
+<div class="masthead">
+  <div class="m-meta"><span>VOL. 16 · № 4,283</span><span>◉ QUALITY JOURNALISM SINCE 2010</span><span>SEOUL · GLOBAL</span></div>
+  <h1 class="m-title">Hue <span>Daily.</span></h1>
+  <div class="m-sub">Щоденне видання про пігментну політику, медицину, культуру і скандали. Без таблоїдності.</div>
+</div>
+
+<nav>
+  <ul>
+    <li><a class="on">Головна</a></li>
+    <li><a>Політика</a></li>
+    <li><a>Медицина</a></li>
+    <li><a>Культура</a></li>
+    <li><a>Економіка</a></li>
+    <li><a>Наука</a></li>
+    <li><a>Думки</a></li>
+  </ul>
+  <a class="subs" href="#">Підписка · 12 ₩ / міс</a>
+</nav>
+
+<div class="layout">
+  <article class="hero-story">
+    <div class="tag">◉ ГОЛОВНЕ · 2026.04.21</div>
+    <h1>Tier 4 пацієнтка Astrid V. виграла Nobel Peace Prize — перша в історії від людини Kaiser-рівня</h1>
+    <div class="author">By Kim Hae-won · Political Correspondent · 8 хв читання</div>
+    <div class="hero-img"></div>
+    <p>Норвезький комітет оголосив сьогодні, що Astrid V. отримує Нобелівську премію миру 2026 року «за впровадження ненасильницького діалогу між пігментною більшістю та Normi-меншиною у Скандинавії та Європі». Це перша в історії нагорода, вручена людині з офіційно зареєстрованим Tier 4 (Kaiser-level) статусом.</p>
+    <p>Рішення викликало негайну реакцію: південнокорейський уряд висловив «стриману похвалу», але наполягає на тому, щоб будь-який публічний виступ Astrid V. на церемонії проходив у закритому режимі з повним PMS-моніторингом. Японія, Китай і Іран утрималися від офіційного коментаря. США привітали вибір.</p>
+    <p>Astrid V. стала відомою у 2023 році після успішної Tier 3 → Tier 4 трансформації, яка до того часу мала 30% смертність. Вона заснувала фонд «Open Spectrum», що фінансує інтеграцію Normi-дітей у пігмент-центровані школи Європи і протистоїть ідеології «pigment supremacy».</p>
+    <p>Премія буде вручена 10 грудня в Осло. Astrid V. заявила, що передасть усі 11 мільйонів крон у фонд. Повна біографія та досьє доступні в <a href="../codex/codex.html" style="color:#b2110a">HSV Codex</a>.</p>
+  </article>
+
+  <aside class="sidebar">
+    <div class="side-box">
+      <h3>Топ дня</h3>
+      <div class="side-item"><div class="n">1</div><div><h4>BLAC PINC · «Absolute Zero» — 312M переглядів за 24 години. Рекорд YGE.</h4><div class="meta">12 хв тому · Культура</div></div></div>
+      <div class="side-item"><div class="n">2</div><div><h4>PMS оголосила про новий обов'язковий Hue-тест у середніх школах КР з вересня</h4><div class="meta">1 год тому · Політика</div></div></div>
+      <div class="side-item"><div class="n">3</div><div><h4>Darkhue://market — рейд спецслужб США зірвано через криптографічний прорив</h4><div class="meta">3 год тому · Технології</div></div></div>
+      <div class="side-item"><div class="n">4</div><div><h4>Samsung відмовляється від pigment-requirement для 76% позицій після позову</h4><div class="meta">5 год тому · Економіка</div></div></div>
+      <div class="side-item"><div class="n">5</div><div><h4>Шкільна війна у Пусані: 12-річна Normi vs клас з H 0° червоних</h4><div class="meta">7 год тому · Суспільство</div></div></div>
+    </div>
+
+    <div class="side-box" style="background:#0a0a0a;color:#fff;border-color:#0a0a0a">
+      <h3 style="color:#fff;border-color:#ff8c2a">◉ Опитування дня</h3>
+      <p style="font-family:'Playfair Display',serif;font-size:17px;margin-bottom:20px;font-style:italic">«Чи повинен уряд вимагати Hue-тестування у школах?»</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>Так, обов'язково</span><span>34%</span></div><div style="height:6px;background:#333;border-radius:3px;overflow:hidden"><div style="width:34%;height:100%;background:#ff8c2a"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>За згодою батьків</span><span>41%</span></div><div style="height:6px;background:#333;border-radius:3px;overflow:hidden"><div style="width:41%;height:100%;background:#ff8c2a"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>Ні, це порушення прав</span><span>22%</span></div><div style="height:6px;background:#333;border-radius:3px;overflow:hidden"><div style="width:22%;height:100%;background:#ff8c2a"></div></div></div>
+        <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>Не визначились</span><span>3%</span></div><div style="height:6px;background:#333;border-radius:3px;overflow:hidden"><div style="width:3%;height:100%;background:#ff8c2a"></div></div></div>
+      </div>
+      <div style="margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#888;letter-spacing:.1em">4,218 голосів · триває до опівночі KST</div>
+    </div>
+  </aside>
+</div>
+
+<section class="news-grid">
+  <h2 class="ng-head">Більше новин сьогодні.</h2>
+  <div class="ng-grid">
+    <article class="card">
+      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800')"></div>
+      <div class="card-body"><div class="k">Медицина · ексклюзив</div><h3>ChromaLab відкриває першу безкоштовну клініку для дітей Normi-родин</h3><p>Клініка на Каннамі запустила програму субсидованого супроводу підлітків 12—17 років, у яких не активувався пігмент при 16 роках (зазвичай останній вік активації).</p><div class="author">Park Jin-soo · 2 години тому</div></div>
+    </article>
+    <article class="card">
+      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6a3?w=800')"></div>
+      <div class="card-body"><div class="k">Культура · K-pop</div><h3>BLAC PINC анонсують наступний сингл S.O.S на 23 липня 2026</h3><p>Група через Instagram підтвердила дату релізу другого треку нової 4-членної ери. Після «холодного» Absolute Zero це має бути «гаряче» повернення до pink-естетики.</p><div class="author">Lee Min-ji · 4 години тому</div></div>
+    </article>
+    <article class="card">
+      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=800')"></div>
+      <div class="card-body"><div class="k">Технології</div><h3>Samsung патентує сенсор, що виявляє пігмент через одяг</h3><p>Заявка на патент WO2026-04812 описує комбінацію тепловізора і спектрографа, який може визначити Hue-координату людини на відстані 8 м навіть у зимовому одязі.</p><div class="author">Han Dae-ho · 7 годин тому</div></div>
+    </article>
+    <article class="card">
+      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1517263904808-5dc91e3e7044?w=800')"></div>
+      <div class="card-body"><div class="k">Політика</div><h3>Конституційний суд КР прийме справу проти обов'язкового Hue-тестування у школах</h3><p>Група з 420 батьків подала колективний позов. Рішення очікується до кінця 2026. Якщо уряд програє — Корея стане першою країною, що обмежує pigment-реєстрацію неповнолітніх.</p><div class="author">Kim Ha-eun · 9 годин тому</div></div>
+    </article>
+    <article class="card">
+      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1560264280-88b68371db39?w=800')"></div>
+      <div class="card-body"><div class="k">Економіка</div><h3>Pigment-індекс KOSPI зріс на 2.3% на новині про partnership YGE × PMS</h3><p>Акції YGE Entertainment і Pantone Korea виросли на 4.1% і 2.8% відповідно після публікації розширеного контракту на 2026—2031. Інвестори позитивно зустріли плани 4-ї ери.</p><div class="author">Jung Sun-ho · 11 годин тому</div></div>
+    </article>
+    <article class="card">
+      <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1496284045406-d0b15a4c5c91?w=800')"></div>
+      <div class="card-body"><div class="k">Наука · дослідження</div><h3>Epigenetic study у Nature: пігмент-активація залежить від 43-ох генів, не 1</h3><p>Дослідження Seoul National University розвінчує міф про «pigment gene». Активація — результат взаємодії 43 генів з середовищем. Теоретично пігмент можна активувати медикаментозно.</p><div class="author">Dr. Lee Soo-hwan · 1 день тому</div></div>
+    </article>
+  </div>
+</section>
+
+<section class="opinion">
+  <div class="op-in">
+    <h2>Думки і <span>колонки.</span></h2>
+    <div>
+      <div class="op-item"><h4>Чому я більше не купую K-pop — колонка Normi-критика</h4><p>«Я дивився BLAC PINC вісім років. Після перегляду соціальної реклами "Ми всі один спектр" вирішив — досить.»</p><div class="author">by Jin W. Park · колумніст</div></div>
+      <div class="op-item"><h4>Pantone Matching System — приватна компанія з державними повноваженнями. Чи це нормально?</h4><p>«Коли міжнародна корпорація вирішує хто "безпечний", а хто "Tier 3" — це вже не бізнес. Це де-факто держава.»</p><div class="author">by Dr. Yoon Ji-ho · legal scholar</div></div>
+      <div class="op-item"><h4>Моя дочка — Tier 3. Ось що я хочу сказати її батькам через 10 років</h4><p>«Тобі буде боляче дивитись як інші пігмент-діти біжать на сцену. Але пам'ятай: твоя дочка дужча за них всіх.»</p><div class="author">by "Anonymous mother" · reader letter</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Hue Daily · Незалежне видання · 16 років журналістики пігменту · Сеул</span>
+  <span><a href="../index.html">← World Catalog</a> · <a>Підписка</a> · <a>Архів</a> · <a>Редакція</a> · <a>Реклама</a></span>
+</footer>
+
+</body></html>
