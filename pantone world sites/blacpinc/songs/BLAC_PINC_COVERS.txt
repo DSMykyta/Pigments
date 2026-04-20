@@ -1,0 +1,151 @@
+**BLAC PINC — COVER CONCEPTS (1:1 album format, detailed)**
+
+Формат 1:1 (квадрат) — це стандарт для album covers у Spotify, Apple Music, Melon. BLACKPINK використовує високоякісну editorial fashion photography: одна учасниця у центрі кадру для сольників або вся група для спільних релізів, студійне драматичне освітлення, high-fashion одяг рівня Chanel/Dior/Mugler, текстури сатину/шкіри/хрому/лаку, домінує один колір з одним-двома акцентами. Типографіка — велика сансерифна назва треку і лого групи, накладаються поверх фото у Figma/Photoshop, не в AI. Орієнтир візуального рівня — Jennie Ruby, Lisa Alter Ego, Rosé rosie, Jisoo Amortage.
+
+Далі по кожному треку: детальний опис композиції, одяг, поза, об'єкти, освітлення, палітра, типографіка, готовий англомовний промпт для AI (Gemini Imagen, Flux, Midjourney, Leonardo).
+
+***
+
+**01. Absolute Zero · new lineup single · 1:1**
+
+**Концепт.** Груповий кадр нового складу після відходу JENIE. Чотири учасниці в білому на білому. Це презентація — "ми чисті, ми тут, нас четверо".
+
+**Композиція.** Чотири учасниці стоять у лінію на повністю білому безшовному студійному тлі. JISUE у центрі трохи попереду — як нова лідерка. HWAZA ліворуч від центру, виділена як дебютант новизною пози — голова вище, дивиться в камеру прямо. ROZAY справа від центру, у профіль до глядача. LIZAH з краю, найнижча позиція камери, ноги широко.
+
+**Одяг.** Усі в біло-кремовій палітрі, різного крою. JISUE — довга біла сукня-колонка до підлоги, відкриті плечі. HWAZA — білий oversized blazer без сорочки, широкі штани того ж відтінку. ROZAY — прозорий білий tulle top з високим коміром, біла спідниця-сатин. LIZAH — білий кроп з хромованим поясом, білі cargo-шорти, високі білі чоботи.
+
+**Волосся і макіяж.** Усім — платиново-білий відтінок волосся. Мінімальний макіяж, бліда шкіра, легкий рожевий блюш тільки, нюд губи. JISUE — гладке волосся з пробором. HWAZA — волнисте і розпущене. ROZAY — високий хвіст. LIZAH — дві високі кіски.
+
+**Об'єкти і деталі.** Ніяких аксесуарів у руках. На підлозі студії — легкий шар штучного снігу, який розноситься вітром від вентилятора. За учасницями — прозорі блоки льоду, розставлені як абстрактна скульптура, ледь видимі на білому.
+
+**Освітлення.** Холодне студійне високе м'яке світло зверху, 5500K blue-tint. Легкий ригbet-light синюватий додатково ззаду для відокремлення постатей від фону. Без драматичних тіней, все рівномірно освітлене.
+
+**Палітра.** Антарктично-білий (#F5F5F5) — 90%. Легкий блакитний відтінок від освітлення (#E8F0F5). Платиновий металевий акцент від хрому поясу LIZAH (#D0D0D0).
+
+**Типографіка.** "ABSOLUTE ZERO" — великими чорними сансерифними літерами (Helvetica Bold або Futura), розміщено у верхньому правому куті. "BLAC PINC" — дрібним чорним сансерифом знизу по центру. Чорний текст на білому — єдиний контраст у всьому кадрі.
+
+**AI-промпт.** `Editorial K-pop album cover, square 1:1 format, four young Korean female artists standing in line on pure white seamless studio background, all wearing different white and cream high fashion outfits, platinum white hair, pale skin with minimal makeup, one in long white column dress, one in oversized white blazer without shirt, one in sheer white tulle top with high neck, one in white crop top with chrome belt and cargo shorts, transparent ice blocks arranged as abstract sculpture behind them, light artificial snow on studio floor, cold white studio lighting from above with subtle blue rim lighting, high fashion Vogue Korea aesthetic, Hasselblad medium format, sharp focus, no text --ar 1:1`
+
+***
+
+**02. Silhouette · JISUE solo · 1:1**
+
+**Концепт.** Лідерка як тінь — елегантність через редукцію.
+
+**Композиція.** JISUE знята збоку до пояса, 3/4 профіль до камери, голова трохи опущена. Одне плече оголене, повернуте до глядача. Друге плече прикрите чорним сатином, що стікає складкою. Руки не видно — вони за кадром або за спиною.
+
+**Одяг.** Чорна сатинова сукня-слип haute couture з bias-cut, глибокий виріз на спині. Ззаду видно тонкий ланцюжок застібки. Сатин м'який, з відблиском, не матовий.
+
+**Волосся і макіяж.** Чорне волосся зібране у низький гладкий пучок, як у балерини. Смокі-айс темно-коричневим. Матовий нюдовий блиск. Шкіра перламутрово-тепла.
+
+**Об'єкти і деталі.** Одна срібна сережка-крапля, 3 см, яскравий блік на ній — єдиний сяючий елемент у кадрі. Більше ніяких аксесуарів.
+
+**Освітлення.** Єдиний бічний rim-light з правого боку кадру, теплий золотистий (3200K). Обводить контур плеча, щоки, носу, губ — решта у глибокій тіні. Фон повністю чорний, поглинаючий.
+
+**Палітра.** Непроглядно-чорний (#0A0A0A) — 80%. Теплий золотистий rim (#E8C989) на шкірі і сатині — 15%. Сріблястий блік на сережці (#F0F0F0) — 5%.
+
+**Типографіка.** "SILHOUETTE" — білими тонкими засічковими серіфами (типу Didot або Bodoni), по центру внизу, розрідженими літерами. "JISUE" окремо вище — грубий сансериф, малий розмір.
+
+**AI-промпт.** `Editorial fashion album cover, square 1:1 format, young Korean female artist in black silk slip dress with bias-cut draping one shoulder exposed, side profile 3/4 view with head slightly tilted down, sleek low bun hairstyle, smoky eye makeup, nude matte lip, single silver teardrop earring catching light, pure black absorbing background, single golden rim light from right side outlining cheek and shoulder, rest in deep shadow, haute couture fashion photography, Peter Ashworth style, medium format camera, sharp focus on rim-lit profile, no text --ar 1:1`
+
+***
+
+**03. Rooftop · ROZAY solo · 1:1**
+
+**Концепт.** Самотній вечір у висотці, який ти не викладеш.
+
+**Композиція.** ROZAY сидить на бетонному парапеті даху, половина кадру — вона, половина — Сеул унизу. Ракурс з легкого боку — ми бачимо її у 3/4, голова повернута до міста, тобто обличчя переважно в профіль і в тіні від вогнів. Ноги звисають за парапет. Одна рука тримає край парапету, друга — на коліні.
+
+**Одяг.** Кремово-бежевий oversized кардиган з грубої в'язки, спадає з одного плеча. Під ним — тонка біла майка-спагетті. Джинси винтажні блакитні з високою талією. Босі ноги або білі sneakers без шнурків.
+
+**Волосся і макіяж.** Довге світло-пісочне волосся, розвіяне нічним вітром, пара пасм на обличчі. Минимальний макіяж — тонована основа, ледь помітні рум'яна, персикова помада, трохи потерта (як залишилась від поцілунку). Вологі очі без туші.
+
+**Об'єкти і деталі.** Біля неї на парапеті — напівповний келих вина з плямою рожевої помади на краю. Смартфон поряд екраном донизу. Попільничка з однією недокуреною (але не підожженою) сигаретою.
+
+**Освітлення.** Natural mixed — теплі вогні нічного Сеулу знизу дають янтарний fill на її обличчі і кардигані. Холодне темно-сине небо зверху додає cool rim. Боке вогнів міста у задньому плані розмите до кіл. Film grain, плівкова текстура.
+
+**Палітра.** Темно-синя ніч (#1A2530) — 40%. Теплий бурштин вогнів міста (#D4814F) — 30%. Кремово-бежевий кардиган (#D8C5A8) — 20%. Приглушений рожевий від помади (#C98B85) — 10%.
+
+**Типографіка.** "rooftop" — малими літерами, курсив, рукописний шрифт (типу Caveat або подібний script), білим. У нижньому лівому куті. "ROZAY" окремо над цим — тонкий сансериф, той же білий.
+
+**AI-промпт.** `Editorial fashion album cover, square 1:1 format, young Korean female artist sitting on concrete rooftop parapet of high-rise building, 3/4 view from side, head turned toward blurred Seoul city lights below, legs dangling off parapet, wearing oversized cream knitted cardigan slipping off one shoulder, thin white camisole underneath, vintage blue high-waist jeans, long dusty blonde hair blown by night wind, minimal natural makeup with faded peach lip, half-full wine glass with pink lipstick stain next to her on parapet, smartphone face down, natural mixed lighting with warm amber from city lights below and cool blue from night sky above, blurred bokeh city lights background, 35mm film grain, Wong Kar-wai cinematography, melancholic atmosphere, no text --ar 1:1`
+
+***
+
+**04. Icy · LIZAH solo · 1:1**
+
+**Концепт.** Діаманти у льоду. Холодна розкіш, заморожена молодість.
+
+**Композиція.** LIZAH у центрі кадру, поясний кадр фронтально до камери. Обидві руки підняті на рівень грудей, тримають у долонях прозорий кубик льоду розміром з яблуко, всередині якого заморожений діамантовий ланцюг. Обличчя холодне, дивиться прямо в камеру, одна брова ледь піднята.
+
+**Одяг.** Chrome-срібний металевий crop-top з високим коміром і довгим рукавом, облягаючий. Нижче — зовсім не видно, бо кадр поясний. Шкіра блідо-холодна, без засмаги.
+
+**Волосся і макіяж.** Платиново-срібне волосся, дві високі косички-двохвостки, туго заплетені. Сріблясті тіні з блакитним відтінком на повіках, чорна підведка кошачим оком. Губи — сатинова холодна нюдова з блиском. На щоках — легкий хайлайтер, стандартно chrome.
+
+**Об'єкти і деталі.** Крижаний кубик у руках — головна фокус-точка, всередині видно діамантовий ланцюг розміром як справжній. Від кубика йде легкий пар (сухий лід ефект). Крапля води стікає по одному пальцю. На пальцях — срібні кільця з мармуром/кварцем.
+
+**Освітлення.** Різке синьо-фіолетове неонове з двох боків (ліворуч — блакитне, праворуч — фіолетове). Зверху — холодне біле, додає блік на хромі одягу і льоду. Глибокі тіні під шиєю і у згинах рукавів.
+
+**Палітра.** Електрик-блакитний (#00A8FF) — 35%. Глибокий фіолетовий (#7B3FF5) — 30%. Срібно-хром (#D0D4DB) — 25%. Білий блік — 10%. Без теплих тонів взагалі.
+
+**Типографіка.** "ICY" — великими льодово-блакитними літерами grotesque стилю (типу Akzidenz-Grotesk Bold), вгорі кадру по центру, з блискучим градієнтом ніби з инею. "LIZAH" дрібним білим сансерифом знизу.
+
+**AI-промпт.** `Editorial fashion album cover, square 1:1 format, young Korean female artist in chrome silver metallic high-neck long-sleeve crop top, waist-up frontal view, both hands raised holding transparent ice cube the size of an apple with frozen diamond chain inside, cold direct gaze into camera, one eyebrow slightly raised, platinum silver hair in two high tight pigtails, silver and blue smoky eye makeup, black cat-eye liner, nude glossy lip, chrome highlighter on cheeks, silver marble rings on fingers, dry-ice vapor rising from ice cube, water drop trickling down one finger, sharp blue and purple neon lighting from both sides, cold overhead white light, deep shadows, futuristic cryogenic aesthetic, Nick Knight fashion photography, no text --ar 1:1`
+
+***
+
+**05. Jackpot · JENIE solo · 1:1**
+
+**Концепт.** Vintage Vegas казино 70-х. Вона поставила на себе і виграла.
+
+**Композиція.** JENIE сидить за гральним столом, кадр спереду трохи з верху (3/4 high angle). Видно її до пояса і поверхню столу перед нею. Одна рука тримає віяло гральних карт, друга лежить на стеку золотих фішок. Голова нахилена вбік, погляд у камеру прямо, ледь посміхається, впевнено.
+
+**Одяг.** Червоне атласне коктейльне плаття з глибоким V-вирізом і тонкими spaghetti straps, облягаюче. На шиї — витончений золотий ланцюжок з рубіновим кулоном. Довгі червоні сережки-краплі до плеча.
+
+**Волосся і макіяж.** Темне волосся з легкими хвилями, 70-ті стиль "Charlie's Angels". Пробор збоку. Драматичний eye makeup — темно-шоколадні тіні, густа туш, накладні вії. Червона глянсова помада у тон плаття. Контури скул підкреслені бронзером.
+
+**Об'єкти і деталі.** Перед нею на зеленому сукні столу — віяло з 5 карт у руці (royal flush у пік), стек золотих фішок (маленька пірамідка), золота попільничка з однією сигаретою з фільтром (довга, не запалена), у якій слід помади. Ще — кришталевий келих з шампанським з бульбашками.
+
+**Освітлення.** Тепле жовто-золоте зверху (lampshade from above), імітує casino light. Неоновий рожевий з правого боку додає відбиттям на її сукню і волосся. Глибокі теплі тіні у ліворуч.
+
+**Палітра.** Глибокий червоний (#8A0E2A) — 40%. Золото fixed і ламп (#D4AF37) — 25%. Рожевий неон (#FF2D92) — 15%. Темно-зелене сукно (#1A3A2E) — 15%. Чорний фон — 5%.
+
+**Типографіка.** "JACKPOT" — жирним ретро-казино шрифтом типу Moonlit або Showboat, неоново-рожевий з червоним обідком. По діагоналі у верхньому правому куті, як неонова вивіска. "JENIE" — тонкий золотий серіф по центру внизу.
+
+**AI-промпт.** `Editorial fashion album cover, square 1:1 format, young Korean woman in red satin cocktail dress with deep V-neck and spaghetti straps, sitting at casino poker table waist-up view from slightly above, one hand holding fanned five playing cards royal flush in spades, other hand resting on stack of gold casino chips, head tilted slightly with direct confident smile into camera, 1970s dark wavy hair Charlie's Angels style, dramatic smoky brown eye makeup with long lashes, red glossy lipstick matching dress, gold chain with ruby pendant necklace, long red drop earrings, green felt table with gold ashtray holding one unlit filter cigarette with lipstick mark, champagne crystal glass with bubbles, warm golden overhead lighting with pink neon reflections on dress from right side, deep warm shadows, 1970s Vegas casino Scorsese cinematography, 35mm film grain, no text --ar 1:1`
+
+***
+
+**06. On Air · HWAZA solo · 1:1**
+
+**Концепт.** Дебютний live виступ. Трансляція ефіру. Сцена, прожектори, натовп. HWAZA взяла свою першу сцену і світ дивиться наживо.
+
+**Композиція.** HWAZA у центрі кадру, на сцені, поясний кадр трохи знизу (low angle — глядач дивиться вгору на неї, як з фан-піту). Динамічна поза — корпус повернений убік, одна нога попереду, вага на ній. Рука з handheld-мікрофоном витягнута вперед до глядача, ніби вона передає рядок. Друга рука піднята вгору у кулак або відкрита долоня. Волосся летить у русі, зупинене на кадрі. Очі дивляться прямо у камеру, рот відкритий — на середині рядка або крику.
+
+**Одяг.** Чорний stage outfit — латексний/вінільний короткий корсет-боді з бордовою шнурівкою по центру, коротка спідниця-сатин з розрізом, або шорти чорні високі. Сітчасті колготки. На ногах — високі чорні черевики-платформи до коліна. Зап'ястя обмотані чорними шкіряними ремінцями з срібними шипами. На шиї — чорний cho ker з рубіновим кулоном.
+
+**Волосся і макіяж.** Темне шоколадне волосся довжиною до лопаток, розпущене, у русі від стрибка чи повороту голови. На скронях — вологі пасма від поту. Драматичний сценічний макіяж — червоні smoky eyes з блискітками, довгі накладні вії, кристали по кутах очей. Червона глянсова помада. Шкіра з highlighter блиском.
+
+**Об'єкти і деталі.** Handheld wireless мікрофон срібно-чорний у правій руці, провідний індикатор LED горить. Позаду неї — величезна LED-стіна, на якій анімована графіка "ON AIR" червоним ретро-шрифтом моргає, ніби студійна вивіска ефіру, розмита розфокусом. Над сценою — пильові частинки у променях прожекторів, fog machine пара. У нижній частині кадру — темні силуети піднятих рук натовпу глядачів з флаг-жезлами (lightsticks), розмиті у боке.
+
+**Освітлення.** Гарячі сценічні прожектори — червоно-малинові бічні, пурпурово-рожеві ззаду створюють rim light навколо волосся і силует, білі бічні фронтальні ілюмінують обличчя драматично. Contre-jour моменти створюють сильний силует. Лазерні промені розсікають дим.
+
+**Палітра.** Гарячий малиново-червоний (#D4143A) — 35%. Пурпурово-рожевий неон (#FF2D92) — 25%. Глибокий чорний тіні сцени (#0A0A0A) — 25%. Теплий прожектор білий з золотом (#F0D4A8) — 15%.
+
+**Типографіка.** "ON AIR" вже горить на LED-стіні у кадрі як частина фото, більше нічого не потрібно. "HWAZA" накладається у Figma — великими літерами гротесковим шрифтом (типу Bebas Neue або Anton), білим, внизу кадру по центру. "화자" дрібно під ним.
+
+**AI-промпт.** `Editorial concert photography album cover, square 1:1 format, young Korean female K-pop artist performing live on stage, waist-up shot from low angle fan-pit perspective, dynamic pose with body turned sideways one leg forward weight shifted, right hand extended forward holding silver-black handheld wireless microphone with LED indicator, left arm raised in fist, dark chocolate hair mid-lopped-shoulder length flying in motion with damp strands on temples, direct intense eye contact with camera mouth open mid-lyric, dramatic stage makeup red smoky eyes with glitter and crystals, red glossy lips, highlighter glow on skin, wearing black vinyl corset bodysuit with burgundy center lacing, short black satin skirt with high slit, fishnet tights, tall black platform boots to knee, black leather wristbands with silver studs, black choker with ruby pendant, massive LED screen behind her with blurred animated "ON AIR" red retro typography, stage fog and dust particles in light beams, dark silhouettes of crowd hands with lightsticks in foreground bokeh, hot crimson red side lighting with purple-pink neon backlight rim, white frontal spotlight illuminating face, laser beams cutting through smoke, dramatic concert photography, captured mid-performance, K-pop arena aesthetic, sharp focus on HWAZA, cinematic live stage atmosphere --ar 1:1`
+
+***
+
+**ЗАГАЛЬНІ ПРАВИЛА ДЛЯ SUNO-ГЕНЕРАЦІЇ НЕ ЗВ'ЯЗАНОЇ З AI ОБКЛАДИНКАМИ**
+
+Не плутаю — обкладинки створюються окремо від музики, у AI image генераторах або фотошопом/дизайнером.
+
+**Типографіка накладається останньою**. Ніколи не включай текст у AI промпт — AI псує шрифти і часто пише нісенітницю. Створи фото в AI без тексту, потім у Figma або Photoshop наклади назву треку і лого групи самим шрифтом який хочеш.
+
+**Консистентність серії**. Щоб 6 обкладинок читалися як одна серія BLAC PINC, використовуй одну фотографічну камеру/стиль у промпті: `Hasselblad medium format, editorial Vogue Korea aesthetic, high fashion photography`. Це зв'яже різні концепти.
+
+**Генерація**. Для 1:1 формату використовуй `--ar 1:1` у Midjourney, або встанови square format у Gemini Imagen і Flux. Генеруй по 6-10 варіантів одного промпту, бери найкращий. AI часто пропускає деталі — тоді прибирай менш важливі (дрібні аксесуари) і залишай головне (поза, одяг, освітлення).
+
+**Якщо Gemini не справляється**. Альтернативи для фешн-фото рівня BLACKPINK: Flux Pro (найкращий для фотореалізму), Midjourney v6 з `--style raw --stylize 250`, Leonardo Phoenix. Gemini Imagen слабкіший за них у редакційній фотографії.

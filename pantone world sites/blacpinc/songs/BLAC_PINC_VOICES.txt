@@ -1,0 +1,89 @@
+**BLAC PINC — VOCAL PROFILES**
+
+Довідник вокальних тембрів для Suno промптів. Копіюй потрібні рядки в Style поле або в [секційні] помітки щоб Suno розрізняв голоси.
+
+***
+
+**JENIE · former main rapper · archive 2018—2025**
+
+Vocal: husky alto rap, sassy confident flow, Jennie-style cool detachment with subtle vocal melody. Low-to-mid range with slight nasal quality. Delivery — relaxed swagger, never straining, word-play focused.
+
+Прототип: Jennie Kim (BLACKPINK).
+
+Найкраще у: реп-куплетах з середнім темпом, мелодійних пре-приспівах, sassy hooks. Уникати: high belts, fast-flow drill.
+
+Suno-рядок: `Vocal: JENIE husky alto rap, sassy confident flow with subtle melody — Jennie-style cool swagger`
+
+***
+
+**JISUE · leader · main vocal**
+
+Vocal: clear powerful soprano, controlled restraint, precise diction, crystalline high notes with minimal vibrato. Delivery — elegant authority, measured breath, never over-sings.
+
+Прототип: Jisoo (BLACKPINK).
+
+Найкраще у: ballad-leads, cinematic intros, chorus anchor vocals, controlled high notes. Уникати: fast rap, raspy growls.
+
+Suno-рядок: `Vocal: JISUE clear powerful soprano, controlled restraint, crystalline high notes — Jisoo-style elegant authority`
+
+***
+
+**HWAZA · new rapper · lead dance**
+
+Vocal: husky low alto, half-rap half-sing delivery, soulful raspy tone with powerful low-to-high belt control. R&B-neo-soul влив. Delivery — confident swagger with earthy grounded tone, can drop to whisper and belt to full power.
+
+Прототип: Hwasa (MAMAMOO), справжнє ім'я Ahn Hye-jin.
+
+Найкраще у: R&B-trap hybrids, soulful bridges, low-to-high belting, half-rap-half-melody verses, confident flex moments. Уникати: cute high-register pop, chirpy delivery.
+
+Suno-рядок: `Vocal: HWAZA husky low alto, half-rap half-sing with soulful raspy belt — Hwasa-style confident R&B power`
+
+***
+
+**ROZAY · lead vocal · visual**
+
+Vocal: raspy high soprano with emotional belting range, Rosé-style vulnerability with controlled vibrato. Distinctive breath texture on sustained notes. Delivery — raw emotion without losing pitch control, can build from whisper-intimate to arena-belt.
+
+Прототип: Rosé (BLACKPINK).
+
+Найкраще у: pop-rock ballads, emotional bridges, vulnerable verses into explosive choruses, breathy-to-belt transitions. Уникати: hard rap, cold detached delivery.
+
+Suno-рядок: `Vocal: ROZAY raspy high soprano, emotional belting with controlled vibrato — Rosé-style vulnerability-to-power`
+
+***
+
+**LIZAH · maknae · lead dance**
+
+Vocal: sharp low rap, punchy staccato delivery, Lisa-style swagger with cold precision. Low-chest rap voice with crisp consonant articulation. Delivery — cutting, percussive, confident without warmth.
+
+Прототип: Lisa (BLACKPINK).
+
+Найкраще у: hard trap rap, flex verses, fast-flow drops, choreo-synced staccato sections, cold swagger moments. Уникати: soulful melodic singing, emotional ballads.
+
+Suno-рядок: `Vocal: LIZAH sharp low rap, punchy staccato delivery with cold precision — Lisa-style swagger`
+
+***
+
+**ЯК КОРИСТУВАТИСЯ В SUNO**
+
+Для сольника — копіюй відповідний Suno-рядок в Style поле, додай жанр/темп/інструменти.
+
+Для групового треку — у секції [Verse — NAME] додавай тембровий маркер:
+- `[Verse 1 · HWAZA husky low alto, half-rap half-sing]`
+- `[Pre-Chorus · ROZAY raspy high soprano]`
+- `[Bridge · JISUE belted clear soprano]`
+
+У Style поле групового треку перелічи всіх учасниць з тембрами:
+"Four distinct female voices — JISUE clear powerful soprano, HWAZA husky low alto Hwasa-style, ROZAY raspy high soprano belting, LIZAH sharp low rap punchy delivery"
+
+Suno не ідеально розрізняє голоси, але чіткі темброві маркери у секціях збільшують шанс на варіації.
+
+***
+
+**СКЛАД НА РІЗНІ ЕРИ**
+
+Square One, Square Two, Square Up, Kill This Love, The Album, Born Pink, Pink Venom² (2016—2025):
+JENIE · JISUE · ROZAY · LIZAH
+
+Absolute Zero і далі (з 2026):
+JISUE · HWAZA · ROZAY · LIZAH
