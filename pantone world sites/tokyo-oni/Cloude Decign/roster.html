@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Roster · Tokyo Oni · 選手</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+/* TOKYO ONI — Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Bebas+Neue&display=swap');
+
+:root {
+  /* Brand palette */
+  --oni-crimson: #cc3b2a;
+  --oni-crimson-deep: #9a2a1e;
+  --oni-crimson-glow: #ff4d38;
+  --oni-gold: #d4a820;
+  --oni-gold-light: #e6c057;
+
+  /* Neutrals (warm, near-black) */
+  --ink-000: #ffffff;
+  --ink-050: #f6f4f1;
+  --ink-100: #ebe7e0;
+  --ink-200: #c9c3b9;
+  --ink-300: #8a847a;
+  --ink-500: #4a453d;
+  --ink-700: #1f1d1a;
+  --ink-800: #141311;
+  --ink-900: #09090a;
+
+  /* Spectrum domains */
+  --hue-strike: #cc3b2a;
+  --hue-mend:   #e0873a;
+  --hue-pulse:  #d9c026;
+  --hue-read:   #6ea24b;
+  --hue-rush:   #2e63c8;
+  --hue-shift:  #8e3fb2;
+  --hue-hold:   #7a7a7a;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', 'Noto Sans JP', sans-serif;
+  --font-body: 'Inter', 'Noto Sans JP', sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --max-w: 1440px;
+  --pad-x: clamp(20px, 4vw, 64px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--ink-900);
+  color: var(--ink-050);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* ------- GLOBAL HEADER ------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9, 9, 10, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.site-header .top-strip {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 6px var(--pad-x);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-300);
+  letter-spacing: 0.06em;
+}
+.site-header .top-strip .live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--oni-crimson-glow);
+  box-shadow: 0 0 8px var(--oni-crimson-glow);
+  display: inline-block; margin-right: 6px;
+  animation: pulse 1.4s infinite;
+}
+@keyframes pulse { 50% { opacity: 0.3; } }
+
+.site-header .top-strip .lang-switch {
+  display: flex; gap: 14px;
+}
+.site-header .top-strip .lang-switch button {
+  color: var(--ink-300);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 2px 0;
+}
+.site-header .top-strip .lang-switch button.active {
+  color: var(--oni-gold);
+}
+
+.site-header .nav {
+  padding: 14px var(--pad-x);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+.brand {
+  display: flex; align-items: center; gap: 14px;
+}
+.brand img {
+  height: 44px; width: auto;
+  filter: drop-shadow(0 2px 8px rgba(204, 59, 42, 0.4));
+}
+.brand .brand-name {
+  display: flex; flex-direction: column; line-height: 1;
+}
+.brand .brand-kanji {
+  font-family: var(--font-jp);
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--ink-050);
+  letter-spacing: 0.12em;
+}
+.brand .brand-en {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  color: var(--oni-gold);
+  margin-top: 3px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+}
+.nav ul a {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  color: var(--ink-100);
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav ul a:hover, .nav ul a.active { color: var(--oni-gold); }
+.nav ul a.active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -4px;
+  height: 2px; background: var(--oni-crimson);
+}
+
+.nav-cta {
+  display: flex; gap: 10px; align-items: center;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  padding: 11px 20px;
+  border-radius: 2px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.btn-primary {
+  background: var(--oni-crimson);
+  color: white;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+}
+.btn-primary:hover { background: var(--oni-crimson-glow); }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-050);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.btn-ghost:hover { border-color: var(--oni-gold); color: var(--oni-gold); }
+.btn-gold {
+  background: var(--oni-gold);
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+/* ------- COMMON LAYOUT ------- */
+.page {
+  min-height: calc(100vh - 180px);
+}
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.section {
+  padding: 80px var(--pad-x);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.section-head .title-group {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.section-head .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--oni-gold);
+  text-transform: uppercase;
+}
+.section-head .eyebrow-num {
+  color: var(--ink-300);
+  margin-right: 10px;
+}
+.section-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 68px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  font-weight: 400;
+}
+.section-head h2 .jp {
+  font-family: var(--font-jp);
+  font-weight: 900;
+  font-size: 0.5em;
+  color: var(--ink-300);
+  margin-left: 18px;
+  letter-spacing: 0.12em;
+}
+.section-head .see-all {
+  font-family: var(--font-display);
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  color: var(--ink-200);
+  display: flex; align-items: center; gap: 8px;
+}
+.section-head .see-all:hover { color: var(--oni-gold); }
+
+/* ------- FOOTER ------- */
+.site-footer {
+  background: var(--ink-800);
+  border-top: 2px solid var(--oni-crimson);
+  padding: 60px var(--pad-x) 24px;
+  margin-top: 80px;
+}
+.site-footer .footer-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.site-footer .footer-brand img {
+  height: 56px; margin-bottom: 16px;
+}
+.site-footer .footer-brand .motto {
+  font-family: var(--font-jp);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--oni-gold);
+  margin-bottom: 6px;
+}
+.site-footer .footer-brand p {
+  color: var(--ink-300);
+  font-size: 13px;
+  max-width: 260px;
+}
+.site-footer h5 {
+  font-family: var(--font-display);
+  letter-spacing: 0.2em;
+  font-size: 13px;
+  color: var(--ink-100);
+  margin-bottom: 16px;
+}
+.site-footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.site-footer ul a {
+  color: var(--ink-300);
+  font-size: 13px;
+}
+.site-footer ul a:hover { color: var(--oni-gold); }
+
+.site-footer .sponsors {
+  max-width: var(--max-w);
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.site-footer .sponsors .label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-500);
+  letter-spacing: 0.2em;
+}
+.site-footer .sponsors .logos {
+  display: flex; gap: 36px; flex: 1; justify-content: center;
+}
+.site-footer .sponsors .logo-ph {
+  font-family: var(--font-display);
+  color: var(--ink-500);
+  letter-spacing: 0.2em;
+  font-size: 16px;
+  opacity: 0.6;
+}
+.site-footer .copyright {
+  max-width: var(--max-w);
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-500);
+  letter-spacing: 0.08em;
+}
+
+/* ------- UTILS ------- */
+.mono { font-family: var(--font-mono); }
+.jp { font-family: var(--font-jp); }
+.display { font-family: var(--font-display); letter-spacing: 0.08em; }
+.gold { color: var(--oni-gold); }
+.crimson { color: var(--oni-crimson); }
+.muted { color: var(--ink-300); }
+
+/* Image placeholder: striped */
+.img-ph {
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.03) 0 8px,
+      rgba(255,255,255,0.06) 8px 16px
+    ),
+    linear-gradient(135deg, #1a1614 0%, #0f0d0c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.img-ph::before {
+  content: ''; position: absolute; inset: 12px;
+  border: 1px dashed rgba(255,255,255,0.08);
+  pointer-events: none;
+}
+.img-ph .ph-label {
+  position: relative;
+  z-index: 1;
+  padding: 6px 12px;
+  background: rgba(9,9,10,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Data stat */
+.stat {
+  display: flex; flex-direction: column;
+}
+.stat .num {
+  font-family: var(--font-display);
+  font-size: 56px;
+  line-height: 0.95;
+  color: var(--ink-000);
+}
+.stat .lbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--ink-300);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* Tag chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-200);
+}
+.chip.crimson { border-color: var(--oni-crimson); color: var(--oni-crimson-glow); }
+.chip.gold { border-color: var(--oni-gold); color: var(--oni-gold); }
+
+/* Spectrum dot */
+.pig-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .site-header .nav { grid-template-columns: auto auto; }
+  .nav ul { display: none; }
+  .site-footer .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+</style>
+  <style>
+    .page-head {
+      position: relative;
+      padding: 100px var(--pad-x) 60px;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(204,59,42,0.2), transparent 60%),
+        linear-gradient(180deg, #0f0d0c 0%, #0a0908 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+    .page-head .bg-kanji {
+      position: absolute;
+      right: -4%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-jp);
+      font-weight: 900;
+      font-size: 440px;
+      line-height: 0.8;
+      color: rgba(255,255,255,0.025);
+      pointer-events: none;
+    }
+    .page-head .inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      position: relative;
+    }
+    .page-head .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.24em;
+      color: var(--oni-gold);
+      margin-bottom: 20px;
+    }
+    .page-head h1 {
+      font-family: var(--font-display);
+      font-size: clamp(60px, 9vw, 140px);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      font-weight: 400;
+    }
+    .page-head h1 .jp {
+      font-family: var(--font-jp);
+      font-weight: 900;
+      font-size: 0.35em;
+      color: var(--ink-300);
+      margin-left: 24px;
+      letter-spacing: 0.12em;
+    }
+    .page-head .lede {
+      color: var(--ink-200);
+      max-width: 620px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    /* Filters */
+    .filter-bar {
+      position: sticky;
+      top: 88px;
+      z-index: 10;
+      background: rgba(9,9,10,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 16px var(--pad-x);
+    }
+    .filter-bar .wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .filter-bar .pills {
+      display: flex; gap: 6px; flex-wrap: wrap;
+    }
+    .filter-bar .pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      padding: 8px 14px;
+      color: var(--ink-200);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      text-transform: uppercase;
+    }
+    .filter-bar .pill.active {
+      background: var(--oni-crimson);
+      color: white;
+      border-color: var(--oni-crimson);
+    }
+    .filter-bar .view-toggle {
+      display: flex; gap: 0;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .filter-bar .view-toggle button {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      padding: 8px 14px;
+      color: var(--ink-200);
+    }
+    .filter-bar .view-toggle button.active {
+      background: rgba(255,255,255,0.08);
+      color: var(--oni-gold);
+    }
+
+    /* Starter grid */
+    .roster-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 40px var(--pad-x) 0;
+    }
+    .section-label {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 30px;
+    }
+    .section-label .t {
+      font-family: var(--font-display);
+      font-size: 32px;
+      letter-spacing: 0.04em;
+    }
+    .section-label .t .jp { font-family: var(--font-jp); font-weight: 900; font-size: 0.5em; color: var(--ink-300); margin-left: 14px; }
+    .section-label .c {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-300);
+      letter-spacing: 0.2em;
+    }
+
+    .starters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .starters .card {
+      aspect-ratio: 3/4.2;
+      position: relative;
+      overflow: hidden;
+      background: #15120f;
+      display: block;
+      cursor: pointer;
+    }
+    .starters .card img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 18%;
+      transition: transform 0.5s;
+    }
+    .starters .card:hover img { transform: scale(1.05); }
+    .starters .card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.95) 100%);
+    }
+    .starters .card .top-row {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      z-index: 2;
+    }
+    .starters .card .pos {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--ink-050);
+      background: rgba(9,9,10,0.6);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 5px 9px;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .starters .card .pos .pig-dot { width: 8px; height: 8px; }
+    .starters .card .num {
+      font-family: var(--font-display);
+      font-size: 96px;
+      line-height: 0.8;
+      color: rgba(255,255,255,0.9);
+    }
+    .starters .card .bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0 18px 18px;
+      z-index: 2;
+    }
+    .starters .card .bottom .jp {
+      font-family: var(--font-jp);
+      font-size: 13px;
+      color: var(--ink-200);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .starters .card .bottom .name {
+      font-family: var(--font-display);
+      font-size: 26px;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      color: var(--ink-000);
+      margin-bottom: 10px;
+    }
+    .starters .card .bottom .meta {
+      display: flex; justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-300);
+      letter-spacing: 0.14em;
+    }
+    .starters .card .strip {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      z-index: 3;
+    }
+    .starters .card .captain-badge {
+      position: absolute;
+      top: 20px; right: 20px;
+      z-index: 3;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--oni-gold);
+      padding-right: 0;
+    }
+
+    /* Rising star feature */
+    .rising {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 0;
+      margin-bottom: 80px;
+      background: #15120f;
+      border-top: 2px solid var(--oni-gold);
+      min-height: 480px;
+    }
+    .rising .img-side {
+      position: relative;
+      overflow: hidden;
+    }
+    .rising .img-side img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .rising .txt-side {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .rising .tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      color: var(--oni-gold);
+      margin-bottom: 24px;
+    }
+    .rising h3 {
+      font-family: var(--font-display);
+      font-size: 64px;
+      line-height: 0.95;
+      margin-bottom: 10px;
+    }
+    .rising .jp {
+      font-family: var(--font-jp);
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--ink-300);
+      letter-spacing: 0.14em;
+      margin-bottom: 24px;
+    }
+    .rising p {
+      color: var(--ink-200);
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 460px;
+      margin-bottom: 30px;
+    }
+    .rising .mini-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .rising .num-badge {
+      position: absolute;
+      top: 30px; left: 30px;
+      z-index: 2;
+      font-family: var(--font-display);
+      font-size: 160px;
+      line-height: 0.85;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Bench */
+    .bench {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .bench .card {
+      background: var(--ink-800);
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: border-color 0.2s;
+    }
+    .bench .card:hover { border-color: var(--oni-crimson); }
+    .bench .card .av {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: #222;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 2px solid rgba(255,255,255,0.08);
+    }
+    .bench .card .av img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+    .bench .card .av.ph {
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--ink-300);
+      background: repeating-linear-gradient(45deg, #15120f 0 6px, #1c1916 6px 12px);
+    }
+    .bench .card .info .num {
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--oni-gold);
+      letter-spacing: 0.1em;
+    }
+    .bench .card .info .name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      letter-spacing: 0.06em;
+    }
+    .bench .card .info .role {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-300);
+      letter-spacing: 0.16em;
+      margin-top: 2px;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* Staff */
+    .staff {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+    .staff .card {
+      background: var(--ink-800);
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .staff .card .r {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--oni-gold);
+    }
+    .staff .card .n {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      margin-top: 8px;
+    }
+    .staff .card .jp {
+      font-family: var(--font-jp);
+      color: var(--ink-300);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 1000px) {
+      .starters, .bench { grid-template-columns: repeat(2, 1fr); }
+      .staff { grid-template-columns: 1fr; }
+      .rising { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="page" data-screen-label="02 Roster">
+    <section class="page-head">
+      <div class="bg-kanji">選手</div>
+      <div class="inner">
+        <div class="eyebrow">SEASON 2026 · 12 PLAYERS + STAFF</div>
+        <h1>ROSTER <span class="jp">選手</span></h1>
+        <p class="lede">Seven starters — one per pigment domain — plus a rising star and four bench specialists. Coach Nakashima leads the pack as player-captain, the only such case in FISB history.</p>
+      </div>
+    </section>
+
+    <div class="filter-bar">
+      <div class="wrap">
+        <div class="pills">
+          <button class="pill active">ALL · 13</button>
+          <button class="pill">STARTERS · 7</button>
+          <button class="pill">BENCH · 5</button>
+          <button class="pill">STAFF</button>
+          <button class="pill">STRIKE</button>
+          <button class="pill">MEND</button>
+          <button class="pill">PULSE</button>
+          <button class="pill">READ</button>
+          <button class="pill">RUSH</button>
+          <button class="pill">SHIFT</button>
+          <button class="pill">HOLD</button>
+        </div>
+        <div class="view-toggle">
+          <button class="active">GRID</button>
+          <button>TABLE</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="roster-wrap">
+      <div class="section-label">
+        <div class="t">STARTING SEVEN <span class="jp">先発七人</span></div>
+        <div class="c">01 · 2026 SEASON</div>
+      </div>
+
+      <div class="starters">
+        <a class="card" href="player.html?p=saito">
+          <img src="assets/players/saito-portrait.jpg" alt="">
+          <div class="top-row">
+            <div class="pos"><span class="pig-dot" style="color:var(--hue-strike)"></span>STRIKE · 01</div>
+            <div class="num">14</div>
+          </div>
+          <div class="bottom">
+            <div class="jp">齋藤信明</div>
+            <div class="name">NOBUAKI SAITO</div>
+            <div class="meta"><span>188 · 82 · 22Y</span><span>22.4 PPG</span></div>
+          </div>
+          <div class="strip" style="background:var(--hue-strike)"></div>
+        </a>
+        <a class="card" href="player.html?p=okamura">
+          <img src="assets/players/okamura-portrait.jpg" alt="">
+          <div class="top-row">
+            <div class="pos"><span class="pig-dot" style="color:var(--hue-mend)"></span>MEND · 02</div>
+            <div class="num">12</div>
+          </div>
+          <div class="bottom">
+            <div class="jp">岡村結衣</div>
+            <div class="name">YUI OKAMURA</div>
+            <div class="meta"><span>172 · 28Y</span><span>3.8 HEAL</span></div>
+          </div>
+          <div class="strip" style="background:var(--hue-mend)"></div>
+        </a>
+        <a class="card" href="player.html?p=mori">
+          <img src="assets/players/mori-portrait.jpg" alt="">
+          <div class="top-row">
+            <div class="pos"><span class="pig-dot" style="color:var(--hue-pulse)"></span>PULSE · 03</div>
+            <div class="num">21</div>
+          </div>
+          <div class="bottom">
+            <div class="jp">森健太</div>
+            <div class="name">KENTA MORI</div>
+            <div class="meta"><span>180 · 26Y</span><span>4.2 DST</span></div>
+          </div>
+          <div class="strip" style="background:var(--hue-pulse)"></div>
+        </a>
+        <a class="card" href="player.html?p=nakashima">
+          <img src="assets/players/nakashima-portrait.jpg" alt="">
+          <div class="captain-badge">★ C / HC</div>
+          <div class="top-row">
+            <div class="pos"><span class="pig-dot" style="color:var(--hue-read)"></span>READ · 04</div>
+            <div class="num">07</div>
+          </div>
+          <div class="bottom">
+            <div class="jp">中島涼</div>
+            <div class="name">RYŌ NAKASHIMA</div>
+            <div class="meta"><span>183 · 31Y</span><span>9.8 AST</span></div>
+          </div>
+          <div class="strip" style="background:var(--hue-read)"></div>
+        </a>
+        <a class="card" href="player.html?p=tachibana">
+          <img src="assets/players/tachibana-portrait.jpg" alt="">
+          <div class="top-row">
+            <div class="pos"><span class="pig-dot" style="color:var(--hue-rush)"></span>RUSH · 05</div>
+            <div class="num">11</div>
+          </div>
+          <div class="bottom">
+            <div class="jp">橘芽衣</div>
+            <div class="name">MEI TACHIBANA</div>
+            <div class="meta"><span>168 · 24Y</span><span>14.1 PPG</span></div>
+          </div>
+          <div class="strip" style="background:var(--hue-rush)"></div>
+        </a>
+        <a class="card" href="player.html?p=ueda">
+          <img src="assets/players/ueda-portrait.jpg" alt="">
+          <div class="top-row">
+            <div class="pos"><span class="pig-dot" style="color:var(--hue-shift)"></span>SHIFT · 06</div>
+            <div class="num">02</div>
+          </div>
+          <div class="bottom">
+            <div class="jp">上田匠</div>
+            <div class="name">TAKUMI UEDA</div>
+            <div class="meta"><span>181 · 25Y</span><span>7.2 TFM</span></div>
+          </div>
+          <div class="strip" style="background:var(--hue-shift)"></div>
+        </a>
+        <a class="card" href="player.html?p=inoue">
+          <img src="assets/players/inoue-portrait.jpg" alt="">
+          <div class="top-row">
+            <div class="pos"><span class="pig-dot" style="color:var(--hue-hold)"></span>HOLD · GK</div>
+            <div class="num">00</div>
+          </div>
+          <div class="bottom">
+            <div class="jp">井上華</div>
+            <div class="name">HANA INOUE</div>
+            <div class="meta"><span>178 · 27Y</span><span>5.2 BLK</span></div>
+          </div>
+          <div class="strip" style="background:var(--hue-hold)"></div>
+        </a>
+        <a class="card" href="player.html?p=kurosawa">
+          <img src="assets/players/kurosawa-portrait.jpg" alt="">
+          <div class="captain-badge" style="color:var(--oni-crimson-glow)">★ NEW</div>
+          <div class="top-row">
+            <div class="pos"><span class="pig-dot" style="color:var(--hue-strike)"></span>STRIKE · BENCH</div>
+            <div class="num">23</div>
+          </div>
+          <div class="bottom">
+            <div class="jp">黒澤大地</div>
+            <div class="name">DAICHI KUROSAWA</div>
+            <div class="meta"><span>184 · 18Y</span><span>8.4 PPG</span></div>
+          </div>
+          <div class="strip" style="background:var(--oni-crimson-glow)"></div>
+        </a>
+      </div>
+
+      <!-- Rising star feature -->
+      <div class="rising">
+        <div class="img-side">
+          <img src="assets/players/kurosawa-flex.jpg" alt="">
+          <div class="num-badge">23</div>
+        </div>
+        <div class="txt-side">
+          <div>
+            <div class="tag">RISING STAR · 2026 ROOKIE</div>
+            <h3>DAICHI<br>KUROSAWA</h3>
+            <div class="jp">黒澤大地 · H 355°</div>
+            <p>Youngest player in FISB history at 18. Met Coach Nakashima at the Osaka U-17 championship in 2025 and signed three weeks later. Projected to join the starting seven in 2027. Pigment reads at H 355° — a crimson shade darker than Saito, but with unusual saturation spikes mid-match.</p>
+          </div>
+          <div class="mini-stats">
+            <div class="stat"><span class="num" style="font-size:36px">8.4</span><span class="lbl">PPG · LTD MIN</span></div>
+            <div class="stat"><span class="num" style="font-size:36px">12.0</span><span class="lbl">MPG</span></div>
+            <div class="stat"><span class="num" style="font-size:36px">78</span><span class="lbl">V-COORD</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bench -->
+      <div class="section-label">
+        <div class="t">BENCH · BACKUPS <span class="jp">控え</span></div>
+        <div class="c">04 PLAYERS</div>
+      </div>
+      <div class="bench">
+        <a class="card" href="#">
+          <div class="av ph">HY</div>
+          <div class="info">
+            <div class="num">#33</div>
+            <div class="name">HIROKI YAMADA</div>
+            <div class="role"><span class="pig-dot" style="color:var(--hue-mend)"></span>MEND · H 28°</div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="av ph">AS</div>
+          <div class="info">
+            <div class="num">#19</div>
+            <div class="name">AI SUGAWARA</div>
+            <div class="role"><span class="pig-dot" style="color:var(--hue-pulse)"></span>PULSE · H 62°</div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="av ph">SW</div>
+          <div class="info">
+            <div class="num">#08</div>
+            <div class="name">SORA WATANABE</div>
+            <div class="role"><span class="pig-dot" style="color:var(--hue-rush)"></span>RUSH · H 244°</div>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="av ph">RT</div>
+          <div class="info">
+            <div class="num">#05</div>
+            <div class="name">RIN TANAKA</div>
+            <div class="role"><span class="pig-dot" style="color:var(--hue-shift)"></span>SHIFT · H 302°</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Staff -->
+      <div class="section-label">
+        <div class="t">STAFF <span class="jp">スタッフ</span></div>
+        <div class="c">LEADERSHIP</div>
+      </div>
+      <div class="staff">
+        <div class="card">
+          <div class="r">HEAD COACH · PLAYER-CAPTAIN</div>
+          <div class="n">RYŌ NAKASHIMA</div>
+          <div class="jp">中島涼 · 31</div>
+        </div>
+        <div class="card">
+          <div class="r">ASSISTANT COACH</div>
+          <div class="n">MARCUS LIU</div>
+          <div class="jp">2019 FISB Coach of the Year</div>
+        </div>
+        <div class="card">
+          <div class="r">PMS PHYSICIAN</div>
+          <div class="n">DR. HARUKO KOBAYASHI</div>
+          <div class="jp">小林春子 · Pigment Medicine</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:60px"></div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>window.__activePage = 'roster';</script>
+  <script>
+// Shared header / footer injection for all pages
+// Usage: include <script src="assets/partials.js" defer></script> then call renderChrome(activePage)
+
+function renderHeader(active) {
+  const items = [
+    { id: 'home', label: 'HOME', jp: 'ホーム', href: 'index.html' },
+    { id: 'roster', label: 'ROSTER', jp: '選手', href: 'roster.html' },
+    { id: 'schedule', label: 'SCHEDULE', jp: '試合', href: 'schedule.html' },
+    { id: 'standings', label: 'STANDINGS', jp: '順位', href: 'standings.html' },
+    { id: 'news', label: 'NEWS', jp: 'ニュース', href: 'news.html' },
+    { id: 'arena', label: 'ARENA', jp: 'アリーナ', href: 'arena.html' },
+    { id: 'about', label: 'ABOUT', jp: 'クラブ', href: 'about.html' },
+    { id: 'shop', label: 'SHOP', jp: 'ショップ', href: 'shop.html' },
+  ];
+  return `
+  <header class="site-header">
+    <div class="top-strip">
+      <div>
+        <span class="live-dot"></span>
+        FISB T1 · SEASON 2026 · 8-4 · #2 IN T1
+      </div>
+      <div class="lang-switch">
+        <button class="active">EN</button>
+        <button>日本語</button>
+        <button>УКР</button>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="Tokyo Oni">
+        <div class="brand-name">
+          <div class="brand-kanji">東京鬼</div>
+          <div class="brand-en">TOKYO ONI</div>
+        </div>
+      </a>
+      <ul>
+        ${items.map(i => `<li><a href="${i.href}" class="${i.id === active ? 'active' : ''}">${i.label}</a></li>`).join('')}
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="tickets.html">TICKETS</a>
+        <a class="btn btn-primary" href="schedule.html">NEXT MATCH ›</a>
+      </div>
+    </div>
+  </header>
+  `;
+}
+
+function renderFooter() {
+  return `
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Tokyo Oni">
+        <div class="motto">一つ鬼、勝つ</div>
+        <p>Tokyo Oni Athletic Club · Established August 14, 2022 · FISB T1 Asia-Pacific Division.</p>
+      </div>
+      <div>
+        <h5>CLUB</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="roster.html">Roster</a></li>
+          <li><a href="arena.html">Tokyo Arena</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>FANS</h5>
+        <ul>
+          <li><a href="tickets.html">Tickets</a></li>
+          <li><a href="shop.html">Official Shop</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="standings.html">Standings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>LEAGUE</h5>
+        <ul>
+          <li><a href="#">FISB.org</a></li>
+          <li><a href="#">Rules &amp; Spectrum</a></li>
+          <li><a href="#">PMS Certification</a></li>
+          <li><a href="#">Broadcast</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>FOLLOW</h5>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">X / Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sponsors">
+      <span class="label">OFFICIAL PARTNERS</span>
+      <div class="logos">
+        <span class="logo-ph">PANASONIC</span>
+        <span class="logo-ph">MIZUNO</span>
+        <span class="logo-ph">KIRIN</span>
+        <span class="logo-ph">RAKUTEN</span>
+        <span class="logo-ph">YAMAHA</span>
+        <span class="logo-ph">DAIHATSU</span>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 TOKYO ONI ATHLETIC CLUB · ALL RIGHTS RESERVED</span>
+      <span>TOKYO, JAPAN · 東京</span>
+    </div>
+  </footer>
+  `;
+}
+
+function renderChrome(active) {
+  document.getElementById('site-header').outerHTML = renderHeader(active);
+  document.getElementById('site-footer').outerHTML = renderFooter();
+}
+
+// Auto-run if page sets window.__activePage
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.__activePage) renderChrome(window.__activePage);
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Schedule · Tokyo Oni · 試合</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="assets/logo.png">
+  <style>
+/* TOKYO ONI — Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Bebas+Neue&display=swap');
+
+:root {
+  /* Brand palette */
+  --oni-crimson: #cc3b2a;
+  --oni-crimson-deep: #9a2a1e;
+  --oni-crimson-glow: #ff4d38;
+  --oni-gold: #d4a820;
+  --oni-gold-light: #e6c057;
+
+  /* Neutrals (warm, near-black) */
+  --ink-000: #ffffff;
+  --ink-050: #f6f4f1;
+  --ink-100: #ebe7e0;
+  --ink-200: #c9c3b9;
+  --ink-300: #8a847a;
+  --ink-500: #4a453d;
+  --ink-700: #1f1d1a;
+  --ink-800: #141311;
+  --ink-900: #09090a;
+
+  /* Spectrum domains */
+  --hue-strike: #cc3b2a;
+  --hue-mend:   #e0873a;
+  --hue-pulse:  #d9c026;
+  --hue-read:   #6ea24b;
+  --hue-rush:   #2e63c8;
+  --hue-shift:  #8e3fb2;
+  --hue-hold:   #7a7a7a;
+
+  /* Typography */
+  --font-display: 'Bebas Neue', 'Noto Sans JP', sans-serif;
+  --font-body: 'Inter', 'Noto Sans JP', sans-serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --max-w: 1440px;
+  --pad-x: clamp(20px, 4vw, 64px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--ink-900);
+  color: var(--ink-050);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* ------- GLOBAL HEADER ------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9, 9, 10, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.site-header .top-strip {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 6px var(--pad-x);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-300);
+  letter-spacing: 0.06em;
+}
+.site-header .top-strip .live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--oni-crimson-glow);
+  box-shadow: 0 0 8px var(--oni-crimson-glow);
+  display: inline-block; margin-right: 6px;
+  animation: pulse 1.4s infinite;
+}
+@keyframes pulse { 50% { opacity: 0.3; } }
+
+.site-header .top-strip .lang-switch {
+  display: flex; gap: 14px;
+}
+.site-header .top-strip .lang-switch button {
+  color: var(--ink-300);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 2px 0;
+}
+.site-header .top-strip .lang-switch button.active {
+  color: var(--oni-gold);
+}
+
+.site-header .nav {
+  padding: 14px var(--pad-x);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+.brand {
+  display: flex; align-items: center; gap: 14px;
+}
+.brand img {
+  height: 44px; width: auto;
+  filter: drop-shadow(0 2px 8px rgba(204, 59, 42, 0.4));
+}
+.brand .brand-name {
+  display: flex; flex-direction: column; line-height: 1;
+}
+.brand .brand-kanji {
+  font-family: var(--font-jp);
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--ink-050);
+  letter-spacing: 0.12em;
+}
+.brand .brand-en {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  color: var(--oni-gold);
+  margin-top: 3px;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+}
+.nav ul a {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  color: var(--ink-100);
+  padding: 6px 0;
+  position: relative;
+  transition: color 0.2s;
+}
+.nav ul a:hover, .nav ul a.active { color: var(--oni-gold); }
+.nav ul a.active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -4px;
+  height: 2px; background: var(--oni-crimson);
+}
+
+.nav-cta {
+  display: flex; gap: 10px; align-items: center;
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  padding: 11px 20px;
+  border-radius: 2px;
+  transition: all 0.2s;
+  text-transform: uppercase;
+}
+.btn-primary {
+  background: var(--oni-crimson);
+  color: white;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+}
+.btn-primary:hover { background: var(--oni-crimson-glow); }
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-050);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+.btn-ghost:hover { border-color: var(--oni-gold); color: var(--oni-gold); }
+.btn-gold {
+  background: var(--oni-gold);
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+/* ------- COMMON LAYOUT ------- */
+.page {
+  min-height: calc(100vh - 180px);
+}
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+.section {
+  padding: 80px var(--pad-x);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.section-head .title-group {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.section-head .eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--oni-gold);
+  text-transform: uppercase;
+}
+.section-head .eyebrow-num {
+  color: var(--ink-300);
+  margin-right: 10px;
+}
+.section-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 68px);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  font-weight: 400;
+}
+.section-head h2 .jp {
+  font-family: var(--font-jp);
+  font-weight: 900;
+  font-size: 0.5em;
+  color: var(--ink-300);
+  margin-left: 18px;
+  letter-spacing: 0.12em;
+}
+.section-head .see-all {
+  font-family: var(--font-display);
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  color: var(--ink-200);
+  display: flex; align-items: center; gap: 8px;
+}
+.section-head .see-all:hover { color: var(--oni-gold); }
+
+/* ------- FOOTER ------- */
+.site-footer {
+  background: var(--ink-800);
+  border-top: 2px solid var(--oni-crimson);
+  padding: 60px var(--pad-x) 24px;
+  margin-top: 80px;
+}
+.site-footer .footer-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.site-footer .footer-brand img {
+  height: 56px; margin-bottom: 16px;
+}
+.site-footer .footer-brand .motto {
+  font-family: var(--font-jp);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--oni-gold);
+  margin-bottom: 6px;
+}
+.site-footer .footer-brand p {
+  color: var(--ink-300);
+  font-size: 13px;
+  max-width: 260px;
+}
+.site-footer h5 {
+  font-family: var(--font-display);
+  letter-spacing: 0.2em;
+  font-size: 13px;
+  color: var(--ink-100);
+  margin-bottom: 16px;
+}
+.site-footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.site-footer ul a {
+  color: var(--ink-300);
+  font-size: 13px;
+}
+.site-footer ul a:hover { color: var(--oni-gold); }
+
+.site-footer .sponsors {
+  max-width: var(--max-w);
+  margin: 30px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.site-footer .sponsors .label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-500);
+  letter-spacing: 0.2em;
+}
+.site-footer .sponsors .logos {
+  display: flex; gap: 36px; flex: 1; justify-content: center;
+}
+.site-footer .sponsors .logo-ph {
+  font-family: var(--font-display);
+  color: var(--ink-500);
+  letter-spacing: 0.2em;
+  font-size: 16px;
+  opacity: 0.6;
+}
+.site-footer .copyright {
+  max-width: var(--max-w);
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-500);
+  letter-spacing: 0.08em;
+}
+
+/* ------- UTILS ------- */
+.mono { font-family: var(--font-mono); }
+.jp { font-family: var(--font-jp); }
+.display { font-family: var(--font-display); letter-spacing: 0.08em; }
+.gold { color: var(--oni-gold); }
+.crimson { color: var(--oni-crimson); }
+.muted { color: var(--ink-300); }
+
+/* Image placeholder: striped */
+.img-ph {
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.03) 0 8px,
+      rgba(255,255,255,0.06) 8px 16px
+    ),
+    linear-gradient(135deg, #1a1614 0%, #0f0d0c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-500);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.img-ph::before {
+  content: ''; position: absolute; inset: 12px;
+  border: 1px dashed rgba(255,255,255,0.08);
+  pointer-events: none;
+}
+.img-ph .ph-label {
+  position: relative;
+  z-index: 1;
+  padding: 6px 12px;
+  background: rgba(9,9,10,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* Data stat */
+.stat {
+  display: flex; flex-direction: column;
+}
+.stat .num {
+  font-family: var(--font-display);
+  font-size: 56px;
+  line-height: 0.95;
+  color: var(--ink-000);
+}
+.stat .lbl {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--ink-300);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* Tag chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-200);
+}
+.chip.crimson { border-color: var(--oni-crimson); color: var(--oni-crimson-glow); }
+.chip.gold { border-color: var(--oni-gold); color: var(--oni-gold); }
+
+/* Spectrum dot */
+.pig-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .site-header .nav { grid-template-columns: auto auto; }
+  .nav ul { display: none; }
+  .site-footer .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+</style>
+  <style>
+    .page-head {
+      position: relative;
+      padding: 100px var(--pad-x) 50px;
+      background: linear-gradient(180deg, #0f0d0c 0%, #0a0908 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+    .page-head .bg-kanji {
+      position: absolute;
+      right: -4%; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-jp);
+      font-weight: 900;
+      font-size: 440px;
+      color: rgba(255,255,255,0.025);
+    }
+    .page-head .inner { max-width: var(--max-w); margin: 0 auto; position: relative; }
+    .page-head .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.24em; color: var(--oni-gold); margin-bottom: 20px; }
+    .page-head h1 { font-family: var(--font-display); font-size: clamp(60px, 9vw, 140px); line-height: 0.9; letter-spacing: 0.02em; font-weight: 400; }
+    .page-head h1 .jp { font-family: var(--font-jp); font-weight: 900; font-size: 0.35em; color: var(--ink-300); margin-left: 24px; letter-spacing: 0.12em; }
+
+    /* Filters */
+    .sch-filters {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 30px var(--pad-x);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .sch-filters .pills { display: flex; gap: 6px; }
+    .sch-filters .pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      padding: 8px 14px;
+      color: var(--ink-200);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      text-transform: uppercase;
+    }
+    .sch-filters .pill.active { background: var(--oni-crimson); border-color: var(--oni-crimson); color: white; }
+    .sch-filters .dropdown {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      padding: 8px 14px;
+      color: var(--ink-200);
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+    }
+
+    /* Next match feature */
+    .feature-next {
+      max-width: var(--max-w);
+      margin: 50px auto;
+      padding: 0 var(--pad-x);
+    }
+    .feature-next .card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #15120f 0%, #0a0908 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: 2px solid var(--oni-crimson);
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      min-height: 420px;
+    }
+    .feature-next .img {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink-800);
+    }
+    .feature-next .img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+    }
+    .feature-next .img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent 50%, #0a0908 100%);
+    }
+    .feature-next .body {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .feature-next .tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; color: var(--oni-gold); margin-bottom: 20px; }
+    .feature-next .matchup {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .feature-next .team { text-align: center; }
+    .feature-next .team .crest {
+      width: 96px; height: 96px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 30px;
+      overflow: hidden;
+    }
+    .feature-next .team .crest img { width: 80px; }
+    .feature-next .team .name { font-family: var(--font-display); font-size: 22px; letter-spacing: 0.1em; }
+    .feature-next .team .rec { font-family: var(--font-mono); font-size: 11px; color: var(--ink-300); margin-top: 4px; letter-spacing: 0.14em; }
+    .feature-next .vs { font-family: var(--font-display); font-size: 60px; color: var(--oni-crimson); }
+
+    .feature-next .meta-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .feature-next .meta-grid .m {
+      padding: 20px 0;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      padding-right: 16px;
+    }
+    .feature-next .meta-grid .m:first-child { padding-left: 0; }
+    .feature-next .meta-grid .m:last-child { border-right: none; padding-right: 0; }
+    .feature-next .meta-grid .k { font-family: var(--font-mono); font-size: 10px; color: var(--ink-300); letter-spacing: 0.18em; margin-bottom: 6px; }
+    .feature-next .meta-grid .v { font-family: var(--font-display); font-size: 20px; letter-spacing: 0.04em; }
+    .feature-next .cta-row { display: flex; gap: 12px; margin-top: 24px; }
+
+    /* Calendar list */
+    .sch-list {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 20px var(--pad-x) 100px;
+    }
+    .sch-month {
+      font-family: var(--font-display);
+      font-size: 24px;
+      letter-spacing: 0.16em;
+      padding: 40px 0 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .sch-month .cnt { font-family: var(--font-mono); font-size: 11px; color: var(--ink-300); letter-spacing: 0.16em; }
+
+    .sch-row {
+      display: grid;
+      grid-template-columns: 80px 100px 1fr 120px 200px 120px;
+      gap: 24px;
+      align-items: center;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background 0.15s;
+    }
+    .sch-row:hover { background: rgba(255,255,255,0.02); }
+    .sch-row .date .d {
+      font-family: var(--font-display);
+      font-size: 38px;
+      line-height: 1;
+    }
+    .sch-row .date .m {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ink-300);
+      letter-spacing: 0.16em;
+      margin-top: 3px;
+    }
+    .sch-row .time {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--ink-200);
+      letter-spacing: 0.08em;
+    }
+    .sch-row .time .gd { font-size: 10px; color: var(--ink-300); display: block; letter-spacing: 0.2em; margin-top: 3px; }
+    .sch-row .opp {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .sch-row .opp .c {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: #222;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--ink-200);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .sch-row .opp .c.home { background: var(--oni-crimson); color: white; }
+    .sch-row .opp .n { font-family: var(--font-display); font-size: 18px; letter-spacing: 0.06em; }
+    .sch-row .opp .s { font-family: var(--font-mono); font-size: 10px; color: var(--ink-300); letter-spacing: 0.16em; display: block; margin-top: 2px; }
+    .sch-row .loc {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--ink-300);
+      letter-spacing: 0.1em;
+    }
+    .sch-row .loc .v { color: var(--oni-gold); }
+    .sch-row .result {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 0.06em;
+    }
+    .sch-row .result .w { color: var(--oni-gold); }
+    .sch-row .result .l { color: var(--ink-300); }
+    .sch-row .result .ot { font-family: var(--font-mono); font-size: 10px; color: var(--ink-300); letter-spacing: 0.18em; margin-left: 8px; }
+    .sch-row .action .btn { padding: 8px 14px; font-size: 11px; letter-spacing: 0.12em; }
+
+    .sch-row.future .result { color: var(--ink-500); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.2em; }
+    .sch-row.next {
+      background: rgba(204,59,42,0.08);
+      border-left: 3px solid var(--oni-crimson);
+      padding-left: 16px;
+    }
+
+    @media (max-width: 1000px) {
+      .feature-next .card { grid-template-columns: 1fr; }
+      .sch-row { grid-template-columns: 60px 1fr 100px; gap: 14px; }
+      .sch-row .time, .sch-row .loc, .sch-row .action { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="page" data-screen-label="04 Schedule">
+    <section class="page-head">
+      <div class="bg-kanji">試合</div>
+      <div class="inner">
+        <div class="eyebrow">FISB T1 · REGULAR SEASON 2026 · 28 GAMES</div>
+        <h1>SCHEDULE <span class="jp">試合</span></h1>
+      </div>
+    </section>
+
+    <div class="sch-filters">
+      <div class="pills">
+        <button class="pill active">ALL</button>
+        <button class="pill">UPCOMING · 16</button>
+        <button class="pill">RESULTS · 12</button>
+        <button class="pill">HOME · 14</button>
+        <button class="pill">AWAY · 14</button>
+      </div>
+      <select class="dropdown">
+        <option>2026 · REGULAR SEASON</option>
+        <option>2025 · PLAYOFFS</option>
+        <option>2025 · REGULAR SEASON</option>
+      </select>
+    </div>
+
+    <div class="feature-next">
+      <div class="card">
+        <div class="img"><img src="assets/players/saito-action.jpg" alt=""></div>
+        <div class="body">
+          <div>
+            <div class="tag">NEXT MATCH · GAMEDAY 13 · HOME OPENER</div>
+            <div class="matchup">
+              <div class="team">
+                <div class="crest"><img src="assets/logo.png" alt=""></div>
+                <div class="name">TOKYO ONI</div>
+                <div class="rec">8-4 · #2</div>
+              </div>
+              <div class="vs">VS</div>
+              <div class="team">
+                <div class="crest">LA</div>
+                <div class="name">LA PHOTONS</div>
+                <div class="rec">9-3 · #1</div>
+              </div>
+            </div>
+          </div>
+          <div class="meta-grid">
+            <div class="m"><div class="k">DATE</div><div class="v">SUN · APR 27</div></div>
+            <div class="m"><div class="k">TIP-OFF</div><div class="v">19:00 JST</div></div>
+            <div class="m"><div class="k">VENUE</div><div class="v">TOKYO ARENA</div></div>
+            <div class="m"><div class="k">BROADCAST</div><div class="v">DAZN · NHK-SB</div></div>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tickets.html">BUY TICKETS ›</a>
+            <a class="btn btn-ghost" href="match.html">PREVIEW</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sch-list">
+      <!-- APRIL -->
+      <div class="sch-month"><div>APRIL · 四月 2026</div><div class="cnt">3 MATCHES</div></div>
+
+      <div class="sch-row future next">
+        <div class="date"><div class="d">27</div><div class="m">SUN · APR</div></div>
+        <div class="time">19:00 JST<span class="gd">GD 13</span></div>
+        <div class="opp"><span class="c home">LA</span><div><div class="n">LA PHOTONS <span class="chip crimson" style="margin-left:8px">RIVALRY</span></div><span class="s">RECORD 9-3 · WEST #1</span></div></div>
+        <div class="loc">HOME<br><span class="v">TOKYO ARENA</span></div>
+        <div class="result">vs · 19:00</div>
+        <div class="action"><a class="btn btn-primary" href="tickets.html">TICKETS</a></div>
+      </div>
+
+      <!-- MAY -->
+      <div class="sch-month"><div>MAY · 五月 2026</div><div class="cnt">4 MATCHES</div></div>
+
+      <div class="sch-row future">
+        <div class="date"><div class="d">03</div><div class="m">SAT · MAY</div></div>
+        <div class="time">19:00 JST<span class="gd">GD 14</span></div>
+        <div class="opp"><span class="c">OS</span><div><div class="n">OSAKA FLAME</div><span class="s">RECORD 7-5 · ASIA-PAC</span></div></div>
+        <div class="loc">AWAY<br><span class="v">KYOCERA DOME</span></div>
+        <div class="result">@ · 19:00</div>
+        <div class="action"><a class="btn btn-ghost" href="#">SET REMINDER</a></div>
+      </div>
+      <div class="sch-row future">
+        <div class="date"><div class="d">10</div><div class="m">SUN · MAY</div></div>
+        <div class="time">18:00 JST<span class="gd">GD 15</span></div>
+        <div class="opp"><span class="c home">BK</span><div><div class="n">BERLIN KOLLEKTIV</div><span class="s">RECORD 6-6 · EUROPE</span></div></div>
+        <div class="loc">HOME<br><span class="v">TOKYO ARENA</span></div>
+        <div class="result">vs · 18:00</div>
+        <div class="action"><a class="btn btn-ghost" href="tickets.html">TICKETS</a></div>
+      </div>
+      <div class="sch-row future">
+        <div class="date"><div class="d">17</div><div class="m">SUN · MAY</div></div>
+        <div class="time">21:00 JST<span class="gd">GD 16</span></div>
+        <div class="opp"><span class="c">MD</span><div><div class="n">MADRID MATADORS</div><span class="s">RECORD 7-5 · EUROPE</span></div></div>
+        <div class="loc">AWAY<br><span class="v">WIZINK CENTER</span></div>
+        <div class="result">@ · 21:00</div>
+        <div class="action"><a class="btn btn-ghost" href="#">SET REMINDER</a></div>
+      </div>
+      <div class="sch-row future">
+        <div class="date"><div class="d">24</div><div class="m">SUN · MAY</div></div>
+        <div class="time">19:00 JST<span class="gd">GD 17</span></div>
+        <div class="opp"><span class="c home">TP</span><div><div class="n">TAIPEI SUN</div><span class="s">RECORD 5-7 · ASIA-PAC</span></div></div>
+        <div class="loc">HOME<br><span class="v">TOKYO ARENA</span></div>
+        <div class="result">vs · 19:00</div>
+        <div class="action"><a class="btn btn-ghost" href="tickets.html">TICKETS</a></div>
+      </div>
+
+      <!-- APRIL RESULTS -->
+      <div class="sch-month" style="margin-top:40px"><div>RESULTS · 結果</div><div class="cnt">12 MATCHES · 8-4</div></div>
+
+      <div class="sch-row">
+        <div class="date"><div class="d">19</div><div class="m">SAT · APR</div></div>
+        <div class="time">20:00 CST<span class="gd">GD 12</span></div>
+        <div class="opp"><span class="c">SH</span><div><div class="n">SHANGHAI ROYALS</div><span class="s">OT THRILLER</span></div></div>
+        <div class="loc">AWAY<br><span class="v">PUDONG ARENA</span></div>
+        <div class="result"><span class="w">W</span> 82-76<span class="ot">OT</span></div>
+        <div class="action"><a class="btn btn-ghost" href="match.html">RECAP</a></div>
+      </div>
+      <div class="sch-row">
+        <div class="date"><div class="d">12</div><div class="m">SAT · APR</div></div>
+        <div class="time">20:00 CET<span class="gd">GD 11</span></div>
+        <div class="opp"><span class="c">MD</span><div><div class="n">MADRID MATADORS</div><span class="s">RECORD 7-5 · EUROPE</span></div></div>
+        <div class="loc">AWAY<br><span class="v">WIZINK CENTER</span></div>
+        <div class="result"><span class="l">L</span> 76-84</div>
+        <div class="action"><a class="btn btn-ghost" href="match.html">RECAP</a></div>
+      </div>
+      <div class="sch-row">
+        <div class="date"><div class="d">05</div><div class="m">SAT · APR</div></div>
+        <div class="time">19:00 JST<span class="gd">GD 10</span></div>
+        <div class="opp"><span class="c home">TP</span><div><div class="n">TAIPEI SUN</div><span class="s">RECORD 5-7 · ASIA-PAC</span></div></div>
+        <div class="loc">HOME<br><span class="v">TOKYO ARENA</span></div>
+        <div class="result"><span class="w">W</span> 91-78</div>
+        <div class="action"><a class="btn btn-ghost" href="match.html">RECAP</a></div>
+      </div>
+      <div class="sch-row">
+        <div class="date"><div class="d">29</div><div class="m">SAT · MAR</div></div>
+        <div class="time">21:00 ICT<span class="gd">GD 09</span></div>
+        <div class="opp"><span class="c">BK</span><div><div class="n">BANGKOK PRISMS</div><span class="s">RECORD 4-8 · ASIA-PAC</span></div></div>
+        <div class="loc">AWAY<br><span class="v">IMPACT ARENA</span></div>
+        <div class="result"><span class="w">W</span> 95-82</div>
+        <div class="action"><a class="btn btn-ghost" href="match.html">RECAP</a></div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script>window.__activePage = 'schedule';</script>
+  <script>
+// Shared header / footer injection for all pages
+// Usage: include <script src="assets/partials.js" defer></script> then call renderChrome(activePage)
+
+function renderHeader(active) {
+  const items = [
+    { id: 'home', label: 'HOME', jp: 'ホーム', href: 'index.html' },
+    { id: 'roster', label: 'ROSTER', jp: '選手', href: 'roster.html' },
+    { id: 'schedule', label: 'SCHEDULE', jp: '試合', href: 'schedule.html' },
+    { id: 'standings', label: 'STANDINGS', jp: '順位', href: 'standings.html' },
+    { id: 'news', label: 'NEWS', jp: 'ニュース', href: 'news.html' },
+    { id: 'arena', label: 'ARENA', jp: 'アリーナ', href: 'arena.html' },
+    { id: 'about', label: 'ABOUT', jp: 'クラブ', href: 'about.html' },
+    { id: 'shop', label: 'SHOP', jp: 'ショップ', href: 'shop.html' },
+  ];
+  return `
+  <header class="site-header">
+    <div class="top-strip">
+      <div>
+        <span class="live-dot"></span>
+        FISB T1 · SEASON 2026 · 8-4 · #2 IN T1
+      </div>
+      <div class="lang-switch">
+        <button class="active">EN</button>
+        <button>日本語</button>
+        <button>УКР</button>
+      </div>
+    </div>
+    <div class="nav">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.png" alt="Tokyo Oni">
+        <div class="brand-name">
+          <div class="brand-kanji">東京鬼</div>
+          <div class="brand-en">TOKYO ONI</div>
+        </div>
+      </a>
+      <ul>
+        ${items.map(i => `<li><a href="${i.href}" class="${i.id === active ? 'active' : ''}">${i.label}</a></li>`).join('')}
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="tickets.html">TICKETS</a>
+        <a class="btn btn-primary" href="schedule.html">NEXT MATCH ›</a>
+      </div>
+    </div>
+  </header>
+  `;
+}
+
+function renderFooter() {
+  return `
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Tokyo Oni">
+        <div class="motto">一つ鬼、勝つ</div>
+        <p>Tokyo Oni Athletic Club · Established August 14, 2022 · FISB T1 Asia-Pacific Division.</p>
+      </div>
+      <div>
+        <h5>CLUB</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="roster.html">Roster</a></li>
+          <li><a href="arena.html">Tokyo Arena</a></li>
+          <li><a href="news.html">News</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>FANS</h5>
+        <ul>
+          <li><a href="tickets.html">Tickets</a></li>
+          <li><a href="shop.html">Official Shop</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="standings.html">Standings</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>LEAGUE</h5>
+        <ul>
+          <li><a href="#">FISB.org</a></li>
+          <li><a href="#">Rules &amp; Spectrum</a></li>
+          <li><a href="#">PMS Certification</a></li>
+          <li><a href="#">Broadcast</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>FOLLOW</h5>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">X / Twitter</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">TikTok</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sponsors">
+      <span class="label">OFFICIAL PARTNERS</span>
+      <div class="logos">
+        <span class="logo-ph">PANASONIC</span>
+        <span class="logo-ph">MIZUNO</span>
+        <span class="logo-ph">KIRIN</span>
+        <span class="logo-ph">RAKUTEN</span>
+        <span class="logo-ph">YAMAHA</span>
+        <span class="logo-ph">DAIHATSU</span>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© 2026 TOKYO ONI ATHLETIC CLUB · ALL RIGHTS RESERVED</span>
+      <span>TOKYO, JAPAN · 東京</span>
+    </div>
+  </footer>
+  `;
+}
+
+function renderChrome(active) {
+  document.getElementById('site-header').outerHTML = renderHeader(active);
+  document.getElementById('site-footer').outerHTML = renderFooter();
+}
+
+// Auto-run if page sets window.__activePage
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.__activePage) renderChrome(window.__activePage);
+});
+
+</script>
+</body>
+</html>

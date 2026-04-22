@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Positions · FISB · Seven roles of Spectrum-Ball</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pigment-sport.css">
+<style>
+.page-hero{background:#0a0a0a;color:#fff;padding:90px 40px 70px}
+.page-hero-in{max-width:1500px;margin:0 auto}
+.page-hero .k{font:700 12px 'JetBrains Mono',monospace;color:#6aff3b;letter-spacing:.3em;text-transform:uppercase;margin-bottom:20px}
+.page-hero h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(52px,7vw,104px);line-height:.9;letter-spacing:-.01em;text-transform:uppercase;max-width:18ch}
+.page-hero h1 span{color:#6aff3b}
+.page-hero p{margin-top:22px;font-size:17px;max-width:70ch;color:#d5d5cf;line-height:1.55}
+
+.field-section{padding:70px 40px;background:#fff;border-bottom:1px solid var(--line)}
+.field-in{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center}
+.field-viz{background:#e8ecdc;border:2px solid #0a0a0a;aspect-ratio:2/1;position:relative;border-radius:6px}
+.field-viz::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:#0a0a0a;opacity:.3}
+.field-viz .c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:52px;height:52px;border:2px solid #0a0a0a;border-radius:50%;background:transparent}
+.field-viz .arc{position:absolute;top:30%;bottom:30%;width:110px;border:2px solid #0a0a0a;border-radius:50%;background:transparent}
+.field-viz .arc.l{left:-55px;border-right:0;border-radius:0 55px 55px 0}
+.field-viz .arc.r{right:-55px;border-left:0;border-radius:55px 0 0 55px}
+.field-viz .g{position:absolute;width:10px;height:50px;background:#0a0a0a;top:50%;transform:translateY(-50%);border-radius:3px}
+.field-viz .g.l{left:14px}.field-viz .g.r{right:14px}
+.field-viz .p{position:absolute;width:28px;height:28px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 6px #0000004a;display:grid;place-items:center;font:700 10px 'Oswald',sans-serif;color:#fff;text-transform:uppercase}
+.field-info h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;line-height:.95;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:18px}
+.field-info h2 span{color:var(--accent)}
+.field-info p{font-size:15px;color:var(--ink-2);line-height:1.65;margin-bottom:14px}
+.field-legend{display:grid;grid-template-columns:1fr 1fr;gap:8px 22px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font:500 12px 'JetBrains Mono',monospace;color:var(--muted-2);letter-spacing:.08em;text-transform:uppercase}
+.field-legend span{display:flex;align-items:center;gap:8px}
+.field-legend span::before{content:'';width:14px;height:14px;border-radius:50%;background:var(--c)}
+
+.positions-full{padding:80px 40px;background:var(--bg-2)}
+.pos-lead{color:var(--ink-2);max-width:70ch;font-size:16px;line-height:1.65;margin-bottom:34px}
+.pos-grid-full{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.pos-full{background:#fff;border:1px solid var(--line);border-top:4px solid;padding:38px 34px}
+.pos-full.p0{border-top-color:var(--h0)}.pos-full.p30{border-top-color:var(--h30)}
+.pos-full.p60{border-top-color:var(--h60)}.pos-full.p120{border-top-color:var(--h120)}
+.pos-full.p240{border-top-color:var(--h240)}.pos-full.p300{border-top-color:var(--h300)}
+.pos-full.pg{border-top-color:var(--hg)}
+.pos-full .hk{font:500 11px 'JetBrains Mono',monospace;color:var(--accent);letter-spacing:.2em;text-transform:uppercase}
+.pos-full h3{font-family:'Oswald',sans-serif;font-weight:700;font-size:40px;letter-spacing:.02em;text-transform:uppercase;margin:14px 0 6px;color:var(--ink)}
+.pos-full .role{font:500 12px 'JetBrains Mono',monospace;color:var(--muted-2);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.pos-full p{font-size:14px;color:var(--ink-2);line-height:1.65;margin-bottom:12px}
+.pos-full .bullets{padding-top:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px 26px;font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.pos-full .bullets b{color:var(--ink);font-size:14px;display:block;font-family:'Oswald',sans-serif;margin-top:4px;letter-spacing:.02em}
+
+.roster-rule{padding:80px 40px;background:#0a0a0a;color:#fff}
+.roster-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.roster-in h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:56px;line-height:.95;letter-spacing:-.01em;text-transform:uppercase}
+.roster-in h2 span{color:#6aff3b}
+.roster-in p{font-size:16px;color:#d5d5cf;line-height:1.65;margin-top:20px}
+.roster-code{background:#1a1a1a;border:1px solid #2a2a2a;padding:30px 34px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.8;color:#d5d5cf}
+.roster-code .c{color:#6aff3b}
+.roster-code .d{color:#a8a8a0}
+
+@media(max-width:900px){.field-in,.roster-in{grid-template-columns:1fr}.pos-grid-full{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <span>← <a href="pigment-sport.html">FISB · Home</a></span>
+  <span class="right">
+    <a href="#">Tickets</a><a href="#">FISB+</a><a href="#">Store</a><a href="#">Collect</a><a href="#">Inside FISB</a>
+  </span>
+</div>
+
+<nav class="mainnav">
+  <div class="left">
+    <div class="burger">≡</div>
+    <a href="pigment-sport.html" class="logo">FI<b>SB</b></a>
+    <ul>
+      <li><a href="pigment-sport.html#tournaments">Tournaments</a></li>
+      <li><a href="pigment-sport.html#match-centre">Match Centre</a></li>
+      <li><a href="pigment-sport.html#stories">News</a></li>
+      <li><a href="pigment-sport.html#rankings">Rankings</a></li>
+      <li><a class="on" href="positions.html">Positions</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="pigment-sport.html#store">Shop</a></li>
+      <li><a href="#">Watch on FISB+</a></li>
+      <li><a href="pigment-sport.html#inside">Inside FISB</a></li>
+    </ul>
+  </div>
+  <div class="right">
+    <a href="#" class="icon">⌕</a><a href="#" class="icon">◉</a><a href="#" class="icon">☉</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-in">
+    <div class="k">Сім гравців · шість доменів · одна команда</div>
+    <h1>Позиції <span>Spectrum-Ball.</span></h1>
+    <p>Кожна команда на полі має сім гравців у строго визначених ролях. Шість чистих доменів пігменту (Атака, Плоть, Вплив, Розум, Рух, Зміна) плюс сірий на воротах. Позиція задає тактичну роль, але конкретні здібності гравця — у межах його пігменту.</p>
+  </div>
+</section>
+
+<section class="field-section">
+  <div class="field-in">
+
+    <div class="field-viz">
+      <div class="c"></div>
+      <div class="arc l"></div>
+      <div class="arc r"></div>
+      <div class="g l"></div>
+      <div class="g r"></div>
+      <div class="p" style="background:#cc3b2a;left:14%;top:28%">S</div>
+      <div class="p" style="background:#e08a3a;left:20%;top:62%">M</div>
+      <div class="p" style="background:#d4a820;left:32%;top:38%;color:#0a0a0a">P</div>
+      <div class="p" style="background:#2a8a3a;left:36%;top:52%">R</div>
+      <div class="p" style="background:#2a6aa8;left:42%;top:22%">R</div>
+      <div class="p" style="background:#6a3a8a;left:44%;top:72%">S</div>
+      <div class="p" style="background:#7a7a76;left:6%;top:50%">H</div>
+      <div class="p" style="background:#cc3b2a;left:84%;top:70%">S</div>
+      <div class="p" style="background:#e08a3a;left:78%;top:38%">M</div>
+      <div class="p" style="background:#d4a820;left:66%;top:62%;color:#0a0a0a">P</div>
+      <div class="p" style="background:#2a8a3a;left:62%;top:48%">R</div>
+      <div class="p" style="background:#2a6aa8;left:56%;top:78%">R</div>
+      <div class="p" style="background:#6a3a8a;left:54%;top:28%">S</div>
+      <div class="p" style="background:#7a7a76;left:92%;top:50%">H</div>
+    </div>
+
+    <div class="field-info">
+      <h2>Поле <span>нейтральне.</span></h2>
+      <p>40×20 метрів паркету. Два кошики, 6-метрова дуга триочкового, 5×5 паінт під кошиком, Mend-зона 2×2 м за кошиком. Без кольорових зон: пігмент — це властивість гравця, а не середовища, тому колір підлоги на гру не впливає.</p>
+      <p>По 7 гравців з кожної сторони — шість доменів плюс сірий Hold на воротах.</p>
+      <div class="field-legend">
+        <span style="--c:#cc3b2a">Strike · H 0°</span>
+        <span style="--c:#e08a3a">Mend · H 30°</span>
+        <span style="--c:#d4a820">Pulse · H 60°</span>
+        <span style="--c:#2a8a3a">Read · H 120°</span>
+        <span style="--c:#2a6aa8">Rush · H 240°</span>
+        <span style="--c:#6a3a8a">Shift · H 300°</span>
+        <span style="--c:#7a7a76">Hold · Grey</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="positions-full">
+  <div class="sec-in">
+    <div class="sec-h">
+      <div><span class="k">Детально по кожній</span><h2>Сім <span>ролей.</span></h2></div>
+    </div>
+
+    <p class="pos-lead">Нижче — повний опис кожної позиції: тактична роль на полі, діапазон пігменту, типові здібності у межах домену, обмеження правилами.</p>
+
+    <div class="pos-grid-full">
+
+      <div class="pos-full p0">
+        <div class="hk">Position 01 · H 0° · Attack</div>
+        <h3>Strike</h3>
+        <div class="role">Бомбардир · єдиний з правом кидка</div>
+        <p>Strike — головний нападник команди. Єдина позиція, з руки якої гол зараховується. Якщо в кошик потрапляє м'яч з руки іншого гравця — гол не рахується.</p>
+        <p>Домен Атаки широкий: прямий удар, пробій, метальний снаряд, вибухова хвиля, ріж, тиск. Форма різна, функція одна — закинути м'яч у кошик або зруйнувати лінію захисту суперника.</p>
+        <div class="bullets">
+          <div>Hue діапазон<b>340°—20°</b></div>
+          <div>Середня PPG<b>22.0</b></div>
+          <div>% триочкових<b>42%</b></div>
+          <div>Obмеження<b>Не атакує людину</b></div>
+        </div>
+      </div>
+
+      <div class="pos-full p30">
+        <div class="hk">Position 02 · H 30° · Flesh</div>
+        <h3>Mend</h3>
+        <div class="role">Медик · лікар команди</div>
+        <p>Mend — єдиний гравець з правом торкнутися травмованого партнера на майданчику. Прискорює регенерацію, знімає спазми, діагностує ступінь пошкоджень.</p>
+        <p>Домен Плоті широкий: регенерація, зміцнення кісток, робота з м'язами, енергобаланс, мікро-хірургія. Mend НЕ може кидати у кошик — гол з його руки не зараховується.</p>
+        <div class="bullets">
+          <div>Hue діапазон<b>10°—50°</b></div>
+          <div>Лікувань/матч<b>3.4</b></div>
+          <div>Асисти<b>5.2</b></div>
+          <div>Обмеження<b>Не кидає у кошик</b></div>
+        </div>
+      </div>
+
+      <div class="pos-full p60">
+        <div class="hk">Position 03 · H 60° · Influence</div>
+        <h3>Pulse</h3>
+        <div class="role">Дестабілізатор зони</div>
+        <p>Pulse змінює стан у своїй локальній зоні — температуру, світло, тиск, хімічний склад повітря, звукове середовище. Один Pulse глушить зір суперника, інший змінює тиск у кошику, третій блокує запах поту.</p>
+        <p>Найширший домен ліги. Тренер вивчає пігмент кожного Pulse окремо, бо між двома Pulse практично немає повторів.</p>
+        <div class="bullets">
+          <div>Hue діапазон<b>40°—80°</b></div>
+          <div>Середня роль<b>Підтримка</b></div>
+          <div>Кидки<b>Дозволено, не рахується</b></div>
+          <div>Обмеження<b>Не впливає на суддівство</b></div>
+        </div>
+      </div>
+
+      <div class="pos-full p120">
+        <div class="hk">Position 04 · H 120° · Mind</div>
+        <h3>Read</h3>
+        <div class="role">Плеймейкер · капітан</div>
+        <p>Read — мозок команди. Розрахунок траєкторій, читання наміру суперника, гостре чуття, пам'ять на патерни, прогноз на 2—3 дії вперед.</p>
+        <p>У 6 із 8 команд ліги капітан — саме Read. Розігрує атаку, роздає паси, ставить Strike у позицію для кидка.</p>
+        <div class="bullets">
+          <div>Hue діапазон<b>100°—140°</b></div>
+          <div>% капітанів<b>75%</b></div>
+          <div>Асисти<b>9.1</b></div>
+          <div>Обмеження<b>Не читає думки суперника</b></div>
+        </div>
+      </div>
+
+      <div class="pos-full p240">
+        <div class="hk">Position 05 · H 240° · Move</div>
+        <h3>Rush</h3>
+        <div class="role">Транспортна позиція</div>
+        <p>Rush — найрухливіший гравець команди. Домен Руху дуже широкий: швидкість, телекінез, блінки, ривки, контроль траєкторії м'яча, моментум.</p>
+        <p>Rush не обов'язково «бігає» — він рухає. М'яч, себе, партнера, інколи суперника. Що саме — залежить від його пігменту. Дві Rush-команди з різних команд можуть грати зовсім по-різному.</p>
+        <div class="bullets">
+          <div>Hue діапазон<b>220°—260°</b></div>
+          <div>Контроль м'яча<b>42%</b></div>
+          <div>Швидкість<b>Перемінна</b></div>
+          <div>Обмеження<b>Без прямого переносу м'яча у кошик</b></div>
+        </div>
+      </div>
+
+      <div class="pos-full p300">
+        <div class="hk">Position 06 · H 300° · Change</div>
+        <h3>Shift</h3>
+        <div class="role">Трансформатор</div>
+        <p>Shift — трансформує матерію: форму, розмір, щільність, фазу, стан поверхні. Найспірніша позиція ліги: правила 4.3—4.7 суворо обмежують те, що Shift може змінювати під час активного розіграшу.</p>
+        <p>Дозволено: зміна стану поверхні (паркет → гладкий/шершавий), зміна фізичних властивостей захисних щитів Hold, локальна трансформація повітря. Заборонено: зміна самого м'яча, тіл суперників, розмірів майданчика.</p>
+        <div class="bullets">
+          <div>Hue діапазон<b>280°—320°</b></div>
+          <div>Роль<b>Тактичний важіль</b></div>
+          <div>Найбільше обмежень<b>Так</b></div>
+          <div>Обмеження<b>Правила 4.3—4.7</b></div>
+        </div>
+      </div>
+
+      <div class="pos-full pg">
+        <div class="hk">Position 07 · Grey · S &lt; 25</div>
+        <h3>Hold</h3>
+        <div class="role">Воротар · оборонна лінія</div>
+        <p>Hold — сірий гравець з насиченістю менше 25. Сірі пігменти рідкісні і статистично тяжіють до пасивно-захисних здібностей: поглинання енергії, створення бар'єрів, стабілізація простору, повільний час навколо себе.</p>
+        <p>Hold не атакує і не лікує — тримає кошик. Одна з найскладніших позицій для драфту: сірих пігментів з S &lt; 25 у світі менше 200 осіб загалом, з них придатних до спорту — одиниці.</p>
+        <div class="bullets">
+          <div>S-діапазон<b>&lt; 25</b></div>
+          <div>Блоки/матч<b>4.8</b></div>
+          <div>Глобальний пул<b>~200 осіб</b></div>
+          <div>Обмеження<b>Не кидає, не атакує</b></div>
+        </div>
+      </div>
+
+      <div class="pos-full" style="border-top-color:var(--accent);background:#0a0a0a;color:#fff">
+        <div class="hk" style="color:#6aff3b">Правило складу</div>
+        <h3 style="color:#fff">±20°</h3>
+        <div class="role" style="color:#a8a8a0">Допуск гравця до позиції</div>
+        <p style="color:#d5d5cf">Гравець реєструється на позицію Strike, якщо його пігмент у межах ±20° від центру осі H 0° — тобто H від 340° до 20°. Аналогічно Mend — H 10°—50°, Rush — H 220°—260°, і так далі.</p>
+        <p style="color:#d5d5cf">Кожен зареєстрований склад перевіряє PMS-сертифікований спектрограф на базі арени перед виходом команд на поле. Дві позиції одного домену у старті = автоматична дискваліфікація матчу.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-in">
+    <div>
+      <div class="ft-brand">FISB</div>
+      <p class="ft-about">Fédération Internationale de Spectrum-Ball — світова керуюча організація Spectrum-Ball. Заснована 2022 у Токіо. IOC Associate Partner з 2024. PMS-сертифікована платформа класифікації гравців.</p>
+      <div class="ft-socials">
+        <a href="#">X</a><a href="#">IG</a><a href="#">YT</a><a href="#">TG</a><a href="#">WB</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <b>Ліга</b>
+      <ul>
+        <li><a href="pigment-sport.html#tournaments">Tournaments</a></li>
+        <li><a href="pigment-sport.html#rankings">Rankings</a></li>
+        <li><a href="positions.html">Positions</a></li>
+        <li><a href="rules.html">Rules</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <b>Для фанів</b>
+      <ul>
+        <li><a href="#">Tickets</a></li>
+        <li><a href="pigment-sport.html#store">Shop</a></li>
+        <li><a href="#">Fantasy FISB</a></li>
+        <li><a href="#">FISB+ streaming</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <b>Про</b>
+      <ul>
+        <li><a href="pigment-sport.html#inside">Inside FISB</a></li>
+        <li><a href="#">Medical &amp; safety</a></li>
+        <li><a href="#">Doping policy</a></li>
+        <li><a href="../index.html">← World Catalog</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="partners">
+    <div class="pk">FISB Partners</div>
+    <div class="partner-row">
+      <a href="../pantone/pantone.html"><span>PANTONE</span></a>
+      <span>IOC</span><span>WADA</span>
+      <a href="../chromalab/chromalab.html"><span>ChromaLab</span></a>
+      <a href="../pharma/pharma.html"><span>Achromavir</span></a>
+      <span>adidas</span><span>Red Bull</span><span>Panasonic</span>
+    </div>
+  </div>
+
+  <div class="ft-bot">
+    <span>© 2026 FISB · Positions reference · All rights reserved</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Cookie</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

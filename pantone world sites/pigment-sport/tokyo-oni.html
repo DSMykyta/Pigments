@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Tokyo Oni · FISB T1 · Tokyo Dome · 東京鬼</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#cc3b2a">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pigment-sport.css">
+<style>
+/* ========== TEAM PAGE OVERRIDES ========== */
+:root{
+  --t-primary:#cc3b2a;
+  --t-secondary:#7a0a0a;
+  --t-accent:#ffd8d8;
+  --t-ink:#1a0a0a;
+}
+
+.team-hero{
+  background:linear-gradient(135deg,var(--t-primary) 0%,var(--t-secondary) 70%,#3a0a0a 100%);
+  color:#fff;position:relative;overflow:hidden;padding:40px 40px 70px;
+}
+.team-hero::before{
+  content:'鬼';position:absolute;right:-60px;top:-80px;
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:640px;line-height:.8;color:#ffffff0a;
+  pointer-events:none;user-select:none;
+}
+.team-hero-in{max-width:1500px;margin:0 auto;position:relative;z-index:2}
+.team-crumb{font:500 12px 'JetBrains Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#ffffffaa;margin-bottom:30px}
+.team-crumb a{color:#fff}
+.team-crumb a:hover{color:var(--t-accent)}
+
+.team-hero-grid{display:grid;grid-template-columns:120px 1fr auto;gap:40px;align-items:center}
+.team-crest{
+  width:120px;height:120px;border-radius:50%;
+  background:#0a0a0a;border:3px solid #fff;
+  display:grid;place-items:center;
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:46px;color:#fff;
+  position:relative;
+}
+.team-crest::after{
+  content:'';position:absolute;inset:-10px;border-radius:50%;
+  border:1px dashed #ffffff60;pointer-events:none;
+}
+.team-info h1{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:clamp(52px,7vw,112px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;
+}
+.team-info h1 em{font-style:italic;font-weight:400;opacity:.75;display:block;font-size:.42em;margin-top:6px;letter-spacing:.05em}
+.team-info .sub{
+  font:600 14px 'Oswald',sans-serif;letter-spacing:.14em;text-transform:uppercase;
+  margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;color:#ffffffcc;
+}
+.team-info .sub b{color:#fff}
+.team-info .sub .dot{opacity:.5}
+
+.team-next{
+  background:#00000040;border:1px solid #ffffff30;
+  padding:22px 24px;min-width:280px;border-radius:8px;
+}
+.team-next .l{font:700 11px 'JetBrains Mono',monospace;color:var(--t-accent);letter-spacing:.25em;text-transform:uppercase;margin-bottom:8px}
+.team-next h4{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase;letter-spacing:.02em;color:#fff;margin-bottom:10px}
+.team-next .when{font:500 12px 'JetBrains Mono',monospace;color:#ffffffaa;letter-spacing:.1em}
+.team-next .go{display:block;margin-top:14px;padding:10px;background:#fff;color:#0a0a0a;text-align:center;font:700 11px 'Oswald',sans-serif;letter-spacing:.14em;text-transform:uppercase;border-radius:20px}
+
+.hero-stats-row{
+  max-width:1500px;margin:40px auto 0;
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1px;
+  background:#ffffff20;border:1px solid #ffffff20;position:relative;z-index:2;
+}
+.hs-cell{padding:22px 20px;background:#00000030}
+.hs-cell .k{font:700 10px 'JetBrains Mono',monospace;color:var(--t-accent);letter-spacing:.2em;text-transform:uppercase}
+.hs-cell .v{font-family:'Oswald',sans-serif;font-weight:700;font-size:42px;letter-spacing:-.02em;line-height:1;margin-top:6px;color:#fff}
+.hs-cell .sub{font:500 11px 'JetBrains Mono',monospace;color:#ffffffaa;letter-spacing:.1em;margin-top:4px;text-transform:uppercase}
+
+/* ========== TEAM NAV TABS ========== */
+.team-tabs{background:#0a0a0a;border-bottom:1px solid #2a2a2a;padding:0 40px;position:sticky;top:0;z-index:25}
+.team-tabs-in{max-width:1500px;margin:0 auto;display:flex;gap:2px;overflow-x:auto}
+.team-tabs a{
+  padding:16px 22px;font:600 12px 'Oswald',sans-serif;letter-spacing:.1em;text-transform:uppercase;
+  color:#a8a8a0;border-bottom:3px solid transparent;white-space:nowrap;
+}
+.team-tabs a:hover{color:#fff}
+.team-tabs a.on{color:#fff;border-bottom-color:var(--t-primary)}
+
+/* ========== SECTIONS ========== */
+.team-sec{padding:70px 40px}
+.team-sec.dark{background:#0a0a0a;color:#fff}
+.team-sec.light{background:#fff}
+.team-sec.alt{background:var(--bg-2)}
+.team-sec-in{max-width:1500px;margin:0 auto}
+.team-sec-h{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px;padding-bottom:14px;border-bottom:2px solid currentColor;opacity:1;gap:20px;flex-wrap:wrap}
+.team-sec-h h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;letter-spacing:-.01em;text-transform:uppercase;line-height:.95}
+.team-sec-h h2 span{color:var(--t-primary)}
+.team-sec.dark .team-sec-h h2 span{color:#ff7070}
+.team-sec-h .k{font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px;display:block}
+.team-sec.dark .team-sec-h .k{color:#a8a8a0}
+.team-sec-h .seeall{font:700 12px 'Oswald',sans-serif;letter-spacing:.15em;text-transform:uppercase;color:var(--t-primary)}
+
+/* ========== ROSTER ========== */
+.roster-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.player{
+  background:#fff;border:1px solid var(--line);
+  overflow:hidden;cursor:pointer;position:relative;transition:transform .25s,border-color .25s;
+  display:flex;flex-direction:column;
+}
+.player:hover{transform:translateY(-4px);border-color:var(--t-primary)}
+.player-pic{
+  aspect-ratio:3/4;
+  background-color:var(--t-secondary);
+  background-size:cover;background-position:center top;background-repeat:no-repeat;
+  position:relative;overflow:hidden;
+}
+.player-pic::after{
+  content:attr(data-n);
+  position:absolute;right:10px;bottom:0;
+  font-family:'Oswald',sans-serif;font-weight:800;
+  font-size:230px;line-height:.8;color:#ffffff22;
+  pointer-events:none;
+}
+.player-pos{
+  position:absolute;top:14px;left:14px;z-index:2;
+  padding:4px 10px;border-radius:12px;
+  font:700 10px 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;
+  background:#fff;color:#0a0a0a;
+}
+.player-hue{
+  position:absolute;top:14px;right:14px;z-index:2;
+  width:18px;height:18px;border-radius:50%;border:2px solid #fff;
+}
+.player-body{padding:18px 18px 22px}
+.player-body h4{font-family:'Oswald',sans-serif;font-weight:700;font-size:20px;letter-spacing:.02em;text-transform:uppercase;color:var(--t-ink);line-height:1.1}
+.player-body h4 em{font-style:normal;font-weight:400;opacity:.6;font-size:.7em;display:block;margin-top:3px;letter-spacing:.08em}
+.player-stats{display:flex;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.player-stats b{color:var(--ink);font-size:16px;display:block;font-family:'Oswald',sans-serif;margin-top:2px;letter-spacing:.02em}
+
+/* ========== SCHEDULE ========== */
+.sched-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.sched-card{
+  background:#fff;border:1px solid var(--line);padding:16px 18px;
+  transition:border-color .25s;
+}
+.sched-card.played{opacity:.6}
+.sched-card.next{border:2px solid var(--t-primary);background:#fff5f0}
+.sched-card:hover{border-color:var(--t-primary)}
+.sched-card .wk{font:700 10px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px}
+.sched-card .op{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--ink)}
+.sched-card .op .flag{width:22px;height:16px;object-fit:cover;border:1px solid var(--line)}
+.sched-card .res{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em;line-height:1}
+.sched-card.played .res{color:var(--ink)}
+.sched-card.played.w .res{color:#2a7a3a}
+.sched-card.played.l .res{color:#a82a2a}
+.sched-card .date{font:500 10px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.1em;margin-top:4px}
+
+/* ========== STAT LEADERS ========== */
+.leaders-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.leader{background:#fff;padding:24px 22px 26px}
+.leader .k{font:700 11px 'JetBrains Mono',monospace;color:var(--t-primary);letter-spacing:.2em;text-transform:uppercase}
+.leader h4{font-family:'Oswald',sans-serif;font-weight:700;font-size:24px;letter-spacing:.02em;text-transform:uppercase;margin:18px 0 4px;color:var(--ink);line-height:1.1}
+.leader .pos{font:500 11px 'JetBrains Mono',monospace;color:var(--muted-2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.leader .big{font-family:'Oswald',sans-serif;font-weight:700;font-size:54px;letter-spacing:-.02em;color:var(--ink);line-height:1}
+.leader .big-k{font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;margin-top:4px}
+
+/* ========== ABOUT ========== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.about-grid h3{font-family:'Oswald',sans-serif;font-weight:700;font-size:36px;line-height:1;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin-bottom:18px}
+.about-grid h3 span{color:#ff7070}
+.about-grid p{font-size:15px;color:#d5d5cf;line-height:1.7;margin-bottom:14px;max-width:60ch}
+.about-facts{background:#1a1a1a;border:1px solid #2a2a2a;padding:30px 32px}
+.about-facts .fact{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #2a2a2a;font-size:14px}
+.about-facts .fact:last-child{border:0}
+.about-facts .fact .k{font:500 11px 'JetBrains Mono',monospace;color:#a8a8a0;letter-spacing:.15em;text-transform:uppercase}
+.about-facts .fact .v{color:#fff;font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.02em}
+
+/* ========== HONOURS ========== */
+.honours-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.honour{
+  padding:30px 26px;
+  background:linear-gradient(135deg,var(--t-primary),var(--t-secondary));
+  color:#fff;
+  position:relative;overflow:hidden;
+}
+.honour::before{
+  content:'★';position:absolute;right:-20px;top:-40px;
+  font-size:220px;color:#ffffff14;line-height:.8;
+}
+.honour .yr{font-family:'Oswald',sans-serif;font-weight:700;font-size:58px;letter-spacing:-.02em;line-height:.9;position:relative}
+.honour h5{font-family:'Oswald',sans-serif;font-weight:600;font-size:18px;letter-spacing:.04em;text-transform:uppercase;margin-top:10px;position:relative}
+.honour .sub{font:500 11px 'JetBrains Mono',monospace;color:var(--t-accent);letter-spacing:.15em;text-transform:uppercase;margin-top:6px;position:relative}
+
+@media(max-width:1100px){
+  .team-hero-grid{grid-template-columns:1fr}
+  .hero-stats-row{grid-template-columns:repeat(2,1fr)}
+  .roster-grid{grid-template-columns:repeat(2,1fr)}
+  .sched-grid,.leaders-grid,.honours-grid,.about-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="util">
+  <span>← <a href="pigment-sport.html">FISB · Home</a></span>
+  <span class="right">
+    <a href="#">Tickets</a><a href="#">FISB+</a><a href="#">Store</a><a href="#">Collect</a><a href="#">Inside FISB</a>
+  </span>
+</div>
+
+<nav class="mainnav">
+  <div class="left">
+    <div class="burger">≡</div>
+    <a href="pigment-sport.html" class="logo">FI<b>SB</b></a>
+    <ul>
+      <li><a href="pigment-sport.html#tournaments">Tournaments</a></li>
+      <li><a href="pigment-sport.html#match-centre">Match Centre</a></li>
+      <li><a href="pigment-sport.html#stories">News</a></li>
+      <li><a class="on" href="pigment-sport.html#rankings">Rankings</a></li>
+      <li><a href="positions.html">Positions</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="pigment-sport.html#store">Shop</a></li>
+      <li><a href="#">Watch on FISB+</a></li>
+      <li><a href="pigment-sport.html#inside">Inside FISB</a></li>
+    </ul>
+  </div>
+  <div class="right">
+    <a href="#" class="icon">⌕</a><a href="#" class="icon">◉</a><a href="#" class="icon">☉</a>
+  </div>
+</nav>
+
+<!-- ===================== TEAM HERO ===================== -->
+<section class="team-hero">
+  <div class="team-hero-in">
+    <div class="team-crumb">
+      <a href="pigment-sport.html">FISB</a> · <a href="pigment-sport.html#rankings">T1</a> · <span>Tokyo Oni</span>
+    </div>
+    <div class="team-hero-grid">
+      <div class="team-crest">鬼</div>
+      <div class="team-info">
+        <h1>Tokyo Oni <em>東京鬼 · Est. 2022</em></h1>
+        <div class="sub">
+          <span><b>8—4</b> регулярний сезон</span>
+          <span class="dot">·</span>
+          <span>FISB <b>T1</b></span>
+          <span class="dot">·</span>
+          <span>#2 світу</span>
+          <span class="dot">·</span>
+          <span>Head coach: <b>Ryō Nakashima</b></span>
+        </div>
+      </div>
+      <div class="team-next">
+        <div class="l">Наступний матч · Нд</div>
+        <h4>vs LA Photons 🇺🇸</h4>
+        <div class="when">2026.04.27 · 19:00 JST · Tokyo Dome</div>
+        <a href="#" class="go">Квитки →</a>
+      </div>
+    </div>
+
+    <div class="hero-stats-row">
+      <div class="hs-cell"><div class="k">PPG</div><div class="v">85.3</div><div class="sub">4-й по лізі</div></div>
+      <div class="hs-cell"><div class="k">OPP PPG</div><div class="v">80.2</div><div class="sub">2-а захист</div></div>
+      <div class="hs-cell"><div class="k">3PT%</div><div class="v">41.8</div><div class="sub">3-й по лізі</div></div>
+      <div class="hs-cell"><div class="k">Активація/матч</div><div class="v">67</div><div class="sub">1-е місце</div></div>
+      <div class="hs-cell"><div class="k">Streak</div><div class="v">W3</div><div class="sub">3 перемоги поспіль</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TEAM TABS ===================== -->
+<div class="team-tabs">
+  <div class="team-tabs-in">
+    <a class="on" href="#overview">Огляд</a>
+    <a href="#roster">Склад</a>
+    <a href="#schedule">Розклад</a>
+    <a href="#stats">Статистика</a>
+    <a href="#about">Про клуб</a>
+    <a href="#honours">Трофеї</a>
+    <a href="#">Тренерський штаб</a>
+    <a href="#">Історія</a>
+    <a href="#">Шоп</a>
+    <a href="#">Квитки</a>
+  </div>
+</div>
+
+<!-- ===================== ROSTER ===================== -->
+<section class="team-sec light" id="roster">
+  <div class="team-sec-in">
+    <div class="team-sec-h">
+      <div><span class="k">Склад · 12 гравців</span><h2>Starters + <span>резерв.</span></h2></div>
+      <a href="#" class="seeall">Повний склад →</a>
+    </div>
+
+    <div class="roster-grid">
+
+      <a class="player" href="player-nobuaki.html">
+        <div class="player-pic" data-n="09" style="background-image:url('assets/players/nobuaki-saito.png')">
+          <span class="player-pos">01 · Strike</span>
+          <span class="player-hue" style="background:#cc3b2a"></span>
+        </div>
+        <div class="player-body">
+          <h4>Nobuaki Saito <em>齋藤信明 · 22 роки</em></h4>
+          <div class="player-stats">
+            <div>PPG<b>22.4</b></div>
+            <div>3PT<b>41.5%</b></div>
+            <div>H°<b>2°</b></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="player" href="#">
+        <div class="player-pic" data-n="14" style="background-image:url('assets/players/yui-okamura.png')">
+          <span class="player-pos">02 · Mend</span>
+          <span class="player-hue" style="background:#e08a3a"></span>
+        </div>
+        <div class="player-body">
+          <h4>Yui Okamura <em>岡村結衣 · 28 років</em></h4>
+          <div class="player-stats">
+            <div>Лік/м<b>3.8</b></div>
+            <div>AST<b>6.1</b></div>
+            <div>H°<b>34°</b></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="player" href="#">
+        <div class="player-pic" data-n="21" style="background-image:url('assets/players/kenta-mori.png')">
+          <span class="player-pos">03 · Pulse</span>
+          <span class="player-hue" style="background:#d4a820"></span>
+        </div>
+        <div class="player-body">
+          <h4>Kenta Mori <em>森健太 · 26 років</em></h4>
+          <div class="player-stats">
+            <div>DST<b>4.2</b></div>
+            <div>BLK<b>1.1</b></div>
+            <div>H°<b>58°</b></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="player" href="#">
+        <div class="player-pic" data-n="07" style="background-image:url('assets/players/ryo-nakashima.png')">
+          <span class="player-pos">04 · Read</span>
+          <span class="player-hue" style="background:#2a8a3a"></span>
+        </div>
+        <div class="player-body">
+          <h4>Ryō Nakashima <em>中島涼 · 31 рік · К</em></h4>
+          <div class="player-stats">
+            <div>AST<b>9.8</b></div>
+            <div>STL<b>2.4</b></div>
+            <div>H°<b>118°</b></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="player" href="#">
+        <div class="player-pic" data-n="11" style="background-image:url('assets/players/mei-tachibana.png')">
+          <span class="player-pos">05 · Rush</span>
+          <span class="player-hue" style="background:#2a6aa8"></span>
+        </div>
+        <div class="player-body">
+          <h4>Mei Tachibana <em>橘芽衣 · 24 роки</em></h4>
+          <div class="player-stats">
+            <div>MIN<b>34.2</b></div>
+            <div>TO%<b>9.8</b></div>
+            <div>H°<b>242°</b></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="player" href="#">
+        <div class="player-pic" data-n="02" style="background-image:url('assets/players/takumi-ueda.png')">
+          <span class="player-pos">06 · Shift</span>
+          <span class="player-hue" style="background:#6a3a8a"></span>
+        </div>
+        <div class="player-body">
+          <h4>Takumi Ueda <em>上田匠 · 25 років</em></h4>
+          <div class="player-stats">
+            <div>TFM<b>7.2</b></div>
+            <div>EFF<b>18.4</b></div>
+            <div>H°<b>298°</b></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="player" href="#">
+        <div class="player-pic" data-n="00" style="background-image:url('assets/players/hana-inoue.png')">
+          <span class="player-pos">07 · Hold</span>
+          <span class="player-hue" style="background:#7a7a76"></span>
+        </div>
+        <div class="player-body">
+          <h4>Hana Inoue <em>井上華 · 27 років</em></h4>
+          <div class="player-stats">
+            <div>BLK<b>5.2</b></div>
+            <div>DEF<b>88.1</b></div>
+            <div>S<b>18</b></div>
+          </div>
+        </div>
+      </a>
+
+      <a class="player" href="#">
+        <div class="player-pic" data-n="23">
+          <span class="player-pos">Bench · 04</span>
+          <span class="player-hue" style="background:#cc3b2a;opacity:.7"></span>
+        </div>
+        <div class="player-body">
+          <h4>Daichi Kurosawa <em>黒澤大地 · 18 · rising star</em></h4>
+          <div class="player-stats">
+            <div>PPG<b>8.4</b></div>
+            <div>MIN<b>12</b></div>
+            <div>H°<b>355°</b></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SCHEDULE ===================== -->
+<section class="team-sec alt" id="schedule">
+  <div class="team-sec-in">
+    <div class="team-sec-h">
+      <div><span class="k">Розклад · тиждень 10—15</span><h2>Останні та <span>найближчі.</span></h2></div>
+      <a href="#" class="seeall">Повний розклад →</a>
+    </div>
+
+    <div class="sched-grid">
+      <div class="sched-card played w">
+        <div class="wk">Тиждень 10 · ДОМА</div>
+        <div class="op"><img class="flag" src="https://flagcdn.com/w40/tw.png" alt="TW">Taipei Sun</div>
+        <div class="res">91 — 78</div>
+        <div class="date">2026.04.11</div>
+      </div>
+      <div class="sched-card played l">
+        <div class="wk">Тиждень 11 · ВИЇЗД</div>
+        <div class="op"><img class="flag" src="https://flagcdn.com/w40/es.png" alt="ES">Madrid Matadors</div>
+        <div class="res">76 — 84</div>
+        <div class="date">2026.04.15</div>
+      </div>
+      <div class="sched-card played w">
+        <div class="wk">Тиждень 12 · ДОМА</div>
+        <div class="op"><img class="flag" src="https://flagcdn.com/w40/cn.png" alt="CN">Shanghai Royals</div>
+        <div class="res">82 — 76 OT</div>
+        <div class="date">2026.04.20</div>
+      </div>
+      <div class="sched-card next">
+        <div class="wk">Тиждень 13 · ДОМА · FINAL WEEK</div>
+        <div class="op"><img class="flag" src="https://flagcdn.com/w40/us.png" alt="US">LA Photons</div>
+        <div class="res">— : —</div>
+        <div class="date">Нд 2026.04.27 · 19:00</div>
+      </div>
+      <div class="sched-card">
+        <div class="wk">Тиждень 14 · ВИЇЗД</div>
+        <div class="op"><img class="flag" src="https://flagcdn.com/w40/jp.png" alt="JP">Osaka Flame</div>
+        <div class="res">— : —</div>
+        <div class="date">Сб 2026.05.03 · 18:00</div>
+      </div>
+      <div class="sched-card">
+        <div class="wk">Тиждень 15 · ДОМА · плейоф</div>
+        <div class="op"><img class="flag" src="https://flagcdn.com/w40/de.png" alt="DE">Berlin Kollektiv</div>
+        <div class="res">— : —</div>
+        <div class="date">Нд 2026.05.10 · 19:00</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STAT LEADERS ===================== -->
+<section class="team-sec light" id="stats">
+  <div class="team-sec-in">
+    <div class="team-sec-h">
+      <div><span class="k">Статистика сезону</span><h2>Лідери <span>команди.</span></h2></div>
+      <a href="#" class="seeall">Усі показники →</a>
+    </div>
+
+    <div class="leaders-grid">
+      <div class="leader">
+        <div class="k">Скорер</div>
+        <h4>Nobuaki S.</h4>
+        <div class="pos">Strike · H 2°</div>
+        <div class="big">22.4</div>
+        <div class="big-k">PPG · регулярний</div>
+      </div>
+      <div class="leader">
+        <div class="k">Плеймейкер</div>
+        <h4>Ryō Nakashima</h4>
+        <div class="pos">Read · H 118° · К</div>
+        <div class="big">9.8</div>
+        <div class="big-k">асист/матч</div>
+      </div>
+      <div class="leader">
+        <div class="k">Оборона</div>
+        <h4>Hana Inoue</h4>
+        <div class="pos">Hold · Grey S 18</div>
+        <div class="big">5.2</div>
+        <div class="big-k">блоків/матч</div>
+      </div>
+      <div class="leader">
+        <div class="k">Трансформація</div>
+        <h4>Takumi Ueda</h4>
+        <div class="pos">Shift · H 298°</div>
+        <div class="big">7.2</div>
+        <div class="big-k">TFM/матч</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="team-sec dark" id="about">
+  <div class="team-sec-in">
+    <div class="team-sec-h">
+      <div><span class="k">Про клуб</span><h2>東京鬼 — <span>дияволи Токіо.</span></h2></div>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <h3>Заснування та <span>філософія.</span></h3>
+        <p>Tokyo Oni засновано у серпні 2022 як один із перших професійних клубів Spectrum-Ball. Назва «鬼» (оні) — традиційний японський демон-воїн, символ сили та стійкості, а також гра слів з прізвиськом засновника Ryō Nakashima ще з часів його аматорської кар'єри.</p>
+        <p>Філософія клубу: «Команда виграє, не окремий гравець». Nakashima особисто розробив систему драфту, у якій Read-позиція завжди — капітан. З 8 матчів регулярного сезону 2026 клуб виграв 8 саме завдяки плеймейкерським рішенням капітана.</p>
+        <p>Арена клубу — Tokyo Dome (50 000 місць), який ділиться з бейсбольною командою Yomiuri Giants. FISB-матчі проходять у конфігурації трансформованого поля 40×20 м.</p>
+      </div>
+      <div class="about-facts">
+        <div class="fact"><div class="k">Засновано</div><div class="v">2022.08.14</div></div>
+        <div class="fact"><div class="k">Арена</div><div class="v">Tokyo Dome · 50 000</div></div>
+        <div class="fact"><div class="k">Head coach</div><div class="v">Ryō Nakashima</div></div>
+        <div class="fact"><div class="k">Капітан</div><div class="v">Ryō Nakashima · Read</div></div>
+        <div class="fact"><div class="k">Власник</div><div class="v">Oni Athletic Holdings</div></div>
+        <div class="fact"><div class="k">Кольори</div><div class="v">Кармазин · Чорний</div></div>
+        <div class="fact"><div class="k">Ліга</div><div class="v">FISB T1 · Pacific</div></div>
+        <div class="fact"><div class="k">Вартість франшизи</div><div class="v">$340M · Forbes 2025</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HONOURS ===================== -->
+<section class="team-sec light" id="honours">
+  <div class="team-sec-in">
+    <div class="team-sec-h">
+      <div><span class="k">Трофеї</span><h2>Історія <span>успіху.</span></h2></div>
+    </div>
+
+    <div class="honours-grid">
+      <div class="honour">
+        <div class="yr">2024</div>
+        <h5>FISB T1 Champion</h5>
+        <div class="sub">перемога над LA Photons · 4:2</div>
+      </div>
+      <div class="honour">
+        <div class="yr">2023</div>
+        <h5>FISB T1 Champion</h5>
+        <div class="sub">перемога над Madrid · 4:1</div>
+      </div>
+      <div class="honour">
+        <div class="yr">2025</div>
+        <h5>Champions Rally Winner</h5>
+        <div class="sub">крос-тір турнір · Tokyo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="ft-in">
+    <div>
+      <div class="ft-brand">FISB</div>
+      <p class="ft-about">Fédération Internationale de Spectrum-Ball — світова керуюча організація Spectrum-Ball. Заснована 2022 у Токіо. IOC Associate Partner з 2024.</p>
+      <div class="ft-socials">
+        <a href="#">X</a><a href="#">IG</a><a href="#">YT</a><a href="#">TG</a><a href="#">WB</a>
+      </div>
+    </div>
+    <div class="ft-col">
+      <b>Tokyo Oni</b>
+      <ul>
+        <li><a href="#roster">Склад</a></li>
+        <li><a href="#schedule">Розклад</a></li>
+        <li><a href="#stats">Статистика</a></li>
+        <li><a href="#about">Про клуб</a></li>
+        <li><a href="#honours">Трофеї</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <b>Ліга</b>
+      <ul>
+        <li><a href="pigment-sport.html#tournaments">Tournaments</a></li>
+        <li><a href="pigment-sport.html#rankings">Rankings</a></li>
+        <li><a href="positions.html">Positions</a></li>
+        <li><a href="rules.html">Rules</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <b>Про</b>
+      <ul>
+        <li><a href="pigment-sport.html#inside">Inside FISB</a></li>
+        <li><a href="#">Doping policy</a></li>
+        <li><a href="../index.html">← World Catalog</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="partners">
+    <div class="pk">FISB Partners</div>
+    <div class="partner-row">
+      <a href="../pantone/pantone.html"><span>PANTONE</span></a>
+      <span>IOC</span><span>WADA</span>
+      <a href="../chromalab/chromalab.html"><span>ChromaLab</span></a>
+      <a href="../pharma/pharma.html"><span>Achromavir</span></a>
+      <span>adidas</span><span>Red Bull</span><span>Panasonic</span>
+    </div>
+  </div>
+
+  <div class="ft-bot">
+    <span>© 2026 Tokyo Oni × FISB · All rights reserved</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Cookie</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

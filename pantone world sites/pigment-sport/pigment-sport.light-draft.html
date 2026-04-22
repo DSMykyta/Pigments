@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>SPECTRUM LEAGUE · Офіційний сайт ліги Спектрум-Болу</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0a0a">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0a0a0a; --ink-2:#2a2a2a; --paper:#f6f4ef; --paper-2:#ebe7dd;
+  --rule:#1a1a1a; --muted:#6a6a66;
+  --league:#d7262b;
+  --h0:#cc3b2a;--h30:#e08a3a;--h60:#e5c23a;
+  --h120:#6da65a;--h240:#3a6fa8;--h300:#7a4a8a;
+  --hg:#8a8a86;
+}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace}
+.disp{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.02em}
+
+/* UTILITY BAR */
+.util{background:#0a0a0a;color:#e0ded7;padding:6px 24px;display:flex;justify-content:space-between;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+.util a{color:#e0ded7}
+.util a:hover{color:#fff}
+
+/* MAIN NAV */
+nav.main{background:#fff;border-bottom:1px solid var(--rule);padding:18px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:30}
+nav.main .brand{font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+nav.main .brand .mark{width:28px;height:28px;background:conic-gradient(from 0deg,var(--h0),var(--h30),var(--h60),var(--h120),var(--h240),var(--h300),var(--h0));border-radius:50%}
+nav.main .brand b{color:var(--league)}
+nav.main ul{list-style:none;display:flex;gap:2px}
+nav.main ul a{padding:8px 14px;font:600 13px 'Inter',sans-serif;color:var(--ink-2);text-transform:uppercase;letter-spacing:.05em}
+nav.main ul a:hover,nav.main ul a.on{background:#0a0a0a;color:#fff}
+nav.main .watch{padding:9px 16px;background:var(--league);color:#fff;font:700 11px 'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em}
+nav.main .watch:hover{background:#9a1a1e;color:#fff}
+
+/* LIVE SCORES RAIL */
+.rail{background:#0a0a0a;color:#fff;padding:14px 0;overflow:hidden;border-bottom:1px solid var(--rule)}
+.rail-in{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.rail-in::-webkit-scrollbar{display:none}
+.rail-tag{flex:0 0 auto;padding:10px 22px;border-right:1px solid #ffffff20;background:var(--league);font:700 11px 'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.15em;display:flex;align-items:center;gap:8px}
+.rail-tag::before{content:'';width:8px;height:8px;background:#fff;border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.3}}
+.score{flex:0 0 auto;padding:8px 22px;border-right:1px solid #ffffff20;display:grid;grid-template-columns:auto auto auto;gap:14px;align-items:center;font-family:'Oswald',sans-serif;min-width:320px}
+.score .t{text-align:right;font-weight:500;font-size:13px;letter-spacing:.04em}
+.score .t b{font-size:20px;display:block;font-weight:700;color:#fff}
+.score .t .rec{font:500 10px 'JetBrains Mono',monospace;color:#888;letter-spacing:.1em}
+.score .mid{text-align:center;padding:0 8px;border-left:1px solid #ffffff20;border-right:1px solid #ffffff20}
+.score .mid .q{font:700 10px 'JetBrains Mono',monospace;color:var(--league);letter-spacing:.2em}
+.score .mid .clk{font:500 14px 'JetBrains Mono',monospace;color:#fff;margin-top:2px}
+.score .t.r{text-align:left}
+.score .dot{width:10px;height:10px;border-radius:50%;display:inline-block;vertical-align:middle;margin-right:4px}
+
+/* HERO */
+.hero{background:#fff;border-bottom:1px solid var(--rule);padding:50px 28px}
+.hero-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr;gap:50px;align-items:center}
+.hero-tag{font:700 11px 'JetBrains Mono',monospace;color:var(--league);letter-spacing:.3em;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(58px,8vw,108px);line-height:.9;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:24px}
+.hero h1 span{color:var(--league)}
+.hero .sub{font-size:19px;color:var(--ink-2);max-width:52ch;margin-bottom:28px;line-height:1.55}
+.hero .meta{display:flex;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid #00000015}
+.hero .meta .m{font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
+.hero .meta .m b{display:block;color:var(--ink);font-size:19px;font-family:'Oswald',sans-serif;margin-top:4px;letter-spacing:.02em}
+.hero-card{background:var(--paper);border:1px solid var(--rule);padding:28px}
+.hero-card .k{font:700 10px 'JetBrains Mono',monospace;color:var(--league);letter-spacing:.25em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.hero-card .k::before{content:'';width:8px;height:8px;background:var(--league);border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
+.hero-card h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:24px;letter-spacing:.02em;margin-bottom:14px;text-transform:uppercase}
+.hero-card .match{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;padding:16px 0;border-top:1px solid #00000015;border-bottom:1px solid #00000015;margin-bottom:14px}
+.hero-card .team{text-align:center}
+.hero-card .team .dot{width:46px;height:46px;border-radius:50%;margin:0 auto 6px;box-shadow:0 0 0 3px #fff,0 0 0 4px #0a0a0a}
+.hero-card .team b{font-family:'Oswald',sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+.hero-card .team .c{font:500 10px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.1em}
+.hero-card .vs{font-family:'Oswald',sans-serif;font-weight:700;font-size:32px;color:var(--league)}
+.hero-card .when{font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.15em;text-transform:uppercase}
+.hero-card .go{margin-top:14px;display:block;padding:12px;background:#0a0a0a;color:#fff;text-align:center;font:700 12px 'Oswald',sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.hero-card .go:hover{background:var(--league)}
+
+/* SECTION HEAD */
+.sec{padding:70px 28px;border-bottom:1px solid var(--rule)}
+.sec-in{max-width:1400px;margin:0 auto}
+.sec-h{display:flex;align-items:end;justify-content:space-between;margin-bottom:36px;padding-bottom:18px;border-bottom:2px solid var(--rule);gap:20px;flex-wrap:wrap}
+.sec-h h2{font-family:'Oswald',sans-serif;font-weight:700;font-size:56px;letter-spacing:-.01em;line-height:.95;text-transform:uppercase}
+.sec-h h2 span{color:var(--league)}
+.sec-h .n{font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.25em;text-transform:uppercase;margin-bottom:8px;display:block}
+.sec-h .more{font:700 12px 'Oswald',sans-serif;letter-spacing:.15em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--rule)}
+.sec-h .more:hover{background:var(--ink);color:#fff}
+
+/* STANDINGS */
+.conf{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.conf-t{border:1px solid var(--rule);background:#fff}
+.conf-t h3{padding:14px 18px;background:#0a0a0a;color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:16px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center}
+.conf-t h3 span{font:500 10px 'JetBrains Mono',monospace;color:#a8a8a0;letter-spacing:.15em}
+.tbl{width:100%;border-collapse:collapse;font:500 13px 'JetBrains Mono',monospace}
+.tbl th{padding:10px 10px;background:#f0ece3;text-align:right;font:600 10px 'JetBrains Mono',monospace;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+.tbl th:first-child{text-align:center;width:40px}
+.tbl th:nth-child(2){text-align:left}
+.tbl td{padding:11px 10px;text-align:right;border-bottom:1px solid #00000010}
+.tbl td:first-child{text-align:center;color:var(--league);font-weight:700;width:40px}
+.tbl td:nth-child(2){text-align:left;font-family:'Inter',sans-serif;font-weight:600;font-size:13px;display:flex;align-items:center;gap:10px}
+.tbl td:nth-child(2) .dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.tbl tr:hover td{background:#fafaf5}
+.tbl .w{color:#2a7a3a;font-weight:600}
+.tbl .l{color:#a82a2a}
+
+/* TEAMS GRID */
+.teams{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.tm{background:#fff;border:1px solid var(--rule);overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.tm:hover{transform:translateY(-4px);box-shadow:0 20px 40px #00000018}
+.tm-top{padding:18px;color:#fff;position:relative;min-height:130px;display:flex;flex-direction:column;justify-content:space-between}
+.tm-top::before{content:'';position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:#ffffff30;border:2px solid #fff}
+.tm-k{font:700 10px 'JetBrains Mono',monospace;letter-spacing:.2em;opacity:.9;text-transform:uppercase}
+.tm-top h4{font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;line-height:1;margin-top:16px;text-transform:uppercase;letter-spacing:.02em;max-width:8ch}
+.tm-top h4 em{font-style:normal;font-weight:400;display:block;font-size:15px;opacity:.88;margin-top:4px;letter-spacing:.05em}
+.tm-body{padding:16px 18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;border-top:1px solid var(--rule)}
+.tm-stat{font-family:'Oswald',sans-serif}
+.tm-stat .v{font-size:20px;font-weight:700;letter-spacing:.02em;line-height:1}
+.tm-stat .k{font:500 9px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:4px}
+
+/* POSITIONS */
+.pos-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+.pos{padding:22px 16px;background:#fff;border:1px solid var(--rule);position:relative;overflow:hidden}
+.pos::before{content:'';position:absolute;top:0;left:0;right:0;height:5px}
+.pos.p0::before{background:var(--h0)}.pos.p30::before{background:var(--h30)}.pos.p60::before{background:var(--h60)}
+.pos.p120::before{background:var(--h120)}.pos.p240::before{background:var(--h240)}.pos.p300::before{background:var(--h300)}
+.pos.pg::before{background:var(--hg)}
+.pos-h{font:700 10px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-top:6px}
+.pos h5{font-family:'Oswald',sans-serif;font-weight:700;font-size:22px;letter-spacing:.02em;text-transform:uppercase;margin:10px 0 4px}
+.pos .role{font:500 10px 'JetBrains Mono',monospace;color:var(--league);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+.pos p{font-size:12.5px;color:var(--ink-2);line-height:1.55}
+
+/* RULES */
+.rules-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rule{padding:28px 22px;background:#fff;border:1px solid var(--rule);position:relative}
+.rule-n{font-family:'Oswald',sans-serif;font-weight:700;font-size:52px;letter-spacing:-.02em;color:#ebe7dd;line-height:.85;position:absolute;top:14px;right:18px}
+.rule .k{font:700 11px 'JetBrains Mono',monospace;color:var(--league);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;position:relative}
+.rule h4{font-family:'Oswald',sans-serif;font-weight:600;font-size:18px;letter-spacing:.02em;text-transform:uppercase;margin-bottom:10px;position:relative;max-width:20ch}
+.rule p{font-size:13px;color:var(--ink-2);line-height:1.55;position:relative}
+
+/* FIELD DIAGRAM */
+.field{background:#fff;border:1px solid var(--rule);padding:34px;margin-top:34px;display:grid;grid-template-columns:1.5fr 1fr;gap:38px;align-items:center}
+.field-svg{background:#e8ecdc;border:2px solid #0a0a0a;aspect-ratio:2/1;position:relative;border-radius:4px}
+.field-svg::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:#0a0a0a;opacity:.4}
+.field-svg::after{content:'';position:absolute;left:50%;top:10%;bottom:10%;width:1px;background:#0a0a0a;opacity:.2}
+.field-svg .c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border:2px solid #0a0a0a;border-radius:50%;background:#fff}
+.field-svg .g{position:absolute;width:70px;height:36px;background:#0a0a0a;top:50%;transform:translateY(-50%)}
+.field-svg .g.l{left:0;border-radius:0 18px 18px 0}
+.field-svg .g.r{right:0;border-radius:18px 0 0 18px}
+.field-svg .p{position:absolute;width:22px;height:22px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 4px #0000004a}
+.field-info h4{font-family:'Oswald',sans-serif;font-weight:700;font-size:28px;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:12px}
+.field-info p{font-size:14px;color:var(--ink-2);line-height:1.6;margin-bottom:12px}
+.field-info ul{list-style:none;padding:14px 0 0;border-top:1px solid #00000015}
+.field-info li{display:flex;gap:10px;font:500 12px 'JetBrains Mono',monospace;padding:5px 0;align-items:center;color:var(--ink-2)}
+.field-info li .sw{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.news-card{background:#fff;border:1px solid var(--rule);overflow:hidden;transition:transform .2s}
+.news-card:hover{transform:translateY(-3px)}
+.news-hd{height:180px;background:var(--paper-2);border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+.news-body{padding:20px}
+.news-k{font:700 10px 'JetBrains Mono',monospace;color:var(--league);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+.news-card h4{font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;line-height:1.2;letter-spacing:.01em;text-transform:uppercase;margin-bottom:8px}
+.news-card p{font-size:13px;color:var(--ink-2);line-height:1.55}
+.news-card .date{font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.12em;margin-top:14px}
+
+/* SCHEDULE */
+.sched-tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule)}
+.sched-tbl th{padding:12px 14px;background:#0a0a0a;color:#fff;text-align:left;font:600 11px 'Oswald',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.sched-tbl td{padding:14px;border-bottom:1px solid #00000010;font:500 13px 'Inter',sans-serif}
+.sched-tbl td.date{font-family:'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.05em;width:110px}
+.sched-tbl td.match{display:flex;align-items:center;gap:12px}
+.sched-tbl td.match .dot{width:12px;height:12px;border-radius:50%}
+.sched-tbl tr:last-child td{border-bottom:0}
+.sched-tbl tr:hover td{background:#fafaf5}
+
+/* FOOTER */
+footer{background:#0a0a0a;color:#ebe7dd;padding:50px 28px 30px;font-size:12px}
+.ft-in{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.ft-brand{font-family:'Oswald',sans-serif;font-weight:700;font-size:32px;letter-spacing:.03em;text-transform:uppercase;margin-bottom:14px}
+.ft-brand .mark{width:28px;height:28px;background:conic-gradient(from 0deg,var(--h0),var(--h30),var(--h60),var(--h120),var(--h240),var(--h300),var(--h0));border-radius:50%;display:inline-block;vertical-align:middle;margin-right:10px}
+.ft-about{color:#a8a8a0;line-height:1.6;max-width:42ch}
+footer b{display:block;font:700 11px 'Oswald',sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+footer ul{list-style:none}
+footer ul li{padding:4px 0}
+footer ul a{color:#a8a8a0}
+footer ul a:hover{color:#fff}
+.ft-bottom{max-width:1400px;margin:40px auto 0;padding-top:22px;border-top:1px solid #ffffff20;display:flex;justify-content:space-between;font:500 10px 'JetBrains Mono',monospace;letter-spacing:.15em;color:#6a6a66;text-transform:uppercase}
+.ft-bottom a{color:#a8a8a0}
+
+@media(max-width:1100px){
+  nav.main ul{display:none}
+  .conf,.teams,.pos-grid,.rules-grid,.news-grid,.hero-grid,.field,.ft-in{grid-template-columns:1fr}
+  .teams{grid-template-columns:repeat(2,1fr)}
+  .pos-grid{grid-template-columns:repeat(2,1fr)}
+  .rules-grid{grid-template-columns:repeat(2,1fr)}
+  .news-grid{grid-template-columns:1fr}
+  .hero h1{font-size:64px}
+}
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="util">
+  <span>← <a href="../index.html">World Catalog</a> / Pigment League</span>
+  <span>PMS-CERTIFIED · IOC Associate Partner · Сезон 2026</span>
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main">
+  <div class="brand"><span class="mark"></span>SPECTRUM<b>LEAGUE</b></div>
+  <ul>
+    <li><a class="on" href="#">Головна</a></li>
+    <li><a href="#scores">Матчі</a></li>
+    <li><a href="#standings">Турнірна</a></li>
+    <li><a href="#teams">Команди</a></li>
+    <li><a href="#positions">Позиції</a></li>
+    <li><a href="#rules">Правила</a></li>
+    <li><a href="#news">Новини</a></li>
+    <li><a href="#schedule">Розклад</a></li>
+  </ul>
+  <a class="watch" href="#scores">● Live</a>
+</nav>
+
+<!-- LIVE SCORES RAIL -->
+<div class="rail" id="scores">
+  <div class="rail-in">
+    <div class="rail-tag">Live тижня 12</div>
+
+    <div class="score">
+      <div class="t"><span>Tokyo Oni</span><b>82</b><span class="rec">8-4</span></div>
+      <div class="mid"><div class="q">Q3 · 7:42</div><div class="clk">● LIVE</div></div>
+      <div class="t r"><span>Shanghai Spectrum</span><b>76</b><span class="rec">7-5</span></div>
+    </div>
+
+    <div class="score">
+      <div class="t"><span>Osaka Flame</span><b>—</b><span class="rec">7-5</span></div>
+      <div class="mid"><div class="q">FRI · 20:00</div><div class="clk">JST</div></div>
+      <div class="t r"><span>Taipei Cascade</span><b>—</b><span class="rec">6-6</span></div>
+    </div>
+
+    <div class="score">
+      <div class="t"><span>Los Angeles Photons</span><b>91</b><span class="rec">9-3</span></div>
+      <div class="mid"><div class="q">FINAL</div><div class="clk">OT</div></div>
+      <div class="t r"><span>São Paulo Tropos</span><b>88</b><span class="rec">5-7</span></div>
+    </div>
+
+    <div class="score">
+      <div class="t"><span>Berlin Kollektiv</span><b>79</b><span class="rec">6-6</span></div>
+      <div class="mid"><div class="q">FINAL</div><div class="clk">—</div></div>
+      <div class="t r"><span>Madrid Matadors</span><b>84</b><span class="rec">8-4</span></div>
+    </div>
+
+    <div class="score">
+      <div class="t"><span>Bangkok Prisms</span><b>—</b><span class="rec">4-8</span></div>
+      <div class="mid"><div class="q">SAT · 18:00</div><div class="clk">ICT</div></div>
+      <div class="t r"><span>Manila Blanks</span><b>—</b><span class="rec">3-9</span></div>
+    </div>
+
+    <div class="score">
+      <div class="t"><span>Tokyo Oni</span><b>—</b><span class="rec">8-4</span></div>
+      <div class="mid"><div class="q">SUN · 19:00</div><div class="clk">JST</div></div>
+      <div class="t r"><span>Los Angeles Photons</span><b>—</b><span class="rec">9-3</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag">◉ сезон 2026 · тиждень 12 / 28 · регулярна першість</div>
+      <h1>Шість<br>доменів.<br>Одна <span>гра.</span></h1>
+      <p class="sub">Spectrum League — перший міжнародний турнір у Spectrum Ball, командному спорті, де всі шість пігментних доменів грають на одному полі. Шість позицій — одна на кожну Hue-вісь — плюс сірий goalkeeper. Одна людина не виграє матч. Команда виграє.</p>
+      <div class="meta">
+        <div class="m">Команди<b>8</b></div>
+        <div class="m">Гравців<b>112</b></div>
+        <div class="m">Регіонів<b>4</b></div>
+        <div class="m">Фінал<b>2026.11.28 · Токіо</b></div>
+        <div class="m">Призовий<b>$4.2 M</b></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="k">Наступний матч тижня</div>
+      <h3>Tokyo Oni × LA Photons</h3>
+      <div class="match">
+        <div class="team"><div class="dot" style="background:linear-gradient(135deg,#cc3b2a,#3a6fa8)"></div><b>Tokyo Oni</b><div class="c">8-4 · #2</div></div>
+        <div class="vs">VS</div>
+        <div class="team"><div class="dot" style="background:linear-gradient(135deg,#e5c23a,#6da65a)"></div><b>LA Photons</b><div class="c">9-3 · #1</div></div>
+      </div>
+      <div class="when">Нд · 2026.04.26 · 19:00 JST · Tokyo Dome</div>
+      <a class="go" href="#">Квитки →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STANDINGS -->
+<section class="sec" id="standings">
+  <div class="sec-in">
+    <div class="sec-h">
+      <div><span class="n">§ 01 · Регулярний сезон</span><h2>Турнірна <span>таблиця.</span></h2></div>
+      <a class="more" href="#">Повна →</a>
+    </div>
+    <div class="conf">
+
+      <!-- ASIA-PACIFIC -->
+      <div class="conf-t">
+        <h3>Asia-Pacific Division <span>8 team · 28 games</span></h3>
+        <table class="tbl">
+          <thead><tr><th>#</th><th>Команда</th><th>W</th><th>L</th><th>PCT</th><th>PF</th><th>PA</th><th>Str</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><span class="dot" style="background:#cc3b2a"></span>Tokyo Oni</td><td class="w">8</td><td class="l">4</td><td>.667</td><td>1024</td><td>962</td><td class="w">W3</td></tr>
+            <tr><td>2</td><td><span class="dot" style="background:#e08a3a"></span>Osaka Flame</td><td class="w">7</td><td class="l">5</td><td>.583</td><td>998</td><td>988</td><td class="w">W2</td></tr>
+            <tr><td>3</td><td><span class="dot" style="background:#7a4a8a"></span>Shanghai Spectrum</td><td class="w">7</td><td class="l">5</td><td>.583</td><td>1010</td><td>994</td><td class="l">L1</td></tr>
+            <tr><td>4</td><td><span class="dot" style="background:#e5c23a"></span>Taipei Cascade</td><td class="w">6</td><td class="l">6</td><td>.500</td><td>974</td><td>982</td><td class="w">W1</td></tr>
+            <tr><td>5</td><td><span class="dot" style="background:#6da65a"></span>Bangkok Prisms</td><td class="w">4</td><td class="l">8</td><td>.333</td><td>912</td><td>1042</td><td class="l">L3</td></tr>
+            <tr><td>6</td><td><span class="dot" style="background:#8a8a86"></span>Manila Blanks</td><td class="w">3</td><td class="l">9</td><td>.250</td><td>882</td><td>1088</td><td class="l">L4</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ATLANTIC -->
+      <div class="conf-t">
+        <h3>Atlantic Division <span>4 team · 28 games</span></h3>
+        <table class="tbl">
+          <thead><tr><th>#</th><th>Команда</th><th>W</th><th>L</th><th>PCT</th><th>PF</th><th>PA</th><th>Str</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><span class="dot" style="background:#3a6fa8"></span>Los Angeles Photons</td><td class="w">9</td><td class="l">3</td><td>.750</td><td>1058</td><td>940</td><td class="w">W5</td></tr>
+            <tr><td>2</td><td><span class="dot" style="background:#cc3b2a"></span>Madrid Matadors</td><td class="w">8</td><td class="l">4</td><td>.667</td><td>1018</td><td>972</td><td class="w">W2</td></tr>
+            <tr><td>3</td><td><span class="dot" style="background:#7a4a8a"></span>Berlin Kollektiv</td><td class="w">6</td><td class="l">6</td><td>.500</td><td>988</td><td>982</td><td class="l">L2</td></tr>
+            <tr><td>4</td><td><span class="dot" style="background:#6da65a"></span>São Paulo Tropos</td><td class="w">5</td><td class="l">7</td><td>.417</td><td>966</td><td>1014</td><td class="l">L1</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:14px 18px;font:500 11px 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.1em;border-top:1px solid #00000010">PCT · Pct · GB · Стрік · PF · Points For · PA · Points Against</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEAMS -->
+<section class="sec" id="teams" style="background:var(--paper-2)">
+  <div class="sec-in">
+    <div class="sec-h">
+      <div><span class="n">§ 02 · 8 команд</span><h2>Франшизи <span>сезону.</span></h2></div>
+      <a class="more" href="#">Усі команди →</a>
+    </div>
+    <div class="teams">
+
+      <a class="tm" href="#"><div class="tm-top" style="background:linear-gradient(135deg,#cc3b2a,#7a0a0a)">
+        <div><div class="tm-k">JP · EST 2022</div></div>
+        <div><h4>Tokyo<br>Oni</h4><em>Tokyo Dome</em></div>
+      </div><div class="tm-body">
+        <div class="tm-stat"><div class="v">8-4</div><div class="k">W-L</div></div>
+        <div class="tm-stat"><div class="v">#2</div><div class="k">Ранк</div></div>
+        <div class="tm-stat"><div class="v">85.3</div><div class="k">PPG</div></div>
+      </div></a>
+
+      <a class="tm" href="#"><div class="tm-top" style="background:linear-gradient(135deg,#e08a3a,#8a4410)">
+        <div><div class="tm-k">JP · EST 2022</div></div>
+        <div><h4>Osaka<br>Flame</h4><em>Kyocera Dome</em></div>
+      </div><div class="tm-body">
+        <div class="tm-stat"><div class="v">7-5</div><div class="k">W-L</div></div>
+        <div class="tm-stat"><div class="v">#3</div><div class="k">Ранк</div></div>
+        <div class="tm-stat"><div class="v">83.2</div><div class="k">PPG</div></div>
+      </div></a>
+
+      <a class="tm" href="#"><div class="tm-top" style="background:linear-gradient(135deg,#7a4a8a,#3a1a4a)">
+        <div><div class="tm-k">CN · EST 2023</div></div>
+        <div><h4>Shanghai<br>Spectrum</h4><em>Pudong Arena</em></div>
+      </div><div class="tm-body">
+        <div class="tm-stat"><div class="v">7-5</div><div class="k">W-L</div></div>
+        <div class="tm-stat"><div class="v">#4</div><div class="k">Ранк</div></div>
+        <div class="tm-stat"><div class="v">84.2</div><div class="k">PPG</div></div>
+      </div></a>
+
+      <a class="tm" href="#"><div class="tm-top" style="background:linear-gradient(135deg,#e5c23a,#8a6a10)">
+        <div><div class="tm-k">TW · EST 2023</div></div>
+        <div><h4>Taipei<br>Cascade</h4><em>Taipei Arena</em></div>
+      </div><div class="tm-body">
+        <div class="tm-stat"><div class="v">6-6</div><div class="k">W-L</div></div>
+        <div class="tm-stat"><div class="v">#5</div><div class="k">Ранк</div></div>
+        <div class="tm-stat"><div class="v">81.2</div><div class="k">PPG</div></div>
+      </div></a>
+
+      <a class="tm" href="#"><div class="tm-top" style="background:linear-gradient(135deg,#3a6fa8,#0a2a4a)">
+        <div><div class="tm-k">US · EST 2022</div></div>
+        <div><h4>LA<br>Photons</h4><em>Crypto.com Arena</em></div>
+      </div><div class="tm-body">
+        <div class="tm-stat"><div class="v">9-3</div><div class="k">W-L</div></div>
+        <div class="tm-stat"><div class="v">#1</div><div class="k">Ранк</div></div>
+        <div class="tm-stat"><div class="v">88.2</div><div class="k">PPG</div></div>
+      </div></a>
+
+      <a class="tm" href="#"><div class="tm-top" style="background:linear-gradient(135deg,#cc3b2a,#3a0a0a)">
+        <div><div class="tm-k">ES · EST 2023</div></div>
+        <div><h4>Madrid<br>Matadors</h4><em>WiZink Center</em></div>
+      </div><div class="tm-body">
+        <div class="tm-stat"><div class="v">8-4</div><div class="k">W-L</div></div>
+        <div class="tm-stat"><div class="v">#2</div><div class="k">Ранк</div></div>
+        <div class="tm-stat"><div class="v">84.8</div><div class="k">PPG</div></div>
+      </div></a>
+
+      <a class="tm" href="#"><div class="tm-top" style="background:linear-gradient(135deg,#7a4a8a,#2a0a3a)">
+        <div><div class="tm-k">DE · EST 2024</div></div>
+        <div><h4>Berlin<br>Kollektiv</h4><em>Mercedes Arena</em></div>
+      </div><div class="tm-body">
+        <div class="tm-stat"><div class="v">6-6</div><div class="k">W-L</div></div>
+        <div class="tm-stat"><div class="v">#3</div><div class="k">Ранк</div></div>
+        <div class="tm-stat"><div class="v">82.3</div><div class="k">PPG</div></div>
+      </div></a>
+
+      <a class="tm" href="#"><div class="tm-top" style="background:linear-gradient(135deg,#6da65a,#2a4a1a)">
+        <div><div class="tm-k">BR · EST 2024</div></div>
+        <div><h4>São Paulo<br>Tropos</h4><em>Arena Morumbi</em></div>
+      </div><div class="tm-body">
+        <div class="tm-stat"><div class="v">5-7</div><div class="k">W-L</div></div>
+        <div class="tm-stat"><div class="v">#4</div><div class="k">Ранк</div></div>
+        <div class="tm-stat"><div class="v">80.5</div><div class="k">PPG</div></div>
+      </div></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONS -->
+<section class="sec" id="positions">
+  <div class="sec-in">
+    <div class="sec-h">
+      <div><span class="n">§ 03 · Позиції на полі</span><h2>Сім гравців, <span>сім кольорів.</span></h2></div>
+      <a class="more" href="#">Тренерам →</a>
+    </div>
+    <p style="max-width:65ch;font-size:15px;color:var(--ink-2);margin-bottom:34px;line-height:1.6">Команда з 7 стартових гравців. Кожна позиція — одна Hue-вісь. У складі мусять бути всі шість чистих доменів + одна сіра позиція. Допуск до реєстрації: пігмент гравця у межах ±20° від номінальної осі позиції (приклад: Strike може бути H 340°—20°). Сіра позиція: S &lt; 25, V 40—80.</p>
+    <div class="pos-grid">
+
+      <div class="pos p0">
+        <div class="pos-h">H 0° · ATTACK</div>
+        <h5>Strike</h5>
+        <div class="role">Атакуючий</div>
+        <p>Єдина позиція, що має право на прямий удар по кошику. Пігмент Атаки дає силу і точність кидка. Середній показник сезону: 14.2 очка за матч.</p>
+      </div>
+
+      <div class="pos p30">
+        <div class="pos-h">H 30° · FLESH</div>
+        <h5>Mend</h5>
+        <div class="role">Лікар-саппорт</div>
+        <p>Єдина позиція з правом торкатися травмованого гравця свого складу. Прискорює регенерацію. Не має права на кидок або відбір.</p>
+      </div>
+
+      <div class="pos p60">
+        <div class="pos-h">H 60° · INFLUENCE</div>
+        <h5>Pulse</h5>
+        <div class="role">Енергетик</div>
+        <p>Підвищує або знижує температуру, світло, хімічний стан у своєму секторі. Використовується для нейтралізації зон суперника або прокладення коридору.</p>
+      </div>
+
+      <div class="pos p120">
+        <div class="pos-h">H 120° · MIND</div>
+        <h5>Read</h5>
+        <div class="role">Плеймейкер</div>
+        <p>Аналітик команди. Пігмент Розуму дає можливість прогнозувати траєкторію гри на 2—3 дії вперед. Капітан за замовчуванням у 6 з 8 команд ліги.</p>
+      </div>
+
+      <div class="pos p240">
+        <div class="pos-h">H 240° · MOVE</div>
+        <h5>Rush</h5>
+        <div class="role">Швидкісний</div>
+        <p>Покриває поле. Здібність Руху надає перевагу в дриблінгу, але під час активації світиться синім — рефері легко фіксує використання. Tier 1 у складі — рідкість, усі команди хочуть більше.</p>
+      </div>
+
+      <div class="pos p300">
+        <div class="pos-h">H 300° · CHANGE</div>
+        <h5>Shift</h5>
+        <div class="role">Трансформатор</div>
+        <p>Найспірніша позиція. Трансформує м'яч, фіксовані об'єкти поля, поверхню. Правила 4.3 суворо обмежують зміну розміру і маси м'яча після кидка.</p>
+      </div>
+
+      <div class="pos pg">
+        <div class="pos-h">Grey · Low S</div>
+        <h5>Hold</h5>
+        <div class="role">Голкіпер</div>
+        <p>Сірий пігмент (S &lt; 25). Статистика PMS: ненасичені пігменти тяжіють до пасивно-захисних здібностей. Захист кошика. Не атакує, не лікує — тримає.</p>
+      </div>
+
+    </div>
+
+    <!-- FIELD -->
+    <div class="field">
+      <div class="field-svg">
+        <div class="c"></div>
+        <div class="g l"></div>
+        <div class="g r"></div>
+        <!-- team A (left) -->
+        <div class="p" style="background:#cc3b2a;left:14%;top:30%"></div>
+        <div class="p" style="background:#e08a3a;left:22%;top:62%"></div>
+        <div class="p" style="background:#e5c23a;left:30%;top:38%"></div>
+        <div class="p" style="background:#6da65a;left:36%;top:52%"></div>
+        <div class="p" style="background:#3a6fa8;left:40%;top:22%"></div>
+        <div class="p" style="background:#7a4a8a;left:42%;top:72%"></div>
+        <div class="p" style="background:#8a8a86;left:6%;top:50%"></div>
+        <!-- team B (right) -->
+        <div class="p" style="background:#cc3b2a;left:84%;top:70%"></div>
+        <div class="p" style="background:#e08a3a;left:76%;top:38%"></div>
+        <div class="p" style="background:#e5c23a;left:68%;top:62%"></div>
+        <div class="p" style="background:#6da65a;left:62%;top:48%"></div>
+        <div class="p" style="background:#3a6fa8;left:58%;top:78%"></div>
+        <div class="p" style="background:#7a4a8a;left:56%;top:28%"></div>
+        <div class="p" style="background:#8a8a86;left:92%;top:50%"></div>
+      </div>
+      <div class="field-info">
+        <h4>Розміщення на полі</h4>
+        <p>Поле 40×20 м, нейтральне покриття. Два кошики (діаметр 50 см, висота 3 м). По 7 гравців кожної команди. Лініі поля — біла фарба. Немає зон за кольорами — поле нейтральне.</p>
+        <p><b>Чому нейтральне:</b> лор встановлює, що пігмент — властивість людини, а не середовища. Колір підлоги не впливає на здібність. Старе правило «Home Zone» (яке діяло в 2022—2023) було офіційно скасоване у 2024 як невідповідне фізичним властивостям пігменту.</p>
+        <ul>
+          <li><span class="sw" style="background:#cc3b2a"></span>Strike — Attack</li>
+          <li><span class="sw" style="background:#e08a3a"></span>Mend — Flesh</li>
+          <li><span class="sw" style="background:#e5c23a"></span>Pulse — Influence</li>
+          <li><span class="sw" style="background:#6da65a"></span>Read — Mind</li>
+          <li><span class="sw" style="background:#3a6fa8"></span>Rush — Move</li>
+          <li><span class="sw" style="background:#7a4a8a"></span>Shift — Change</li>
+          <li><span class="sw" style="background:#8a8a86"></span>Hold — Grey goalkeeper</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="sec" id="rules" style="background:var(--paper-2)">
+  <div class="sec-in">
+    <div class="sec-h">
+      <div><span class="n">§ 04 · Офіційні правила</span><h2>Як це <span>грається.</span></h2></div>
+      <a class="more" href="#">Повний rulebook →</a>
+    </div>
+
+    <p style="max-width:65ch;font-size:15px;color:var(--ink-2);margin-bottom:34px;line-height:1.6">Spectrum Ball — командний спорт, розроблений у Токіо в 2021 році спільно з Japanese Pigment Athletic Association (JPAA) та підрозділом PMS по стандартизації спорту. Офіційно визнаний IOC у 2024 як <em>exhibition discipline</em>. Дебют на Олімпіаді 2028 очікується.</p>
+
+    <div class="rules-grid">
+
+      <div class="rule">
+        <div class="rule-n">01</div>
+        <div class="k">Format</div>
+        <h4>7 на 7 · два тайми по 30 хв</h4>
+        <p>7 основних + 5 резерв. Два тайми по 30 хвилин ігрового часу з 15-хвилинною перервою. Нічия вирішується 10-хвилинним овертаймом у форматі «перші 9 очок».</p>
+      </div>
+
+      <div class="rule">
+        <div class="rule-n">02</div>
+        <div class="k">Roster</div>
+        <h4>Шість Hue + сірий</h4>
+        <p>Обов'язковий склад: по одному гравцю на кожну з 6 чистих осей (Attack, Flesh, Influence, Mind, Move, Change) + 1 сірий (S &lt; 25). Допуск: ±20° від центру осі. Дві позиції одного домену — дискваліфікація матчу.</p>
+      </div>
+
+      <div class="rule">
+        <div class="rule-n">03</div>
+        <div class="k">Tier Limit</div>
+        <h4>Tier 1—2 тільки</h4>
+        <p>Допускаються лише пігменти з V ≥ 75 (Tier 1) або 60 ≤ V &lt; 75 (Tier 2). Tier 3 (V &lt; 60) — заборонено як надто небезпечно для не-пігментних суперників і публіки. PMS-сертифікат обов'язковий.</p>
+      </div>
+
+      <div class="rule">
+        <div class="rule-n">04</div>
+        <div class="k">Doping</div>
+        <h4>WADA + PMS-screening</h4>
+        <p>Заборонені всі пігмент-модифікатори: Saturine (розширення), Chromafinil (стимулятор), Leukostat, Achromavir. Тестування по сечі перед і після матчу + спектрографічний моніторинг у реальному часі.</p>
+      </div>
+
+      <div class="rule">
+        <div class="rule-n">05</div>
+        <div class="k">Scoring</div>
+        <h4>Тільки Strike може забивати</h4>
+        <p>Пряме потрапляння в кошик = 2 очки. Потрапляння з-за дуги 6 м = 3 очки. Блок Hold'ом = 1 очко на користь захисту. Mend не може кидати — якщо м'яч потрапить у кошик з руки Mend, гол не зараховується.</p>
+      </div>
+
+      <div class="rule">
+        <div class="rule-n">06</div>
+        <div class="k">Foul · Class A</div>
+        <h4>Пряма атака проти не-Strike</h4>
+        <p>Strike може використовувати атаку лише проти м'яча або захисної лінії Hold. Пряма атака на Mend, Read, Pulse суперника — Class A foul, вилучення на 5 хв + штрафний удар суперника.</p>
+      </div>
+
+      <div class="rule">
+        <div class="rule-n">07</div>
+        <div class="k">Activation</div>
+        <h4>Підтверджена активація</h4>
+        <p>Активація пігменту має супроводжуватися видимим світінням (лор-стандарт). Активація без світіння — підозра на Leukostat-маску, автоматична перевірка. 3 невидимі активації в матчі — дискваліфікація гравця.</p>
+      </div>
+
+      <div class="rule">
+        <div class="rule-n">08</div>
+        <div class="k">Referee</div>
+        <h4>Суддівство змішане</h4>
+        <p>У кожному матчі: 1 головний рефері (Normi, за принципом нейтральності), 2 лайнсмени (Normi), 1 medical Orange (єдиний пігмент на судейській бригаді, для лікування травм). Стандарт IOC-2024.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="sec" id="news">
+  <div class="sec-in">
+    <div class="sec-h">
+      <div><span class="n">§ 05 · Цього тижня</span><h2>Заголовки <span>ліги.</span></h2></div>
+      <a class="more" href="#">Усі новини →</a>
+    </div>
+    <div class="news-grid">
+
+      <a class="news-card" href="#"><div class="news-hd" style="background:linear-gradient(135deg,#cc3b2a 0%,#3a1a1a 100%)"></div><div class="news-body">
+        <div class="news-k">Tokyo · Match Recap</div>
+        <h4>Oni прорвали оборону Shanghai у овертаймі</h4>
+        <p>Капітан Накашіма (Read · H 118°) прочитав фінальну атаку і перевів Nobuaki (Strike) у позицію для кидка за 1.8 секунди до кінця.</p>
+        <div class="date">2026.04.20 · 23:42 JST</div>
+      </div></a>
+
+      <a class="news-card" href="#"><div class="news-hd" style="background:linear-gradient(135deg,#3a6fa8 0%,#0a2a4a 100%)"></div><div class="news-body">
+        <div class="news-k">Draft · Rumor</div>
+        <h4>LA Photons шукають другого Rush на сезон 2027</h4>
+        <p>За даними ESPN, поточний Rush команди (Alejandro Quinn, H 235°) у останньому сезоні контракту. Франшиза веде переговори з двома європейськими рашерами.</p>
+        <div class="date">2026.04.19 · 14:10 PST</div>
+      </div></a>
+
+      <a class="news-card" href="#"><div class="news-hd" style="background:linear-gradient(135deg,#e5c23a 0%,#6a4a10 100%)"></div><div class="news-body">
+        <div class="news-k">PMS Ruling</div>
+        <h4>Taipei Cascade отримав догану за Tier 3 гравця у резерві</h4>
+        <p>Внутрішнє розслідування PMS: Pulse-резерв Chen Wei-lin приховав справжній V-показник. Гравець довічно дискваліфікований, команда отримала -2 очка у таблиці.</p>
+        <div class="date">2026.04.18 · 09:00 TST</div>
+      </div></a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="sec" id="schedule">
+  <div class="sec-in">
+    <div class="sec-h">
+      <div><span class="n">§ 06 · Розклад тижня 13</span><h2>Найближчі <span>матчі.</span></h2></div>
+      <a class="more" href="#">Повний →</a>
+    </div>
+    <table class="sched-tbl">
+      <thead><tr><th style="width:120px">Дата</th><th>Матч</th><th style="width:140px">Арена</th><th style="width:100px">ТВ</th><th style="width:90px">Квитки</th></tr></thead>
+      <tbody>
+        <tr><td class="date">ПТ 25.04 · 20:00 JST</td><td class="match"><span class="dot" style="background:#e08a3a"></span>Osaka Flame · <span class="dot" style="background:#e5c23a"></span>Taipei Cascade</td><td>Kyocera Dome</td><td>DAZN</td><td><a href="#">→</a></td></tr>
+        <tr><td class="date">СБ 26.04 · 18:00 ICT</td><td class="match"><span class="dot" style="background:#6da65a"></span>Bangkok Prisms · <span class="dot" style="background:#8a8a86"></span>Manila Blanks</td><td>IMPACT Arena</td><td>ESPN+</td><td><a href="#">→</a></td></tr>
+        <tr><td class="date">СБ 26.04 · 21:00 CET</td><td class="match"><span class="dot" style="background:#cc3b2a"></span>Madrid Matadors · <span class="dot" style="background:#7a4a8a"></span>Berlin Kollektiv</td><td>WiZink Center</td><td>Movistar</td><td><a href="#">→</a></td></tr>
+        <tr><td class="date">НД 27.04 · 19:00 JST</td><td class="match"><span class="dot" style="background:#cc3b2a"></span>Tokyo Oni · <span class="dot" style="background:#3a6fa8"></span>LA Photons</td><td>Tokyo Dome</td><td>DAZN + ESPN</td><td><a href="#">→</a></td></tr>
+        <tr><td class="date">НД 27.04 · 22:00 BRT</td><td class="match"><span class="dot" style="background:#6da65a"></span>São Paulo Tropos · <span class="dot" style="background:#7a4a8a"></span>Shanghai Spectrum</td><td>Arena Morumbi</td><td>Globo</td><td><a href="#">→</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <div>
+      <div class="ft-brand"><span class="mark"></span>SPECTRUM LEAGUE</div>
+      <p class="ft-about">Офіційний сайт міжнародної ліги Spectrum Ball. PMS-сертифіковано. IOC Associate Partner з 2024. Сезон 2026: 8 команд, 28 ігор, 112 гравців, 4 континенти.</p>
+    </div>
+    <div>
+      <b>Ліга</b>
+      <ul>
+        <li><a href="#standings">Турнірна таблиця</a></li>
+        <li><a href="#teams">Команди</a></li>
+        <li><a href="#rules">Правила</a></li>
+        <li><a href="#schedule">Розклад</a></li>
+        <li><a href="#">Статистика</a></li>
+        <li><a href="#">Історія</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Партнери</b>
+      <ul>
+        <li><a href="../pantone/pantone.html">Pantone Matching System</a></li>
+        <li><a href="#">IOC</a></li>
+        <li><a href="#">WADA</a></li>
+        <li><a href="../chromalab/chromalab.html">ChromaLab (medical)</a></li>
+        <li><a href="../pharma/pharma.html">Achromavir</a></li>
+      </ul>
+    </div>
+    <div>
+      <b>Більше</b>
+      <ul>
+        <li><a href="#">Квитки</a></li>
+        <li><a href="#">Шоп</a></li>
+        <li><a href="#">Fantasy League</a></li>
+        <li><a href="#">Для медіа</a></li>
+        <li><a href="#">Для тренерів</a></li>
+        <li><a href="../index.html">← World Catalog</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Spectrum League Enterprises · PMS-Certified · Licensed by IOC</span>
+    <span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Doping Policy</a></span>
+  </div>
+</footer>
+
+</body></html>
