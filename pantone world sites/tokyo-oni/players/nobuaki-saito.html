@@ -2,287 +2,164 @@
 <html lang="uk">
 <head>
 <meta charset="utf-8">
-<title>Nobuaki Saito · 齋藤信明 · #14 Strike · Tokyo Oni</title>
+<title>Nobuaki Saito · 齋藤 信明 · #14 Strike · Tokyo Oni</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#cc3b2a">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../tokyo-oni.css">
-<style>
-:root{--role:#cc3b2a;--role-dim:#7a0a0a;--team:#cc3b2a;--team-2:#7a0a0a;--gold:#d4a820;--paper:#f5e9d8}
-body{background:#0a0606;font-family:'Noto Sans JP',sans-serif;color:#f5e9d8}
-.mainnav{display:none}
-.util{background:#0a0606;color:#c8a888;letter-spacing:.2em;border-bottom:1px solid var(--team)}
-.util a{color:var(--gold)}.util a:hover{color:#fff}
-
-.oni-nav{background:#0a0606;border-bottom:3px double var(--team);padding:0 40px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:40px;position:sticky;top:0;z-index:30}
-.oni-logo{display:flex;align-items:center;gap:16px;padding:18px 0}
-.oni-logo .kanji{font-family:'Shippori Mincho',serif;font-weight:800;font-size:42px;color:var(--team);line-height:1;letter-spacing:-.04em}
-.oni-logo .eng{display:flex;flex-direction:column}
-.oni-logo .eng b{font-family:'Shippori Mincho',serif;font-weight:700;font-size:18px;color:#fff;text-transform:uppercase;line-height:1}
-.oni-logo .eng i{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-top:4px}
-.oni-nav-links{display:flex;gap:2px;justify-content:center}
-.oni-nav-links a{padding:16px 18px;font-family:'Shippori Mincho',serif;font-weight:500;font-size:14px;color:#c8a888;letter-spacing:.12em;border-bottom:3px solid transparent;text-transform:uppercase}
-.oni-nav-links a:hover,.oni-nav-links a.on{color:#fff;border-bottom-color:var(--team)}
-.oni-nav-right{display:flex;gap:10px}
-.oni-nav-right a{width:38px;height:38px;display:grid;place-items:center;border:1px solid #cc3b2a40;color:#c8a888;font-family:'Shippori Mincho',serif}
-
-/* PLAYER HERO */
-.p-hero{
-  position:relative;min-height:740px;overflow:hidden;
-  background:url('../assets/players/nobuaki-saito-action.png') center/cover no-repeat,#0a0606;
-  color:#fff;
-}
-.p-hero::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,#0a0606f0 0%,#0a060699 35%,transparent 60%,#0a0606aa 100%);
-}
-.p-hero::after{
-  content:'信';font-family:'Shippori Mincho',serif;font-weight:800;font-size:780px;
-  color:#cc3b2a0f;line-height:.8;position:absolute;right:-120px;top:-80px;pointer-events:none;
-}
-.p-hero-in{position:relative;z-index:2;max-width:1500px;margin:0 auto;padding:40px 40px 60px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;min-height:640px}
-.p-crumb{font-family:'Shippori Mincho',serif;font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:#c8a888;margin-bottom:30px;grid-column:1/-1}
-.p-crumb a{color:#fff}.p-crumb a:hover{color:var(--gold)}
-.p-info{}
-.p-position{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.3em;color:var(--role);text-transform:uppercase;margin-bottom:20px}
-.p-info h1{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(58px,8vw,130px);line-height:.9;letter-spacing:-.02em;text-transform:uppercase;margin-bottom:10px}
-.p-info h1 small{display:block;font-weight:400;font-size:.4em;color:var(--gold);font-family:'Shippori Mincho',serif;font-style:italic;letter-spacing:0;margin-top:8px;opacity:.85}
-.p-meta{display:flex;flex-wrap:wrap;gap:22px;font:500 11px 'JetBrains Mono',monospace;color:#c8a888;letter-spacing:.15em;text-transform:uppercase;padding-top:22px;border-top:1px solid #cc3b2a60;margin-top:22px}
-.p-meta b{color:#fff;font-family:'Shippori Mincho',serif;font-weight:700;font-size:17px;letter-spacing:.02em;display:block;margin-top:3px}
-.p-cta{margin-top:26px;display:flex;gap:10px}
-.p-cta a{padding:12px 22px;border-radius:2px;font:700 11px 'Shippori Mincho',serif;letter-spacing:.2em;text-transform:uppercase}
-.p-cta .p{background:var(--gold);color:#1a0a0a}
-.p-cta .o{border:1px solid var(--gold);color:var(--gold)}
-.p-photo{text-align:center;position:relative;align-self:stretch;display:flex;align-items:flex-end;justify-content:center}
-.p-photo img{max-height:620px;width:auto;filter:drop-shadow(-20px 20px 40px #00000080)}
-.p-jersey{position:absolute;left:-10px;top:40px;font-family:'Shippori Mincho',serif;font-weight:800;font-size:380px;line-height:.8;color:#ffffff08;pointer-events:none;z-index:-1}
-
-/* HERO STATS */
-.p-stats{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#cc3b2a20;border-top:2px solid var(--team);border-bottom:2px solid var(--team)}
-.p-stat{padding:26px 24px;background:#0a0606}
-.p-stat .k{font:700 10px 'JetBrains Mono',monospace;color:var(--gold);letter-spacing:.25em;text-transform:uppercase}
-.p-stat .v{font-family:'Shippori Mincho',serif;font-weight:800;font-size:60px;line-height:1;margin-top:6px;letter-spacing:-.02em;color:#fff}
-.p-stat .sub{font:500 11px 'JetBrains Mono',monospace;color:#c8a888;letter-spacing:.1em;margin-top:4px;text-transform:uppercase}
-
-/* TABS */
-.p-tabs{background:#0a0606;border-bottom:1px solid #cc3b2a40;padding:0 40px}
-.p-tabs-in{max-width:1500px;margin:0 auto;display:flex;gap:4px;overflow-x:auto}
-.p-tabs a{padding:16px 22px;font:600 12px 'Shippori Mincho',serif;letter-spacing:.15em;text-transform:uppercase;color:#c8a888;border-bottom:3px solid transparent;white-space:nowrap}
-.p-tabs a.on{color:#fff;border-bottom-color:var(--team)}
-
-/* SECTIONS */
-.psec{padding:70px 40px}
-.psec.paper{background:var(--paper);color:#1a0a0a}
-.psec.alt{background:#1a0a0a}
-.psec-in{max-width:1500px;margin:0 auto}
-.psec-h{display:flex;justify-content:space-between;align-items:end;margin-bottom:30px;padding-bottom:14px;border-bottom:2px solid currentColor;gap:20px;flex-wrap:wrap}
-.psec-h h2{font-family:'Shippori Mincho',serif;font-weight:800;font-size:42px;letter-spacing:-.01em;text-transform:uppercase;line-height:.95}
-.psec-h h2 span{color:var(--team)}
-.psec-h .k{font:500 11px 'JetBrains Mono',monospace;color:#c8a888;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px;display:block}
-.psec.paper .psec-h .k{color:#7a1a1a}
-.psec-h .more{font:700 12px 'Shippori Mincho',serif;letter-spacing:.15em;text-transform:uppercase;color:var(--team)}
-
-/* CAREER TABLE */
-.career{width:100%;border-collapse:collapse;background:#fff;border:1px solid #cc3b2a40}
-.career th{padding:12px 14px;background:#1a0a0a;color:var(--gold);text-align:right;font:600 11px 'Shippori Mincho',serif;letter-spacing:.12em;text-transform:uppercase}
-.career th:first-child,.career th:nth-child(2){text-align:left}
-.career td{padding:14px;border-bottom:1px solid #cc3b2a30;font:500 13px 'JetBrains Mono',monospace;color:#1a0a0a;text-align:right}
-.career td:first-child,.career td:nth-child(2){text-align:left;font-family:'Shippori Mincho',serif;font-weight:600}
-.career td:first-child{color:var(--team);font-weight:700}
-.career tr.current td{background:#ffe8d8;font-weight:700}
-
-/* GAMELOG */
-.gamelog{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.glog{background:#2a0a0a;padding:18px 20px;border:1px solid #cc3b2a40}
-.glog .dt{font:500 10px 'JetBrains Mono',monospace;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
-.glog .match{display:flex;align-items:center;gap:8px;margin-bottom:10px;font:600 13px 'Shippori Mincho',serif;letter-spacing:.02em;text-transform:uppercase;color:#fff}
-.glog .match .flag{width:22px;height:16px;object-fit:cover;border:1px solid #cc3b2a40}
-.glog .score{font-family:'Shippori Mincho',serif;font-weight:800;font-size:22px;line-height:1}
-.glog .score.w{color:var(--gold)}.glog .score.l{color:#ff6b6b}
-.glog .stat{display:flex;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid #cc3b2a40;font:500 10px 'JetBrains Mono',monospace;color:#c8a888;letter-spacing:.08em;text-transform:uppercase}
-.glog .stat b{color:#fff;font-family:'Shippori Mincho',serif;font-size:14px;display:block;margin-top:2px}
-
-/* PIGMENT PROFILE */
-.pigment{background:#fff;border:2px solid var(--team);padding:30px 34px;display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:center;color:#1a0a0a}
-.hsv-disc{width:200px;height:200px;border-radius:50%;margin:0 auto;background:conic-gradient(from 0deg,#ff0000,#ff7f00,#ffff00,#00ff00,#0000ff,#4b0082,#8b00ff,#ff0000);position:relative;border:2px solid #0a0a0a;box-shadow:0 0 0 4px #fff,0 0 0 5px #0a0a0a}
-.hsv-disc::after{content:'';position:absolute;left:50%;top:50%;width:14px;height:14px;background:var(--role);border-radius:50%;border:3px solid #fff;transform:translate(-50%,-50%);margin:-94px 0 0 0;box-shadow:0 0 0 2px #0a0a0a}
-.pigment-info h4{font-family:'Shippori Mincho',serif;font-weight:800;font-size:28px;margin-bottom:6px}
-.pigment-info .ab{font:500 12px 'JetBrains Mono',monospace;color:var(--team);letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
-.pigment-info p{font-size:14px;color:#2a1a1a;line-height:1.65;margin-bottom:10px}
-.pigment-info .coords{display:flex;gap:20px;margin-top:16px;padding-top:14px;border-top:1px solid #cc3b2a40;font:500 11px 'JetBrains Mono',monospace;color:#7a1a1a;letter-spacing:.1em;text-transform:uppercase;flex-wrap:wrap}
-.pigment-info .coords b{color:#1a0a0a;font-size:20px;display:block;font-family:'Shippori Mincho',serif;font-weight:800;margin-top:2px}
-
-/* BIO */
-.bio-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
-.bio-grid h3{font-family:'Shippori Mincho',serif;font-weight:800;font-size:32px;margin-bottom:18px;color:#fff}
-.bio-grid h3 span{color:var(--team)}
-.bio-grid p{font-size:15px;color:#d8c8b0;line-height:1.75;margin-bottom:14px;max-width:58ch}
-.bio-facts{background:#2a0a0a;border:1px solid #cc3b2a40;padding:28px 30px}
-.bio-facts .f{display:grid;grid-template-columns:160px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid #cc3b2a30;font-size:13px}
-.bio-facts .f:last-child{border:0}
-.bio-facts .f .k{font:500 11px 'JetBrains Mono',monospace;color:var(--gold);letter-spacing:.12em;text-transform:uppercase}
-.bio-facts .f .v{color:#fff;font-family:'Shippori Mincho',serif;font-weight:700}
-
-footer{background:#0a0606;border-top:4px double var(--team);padding:50px 40px 30px;color:#c8a888}
-.ft-in{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
-.ft-brand{font-family:'Shippori Mincho',serif;font-weight:800;font-size:60px;color:var(--team);letter-spacing:.04em;margin-bottom:14px}
-.ft-about{font-size:13px;color:#c8a888;line-height:1.6;max-width:38ch}
-.ft-col b{font-family:'Shippori Mincho',serif;font-weight:700;font-size:11px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;display:block}
-.ft-col ul{list-style:none;padding:0;margin:0}
-.ft-col li{padding:5px 0}
-.ft-col a{color:#c8a888;font-size:13px;text-decoration:none}
-.ft-col a:hover{color:var(--gold)}
-.ft-bot{max-width:1500px;margin:30px auto 0;padding-top:20px;border-top:1px solid #cc3b2a40;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font:500 11px 'JetBrains Mono',monospace;color:#7a6a6a;letter-spacing:.1em;text-transform:uppercase}
-.ft-bot a{color:#c8a888;text-decoration:none}
-
-@media(max-width:1100px){.p-hero-in{grid-template-columns:1fr}.p-stats{grid-template-columns:1fr 1fr}.gamelog,.bio-grid,.pigment,.ft-in{grid-template-columns:1fr}.oni-nav-links{display:none}}
-</style>
+<style>:root{--role:#cc3b2a}</style>
 </head>
 <body>
 
-<div class="util">
-  <span>← <a href="../../index.html">World Catalog</a> · <a href="../tokyo-oni.html">Tokyo Oni</a> · <span>Саїто</span></span>
-  <span class="right"><a href="#">Квитки</a><a href="#">Шоп</a><a href="#">Fan Club 鬼</a></span>
-</div>
-
-<nav class="oni-nav">
-  <a href="../tokyo-oni.html" class="oni-logo"><span class="kanji">東京鬼</span><span class="eng"><b>Tokyo Oni</b><i>Spectrum-Ball · Est. 2022</i></span></a>
-  <div class="oni-nav-links">
-    <a href="../tokyo-oni.html#overview">Огляд</a>
-    <a class="on" href="../tokyo-oni.html#roster">Склад</a>
-    <a href="../tokyo-oni.html#schedule">Розклад</a>
-    <a href="../tokyo-oni.html#stats">Статистика</a>
-    <a href="../tokyo-oni.html#about">Про клуб</a>
-    <a href="../tokyo-oni.html#honours">Трофеї</a>
-    <a href="#">Шоп</a>
+<header class="site-header">
+  <div class="top-strip">
+    <div><span class="live-dot"></span>FISB T1 · СЕЗОН 2026 · ТИЖДЕНЬ 13 · 8–4 · #2 У ЛІЗІ</div>
+    <div class="lang-switch"><button class="active">UA</button><button>日本語</button><button>EN</button></div>
   </div>
-  <div class="oni-nav-right"><a href="#">⌕</a><a href="#">JP</a><a href="#">鬼</a></div>
-</nav>
+  <div class="main-nav">
+    <a href="../tokyo-oni.html" class="brand"><span class="kanji-mark">鬼</span><div class="brand-lock"><span class="brand-en">TOKYO ONI</span><span class="brand-sub">東京鬼 · EST. 1976</span></div></a>
+    <ul>
+      <li><a href="../tokyo-oni.html">ГОЛОВНА</a></li>
+      <li><a href="../roster.html" class="active">СКЛАД</a></li>
+      <li><a href="../schedule.html">РОЗКЛАД</a></li>
+      <li><a href="../standings.html">ТАБЛИЦЯ</a></li>
+      <li><a href="../news.html">НОВИНИ</a></li>
+      <li><a href="../arena.html">АРЕНА</a></li>
+      <li><a href="../about.html">ПРО КЛУБ</a></li>
+      <li><a href="../shop.html">ШОП</a></li>
+    </ul>
+    <div class="nav-cta"><a class="btn btn-ghost" href="#">КВИТКИ</a><a class="btn btn-primary" href="../schedule.html">NEXT ›</a></div>
+  </div>
+</header>
 
-<section class="p-hero">
-  <div class="p-hero-in">
-    <div class="p-crumb">
-      <a href="../../index.html">PANTONE World</a> · <a href="../tokyo-oni.html">Tokyo Oni</a> · <a href="../tokyo-oni.html#roster">Roster</a> · <span>Саїто #14</span>
+<section class="player-hero">
+  <div class="p-hero-bg" style="background-image:url('../assets/players/nobuaki-saito-action.png')"></div>
+  <div class="p-jersey-bg">14</div>
+  <div class="p-kanji-bg">信</div>
+  <div class="player-hero-in">
+    <div class="p-breadcrumb">
+      <a href="../tokyo-oni.html">Головна</a> · <a href="../roster.html">Склад</a> · <span>Саїто #14</span>
     </div>
-    <div class="p-info">
-      <div class="p-position">#14 · Strike · H 2° · S 88 · V 81 · PMS Aurora Red</div>
-      <h1>Nobuaki <br>Saito <small>齋藤信明 · 22 роки · 188 см</small></h1>
+    <div class="p-hero-main">
+      <div class="p-chip">#14 · STRIKE · H 2° · PMS 18-1550 AURORA RED</div>
+      <h1>NOBUAKI<br>SAITO</h1>
+      <div class="p-kanji-line">齋藤 信明</div>
+      <div class="p-hero-sub">22 РОКИ · 188 СМ · 82 КГ · YOKOHAMA</div>
       <div class="p-meta">
-        <div>Позиція<b>Strike</b></div>
-        <div>Країна<b>🇯🇵 Японія</b></div>
-        <div>Досвід<b>4-й сезон T1</b></div>
-        <div>Драфт<b>2023 · пік #2</b></div>
-        <div>Контракт<b>$18.2M до 2028</b></div>
+        <div class="m">ПОЗИЦІЯ<b>STRIKE · АТАКА</b></div>
+        <div class="m">КРАЇНА<b>🇯🇵 ЯПОНІЯ</b></div>
+        <div class="m">У КЛУБІ<b>4-Й СЕЗОН</b></div>
+        <div class="m">ДРАФТ<b>2023 · ПІК #2</b></div>
+        <div class="m">КОНТРАКТ<b>¥1.82 МЛРД / РІК · ДО 2028</b></div>
+        <div class="m">АГЕНТ<b>IMG JAPAN</b></div>
       </div>
-      <div class="p-cta">
-        <a href="#" class="p">Слідкувати →</a>
-        <a href="#" class="o">Highlights</a>
+      <div class="p-hero-cta">
+        <a class="btn btn-primary" href="#gamelog">HIGHLIGHTS ›</a>
+        <a class="btn btn-ghost" href="#">INSTAGRAM · 4.2M</a>
+        <a class="btn btn-gold" href="../shop.html">ФОРМА #14</a>
       </div>
-    </div>
-    <div class="p-photo">
-      <span class="p-jersey">14</span>
-      <img src="../assets/players/nobuaki-saito.png" alt="Nobuaki Saito">
     </div>
   </div>
 </section>
 
-<div class="p-stats">
-  <div class="p-stat"><div class="k">PPG</div><div class="v">22.4</div><div class="sub">2-й T1 · скорер</div></div>
-  <div class="p-stat"><div class="k">3PT%</div><div class="v">41.5</div><div class="sub">4-й T1</div></div>
-  <div class="p-stat"><div class="k">MPG</div><div class="v">32.1</div><div class="sub">хв/матч</div></div>
-  <div class="p-stat"><div class="k">EFF</div><div class="v">27.8</div><div class="sub">ефективність</div></div>
+<div class="p-stats-row">
+  <div class="p-stat"><div class="k">PPG</div><div class="v">22.4</div><div class="sub">2-Й У T1</div></div>
+  <div class="p-stat"><div class="k">3PT%</div><div class="v">41.5</div><div class="sub">4-Й У T1</div></div>
+  <div class="p-stat"><div class="k">MPG</div><div class="v">32.1</div><div class="sub">ХВ/МАТЧ</div></div>
+  <div class="p-stat"><div class="k">EFF</div><div class="v">27.8</div><div class="sub">5-Й У T1</div></div>
 </div>
 
-<div class="p-tabs"><div class="p-tabs-in">
-  <a class="on" href="#overview">Огляд</a>
-  <a href="#career">Кар'єра</a>
-  <a href="#gamelog">Game log</a>
-  <a href="#pigment">Пігмент</a>
-  <a href="#bio">Bio</a>
-  <a href="#">Highlights</a>
-  <a href="#">Шоп #14</a>
-</div></div>
+<section class="section" id="career">
+  <div class="section-head">
+    <div><span class="eyebrow">КАР'ЄРНА СТАТИСТИКА · 通算</span><h2>СЕЗОН ЗА СЕЗОНОМ <span class="jp">記録</span></h2></div>
+    <a href="#" class="see-all">ADVANCED STATS →</a>
+  </div>
+  <table class="career-table">
+    <thead><tr><th>СЕЗОН</th><th>КОМАНДА · ЛІГА</th><th>GP</th><th>MIN</th><th>PPG</th><th>3PT%</th><th>AST</th><th>STL</th><th>TO</th><th>EFF</th></tr></thead>
+    <tbody>
+      <tr class="current"><td>2026</td><td>TOKYO ONI · T1</td><td>12</td><td>32.1</td><td>22.4</td><td>41.5</td><td>3.2</td><td>1.4</td><td>2.1</td><td>27.8</td></tr>
+      <tr><td>2025</td><td>TOKYO ONI · T1</td><td>24</td><td>29.8</td><td>19.1</td><td>38.2</td><td>2.8</td><td>1.1</td><td>2.4</td><td>24.3</td></tr>
+      <tr><td>2024</td><td>TOKYO ONI · T1</td><td>24</td><td>24.4</td><td>14.2</td><td>34.1</td><td>2.1</td><td>0.8</td><td>2.8</td><td>18.6</td></tr>
+      <tr><td>2023</td><td>TOKYO ONI · T1 (R)</td><td>18</td><td>14.1</td><td>8.4</td><td>31.0</td><td>1.2</td><td>0.5</td><td>2.2</td><td>11.8</td></tr>
+      <tr><td>2022</td><td>OSAKA U-20 · JR</td><td>22</td><td>26.1</td><td>11.8</td><td>32.0</td><td>1.9</td><td>0.9</td><td>3.2</td><td>14.2</td></tr>
+      <tr><td colspan="2"><b>КАР'ЄРА T1</b></td><td><b>78</b></td><td><b>25.1</b></td><td><b>15.5</b></td><td><b>36.2</b></td><td><b>2.3</b></td><td><b>1.0</b></td><td><b>2.4</b></td><td><b>20.6</b></td></tr>
+    </tbody>
+  </table>
+</section>
 
-<section class="psec paper" id="career">
-  <div class="psec-in">
-    <div class="psec-h"><div><span class="k">Кар'єрна статистика</span><h2>Сезон за <span>сезоном.</span></h2></div><a href="#" class="more">Advanced →</a></div>
-    <table class="career">
-      <thead><tr><th>Сезон</th><th>Команда · Ліга</th><th>GP</th><th>MIN</th><th>PPG</th><th>3PT%</th><th>AST</th><th>STL</th><th>TO</th><th>EFF</th></tr></thead>
-      <tbody>
-        <tr class="current"><td>2026</td><td>Tokyo Oni · T1</td><td>12</td><td>32.1</td><td>22.4</td><td>41.5</td><td>3.2</td><td>1.4</td><td>2.1</td><td>27.8</td></tr>
-        <tr><td>2025</td><td>Tokyo Oni · T1</td><td>28</td><td>29.8</td><td>19.1</td><td>38.2</td><td>2.8</td><td>1.1</td><td>2.4</td><td>24.3</td></tr>
-        <tr><td>2024</td><td>Tokyo Oni · T1</td><td>28</td><td>24.4</td><td>14.2</td><td>34.1</td><td>2.1</td><td>0.8</td><td>2.8</td><td>18.6</td></tr>
-        <tr><td>2023</td><td>Osaka U-20</td><td>18</td><td>26.1</td><td>11.8</td><td>32.0</td><td>1.9</td><td>0.9</td><td>3.2</td><td>14.2</td></tr>
-        <tr><td colspan="2"><b>Кар'єра T1</b></td><td><b>68</b></td><td><b>28.4</b></td><td><b>17.8</b></td><td><b>37.6</b></td><td><b>2.7</b></td><td><b>1.1</b></td><td><b>2.4</b></td><td><b>23.1</b></td></tr>
-      </tbody>
-    </table>
+<section class="section" id="gamelog" style="padding-top:0">
+  <div class="section-head">
+    <div><span class="eyebrow">ОСТАННІ 5 МАТЧІВ · ゲームログ</span><h2>GAME LOG <span class="jp">直近</span></h2></div>
+    <a href="../schedule.html" class="see-all">ПОВНИЙ СЕЗОН →</a>
+  </div>
+  <div class="gamelog">
+    <div class="glog-card"><div class="dt">20.04 · ТИЖД. 12</div><div class="match">@ SHANGHAI · OT</div><div class="score w">W 82–76</div><div class="stats"><div>PTS<b>31</b></div><div>3PT<b>5/9</b></div><div>AST<b>4</b></div></div></div>
+    <div class="glog-card"><div class="dt">12.04 · ТИЖД. 11</div><div class="match">vs OSAKA THUNDER</div><div class="score w">W 88–80</div><div class="stats"><div>PTS<b>22</b></div><div>3PT<b>3/7</b></div><div>AST<b>3</b></div></div></div>
+    <div class="glog-card"><div class="dt">05.04 · ТИЖД. 10</div><div class="match">@ YOKOHAMA JETS</div><div class="score w">W 99–82</div><div class="stats"><div>PTS<b>30</b></div><div>3PT<b>6/9</b></div><div>AST<b>4</b></div></div></div>
+    <div class="glog-card"><div class="dt">29.03 · ТИЖД. 9</div><div class="match">@ LA PHOTONS</div><div class="score l">L 78–91</div><div class="stats"><div>PTS<b>24</b></div><div>3PT<b>4/11</b></div><div>AST<b>2</b></div></div></div>
+    <div class="glog-card"><div class="dt">15.03 · ТИЖД. 8</div><div class="match">vs MUMBAI SPICE</div><div class="score l">L 81–85</div><div class="stats"><div>PTS<b>26</b></div><div>3PT<b>4/10</b></div><div>AST<b>3</b></div></div></div>
   </div>
 </section>
 
-<section class="psec alt" id="gamelog">
-  <div class="psec-in">
-    <div class="psec-h"><div><span class="k">Останні 5 матчів</span><h2>Game <span>log.</span></h2></div><a href="#" class="more">Повний сезон →</a></div>
-    <div class="gamelog">
-      <div class="glog"><div class="dt">2026.04.20 · тижд.12</div><div class="match"><img class="flag" src="https://flagcdn.com/w40/cn.png" alt="">vs Shanghai · OT</div><div class="score w">W 82-76</div><div class="stat"><div>PPG<b>28</b></div><div>3PT<b>5/9</b></div><div>AST<b>4</b></div></div></div>
-      <div class="glog"><div class="dt">2026.04.15 · тижд.11</div><div class="match"><img class="flag" src="https://flagcdn.com/w40/es.png" alt="">@ Madrid</div><div class="score l">L 76-84</div><div class="stat"><div>PPG<b>18</b></div><div>3PT<b>3/10</b></div><div>AST<b>2</b></div></div></div>
-      <div class="glog"><div class="dt">2026.04.11 · тижд.10</div><div class="match"><img class="flag" src="https://flagcdn.com/w40/tw.png" alt="">vs Taipei</div><div class="score w">W 91-78</div><div class="stat"><div>PPG<b>24</b></div><div>3PT<b>4/7</b></div><div>AST<b>3</b></div></div></div>
-      <div class="glog"><div class="dt">2026.04.05 · тижд.9</div><div class="match"><img class="flag" src="https://flagcdn.com/w40/th.png" alt="">@ Bangkok</div><div class="score w">W 95-82</div><div class="stat"><div>PPG<b>30</b></div><div>3PT<b>6/9</b></div><div>AST<b>4</b></div></div></div>
-      <div class="glog"><div class="dt">2026.04.01 · тижд.8</div><div class="match"><img class="flag" src="https://flagcdn.com/w40/jp.png" alt="">vs Osaka</div><div class="score w">W 88-80</div><div class="stat"><div>PPG<b>22</b></div><div>3PT<b>4/8</b></div><div>AST<b>3</b></div></div></div>
-    </div>
+<section class="section" id="pigment" style="padding-top:0">
+  <div class="section-head">
+    <div><span class="eyebrow">ПІГМЕНТНИЙ ПРОФІЛЬ · PMS-СЕРТИФІКАЦІЯ</span><h2>КООРДИНАТА ТА ЗДІБНІСТЬ <span class="jp">色能力</span></h2></div>
   </div>
-</section>
-
-<section class="psec paper" id="pigment">
-  <div class="psec-in">
-    <div class="psec-h"><div><span class="k">Pigment profile · PMS-certified</span><h2>Координата та <span>здібність.</span></h2></div></div>
-    <div class="pigment">
-      <div class="hsv-disc"></div>
-      <div class="pigment-info">
-        <h4>«Firebolt» · #CC3B2A · Aurora Red</h4>
-        <div class="ab">Пігментна здібність · домен Атаки</div>
-        <p>Nobuaki концентрує енергію у правій долоні та випускає її імпульсним розрядом у м'яч. Активація видима — червоне світіння по лінії кидка. При влучанні в кільце м'яч залишає короткий червоний шлейф, за що здібність і отримала назву «Firebolt».</p>
-        <p>H 2° — майже ідеально чиста Атака. S 88 — висока направленість назовні. V 81 — верхня межа допуску T1, проходить за 6 одиниць від відсіву в T2.</p>
-        <div class="coords"><div>Hue<b>2°</b></div><div>Sat<b>88</b></div><div>Val<b>81</b></div><div>Tier<b>T1</b></div><div>PMS<b>18-1550</b></div></div>
+  <div class="pigment">
+    <div class="hsv-disc"></div>
+    <div class="pigment-info">
+      <h4>«FIREBOLT» · #CC3B2A · AURORA RED</h4>
+      <div class="ab">Пігментна здібність · домен Атаки (Strike H 0–30°)</div>
+      <p>Нобуакі концентрує пігментну енергію у правій долоні та випускає імпульсним розрядом у м'яч. Активація візуально видима — червоне світіння по лінії кидка. При влучанні в кільце м'яч залишає короткий червоний шлейф, за що здібність і отримала назву «Firebolt» ще на молодіжному чемпіонаті 2021 року.</p>
+      <p>H 2° — майже ідеально чиста Атака. S 88 — висока направленість назовні. V 81 — верхня межа допуску T1, проходить за 6 одиниць від PMS-дискваліфікації у T2. Третій сезон Саїто працює з Dr. Сасакі (штатний колориметрист) над стабілізацією насиченості до 85 — це дозволить витримувати чотирьохчвертьові активації без перевантаження.</p>
+      <div class="coords">
+        <div class="c">HUE<b>2°</b></div>
+        <div class="c">SAT<b>88</b></div>
+        <div class="c">VAL<b>81</b></div>
+        <div class="c">PMS<b>18-1550</b></div>
+        <div class="c">TIER<b>T1-A</b></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="psec alt" id="bio">
-  <div class="psec-in">
-    <div class="psec-h"><div><span class="k">Bio</span><h2>Хто такий <span>Нобуакі.</span></h2></div></div>
-    <div class="bio-grid">
-      <div>
-        <h3>Шлях до <span>Tokyo Oni.</span></h3>
-        <p>Народився у Йокогамі 2003 року. Пігмент пробудився у 13 років під час шкільних змагань з баскетболу — у емоційному епізоді наприкінці матчу червоне світіння рук було помічене викладачем фізкультури.</p>
-        <p>У 15 потрапив у молодіжну програму Osaka U-20, провів 3 сезони. Драфт T1 2023 — другий пік загального вибору, Tokyo Oni. За два сезони в основній лізі піднявся з ролі беквена до головного скорера команди.</p>
-        <p>Поза майданчиком — ендорсери adidas, Panasonic, Red Bull Pigment Division. У Instagram 4.2M підписників. Неодружений. Мешкає в Сібуя.</p>
-      </div>
-      <div class="bio-facts">
-        <div class="f"><div class="k">ДН</div><div class="v">11.03.2003</div></div>
-        <div class="f"><div class="k">Місце</div><div class="v">Yokohama, Japan</div></div>
-        <div class="f"><div class="k">Зріст/Вага</div><div class="v">188 см · 82 кг</div></div>
-        <div class="f"><div class="k">Рука</div><div class="v">Права</div></div>
-        <div class="f"><div class="k">Університет</div><div class="v">Waseda · Sport Sci.</div></div>
-        <div class="f"><div class="k">Драфт</div><div class="v">2023 · пік #2</div></div>
-        <div class="f"><div class="k">Контракт</div><div class="v">$18.2M/рік до 2028</div></div>
-        <div class="f"><div class="k">Агент</div><div class="v">IMG Japan</div></div>
-      </div>
+<section class="section" id="bio" style="padding-top:0">
+  <div class="section-head">
+    <div><span class="eyebrow">БІО · 略歴</span><h2>ХТО ТАКИЙ НОБУАКІ <span class="jp">人物</span></h2></div>
+  </div>
+  <div class="bio">
+    <div class="bio-text">
+      <h3>Шлях до <span>Tokyo Oni.</span></h3>
+      <p>Народився у Йокогамі 11 березня 2003 року. Пігмент пробудився у 13 років під час шкільних змагань з спектр-болу — у емоційному епізоді наприкінці матчу викладач фізкультури помітив червоне світіння у правій долоні. Батьки — інженер Panasonic та вчителька музики, обоє без пігментних здібностей.</p>
+      <p>У 15 потрапив до молодіжної програми Osaka U-20, три сезони. Драфт T1 2023 — другий пік загального вибору, Tokyo Oni забрали Саїто, хоча Seoul Bolts давали більше. Хошіно (тоді ще асистент-тренер) особисто літав до Йокогами на зустріч з родиною.</p>
+      <p>За два повних сезони в основі (2024, 2025) піднявся з ролі бек-апа до головного скорера команди. У 2026-му вийшов на номінацію FISB Most Improved. Поза майданчиком — ендорсери Panasonic, adidas, Red Bull Pigment. 4.2M в Instagram. Неодружений. Мешкає в Сібуя.</p>
+      <p>Говорить про Накашіму як про семпая і планує дограти свій контракт з нинішніми Оні повністю — без виходу на free agency. «Я розумів це ще до драфту: клуб з п'ятдесятилітньою історією забирає тебе не на два сезони.»</p>
+    </div>
+    <div class="bio-facts">
+      <div class="f"><div class="k">ДАТА НАРОДЖЕННЯ</div><div class="v">11.03.2003</div></div>
+      <div class="f"><div class="k">МІСЦЕ</div><div class="v">YOKOHAMA, JAPAN</div></div>
+      <div class="f"><div class="k">ЗРІСТ / ВАГА</div><div class="v">188 СМ · 82 КГ</div></div>
+      <div class="f"><div class="k">РУКА</div><div class="v">ПРАВА</div></div>
+      <div class="f"><div class="k">УНІВЕРСИТЕТ</div><div class="v">WASEDA · SPORT SCI.</div></div>
+      <div class="f"><div class="k">ДРАФТ</div><div class="v">2023 · ПІК #2</div></div>
+      <div class="f"><div class="k">КОНТРАКТ</div><div class="v">¥1.82 МЛРД/РІК ДО 2028</div></div>
+      <div class="f"><div class="k">АГЕНТ</div><div class="v">IMG JAPAN</div></div>
+      <div class="f"><div class="k">ТРОФЕЇ В КЛУБІ</div><div class="v">T1'24 · EMP.CUP'22</div></div>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="ft-in">
-    <div>
-      <div class="ft-brand">東京鬼</div>
-      <p class="ft-about">Tokyo Oni · професійний клуб Spectrum-Ball, заснований 2022. Двократні чемпіони, дім — Tokyo Arena.</p>
-    </div>
-    <div class="ft-col"><b>#14 Саїто</b><ul><li><a href="#career">Кар'єра</a></li><li><a href="#gamelog">Game log</a></li><li><a href="#pigment">Пігмент</a></li><li><a href="#bio">Bio</a></li></ul></div>
-    <div class="ft-col"><b>Клуб</b><ul><li><a href="../tokyo-oni.html#roster">Склад</a></li><li><a href="../tokyo-oni.html#schedule">Розклад</a></li><li><a href="../tokyo-oni.html#about">Про клуб</a></li><li><a href="../tokyo-oni.html#honours">Трофеї</a></li></ul></div>
-    <div class="ft-col"><b>Контакти</b><ul><li><a href="#">press@tokyo-oni.jp</a></li><li><a href="#">shop@tokyo-oni.jp</a></li><li><a href="../../index.html">← PANTONE World</a></li></ul></div>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="kanji-mark">東京鬼</div><div class="motto">一つ鬼、勝つ</div><p>Tokyo Oni Athletic Club · Засновано 14.08.1976 в Ікебукуро · FISB T1 Asia-Pacific · 16 трофеїв за 50 сезонів.</p></div>
+    <div><h5>#14 САЇТО</h5><ul><li><a href="#career">Кар'єра</a></li><li><a href="#gamelog">Game log</a></li><li><a href="#pigment">Пігмент</a></li><li><a href="#bio">Біо</a></li></ul></div>
+    <div><h5>КЛУБ</h5><ul><li><a href="../about.html">Про клуб</a></li><li><a href="../roster.html">Склад</a></li><li><a href="../schedule.html">Розклад</a></li><li><a href="../arena.html">Tokyo Arena</a></li></ul></div>
+    <div><h5>ФАНАМ</h5><ul><li><a href="#">Квитки</a></li><li><a href="../shop.html">Форма #14</a></li><li><a href="../news.html">Новини</a></li><li><a href="#">Oni Curva</a></li></ul></div>
+    <div><h5>СОЦ</h5><ul><li><a href="#">IG · @saito14oni</a></li><li><a href="#">X · @saito_oni</a></li><li><a href="#">YouTube</a></li><li><a href="#">TikTok</a></li></ul></div>
   </div>
-  <div class="ft-bot"><span>© 2026 Tokyo Oni Athletic Holdings</span><span><a href="#">Privacy</a> · <a href="#">Terms</a></span></div>
+  <div class="sponsors"><span class="label">SAITO'S PARTNERS</span><div class="logos"><span class="logo-ph">ADIDAS</span><span class="logo-ph">PANASONIC</span><span class="logo-ph">RED BULL</span><span class="logo-ph">CASIO</span><span class="logo-ph">NHK</span></div></div>
+  <div class="copyright"><span>© 1976–2026 TOKYO ONI ATHLETIC CLUB · ALL RIGHTS RESERVED</span><span>TOKYO · 東京 · <a href="../../index.html">PANTONE World</a></span></div>
 </footer>
 
-</body></html>
+<script src="../tokyo-oni.js" defer></script>
+</body>
+</html>
