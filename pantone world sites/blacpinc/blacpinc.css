@@ -52,7 +52,7 @@ img{display:block;max-width:100%}
 /* ── NAV ──────────────────────────────────────── */
 nav.main{
   background:#050505d0;padding:18px 30px;
-  display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;
+  display:grid;grid-template-columns:auto 1fr auto auto;gap:30px;align-items:center;
   border-bottom:1px solid var(--line);
   position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
 }
@@ -1060,7 +1060,7 @@ body.store a{color:inherit}
 .store-top{background:#111;color:#f3efe7;padding:8px 20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;display:flex;justify-content:space-between}
 .store-top a{color:var(--pink)}
 
-.store-nav{background:#f3efe7;border-bottom:1px solid #00000015;padding:18px 30px;display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;position:sticky;top:0;z-index:20;backdrop-filter:blur(10px)}
+.store-nav{background:#f3efe7;border-bottom:1px solid #00000015;padding:18px 30px;display:grid;grid-template-columns:auto 1fr auto auto;gap:30px;align-items:center;position:sticky;top:0;z-index:20;backdrop-filter:blur(10px)}
 .store-nav .logo{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;letter-spacing:-.04em;color:#111}
 .store-nav .logo span{color:var(--pink)}
 .store-nav .logo small{display:block;font-family:'JetBrains Mono',monospace;font-weight:400;font-size:9px;color:#606060;letter-spacing:.2em;text-transform:uppercase;margin-top:2px;font-style:normal}
@@ -1103,6 +1103,63 @@ body.store .prod.soldout::after{background:#111d;color:#f3efe7;border-color:#f3e
 .store-footer .sf-back{color:var(--pink)}
 .store-footer .sf-about{margin-top:12px;max-width:38ch;color:#808080}
 @media(max-width:900px){.store-footer .sf-in{grid-template-columns:1fr}}
+
+/* Production shell additions */
+.lang-switcher{
+  display:flex;
+  gap:4px;
+  align-items:center;
+  justify-self:end;
+}
+.lang-switcher button{
+  border:1px solid #ffffff24;
+  background:#0008;
+  color:var(--ink-2);
+  min-width:34px;
+  height:28px;
+  padding:0 8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:.08em;
+  cursor:pointer;
+}
+.lang-switcher button.on,
+.lang-switcher button:hover{
+  color:#000;
+  background:var(--pink);
+  border-color:var(--pink);
+}
+.store-nav .lang-switcher button{
+  border-color:#00000025;
+  background:#f3efe7;
+  color:#111;
+}
+.store-nav .lang-switcher button.on,
+.store-nav .lang-switcher button:hover{
+  background:#111;
+  color:#f3efe7;
+  border-color:#111;
+}
+.lore-link{
+  color:#5a5a5a;
+  opacity:.72;
+  text-decoration:none;
+}
+.lore-link:hover{color:var(--pink);opacity:1}
+.footer-sep{color:#303030;margin:0 4px}
+
+.rumor-card{
+  border-color:#ff2c7a66 !important;
+  background:
+    linear-gradient(135deg,#ff2c7a14,transparent 42%),
+    #0a0a0a;
+}
+.rumor-card .d{color:var(--pink)}
+
+@media(max-width:1100px){
+  nav.main,.store-nav{grid-template-columns:1fr;gap:16px}
+  .lang-switcher{justify-self:start}
+}
 
 /* ─────────────────────────────────────────────── */
 /* ALBUM PAGE · dedicated album landing              */
