@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medicines | Ordinate Therapeutics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-page="medicines">
+  <div data-site-header></div>
+  <main class="page">
+    <header class="page-title">
+      <div class="eyebrow">Product catalog</div>
+      <h1>Medicines and Regulated Therapies</h1>
+      <p>Ordinate products are approved, supplied or made available according to local medical, institutional and regulatory requirements. Product information may differ by country and audience.</p>
+    </header>
+
+    <section class="controls" data-medicine-controls>
+      <div class="mode-list">
+        <button class="mode-button active" type="button" data-medicine-mode="az">A-Z Medicines</button>
+        <button class="mode-button" type="button" data-medicine-mode="area">By Therapeutic Area</button>
+        <button class="mode-button" type="button" data-medicine-mode="access">By Access Level</button>
+      </div>
+      <div class="control-grid">
+        <div class="field">
+          <label>Search</label>
+          <input type="search" data-filter-search placeholder="Product, class, use context">
+        </div>
+        <div class="field">
+          <label>Therapeutic area</label>
+          <select data-filter-area>
+            <option value="all">All areas</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Pain &amp; Inflammation">Pain &amp; Inflammation</option>
+            <option value="Acute Care">Acute Care</option>
+            <option value="Cardiovascular &amp; Metabolic">Cardiovascular &amp; Metabolic</option>
+            <option value="Dermatology">Dermatology</option>
+            <option value="Pigment Stability">Pigment Stability</option>
+            <option value="Pigment Suppression">Pigment Suppression</option>
+            <option value="Coordinate Modulation">Coordinate Modulation</option>
+            <option value="Diagnostics">Diagnostics</option>
+            <option value="Recovery">Recovery</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Access level</label>
+          <select data-filter-access>
+            <option value="all">All access levels</option>
+            <option value="pharmacy">Pharmacy</option>
+            <option value="prescription">Prescription</option>
+            <option value="specialist">Specialist prescription</option>
+            <option value="hospital">Hospital only</option>
+            <option value="hcp">HCP only / safety</option>
+            <option value="restricted">Restricted institutional</option>
+            <option value="military">Military / strict control</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Audience</label>
+          <select data-filter-audience>
+            <option value="all">All audiences</option>
+            <option value="Patients">Patients</option>
+            <option value="Healthcare Professionals">Healthcare Professionals</option>
+            <option value="Institutions">Institutions</option>
+            <option value="Regulators">Regulators</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox-grid" style="margin-top:14px">
+        <label class="check-pill"><input type="checkbox" value="prescription" data-filter-flag> Prescription</label>
+        <label class="check-pill"><input type="checkbox" value="pharmacy" data-filter-flag> OTC / pharmacy</label>
+        <label class="check-pill"><input type="checkbox" value="hospital" data-filter-flag> Hospital only</label>
+        <label class="check-pill"><input type="checkbox" value="hcp-info" data-filter-flag> HCP information available</label>
+        <label class="check-pill"><input type="checkbox" value="pigment-specific" data-filter-flag> Pigment-specific</label>
+        <label class="check-pill"><input type="checkbox" value="restricted" data-filter-flag> Restricted</label>
+        <label class="check-pill"><input type="checkbox" value="patient-materials" data-filter-flag> Patient materials</label>
+        <label class="check-pill"><input type="checkbox" value="safety-update" data-filter-flag> Safety update</label>
+        <label class="check-pill"><input type="checkbox" value="withdrawn" data-filter-flag> Discontinued / withdrawn</label>
+      </div>
+    </section>
+
+    <div data-product-grid></div>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

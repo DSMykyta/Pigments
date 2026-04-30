@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Ordinate Therapeutics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-page="contact">
+  <div data-site-header></div>
+  <main class="page">
+    <header class="page-title">
+      <div class="eyebrow">Contact</div>
+      <h1>Global contacts and local routing</h1>
+      <p>Contact routes vary by country, product, audience and urgency.</p>
+    </header>
+    <section class="section">
+      <div class="grid cols-3">
+        <article class="card"><h3>Medical Information</h3><p>Product questions, prescribing documents and educational materials.</p><a class="btn" href="medical-information.html">Submit inquiry</a></article>
+        <article class="card"><h3>Safety</h3><p>Side effects, medication errors, product quality complaints and activation incidents.</p><a class="btn danger" href="report-adverse-event.html">Report event</a></article>
+        <article class="card"><h3>Media</h3><p>Corporate statements, public policy and newsroom requests.</p><a class="btn" href="news.html">Newsroom</a></article>
+      </div>
+    </section>
+    <section class="section">
+      <form class="panel" data-form-type="contact">
+        <h2 class="serif-title">General contact form</h2>
+        <div class="control-grid">
+          <div class="field"><label>Name</label><input name="name" required></div>
+          <div class="field"><label>Email</label><input name="email" type="email" required></div>
+          <div class="field"><label>Country</label><input name="country" required></div>
+          <div class="field"><label>Topic</label><select name="topic" required><option value="">Select</option><option>Medical information</option><option>Patient support</option><option>Media</option><option>Access program</option><option>Other</option></select></div>
+        </div>
+        <div class="field" style="margin-top:14px"><label>Message</label><textarea name="message" required></textarea></div>
+        <div class="form-actions" style="margin-top:14px"><button class="btn primary" type="submit">Submit</button></div>
+        <div data-form-result></div>
+      </form>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

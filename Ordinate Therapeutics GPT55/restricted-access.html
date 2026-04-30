@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restricted Institutional Access | Ordinate Therapeutics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-page="restricted">
+  <div data-site-header></div>
+  <main class="page">
+    <header class="page-title">
+      <div class="eyebrow">Restricted institutional access</div>
+      <h1>Authorized institutional inquiry only</h1>
+      <p>This portal is for military medical units, state pigment agencies, prison and containment medical systems, emergency response authorities, licensed research facilities, professional sport regulators, courts and forensic medicine bodies.</p>
+    </header>
+
+    <section class="section split">
+      <form class="panel" data-restricted-access-form>
+        <h2 class="serif-title">Access request</h2>
+        <p>Public-safe demo only. No sensitive documentation is displayed.</p>
+        <div class="control-grid">
+          <div class="field"><label>Organization</label><input name="organization" required></div>
+          <div class="field"><label>Role / office</label><input name="role" required></div>
+          <div class="field"><label>Case or protocol reference</label><input name="caseReference" required></div>
+          <div class="field"><label>Institutional email</label><input name="email" type="email" required></div>
+        </div>
+        <div class="field" style="margin-top:14px"><label>Purpose of inquiry</label><select name="purpose" required><option value="">Select</option><option>Restricted product safety incident</option><option>Medical information inquiry</option><option>Regulatory review</option><option>Emergency response protocol</option><option>Research facility authorization</option></select></div>
+        <div class="field" style="margin-top:14px"><label>Statement</label><textarea name="statement" required></textarea></div>
+        <div class="form-actions" style="margin-top:14px"><button class="btn dark" type="submit">Open static demo session</button><button class="btn" type="button" data-gate-open>Update audience</button></div>
+        <div data-form-result></div>
+      </form>
+      <aside data-restricted-portal></aside>
+    </section>
+
+    <section class="section">
+      <div class="restricted-panel">
+        <h2>Public disclosure boundary</h2>
+        <p>Restricted program pages do not disclose mechanism details, procurement, field-use protocols, dose, operational indications or training documents. Public safety reporting remains available for suspected adverse events or product incidents.</p>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research &amp; Pipeline | Ordinate Therapeutics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-page="pipeline">
+  <div data-site-header></div>
+  <main class="page">
+    <header class="page-title">
+      <div class="eyebrow">Research and development</div>
+      <h1>Pipeline</h1>
+      <p>Selected programs in development. Program visibility is limited by phase, country, audience and institutional control status.</p>
+    </header>
+
+    <section class="controls" data-pipeline-controls>
+      <div class="control-grid">
+        <div class="field">
+          <label>Phase</label>
+          <select data-pipeline-phase>
+            <option value="all">All phases</option>
+            <option value="Discovery">Discovery</option>
+            <option value="Preclinical">Preclinical</option>
+            <option value="Phase I">Phase I</option>
+            <option value="Phase I / II">Phase I / II</option>
+            <option value="Phase II">Phase II</option>
+            <option value="Phase III">Phase III</option>
+            <option value="Registration">Registration</option>
+            <option value="Restricted development">Restricted development</option>
+            <option value="Discontinued / restricted review">Discontinued / restricted review</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Area</label>
+          <select data-pipeline-area>
+            <option value="all">All areas</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Acute Care">Acute Care</option>
+            <option value="Pigment Stability">Pigment Stability</option>
+            <option value="Pigment Suppression">Pigment Suppression</option>
+            <option value="Coordinate Modulation">Coordinate Modulation</option>
+            <option value="Recovery">Recovery</option>
+            <option value="Diagnostics">Diagnostics</option>
+            <option value="Military Medicine">Military Medicine</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Access</label>
+          <select data-pipeline-access>
+            <option value="all">All access</option>
+            <option value="Public">Public</option>
+            <option value="HCP">HCP</option>
+            <option value="Restricted">Restricted</option>
+            <option value="Military">Military</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Status</label>
+          <select data-pipeline-status>
+            <option value="all">All status</option>
+            <option value="Active">Active</option>
+            <option value="Restricted">Restricted</option>
+            <option value="Discontinued">Discontinued</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div data-pipeline-table></div>
+
+    <section class="section">
+      <div class="safety-banner">
+        <p>Pipeline information is forward-looking fictional worldbuilding. There is no guarantee that a listed program will become an approved medicine, and restricted programs may never publish detailed public information.</p>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

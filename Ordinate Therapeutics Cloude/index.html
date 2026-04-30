@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ordinate Therapeutics — Medicine for regulated human systems</title>
+<meta name="description" content="Ordinate Therapeutics develops medicines for neurological control, acute care, pigment stability and institutional safety." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="ordinate.css" />
+</head>
+<body data-page="home">
+
+<!-- ===== Audience / Region gate ===== -->
+<div id="gate-overlay" class="gate-overlay" hidden>
+  <div class="gate-modal" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+    <span class="eyebrow">Ordinate Therapeutics — global gateway</span>
+    <h2 id="gate-title">Select your audience and region</h2>
+    <p>Ordinate product information, access pathways and regulatory documentation differ by audience and country. Some materials are restricted to authorized institutional users.</p>
+    <div class="opts" role="radiogroup" aria-label="Audience">
+      <button class="opt" data-aud="patient" role="radio" aria-pressed="false"><div><strong>Patient or caregiver</strong><small>Public information</small></div></button>
+      <button class="opt" data-aud="hcp" role="radio" aria-pressed="false"><div><strong>Healthcare professional</strong><small>HCP-restricted technical content</small></div></button>
+      <button class="opt" data-aud="hospital" role="radio" aria-pressed="false"><div><strong>Hospital or clinic</strong><small>Acute care &amp; institutional supply</small></div></button>
+      <button class="opt" data-aud="regulator" role="radio" aria-pressed="false"><div><strong>Regulator</strong><small>Pharmacovigilance &amp; submissions</small></div></button>
+      <button class="opt" data-aud="institution" role="radio" aria-pressed="false"><div><strong>Authorized institution</strong><small>Restricted programs</small></div></button>
+      <button class="opt" data-aud="media" role="radio" aria-pressed="false"><div><strong>Media</strong><small>Corporate communications</small></div></button>
+    </div>
+    <label class="form-field">
+      <span>Region</span>
+      <select data-region-select>
+        <option value="">Select region</option>
+        <option value="global">Global / Other</option>
+        <option value="eu">European Union</option>
+        <option value="uk">United Kingdom</option>
+        <option value="us">United States</option>
+        <option value="jp">Japan</option>
+        <option value="ua">Ukraine</option>
+        <option value="restricted">Restricted region</option>
+      </select>
+    </label>
+    <div class="gate-actions">
+      <span class="legal">By continuing you confirm that the information you access is appropriate for your role and jurisdiction.</span>
+      <button class="btn btn-primary" data-gate-confirm>Continue</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Utility strip ===== -->
+<div class="utility-strip">
+  <div class="container">
+    <ul>
+      <li><a href="#" data-gate-open>Region: <span data-gate-reg>Global</span></a></li>
+      <li><a href="#" data-gate-open>Audience: <span data-gate-aud>Select</span></a></li>
+    </ul>
+    <ul>
+      <li><a href="medical-information.html">Medical information</a></li>
+      <li><a href="institutional.html">Restricted access</a></li>
+      <li><a href="safety.html" class="ae-link">Report adverse event</a></li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <div class="main-nav">
+      <a class="brand-lock" href="index.html">
+        <div class="brand-mark">Ot</div>
+        <div>
+          <div class="brand-name">Ordinate Therapeutics</div>
+          <div class="brand-tag">Coordinate medicine · est. 2007</div>
+        </div>
+      </a>
+      <ul>
+        <li><a href="medicines.html" data-nav="medicines">Medicines</a></li>
+        <li><a href="pigment-medicine.html" data-nav="pigment">Pigment Medicine</a></li>
+        <li><a href="pipeline.html" data-nav="pipeline">Research &amp; Pipeline</a></li>
+        <li><a href="safety.html" data-nav="safety">Safety</a></li>
+        <li><a href="medical-information.html" data-nav="medinfo">Medical Information</a></li>
+        <li><a href="access.html" data-nav="access">Access Programs</a></li>
+        <li><a href="about.html" data-nav="about">About</a></li>
+        <li><a href="news.html" data-nav="news">News</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a class="btn btn-warn" href="safety.html">Report event</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">Ordinate Therapeutics — global</span>
+    <h1>Medicine for regulated human systems.</h1>
+    <p class="lede">Ordinate develops, manufactures and supplies medicines for neurological control, acute care, pigment stability and institutional safety. Our portfolio supports the everyday integration of pigment carriers and the protection of all populations through 32 approved or investigational therapies across 7 therapeutic areas.</p>
+    <div class="meta">
+      <div><strong>32</strong><span>Approved &amp; investigational therapies</span></div>
+      <div><strong>11</strong><span>Active R&amp;D programs</span></div>
+      <div><strong>47</strong><span>Countries supplied</span></div>
+      <div><strong>2007</strong><span>Founded</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Three pillars ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Three pillars</span>
+        <h2>One company, three operating environments.</h2>
+      </div>
+      <p class="lead">Ordinate is organized around the populations and protocols our medicines must serve — from public pharmacy to controlled institutional supply.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="num">01 · General medicine</span>
+        <h3>Public &amp; specialist therapies</h3>
+        <p>Anxiolytics, analgesics, cardiovascular and metabolic therapies for the broad civilian population, including pigment carriers and non-carriers alike.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">02 · Pigment integration</span>
+        <h3>Living with a pigment</h3>
+        <p>Suppressors, blockers, recovery agents and ophthalmic therapies that allow pigment carriers to live, work and study without involuntary activation.</p>
+      </div>
+      <div class="pillar">
+        <span class="num">03 · Restricted programs</span>
+        <h3>Institutional supply only</h3>
+        <p>Coordinate-modifying and containment therapies developed for authorized military, forensic and emergency-response medical programs under strict government supervision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Featured medicines ===== -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Featured medicines</span>
+        <h2>Selected products from the Ordinate portfolio.</h2>
+      </div>
+      <a class="btn btn-ghost" href="medicines.html">View all 32 medicines →</a>
+    </div>
+    <div class="product-grid">
+
+      <article class="product-card">
+        <span class="Rx">℞</span>
+        <div class="pc-head">
+          <div>
+            <h3 class="pc-name">Achromavir<small class="pc-generic">achromavir complex</small></h3>
+            <span class="pc-class">Maintenance suppressor</span>
+          </div>
+          <div class="badge-row"><span class="badge badge--rx">Prescription</span></div>
+        </div>
+        <p class="pc-desc">For voluntary pigment stability and reduction of involuntary activation episodes in carriers experiencing stress-triggered glow.</p>
+        <div class="pc-actions">
+          <a href="product-achromavir.html">Patient information</a>
+          <a href="product-achromavir.html#hcp">HCP information</a>
+          <a href="product-achromavir.html#safety">Safety updates</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <span class="Rx">℞</span>
+        <div class="pc-head">
+          <div>
+            <h3 class="pc-name">Leukostat<small class="pc-generic">leukostatic coordinate blocker</small></h3>
+            <span class="pc-class">Pigment blocker</span>
+          </div>
+          <div class="badge-row"><span class="badge badge--rx">Prescription</span><span class="badge badge--hcp">HCP-supervised</span></div>
+        </div>
+        <p class="pc-desc">Temporary pigment blockade under regulated medical supervision, used when temporary full suppression is medically or legally required.</p>
+        <div class="pc-actions">
+          <a href="product-leukostat.html">Patient information</a>
+          <a href="product-leukostat.html#hcp">HCP information</a>
+          <a href="product-leukostat.html#safety">Safety updates</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <span class="Rx">℞</span>
+        <div class="pc-head">
+          <div>
+            <h3 class="pc-name">Neurocalm<small class="pc-generic">neuromodulating compound</small></h3>
+            <span class="pc-class">Anxiolytic neuromodulator</span>
+          </div>
+          <div class="badge-row"><span class="badge badge--rx">Prescription</span></div>
+        </div>
+        <p class="pc-desc">Anxiolytic neuromodulator for chronic anxiety and stress states, including patients in whom stress provokes somatic and pigment-associated reactions.</p>
+        <div class="pc-actions">
+          <a href="product-neurocalm.html">Patient information</a>
+          <a href="product-neurocalm.html#hcp">HCP information</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <span class="Rx">℞</span>
+        <div class="pc-head">
+          <div>
+            <h3 class="pc-name">Kinetra<small class="pc-generic">kinetic recovery formulation</small></h3>
+            <span class="pc-class">Pigment exertion recovery</span>
+          </div>
+          <div class="badge-row"><span class="badge badge--rx">Specialist</span></div>
+        </div>
+        <p class="pc-desc">Muscular, vestibular and coordination recovery after intensive pigment exertion in sport medicine, occupational and tactical contexts.</p>
+        <div class="pc-actions">
+          <a href="product-kinetra.html">Patient information</a>
+          <a href="product-kinetra.html#hcp">HCP information</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="pc-head">
+          <div>
+            <h3 class="pc-name">Hemovance<small class="pc-generic">hemostatic adjunct</small></h3>
+            <span class="pc-class">Acute hemostatic support</span>
+          </div>
+          <div class="badge-row"><span class="badge badge--hospital">Hospital only</span></div>
+        </div>
+        <p class="pc-desc">Acute hemostatic adjunct for surgical and trauma settings. Supplied directly to hospital pharmacies under institutional contract.</p>
+        <div class="pc-actions">
+          <a href="medicines.html#hemovance">Hospital information</a>
+          <a href="medical-information.html">Medical inquiry</a>
+        </div>
+      </article>
+
+      <article class="product-card is-military">
+        <div class="pc-head">
+          <div>
+            <h3 class="pc-name">Chromafinil<small class="pc-generic">restricted neurostimulant</small></h3>
+            <span class="pc-class">Operational endurance</span>
+          </div>
+          <div class="badge-row"><span class="badge badge--military">Military</span></div>
+        </div>
+        <p class="pc-desc">Restricted neurostimulant developed for authorized military medical programs. Public information limited; institutional access only.</p>
+        <div class="pc-actions">
+          <a href="institutional.html" data-restricted-inquiry>Institutional access</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pigment medicine intro ===== -->
+<section class="section">
+  <div class="container">
+    <div class="grid cols-12-4">
+      <div>
+        <span class="eyebrow">Pigment medicine</span>
+        <h2>One in ten people lives with a pigment.</h2>
+        <p class="lead">Pigment medicine is one of three pillars of Ordinate, but it is the area where regulatory, ethical and clinical questions are most acute. Our therapies are designed to help carriers integrate into ordinary life — school, work, sport, public space — without surrendering autonomy.</p>
+      </div>
+      <div class="dl-grid">
+        <dt>Civilian therapies</dt><dd>9 approved medicines for daily integration, suppression, ophthalmic and dermatological care.</dd>
+        <dt>Pediatric programs</dt><dd>Adolescent stabilization (Axisol) and pediatric exposure registry support across 18 countries.</dd>
+        <dt>Sports medicine</dt><dd>Recovery and post-activation neural support (Kinetra, Synaptide-P) under sport-regulator approval.</dd>
+        <dt>Restricted</dt><dd>Coordinate-modifying medicines available only through authorized institutional programs.</dd>
+      </div>
+    </div>
+    <div class="spacer-24"></div>
+    <a class="btn btn-primary" href="pigment-medicine.html">Explore pigment medicine →</a>
+  </div>
+</section>
+
+<!-- ===== Safety / pharmacovigilance ===== -->
+<section class="section dark">
+  <div class="container">
+    <div class="grid cols-12-4">
+      <div>
+        <span class="eyebrow warn">Pharmacovigilance</span>
+        <h2>Patient safety is monitored across the entire product lifecycle.</h2>
+        <p>Pharmacovigilance at Ordinate covers clinical development, post-marketing data, our institutional safety database, labeling updates and — when necessary — recalls. Reports from patients, healthcare professionals, sport regulators and authorized institutions feed the same global system.</p>
+      </div>
+      <div>
+        <p class="text-mono" style="color:#b9bfb9">Adverse events involving pigment activation, breakthrough glow, unexpected blockade or restricted-product incidents must be reported through the appropriate channel.</p>
+        <a class="btn btn-warn" href="safety.html">Report an adverse event →</a>
+        <div class="spacer-12"></div>
+        <a class="btn" href="safety.html#letters" style="border-color:#3a4945;color:#ecebe4">HCP letters &amp; recalls</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pipeline preview ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Research &amp; pipeline</span>
+        <h2>Active development programs.</h2>
+      </div>
+      <a class="btn btn-ghost" href="pipeline.html">Full pipeline →</a>
+    </div>
+    <table class="reg-table">
+      <thead>
+        <tr>
+          <th>Compound</th>
+          <th>Internal name</th>
+          <th>Therapeutic area</th>
+          <th>Phase</th>
+          <th>Access</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="compound">ACR-204</td>
+          <td class="name-cell">Achromavir next-gen<em>lower breakthrough activation in pain shock</em></td>
+          <td>Pigment stability</td>
+          <td><span class="phase phase--p2">Phase II</span></td>
+          <td>Public</td>
+        </tr>
+        <tr>
+          <td class="compound">LKS-310</td>
+          <td class="name-cell">Long-acting Leukostat<em>extended supervised blockade</em></td>
+          <td>Pigment suppression</td>
+          <td><span class="phase phase--p1">Phase I/II</span></td>
+          <td>HCP</td>
+        </tr>
+        <tr>
+          <td class="compound">SYN-P7</td>
+          <td class="name-cell">Synaptide-P<em>post-activation neural recovery</em></td>
+          <td>Neurology / pigment recovery</td>
+          <td><span class="phase phase--p2">Phase II</span></td>
+          <td>Public</td>
+        </tr>
+        <tr>
+          <td class="compound">AXM-06</td>
+          <td class="name-cell">Axis-specific pediatric stabilizer<em>adolescent activation control</em></td>
+          <td>Pediatric pigment medicine</td>
+          <td><span class="phase phase--pre">Preclinical</span></td>
+          <td>Public</td>
+        </tr>
+        <tr>
+          <td class="compound">CRF-12</td>
+          <td class="name-cell">Chromafinil civilian derivative<em>development halted by safety committee</em></td>
+          <td>Focus / pigment endurance</td>
+          <td><span class="phase phase--discontinued">Discontinued</span></td>
+          <td>Restricted review</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== Access programs ===== -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Access programs</span>
+        <h2>How Ordinate medicines reach patients.</h2>
+      </div>
+      <a class="btn btn-ghost" href="access.html">All access pathways →</a>
+    </div>
+    <div class="grid cols-4">
+      <div class="callout">
+        <h4>Prescription</h4>
+        <p>Public pharmacies dispense Ordinate prescription medicines through the standard country supply chain.</p>
+      </div>
+      <div class="callout">
+        <h4>Hospital supply</h4>
+        <p>Acute-care medicines are supplied directly to hospital pharmacies under institutional contract.</p>
+      </div>
+      <div class="callout">
+        <h4>Expanded access</h4>
+        <p>Investigational and named-patient access for serious conditions where no approved alternative exists.</p>
+      </div>
+      <div class="callout" style="border-left-color:var(--restricted)">
+        <h4>Restricted institutional</h4>
+        <p>Government, military, forensic and emergency programs operating under formal authorization only.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Disclaimer ===== -->
+<div class="disclaimer">
+  <div class="container">
+    <strong>Important</strong>
+    Information on this site is provided for general educational purposes and is subject to local regulation. Product approval, indication, prescribing information and access pathways may differ between countries. This site is not intended to provide medical advice, diagnosis or treatment.
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">Ordinate Therapeutics</div>
+        <p>A pharmaceutical company developing medicines for the regulated coordinates of human physiology — neurological, pigmentary and institutional.</p>
+      </div>
+      <div>
+        <h5>Products</h5>
+        <ul>
+          <li><a href="medicines.html">All medicines</a></li>
+          <li><a href="pigment-medicine.html">Pigment medicine</a></li>
+          <li><a href="pipeline.html">Research pipeline</a></li>
+          <li><a href="medicines.html#diagnostics">Diagnostics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Patients &amp; HCPs</h5>
+        <ul>
+          <li><a href="medical-information.html">Medical information</a></li>
+          <li><a href="access.html">Access programs</a></li>
+          <li><a href="safety.html">Adverse event</a></li>
+          <li><a href="safety.html#recalls">Recalls</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#governance">Governance</a></li>
+          <li><a href="about.html#transparency">Transparency report</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="institutional.html">Institutional access</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Modern slavery statement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>© 2007–2026 Ordinate Therapeutics N.V. · Reg. 0942-OTH-NV · Marketing authorization holder</span>
+      <span><a href="#" data-gate-open>Change region / audience</a></span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="ordinate.js"></script>
+</body>
+</html>

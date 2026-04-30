@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report Adverse Event | Ordinate Therapeutics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-page="safety">
+  <div data-site-header></div>
+  <main class="page">
+    <header class="page-title">
+      <div class="eyebrow">Safety reporting</div>
+      <h1>Report an adverse event</h1>
+      <p>Use this form for side effects, product-associated incidents, pigment activation events, unexpected suppression, medication errors and related safety concerns.</p>
+    </header>
+
+    <section class="section split">
+      <form class="panel" data-form-type="adverse-event">
+        <h2 class="serif-title">Safety report</h2>
+        <div class="control-grid">
+          <div class="field"><label>Report type</label><select name="reportType" required><option value="">Select</option><option>Side effect</option><option>Product quality complaint</option><option>Medication error</option><option>Pregnancy exposure</option><option>Pediatric exposure</option><option>Involuntary glow</option><option>Breakthrough activation</option><option>Unexpected blockade</option><option>Loss of conscious access</option><option>Post-activation collapse</option><option>Occupational incident</option><option>Sports incident</option><option>Restricted product incident</option></select></div>
+          <div class="field"><label>Product name</label><input name="productName" required></div>
+          <div class="field"><label>Batch number</label><input name="batchNumber"></div>
+          <div class="field"><label>Country</label><input name="country" required></div>
+          <div class="field"><label>Access pathway</label><select name="accessPathway" required><option value="">Select</option><option>Prescription</option><option>Hospital</option><option>Institutional</option><option>Pharmacy</option><option>Unknown</option></select></div>
+          <div class="field"><label>Pigment status</label><select name="pigmentStatus" required><option value="">Select</option><option>Pigment carrier</option><option>Non-pigment</option><option>Unknown</option><option>Exposed by proximity</option></select></div>
+          <div class="field"><label>Reporter email</label><input name="email" type="email" required></div>
+          <div class="field"><label>Reporter role</label><select name="role" required><option value="">Select</option><option>Patient / caregiver</option><option>Healthcare professional</option><option>Institution</option><option>Regulator</option><option>Other</option></select></div>
+        </div>
+        <div class="section">
+          <h3>Pigment-specific fields</h3>
+          <div class="control-grid">
+            <div class="field"><label>Axis if known</label><input name="axis"></div>
+            <div class="field"><label>Domain if known</label><input name="domain"></div>
+            <div class="field"><label>Activation type</label><input name="activationType"></div>
+            <div class="field"><label>Visible glow</label><select name="visibleGlow"><option>Unknown</option><option>Yes</option><option>No</option></select></div>
+            <div class="field"><label>Involuntary activation</label><select name="involuntary"><option>Unknown</option><option>Yes</option><option>No</option></select></div>
+            <div class="field"><label>Conscious control retained</label><select name="controlRetained"><option>Unknown</option><option>Yes</option><option>No</option></select></div>
+            <div class="field"><label>Injury / property damage</label><select name="injury"><option>Unknown</option><option>No</option><option>Self</option><option>Others</option><option>Property</option><option>Multiple</option></select></div>
+            <div class="field"><label>Suppressor/stimulant in past 72h</label><select name="recentMedicine"><option>Unknown</option><option>Yes</option><option>No</option></select></div>
+          </div>
+          <div class="field" style="margin-top:14px"><label>Concurrent stress, pain, sleep loss or trauma</label><textarea name="context"></textarea></div>
+        </div>
+        <div class="field"><label>Event description</label><textarea name="description" required></textarea></div>
+        <div class="form-actions" style="margin-top:14px"><button class="btn danger" type="submit">Submit safety report</button></div>
+        <div data-form-result></div>
+      </form>
+      <aside class="panel">
+        <h3>What to report</h3>
+        <p>Report any suspected side effect, unexpected blockade, failure to suppress, breakthrough activation, injury during pigment use, medication error, product complaint or restricted product incident.</p>
+        <p>Immediate danger requires local emergency services.</p>
+      </aside>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

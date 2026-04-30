@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Safety &amp; Adverse Event Reporting — Ordinate Therapeutics</title>
+<meta name="description" content="Report adverse events, product quality complaints and pigment activation incidents. Access batch recall notices and HCP letters." />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="ordinate.css" />
+</head>
+<body data-page="safety">
+
+<div id="gate-overlay" class="gate-overlay" hidden>
+  <div class="gate-modal" role="dialog" aria-modal="true">
+    <span class="eyebrow">Ordinate Therapeutics</span><h2>Select your audience and region</h2>
+    <div class="opts">
+      <button class="opt" data-aud="patient"><div><strong>Patient or caregiver</strong><small>Public information</small></div></button>
+      <button class="opt" data-aud="hcp"><div><strong>Healthcare professional</strong><small>HCP technical content</small></div></button>
+      <button class="opt" data-aud="hospital"><div><strong>Hospital or clinic</strong><small>Acute care</small></div></button>
+      <button class="opt" data-aud="regulator"><div><strong>Regulator</strong><small>Pharmacovigilance</small></div></button>
+      <button class="opt" data-aud="institution"><div><strong>Authorized institution</strong><small>Restricted programs</small></div></button>
+      <button class="opt" data-aud="media"><div><strong>Media</strong><small>Corporate</small></div></button>
+    </div>
+    <label class="form-field"><span>Region</span><select data-region-select><option value="">Select region</option><option value="global">Global</option><option value="eu">EU</option><option value="uk">UK</option><option value="us">US</option><option value="jp">JP</option><option value="ua">UA</option><option value="restricted">Restricted</option></select></label>
+    <div class="gate-actions"><span class="legal">By continuing you confirm role and jurisdiction.</span><button class="btn btn-primary" data-gate-confirm>Continue</button></div>
+  </div>
+</div>
+
+<div class="utility-strip"><div class="container">
+  <ul><li><a href="#" data-gate-open>Region: <span data-gate-reg>Global</span></a></li><li><a href="#" data-gate-open>Audience: <span data-gate-aud>Select</span></a></li></ul>
+  <ul><li><a href="medical-information.html">Medical information</a></li><li><a href="institutional.html">Restricted access</a></li><li><a href="#ae-form-anchor" class="ae-link">Report adverse event</a></li></ul>
+</div></div>
+
+<header class="site-header"><div class="container"><div class="main-nav">
+  <a class="brand-lock" href="index.html"><div class="brand-mark">Ot</div><div><div class="brand-name">Ordinate Therapeutics</div><div class="brand-tag">Coordinate medicine · est. 2007</div></div></a>
+  <ul>
+    <li><a href="medicines.html" data-nav="medicines">Medicines</a></li>
+    <li><a href="pigment-medicine.html" data-nav="pigment">Pigment Medicine</a></li>
+    <li><a href="pipeline.html" data-nav="pipeline">Research &amp; Pipeline</a></li>
+    <li><a href="safety.html" data-nav="safety">Safety</a></li>
+    <li><a href="medical-information.html" data-nav="medinfo">Medical Information</a></li>
+    <li><a href="access.html" data-nav="access">Access Programs</a></li>
+    <li><a href="about.html" data-nav="about">About</a></li>
+    <li><a href="news.html" data-nav="news">News</a></li>
+  </ul>
+  <div class="nav-cta"><a class="btn btn-warn" href="#ae-form-anchor">Report event</a></div>
+</div></div></header>
+
+<main>
+
+<section class="page-header">
+  <div class="container">
+    <div class="crumbs"><a href="index.html">Ordinate</a><span>/</span> Safety</div>
+    <h1>Safety &amp; pharmacovigilance</h1>
+    <p>Patient safety is monitored across the entire product lifecycle — from clinical development to post-marketing surveillance. Reports from patients, healthcare professionals, sport regulators and authorized institutions feed Ordinate's global pharmacovigilance system. If you suspect an adverse event with an Ordinate product, you may report it through the form below or through your country's regulator.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="eyebrow warn">Reporting channels</span><h2>What kind of report would you like to submit?</h2></div>
+    </div>
+    <div class="grid cols-3">
+      <div class="callout"><h4>Adverse event</h4><p>Any unwanted medical event in a patient using an Ordinate medicine.</p><a class="btn btn-warn" href="#ae-form-anchor">Open form →</a></div>
+      <div class="callout"><h4>Product quality complaint</h4><p>Suspected defect, contamination, packaging or label issue.</p><a class="btn btn-ghost" href="#ae-form-anchor">Same form, select type</a></div>
+      <div class="callout"><h4>Medication error</h4><p>Wrong dose, wrong product or administration error.</p><a class="btn btn-ghost" href="#ae-form-anchor">Same form, select type</a></div>
+      <div class="callout"><h4>Pregnancy / pediatric exposure</h4><p>Exposure during pregnancy or in a minor, even without observed event.</p><a class="btn btn-ghost" href="#ae-form-anchor">Same form, select type</a></div>
+      <div class="callout"><h4>Pigment activation incident</h4><p>Involuntary activation, breakthrough glow, unexpected blockade or loss of conscious access.</p><a class="btn btn-ghost" href="#ae-form-anchor">Same form, select type</a></div>
+      <div class="callout" style="border-left-color:var(--restricted)"><h4>Restricted product incident</h4><p>Incident involving an Ordinate restricted, military or institutional medicine.</p><a class="btn btn-restricted" href="institutional.html" data-restricted-inquiry>Institutional channel</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <span class="eyebrow warn">Adverse event report</span>
+    <h2 id="ae-form-anchor">Adverse event reporting form</h2>
+    <p class="text-muted" style="max-width:60ch">All fields marked with an asterisk are required. Reports are stored in the Ordinate pharmacovigilance database and may be shared with the appropriate national regulator in accordance with applicable law.</p>
+
+    <form id="ae-form" class="form-stack" style="margin-top:24px">
+
+      <fieldset class="fieldset">
+        <legend>Reporter information</legend>
+        <div class="form-row">
+          <div class="form-field"><label class="form-required">Reporter type</label>
+            <select required>
+              <option value="">Select</option>
+              <option>Patient</option><option>Caregiver / family member</option><option>Healthcare professional</option><option>Pharmacist</option><option>Hospital</option><option>Sport medicine</option><option>Authorized institution</option><option>Regulator</option>
+            </select></div>
+          <div class="form-field"><label class="form-required">Country</label>
+            <select required>
+              <option value="">Select</option><option>Global / Other</option><option>European Union</option><option>United Kingdom</option><option>United States</option><option>Japan</option><option>Ukraine</option>
+            </select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Name</label><input type="text" /></div>
+          <div class="form-field"><label class="form-required">Contact email</label><input type="email" required /></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend>Report type</legend>
+        <div class="radio-row">
+          <label><input type="radio" name="report_type" value="ae" checked /> Adverse event / side effect</label>
+          <label><input type="radio" name="report_type" value="qc" /> Product quality complaint</label>
+          <label><input type="radio" name="report_type" value="me" /> Medication error</label>
+          <label><input type="radio" name="report_type" value="preg" /> Pregnancy exposure</label>
+          <label><input type="radio" name="report_type" value="ped" /> Pediatric exposure</label>
+          <label><input type="radio" name="report_type" value="involuntary" /> Involuntary glow / activation</label>
+          <label><input type="radio" name="report_type" value="breakthrough" /> Breakthrough activation</label>
+          <label><input type="radio" name="report_type" value="blockade" /> Unexpected blockade</label>
+          <label><input type="radio" name="report_type" value="conscious" /> Loss of conscious access</label>
+          <label><input type="radio" name="report_type" value="collapse" /> Post-activation collapse</label>
+          <label><input type="radio" name="report_type" value="occ" /> Occupational incident</label>
+          <label><input type="radio" name="report_type" value="sport" /> Sports incident</label>
+          <label><input type="radio" name="report_type" value="restricted" /> Restricted product incident</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend>Product information</legend>
+        <div class="form-row">
+          <div class="form-field"><label class="form-required">Product name</label><input type="text" placeholder="e.g. Achromavir" required /></div>
+          <div class="form-field"><label>Batch number</label><input type="text" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Country of supply</label><input type="text" /></div>
+          <div class="form-field"><label>Access pathway</label>
+            <select><option value="">Select</option><option>Pharmacy / OTC</option><option>Prescription</option><option>Hospital pharmacy</option><option>Specialist clinic</option><option>Authorized institutional supply</option></select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend>Patient pigment status</legend>
+        <div class="radio-row">
+          <label><input type="radio" name="pigment_status" value="non" /> Non-carrier</label>
+          <label><input type="radio" name="pigment_status" value="carrier" /> Pigment carrier</label>
+          <label><input type="radio" name="pigment_status" value="unknown" /> Unknown</label>
+          <label><input type="radio" name="pigment_status" value="exposed" /> Non-carrier exposed by proximity</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="fieldset" data-pigment-fieldset hidden>
+        <legend>Pigment-specific event details</legend>
+        <p class="form-help">These fields are only required when the patient is a pigment carrier. Provide as much detail as is known.</p>
+        <div class="form-row">
+          <div class="form-field"><label>Hue / axis (if known)</label>
+            <select><option value="">Unknown</option><option>Red — Ataka</option><option>Orange — Ploti</option><option>Yellow — Vplyv</option><option>Green — Rozum</option><option>Blue — Ruh</option><option>Purple — Zmina</option></select>
+          </div>
+          <div class="form-field"><label>Domain (if known)</label><input type="text" placeholder="e.g. movement, healing, mind" /></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Activation type</label>
+            <select><option value="">Select</option><option>Voluntary</option><option>Involuntary</option><option>Sleep-related</option><option>Pain shock</option><option>Trauma response</option><option>Stress trigger</option></select>
+          </div>
+          <div class="form-field"><label>Visible glow</label>
+            <select><option>Unknown</option><option>Yes</option><option>No</option></select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Conscious control retained</label>
+            <select><option>Unknown</option><option>Yes</option><option>No</option><option>Partial</option></select>
+          </div>
+          <div class="form-field"><label>Injury</label>
+            <select><option>None</option><option>To self</option><option>To others</option><option>Property damage</option><option>Multiple</option></select>
+          </div>
+        </div>
+        <div class="form-field"><label>Suppressors / blockers / stimulants in past 72 hours</label><input type="text" placeholder="Achromavir, Leukostat, Pallidex, Chromafinil, Saturine, etc." /></div>
+        <div class="form-field"><label>Concurrent factors</label>
+          <div class="checkbox-row">
+            <label><input type="checkbox" /> Acute stress</label>
+            <label><input type="checkbox" /> Pain</label>
+            <label><input type="checkbox" /> Sleep loss</label>
+            <label><input type="checkbox" /> Recent trauma</label>
+            <label><input type="checkbox" /> Sport competition</label>
+            <label><input type="checkbox" /> Operational deployment</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="fieldset">
+        <legend>Event description</legend>
+        <div class="form-field"><label class="form-required">Describe what happened</label><textarea required placeholder="Date, sequence of events, symptoms, outcome, current status of the patient."></textarea></div>
+        <div class="form-row">
+          <div class="form-field"><label>Onset date</label><input type="date" /></div>
+          <div class="form-field"><label>Outcome</label>
+            <select><option>Ongoing</option><option>Recovered</option><option>Recovered with sequelae</option><option>Hospitalized</option><option>Life-threatening</option><option>Fatal</option><option>Unknown</option></select>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-row">
+        <div class="form-field"><label><input type="checkbox" required /> I confirm the information provided is accurate to the best of my knowledge.</label></div>
+        <div style="display:flex;align-items:flex-end;justify-content:flex-end;"><button class="btn btn-primary" type="submit">Submit report</button></div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid cols-2">
+      <div id="recalls">
+        <span class="eyebrow warn">Batch recall notices</span>
+        <h2>Active recalls</h2>
+        <p class="text-muted">No active recalls at this time. Historical notices are listed below.</p>
+        <table class="reg-table" style="margin-top:18px">
+          <thead><tr><th>Date</th><th>Product</th><th>Batch</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>2025-11-14</td><td>Dolvenor 200 mg</td><td>DLV-2511-04</td><td>Closed</td></tr>
+            <tr><td>2024-07-22</td><td>Hemovance hospital pack</td><td>HMV-2407-22</td><td>Closed</td></tr>
+            <tr><td>2023-03-08</td><td>Lumenveil topical 30 mL</td><td>LMV-2303-08</td><td>Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="letters">
+        <span class="eyebrow">Healthcare professional letters</span>
+        <h2>Direct healthcare professional communications</h2>
+        <ul class="list-unstyled" style="margin-top:18px">
+          <li><a href="news.html"><strong>2026-02-04</strong> · Updated monitoring guidance for Achromavir in patients with documented sleep-associated activation</a></li>
+          <li><a href="news.html"><strong>2025-11-18</strong> · Reminder regarding Leukostat use in pediatric populations</a></li>
+          <li><a href="news.html"><strong>2025-09-09</strong> · Update to the Synaptide-P prescribing information</a></li>
+          <li><a href="news.html"><strong>2025-04-22</strong> · Discontinuation of Chromafinil civilian-derivative program (CRF-12)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="disclaimer"><div class="container"><strong>Important</strong>This form is not a substitute for emergency medical care. If a patient is in immediate danger, contact local emergency services.</div></div>
+
+<footer class="site-footer"><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="brand-name">Ordinate Therapeutics</div><p>A pharmaceutical company developing medicines for the regulated coordinates of human physiology.</p></div>
+    <div><h5>Products</h5><ul><li><a href="medicines.html">All medicines</a></li><li><a href="pigment-medicine.html">Pigment medicine</a></li><li><a href="pipeline.html">Research pipeline</a></li></ul></div>
+    <div><h5>Patients &amp; HCPs</h5><ul><li><a href="medical-information.html">Medical information</a></li><li><a href="access.html">Access programs</a></li><li><a href="safety.html">Adverse event</a></li></ul></div>
+    <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><h5>Legal</h5><ul><li><a href="institutional.html">Institutional access</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="footer-meta"><span>© 2007–2026 Ordinate Therapeutics N.V.</span><span><a href="#" data-gate-open>Change region / audience</a></span></div>
+</div></footer>
+
+<div id="toast" class="toast" hidden></div>
+<script src="ordinate.js"></script>
+</body>
+</html>

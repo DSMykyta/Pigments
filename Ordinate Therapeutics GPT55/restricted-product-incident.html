@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restricted Product Incident | Ordinate Therapeutics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-page="safety">
+  <div data-site-header></div>
+  <main class="page">
+    <header class="page-title">
+      <div class="eyebrow">Controlled program safety</div>
+      <h1>Restricted Product Incident Report</h1>
+      <p>For institutional incidents involving restricted coordinate medicines. Public reporting captures only minimum safety intake.</p>
+    </header>
+    <section class="restricted-panel">
+      <h2>No protocol details</h2>
+      <p>Do not enter operational methods, classified procedures, procurement details or tactical information into this public-safe form.</p>
+    </section>
+    <form class="panel" data-form-type="restricted-incident" style="margin-top:18px">
+      <div class="control-grid">
+        <div class="field"><label>Institution type</label><select name="institutionType" required><option value="">Select</option><option>Military medical unit</option><option>State pigment agency</option><option>Emergency response authority</option><option>Containment medical system</option><option>Licensed research facility</option><option>Court / forensic medicine</option><option>Sport regulation body</option></select></div>
+        <div class="field"><label>Product category</label><select name="productCategory" required><option value="">Select</option><option>Coordinate modifier</option><option>Neurostimulant</option><option>Emergency deactivation agent</option><option>Containment-support blocker</option><option>Axis calibration adjunct</option><option>Unknown</option></select></div>
+        <div class="field"><label>Country</label><input name="country" required></div>
+        <div class="field"><label>Institutional email</label><input name="email" type="email" required></div>
+      </div>
+      <div class="field" style="margin-top:14px"><label>Public-safe incident summary</label><textarea name="summary" required></textarea></div>
+      <div class="form-actions" style="margin-top:14px"><button class="btn dark" type="submit">Submit restricted incident</button><a class="btn" href="restricted-access.html">Open restricted access</a></div>
+      <div data-form-result></div>
+    </form>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

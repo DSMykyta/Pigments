@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pigment Activation Incident | Ordinate Therapeutics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-page="safety">
+  <div data-site-header></div>
+  <main class="page">
+    <header class="page-title">
+      <div class="eyebrow">Pigment safety</div>
+      <h1>Pigment Activation Incident Report</h1>
+      <p>Report accidental activation, involuntary glow, failure to suppress, loss of conscious control, occupational incident or sports incident.</p>
+    </header>
+    <form class="panel" data-form-type="activation-incident">
+      <div class="control-grid">
+        <div class="field"><label>Incident type</label><select name="type" required><option value="">Select</option><option>Involuntary glow</option><option>Breakthrough activation</option><option>Failure to suppress</option><option>Unexpected blockade</option><option>Loss of conscious access</option><option>Post-activation collapse</option><option>Sports incident</option><option>Occupational incident</option></select></div>
+        <div class="field"><label>Product used</label><input name="product" required></div>
+        <div class="field"><label>Axis if known</label><input name="axis"></div>
+        <div class="field"><label>Country</label><input name="country" required></div>
+      </div>
+      <div class="control-grid" style="margin-top:14px">
+        <div class="field"><label>Visible glow</label><select name="glow"><option>Unknown</option><option>Yes</option><option>No</option></select></div>
+        <div class="field"><label>Conscious control retained</label><select name="control"><option>Unknown</option><option>Yes</option><option>No</option></select></div>
+        <div class="field"><label>Injury / property damage</label><select name="injury"><option>Unknown</option><option>No</option><option>Yes</option></select></div>
+        <div class="field"><label>Reporter email</label><input name="email" type="email" required></div>
+      </div>
+      <div class="field" style="margin-top:14px"><label>Context: stress, pain, sleep loss, trauma, competition or work setting</label><textarea name="context" required></textarea></div>
+      <div class="form-actions" style="margin-top:14px"><button class="btn danger" type="submit">Submit incident</button></div>
+      <div data-form-result></div>
+    </form>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

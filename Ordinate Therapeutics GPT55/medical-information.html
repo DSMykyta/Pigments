@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medical Information | Ordinate Therapeutics</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body data-page="medical">
+  <div data-site-header></div>
+  <main class="page">
+    <header class="page-title">
+      <div class="eyebrow">Medical information</div>
+      <h1>Product information, documents and inquiries</h1>
+      <p>Search product information, request educational materials and submit medical questions. Availability depends on country and audience.</p>
+    </header>
+
+    <section class="section split">
+      <div>
+        <div class="field">
+          <label>Search product information</label>
+          <input type="search" data-medical-product-search placeholder="Achromavir, Leukostat, Hemovance">
+        </div>
+        <div class="document-stack" data-medical-product-results style="margin-top:16px"></div>
+      </div>
+      <aside class="panel">
+        <h3>Emergency product safety line</h3>
+        <p>For urgent product safety concerns, contact local emergency services and submit a safety report as soon as practical.</p>
+        <a class="btn danger" href="report-adverse-event.html">Report safety event</a>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <span class="label">Inquiry</span>
+        <h2>Submit medical inquiry</h2>
+        <p>No information is transmitted from this static demonstration.</p>
+      </div>
+      <form class="panel" data-form-type="medical-inquiry">
+        <div class="control-grid">
+          <div class="field"><label>Product name</label><input name="product" required></div>
+          <div class="field"><label>Country</label><input name="country" required></div>
+          <div class="field"><label>Audience</label><select name="audience" required><option value="">Select</option><option>Patient / caregiver</option><option>Healthcare professional</option><option>Institution</option><option>Regulator</option></select></div>
+          <div class="field"><label>Email</label><input name="email" type="email" required></div>
+        </div>
+        <div class="field" style="margin-top:14px"><label>Medical question</label><textarea name="question" required></textarea></div>
+        <div class="form-actions" style="margin-top:14px"><button class="btn primary" type="submit">Submit inquiry</button><a class="btn" href="report-adverse-event.html">Safety report instead</a></div>
+        <div data-form-result></div>
+      </form>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>
