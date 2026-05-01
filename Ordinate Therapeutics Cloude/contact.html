@@ -1,144 +1,103 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — Ordinate Therapeutics</title>
-<meta name="description" content="Contact Ordinate Therapeutics. Regional offices, media, investor relations, adverse event hotline and restricted institutional inquiry." />
-<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="ordinate.css" />
-</head>
-<body data-page="contact">
+<meta name="description" content="Contact Ordinate Therapeutics. Regional offices, media, investor relations, adverse event hotline and restricted institutional inquiry.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ordinate.css"><script defer src="ordinate.js"></script>
+</head><body data-page="contact">
 
-<div id="gate-overlay" class="gate-overlay" hidden>
-  <div class="gate-modal" role="dialog" aria-modal="true">
-    <span class="eyebrow">Ordinate Therapeutics</span><h2>Select your audience and region</h2>
-    <div class="opts">
-      <button class="opt" data-aud="patient"><div><strong>Patient or caregiver</strong><small>Public information</small></div></button>
-      <button class="opt" data-aud="hcp"><div><strong>Healthcare professional</strong><small>HCP technical content</small></div></button>
-      <button class="opt" data-aud="hospital"><div><strong>Hospital or clinic</strong><small>Acute care</small></div></button>
-      <button class="opt" data-aud="regulator"><div><strong>Regulator</strong><small>Pharmacovigilance</small></div></button>
-      <button class="opt" data-aud="institution"><div><strong>Authorized institution</strong><small>Restricted programs</small></div></button>
-      <button class="opt" data-aud="media"><div><strong>Media</strong><small>Corporate</small></div></button>
-    </div>
-    <label class="form-field"><span>Region</span><select data-region-select><option value="">Select region</option><option value="global">Global</option><option value="eu">EU</option><option value="uk">UK</option><option value="us">US</option><option value="jp">JP</option><option value="ua">UA</option><option value="restricted">Restricted</option></select></label>
-    <div class="gate-actions"><span class="legal">By continuing you confirm role and jurisdiction.</span><button class="btn btn-primary" data-gate-confirm>Continue</button></div>
-  </div>
-</div>
-
-<div class="utility-strip"><div class="container">
-  <ul><li><a href="#" data-gate-open>Region: <span data-gate-reg>Global</span></a></li><li><a href="#" data-gate-open>Audience: <span data-gate-aud>Select</span></a></li></ul>
-  <ul><li><a href="medical-information.html">Medical information</a></li><li><a href="institutional.html">Restricted access</a></li><li><a href="safety.html" class="ae-link">Report adverse event</a></li></ul>
-</div></div>
-
-<header class="site-header"><div class="container"><div class="main-nav">
-  <a class="brand-lock" href="index.html"><div class="brand-mark">Ot</div><div><div class="brand-name">Ordinate Therapeutics</div><div class="brand-tag">Coordinate medicine · est. 2007</div></div></a>
-  <ul>
-    <li><a href="medicines.html" data-nav="medicines">Medicines</a></li>
-    <li><a href="pigment-medicine.html" data-nav="pigment">Pigment Medicine</a></li>
-    <li><a href="pipeline.html" data-nav="pipeline">Research &amp; Pipeline</a></li>
-    <li><a href="safety.html" data-nav="safety">Safety</a></li>
-    <li><a href="medical-information.html" data-nav="medinfo">Medical Information</a></li>
-    <li><a href="access.html" data-nav="access">Access Programs</a></li>
-    <li><a href="about.html" data-nav="about">About</a></li>
-    <li><a href="news.html" data-nav="news">News</a></li>
-  </ul>
-  <div class="nav-cta"><a class="btn btn-warn" href="safety.html">Report event</a></div>
-</div></div></header>
+<header class="site-header"><div class="nav-shell">
+  <a class="brand" href="index.html"><div class="brand-mark">Ot</div><div><div class="brand-name">Ordinate Therapeutics</div><div class="brand-tag">Coordinate medicine · est. 2007</div></div></a>
+  <button class="mobile-nav-button" type="button" data-nav-toggle>Menu</button>
+  <nav class="primary-nav"><a data-nav="medicines" href="medicines.html">Medicines</a><a data-nav="pigment" href="pigment-medicine.html">Pigment Medicine</a><a data-nav="pipeline" href="pipeline.html">Research &amp; Pipeline</a><a data-nav="safety" href="safety.html">Safety</a><a data-nav="medinfo" href="medical-information.html">Medical Information</a><a data-nav="access" href="access-programs.html">Access Programs</a><a data-nav="about" href="about.html">About</a><a data-nav="news" href="news.html">News</a></nav>
+  <div class="utility-nav"><a class="report-link" href="report-adverse-event.html">Report Adverse Event</a><a class="restricted-link" href="restricted-access.html">Restricted Access</a></div>
+</div></header>
 
 <main>
 
-<section class="page-header">
-  <div class="container">
-    <div class="crumbs"><a href="index.html">Ordinate</a><span>/</span> Contact</div>
-    <h1>Contact</h1>
-    <p>Use the appropriate channel for your inquiry. Adverse events should be reported through the safety channel. Medical questions should go through medical information. Restricted institutional inquiries are received only via the institutional channel.</p>
-  </div>
-</section>
+<section class="page-title"><div class="container">
+  <div class="crumbs"><a href="index.html">Ordinate</a><span>/</span> Contact</div>
+  <span class="eyebrow">Contact</span>
+  <h1>Contact</h1>
+  <p>Use the appropriate channel for your inquiry. Adverse events should be reported through the safety channel. Medical questions should go through medical information. Restricted institutional inquiries are received only via the institutional channel.</p>
+</div></section>
 
-<section class="section">
-  <div class="container">
-    <div class="grid cols-2">
-      <div>
-        <span class="eyebrow">Headquarters</span>
-        <h2>Ordinate Therapeutics N.V.</h2>
-        <p class="text-mono">
-          Postbus 2007 RX<br/>
-          1000 AA Amsterdam<br/>
-          The Netherlands<br/>
-          +31 20 555 0000
-        </p>
-        <p class="text-muted">Ordinate Therapeutics is a Dutch public company (N.V.) incorporated in 2007.</p>
-      </div>
-      <div>
-        <span class="eyebrow">Regional offices</span>
-        <h2>Where we operate</h2>
-        <table class="reg-table">
-          <thead><tr><th>Region</th><th>Office</th><th>Phone</th></tr></thead>
-          <tbody>
-            <tr><td>EU (HQ)</td><td>Amsterdam, NL</td><td>+31 20 555 0000</td></tr>
-            <tr><td>UK</td><td>Cambridge</td><td>+44 1223 555 207</td></tr>
-            <tr><td>US</td><td>Boston, MA</td><td>+1 617 555 0207</td></tr>
-            <tr><td>Japan</td><td>Yokohama</td><td>+81 45 555 0207</td></tr>
-            <tr><td>France</td><td>Lyon</td><td>+33 4 7255 0207</td></tr>
-            <tr><td>Ukraine</td><td>Kyiv</td><td>+380 44 555 0207</td></tr>
-          </tbody>
-        </table>
-      </div>
+<section class="section"><div class="container">
+  <div class="grid cols-2">
+    <div>
+      <span class="eyebrow">Headquarters</span>
+      <h2>Ordinate Therapeutics N.V.</h2>
+      <p class="text-mono">
+        Postbus 2007 RX<br>
+        1000 AA Amsterdam<br>
+        The Netherlands<br>
+        +31 20 555 0000
+      </p>
+      <p class="text-muted">Ordinate Therapeutics is a Dutch public company (N.V.) incorporated in 2007. Listed on Euronext Amsterdam (ORDX).</p>
+    </div>
+    <div>
+      <span class="eyebrow">Regional offices</span>
+      <h2>Where we operate</h2>
+      <table class="reg-table">
+        <thead><tr><th>Region</th><th>Office</th><th>Phone</th></tr></thead>
+        <tbody>
+          <tr><td>EU (HQ)</td><td>Amsterdam, NL</td><td>+31 20 555 0000</td></tr>
+          <tr><td>UK</td><td>Cambridge</td><td>+44 1223 555 207</td></tr>
+          <tr><td>US</td><td>Boston, MA</td><td>+1 617 555 0207</td></tr>
+          <tr><td>Japan</td><td>Yokohama</td><td>+81 45 555 0207</td></tr>
+          <tr><td>France</td><td>Lyon</td><td>+33 4 7255 0207</td></tr>
+          <tr><td>Ukraine</td><td>Kyiv</td><td>+380 44 555 0207</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
-</section>
+</div></section>
 
-<section class="section alt">
-  <div class="container">
-    <div class="section-head"><div><span class="eyebrow">Channels</span><h2>Pick the right channel for your inquiry</h2></div></div>
-    <div class="grid cols-3">
-      <div class="callout"><h4>Medical information</h4><p>Medical and scientific questions about Ordinate products.</p><a class="btn btn-ghost" href="medical-information.html">Medical information →</a></div>
-      <div class="callout" style="border-left-color:var(--warn)"><h4>Adverse event</h4><p>Suspected side effect or product safety incident.</p><a class="btn btn-warn" href="safety.html">Report adverse event →</a></div>
-      <div class="callout" style="border-left-color:var(--restricted)"><h4>Restricted institutional</h4><p>Authorized institutional programs only.</p><a class="btn btn-restricted" href="institutional.html">Institutional inquiry →</a></div>
-      <div class="callout"><h4>Media</h4><p>Press inquiries, interviews, statements.</p><p class="text-mono">press@ordinate-rx.example<br/>+31 20 555 0040</p></div>
-      <div class="callout"><h4>Investor relations</h4><p>Shareholder, analyst and bond investor inquiries.</p><p class="text-mono">ir@ordinate-rx.example<br/>+31 20 555 0070</p></div>
-      <div class="callout"><h4>Procurement &amp; supply</h4><p>For pharmacy chains, hospital networks and distributors.</p><p class="text-mono">supply@ordinate-rx.example</p></div>
+<section class="section alt"><div class="container">
+  <div class="section-title"><span class="label">Channels</span><h2>Pick the right channel for your inquiry</h2></div>
+  <div class="grid cols-3">
+    <div class="callout"><h4>Medical information</h4><p>Medical and scientific questions about Ordinate products.</p><a class="btn ghost" href="medical-information.html">Medical information →</a></div>
+    <div class="callout" style="border-left-color:var(--warn)"><h4>Adverse event</h4><p>Suspected side effect or product safety incident.</p><a class="btn danger" href="report-adverse-event.html">Report adverse event →</a></div>
+    <div class="callout" style="border-left-color:var(--restricted)"><h4>Restricted institutional</h4><p>Authorized institutional programs only.</p><a class="btn btn-restricted" href="restricted-access.html">Institutional inquiry →</a></div>
+    <div class="callout"><h4>Media</h4><p>Press inquiries, interviews, statements.</p><p class="text-mono">press@ordinate-rx.example<br>+31 20 555 0040</p></div>
+    <div class="callout"><h4>Investor relations</h4><p>Shareholder, analyst and bond investor inquiries.</p><p class="text-mono">ir@ordinate-rx.example<br>+31 20 555 0070</p></div>
+    <div class="callout"><h4>Procurement &amp; supply</h4><p>For pharmacy chains, hospital networks and distributors.</p><p class="text-mono">supply@ordinate-rx.example</p></div>
+  </div>
+</div></section>
+
+<section class="section"><div class="container">
+  <span class="eyebrow">General inquiry</span>
+  <h2>Send us a message</h2>
+  <p class="text-muted" style="max-width:60ch">For medical, safety or institutional matters please use the dedicated channels above. For general inquiries that do not fit those channels, you can write to us here.</p>
+  <form class="form-stack" data-generic data-success="Message received">
+    <div class="form-row">
+      <label class="field"><span class="form-required">Name</span><input type="text" required></label>
+      <label class="field"><span class="form-required">Email</span><input type="email" required></label>
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">General inquiry</span>
-    <h2>Send us a message</h2>
-    <p class="text-muted" style="max-width:60ch">For medical, safety or institutional matters please use the dedicated channels above. For general inquiries that do not fit those channels, you can write to us here.</p>
-    <form class="form-stack" data-generic data-success="Message received — we will reply by email.">
-      <div class="form-row">
-        <div class="form-field"><label class="form-required">Name</label><input type="text" required /></div>
-        <div class="form-field"><label class="form-required">Email</label><input type="email" required /></div>
-      </div>
-      <div class="form-row">
-        <div class="form-field"><label class="form-required">Subject</label><input type="text" required /></div>
-        <div class="form-field"><label>Country</label><input type="text" /></div>
-      </div>
-      <div class="form-field"><label class="form-required">Message</label><textarea required></textarea></div>
-      <div style="display:flex;justify-content:flex-end"><button class="btn btn-primary" type="submit">Send</button></div>
-    </form>
-  </div>
-</section>
+    <div class="form-row">
+      <label class="field"><span class="form-required">Subject</span><input type="text" required></label>
+      <label class="field"><span>Country</span><input type="text"></label>
+    </div>
+    <label class="field"><span class="form-required">Message</span><textarea required></textarea></label>
+    <div style="display:flex; justify-content:flex-end"><button class="btn primary" type="submit">Send</button></div>
+  </form>
+</div></section>
 
 </main>
 
 <div class="disclaimer"><div class="container"><strong>Important</strong>This contact form is not monitored for adverse events. Please use the safety channel for any suspected side effect.</div></div>
 
-<footer class="site-footer"><div class="container">
+<footer class="site-footer"><div class="footer-inner">
   <div class="footer-grid">
-    <div class="footer-brand"><div class="brand-name">Ordinate Therapeutics</div><p>A pharmaceutical company developing medicines for the regulated coordinates of human physiology.</p></div>
-    <div><h5>Products</h5><ul><li><a href="medicines.html">All medicines</a></li><li><a href="pigment-medicine.html">Pigment medicine</a></li><li><a href="pipeline.html">Research pipeline</a></li></ul></div>
-    <div><h5>Patients &amp; HCPs</h5><ul><li><a href="medical-information.html">Medical information</a></li><li><a href="access.html">Access programs</a></li><li><a href="safety.html">Adverse event</a></li></ul></div>
-    <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h5>Legal</h5><ul><li><a href="institutional.html">Institutional access</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+    <div><h3>Ordinate Therapeutics</h3><p>A pharmaceutical company developing medicines for the regulated coordinates of human physiology.</p></div>
+    <div><h4>Medicines</h4><ul><li><a href="medicines.html">All medicines</a></li><li><a href="pipeline.html">Pipeline</a></li></ul></div>
+    <div><h4>Safety</h4><ul><li><a href="report-adverse-event.html">Adverse event</a></li><li><a href="recalls.html">Recalls</a></li></ul></div>
+    <div><h4>Patients &amp; HCPs</h4><ul><li><a href="medical-information.html">Medical information</a></li><li><a href="access-programs.html">Access programs</a></li></ul></div>
+    <div><h4>Governance</h4><ul><li><a href="about.html">About</a></li><li><a href="transparency-report.html">Transparency</a></li><li><a href="restricted-access.html">Institutional access</a></li></ul></div>
   </div>
-  <div class="footer-meta"><span>© 2007–2026 Ordinate Therapeutics N.V.</span><span><a href="#" data-gate-open>Change region / audience</a></span></div>
+  <div class="fine-print"><p>© 2007–2026 Ordinate Therapeutics N.V.</p><p><a href="#" data-gate-open>Change region / audience</a></p></div>
 </div></footer>
 
-<div id="toast" class="toast" hidden></div>
-<script src="ordinate.js"></script>
-</body>
-</html>
+</body></html>

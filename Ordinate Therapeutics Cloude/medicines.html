@@ -1,340 +1,139 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Medicines — Ordinate Therapeutics</title>
-<meta name="description" content="Full catalog of Ordinate medicines and regulated therapies, filtered by therapeutic area, access level and audience." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="ordinate.css" />
+<meta name="description" content="Catalog of Ordinate medicines with filters by therapeutic area, access level and audience. Information differs by country and audience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ordinate.css">
+<script defer src="ordinate.js"></script>
 </head>
 <body data-page="medicines">
 
-<div id="gate-overlay" class="gate-overlay" hidden>
-  <div class="gate-modal" role="dialog" aria-modal="true">
-    <span class="eyebrow">Ordinate Therapeutics</span>
-    <h2>Select your audience and region</h2>
-    <p>Product information differs by audience and country.</p>
-    <div class="opts">
-      <button class="opt" data-aud="patient"><div><strong>Patient or caregiver</strong><small>Public information</small></div></button>
-      <button class="opt" data-aud="hcp"><div><strong>Healthcare professional</strong><small>HCP-restricted technical content</small></div></button>
-      <button class="opt" data-aud="hospital"><div><strong>Hospital or clinic</strong><small>Acute care &amp; institutional supply</small></div></button>
-      <button class="opt" data-aud="regulator"><div><strong>Regulator</strong><small>Pharmacovigilance &amp; submissions</small></div></button>
-      <button class="opt" data-aud="institution"><div><strong>Authorized institution</strong><small>Restricted programs</small></div></button>
-      <button class="opt" data-aud="media"><div><strong>Media</strong><small>Corporate communications</small></div></button>
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="index.html"><div class="brand-mark">Ot</div><div><div class="brand-name">Ordinate Therapeutics</div><div class="brand-tag">Coordinate medicine · est. 2007</div></div></a>
+    <button class="mobile-nav-button" type="button" data-nav-toggle>Menu</button>
+    <nav class="primary-nav" aria-label="Primary">
+      <a data-nav="medicines" href="medicines.html">Medicines</a>
+      <a data-nav="pigment" href="pigment-medicine.html">Pigment Medicine</a>
+      <a data-nav="pipeline" href="pipeline.html">Research &amp; Pipeline</a>
+      <a data-nav="safety" href="safety.html">Safety</a>
+      <a data-nav="medinfo" href="medical-information.html">Medical Information</a>
+      <a data-nav="access" href="access-programs.html">Access Programs</a>
+      <a data-nav="about" href="about.html">About</a>
+      <a data-nav="news" href="news.html">News</a>
+    </nav>
+    <div class="utility-nav">
+      <a class="report-link" href="report-adverse-event.html">Report Adverse Event</a>
+      <a class="restricted-link" href="restricted-access.html">Restricted Access</a>
     </div>
-    <label class="form-field"><span>Region</span>
-      <select data-region-select>
-        <option value="">Select region</option>
-        <option value="global">Global / Other</option><option value="eu">European Union</option><option value="uk">United Kingdom</option><option value="us">United States</option><option value="jp">Japan</option><option value="ua">Ukraine</option><option value="restricted">Restricted region</option>
-      </select>
-    </label>
-    <div class="gate-actions"><span class="legal">By continuing you confirm role and jurisdiction.</span><button class="btn btn-primary" data-gate-confirm>Continue</button></div>
   </div>
-</div>
-
-<div class="utility-strip"><div class="container">
-  <ul><li><a href="#" data-gate-open>Region: <span data-gate-reg>Global</span></a></li><li><a href="#" data-gate-open>Audience: <span data-gate-aud>Select</span></a></li></ul>
-  <ul><li><a href="medical-information.html">Medical information</a></li><li><a href="institutional.html">Restricted access</a></li><li><a href="safety.html" class="ae-link">Report adverse event</a></li></ul>
-</div></div>
-
-<header class="site-header"><div class="container"><div class="main-nav">
-  <a class="brand-lock" href="index.html"><div class="brand-mark">Ot</div><div><div class="brand-name">Ordinate Therapeutics</div><div class="brand-tag">Coordinate medicine · est. 2007</div></div></a>
-  <ul>
-    <li><a href="medicines.html" data-nav="medicines">Medicines</a></li>
-    <li><a href="pigment-medicine.html" data-nav="pigment">Pigment Medicine</a></li>
-    <li><a href="pipeline.html" data-nav="pipeline">Research &amp; Pipeline</a></li>
-    <li><a href="safety.html" data-nav="safety">Safety</a></li>
-    <li><a href="medical-information.html" data-nav="medinfo">Medical Information</a></li>
-    <li><a href="access.html" data-nav="access">Access Programs</a></li>
-    <li><a href="about.html" data-nav="about">About</a></li>
-    <li><a href="news.html" data-nav="news">News</a></li>
-  </ul>
-  <div class="nav-cta"><a class="btn btn-warn" href="safety.html">Report event</a></div>
-</div></div></header>
+</header>
 
 <main>
 
-<section class="page-header">
+<section class="page-title">
   <div class="container">
     <div class="crumbs"><a href="index.html">Ordinate</a><span>/</span> Medicines</div>
+    <span class="eyebrow">Product catalog</span>
     <h1>Medicines and regulated therapies</h1>
-    <p>Ordinate products are approved, supplied or made available according to local medical, institutional and regulatory requirements. Product information may differ by country and audience. Some products listed below are visible only to authorized institutional users.</p>
+    <p>Ordinate products are approved, supplied or made available according to local medical, institutional and regulatory requirements. Product information may differ by country and audience. Some products listed here are visible only to authorized institutional users.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="view-tabs">
-      <button data-view-tab="az" class="is-active">A — Z</button>
-      <button data-view-tab="area">By therapeutic area</button>
-      <button data-view-tab="access">By access level</button>
+    <div class="controls" data-medicine-controls>
+      <div class="mode-list">
+        <button class="mode-button active" type="button" data-medicine-mode="az">A — Z</button>
+        <button class="mode-button" type="button" data-medicine-mode="area">By therapeutic area</button>
+        <button class="mode-button" type="button" data-medicine-mode="access">By access level</button>
+      </div>
+      <div class="control-grid">
+        <label class="field"><span>Search</span><input type="search" data-filter-search placeholder="Product, class, use context"></label>
+        <label class="field"><span>Therapeutic area</span>
+          <select data-filter-area>
+            <option value="all">All areas</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Pain &amp; Inflammation">Pain &amp; inflammation</option>
+            <option value="Acute Care">Acute care</option>
+            <option value="Cardiovascular &amp; Metabolic">Cardiovascular &amp; metabolic</option>
+            <option value="Dermatology">Dermatology</option>
+            <option value="Pigment Stability">Pigment stability</option>
+            <option value="Pigment Suppression">Pigment suppression</option>
+            <option value="Coordinate Modulation">Coordinate modulation</option>
+            <option value="Recovery">Recovery</option>
+            <option value="Diagnostics">Diagnostics</option>
+          </select>
+        </label>
+        <label class="field"><span>Access level</span>
+          <select data-filter-access>
+            <option value="all">All access levels</option>
+            <option value="pharmacy">Pharmacy / OTC</option>
+            <option value="prescription">Prescription</option>
+            <option value="specialist">Specialist prescription</option>
+            <option value="hospital">Hospital only</option>
+            <option value="restricted">Restricted institutional</option>
+            <option value="military">Military / strict control</option>
+          </select>
+        </label>
+        <label class="field"><span>Audience</span>
+          <select data-filter-audience>
+            <option value="all">All audiences</option>
+            <option value="Patients">Patients</option>
+            <option value="Healthcare Professionals">Healthcare professionals</option>
+            <option value="Authorized Institutions">Authorized institutions</option>
+            <option value="Regulators">Regulators</option>
+          </select>
+        </label>
+      </div>
+      <div class="checkbox-grid" style="margin-top:14px">
+        <label class="check-pill"><input type="checkbox" value="prescription" data-filter-flag> Prescription</label>
+        <label class="check-pill"><input type="checkbox" value="pharmacy" data-filter-flag> OTC / pharmacy</label>
+        <label class="check-pill"><input type="checkbox" value="hospital" data-filter-flag> Hospital only</label>
+        <label class="check-pill"><input type="checkbox" value="hcp-info" data-filter-flag> HCP information</label>
+        <label class="check-pill"><input type="checkbox" value="pigment-specific" data-filter-flag> Pigment-specific</label>
+        <label class="check-pill"><input type="checkbox" value="restricted" data-filter-flag> Restricted</label>
+        <label class="check-pill"><input type="checkbox" value="patient-materials" data-filter-flag> Patient materials</label>
+      </div>
     </div>
 
-    <div class="catalog">
+    <div class="results-meta">
+      <span data-results-meta>32 / 32 medicines</span>
+      <a href="medicines.html">Reset filters</a>
+    </div>
 
-      <aside class="filter-rail" data-filter-rail>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;">
-          <span class="text-mono"><span data-filter-count>32 / 32</span> products</span>
-          <a href="#" class="text-mono" data-filter-clear>Clear all</a>
-        </div>
-        <div class="filter-group">
-          <h4>Therapeutic area</h4>
-          <button class="chip" data-filter-key="area" data-filter-val="neurology">Neurology</button>
-          <button class="chip" data-filter-key="area" data-filter-val="pain">Pain &amp; inflammation</button>
-          <button class="chip" data-filter-key="area" data-filter-val="acute">Acute care</button>
-          <button class="chip" data-filter-key="area" data-filter-val="cardio">Cardiovascular &amp; metabolic</button>
-          <button class="chip" data-filter-key="area" data-filter-val="derm">Dermatology</button>
-          <button class="chip" data-filter-key="area" data-filter-val="resp">Respiratory</button>
-          <button class="chip" data-filter-key="area" data-filter-val="stability">Pigment stability</button>
-          <button class="chip" data-filter-key="area" data-filter-val="suppression">Pigment suppression</button>
-          <button class="chip" data-filter-key="area" data-filter-val="modulation">Coordinate modulation</button>
-          <button class="chip" data-filter-key="area" data-filter-val="diagnostics">Diagnostics</button>
-        </div>
-        <div class="filter-group">
-          <h4>Access level</h4>
-          <button class="chip" data-filter-key="access" data-filter-val="otc">Pharmacy / OTC</button>
-          <button class="chip" data-filter-key="access" data-filter-val="rx">Prescription</button>
-          <button class="chip" data-filter-key="access" data-filter-val="specialist">Specialist Rx</button>
-          <button class="chip" data-filter-key="access" data-filter-val="hospital">Hospital only</button>
-          <button class="chip" data-filter-key="access" data-filter-val="hcp">HCP-only information</button>
-          <button class="chip" data-filter-key="access" data-filter-val="restricted">Restricted institutional</button>
-          <button class="chip" data-filter-key="access" data-filter-val="military">Military / strict control</button>
-          <button class="chip" data-filter-key="access" data-filter-val="discontinued">Discontinued / withdrawn</button>
-        </div>
-        <div class="filter-group">
-          <h4>Audience materials</h4>
-          <button class="chip" data-filter-key="aud" data-filter-val="patient">Patient materials</button>
-          <button class="chip" data-filter-key="aud" data-filter-val="hcp">HCP materials</button>
-          <button class="chip" data-filter-key="aud" data-filter-val="institution">Institution</button>
-          <button class="chip" data-filter-key="aud" data-filter-val="regulator">Regulator</button>
-        </div>
-      </aside>
-
-      <div data-product-grid>
-        <div class="product-grid">
-
-          <!-- A. General Medicine -->
-          <article class="product-card" data-product-card data-area="neurology" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Achromavir<small class="pc-generic">achromavir complex</small></h3><span class="pc-class">Maintenance suppressor</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">For voluntary pigment stability and reduction of involuntary activation episodes.</p>
-            <div class="pc-actions"><a href="product-achromavir.html">Patient</a><a href="product-achromavir.html#hcp">HCP</a><a href="product-achromavir.html#safety">Safety</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="suppression stability" data-access="rx hcp" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Leukostat<small class="pc-generic">leukostatic coordinate blocker</small></h3><span class="pc-class">Pigment blocker</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span><span class="badge badge--hcp">HCP</span></div></div>
-            <p class="pc-desc">Temporary pigment blockade under regulated medical supervision.</p>
-            <div class="pc-actions"><a href="product-leukostat.html">Patient</a><a href="product-leukostat.html#hcp">HCP</a><a href="product-leukostat.html#safety">Safety</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="stability" data-access="rx specialist" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Axisol<small class="pc-generic">axisol pediatric formulation</small></h3><span class="pc-class">Coordinate stability support</span></div><div class="badge-row"><span class="badge badge--rx">Specialist</span></div></div>
-            <p class="pc-desc">Pediatric and adolescent stabilizer for unstable early pigment expression triggered by stress, pain or shame.</p>
-            <div class="pc-actions"><a href="medicines.html#axisol">Patient</a><a href="medicines.html#axisol">HCP</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="stability derm" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Lumenveil<small class="pc-generic">lumenveil compound</small></h3><span class="pc-class">Glow attenuation therapy</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">Reduces visible glow without full functional blockade.</p>
-            <div class="pc-actions"><a href="medicines.html#lumenveil">Patient</a><a href="medicines.html#lumenveil">HCP</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="neurology stability" data-access="rx specialist" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Synaptide-P<small class="pc-generic">synaptide-p</small></h3><span class="pc-class">Post-activation neural recovery</span></div><div class="badge-row"><span class="badge badge--rx">Specialist</span></div></div>
-            <p class="pc-desc">Neurological recovery after prolonged or intensive pigment use.</p>
-            <div class="pc-actions"><a href="medicines.html#synaptide">Patient</a><a href="medicines.html#synaptide">HCP</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="stability pain" data-access="rx specialist" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Kinetra<small class="pc-generic">kinetic recovery formulation</small></h3><span class="pc-class">Pigment exertion recovery</span></div><div class="badge-row"><span class="badge badge--rx">Specialist</span></div></div>
-            <p class="pc-desc">Muscular, vestibular and coordination recovery after pigment exertion.</p>
-            <div class="pc-actions"><a href="product-kinetra.html">Patient</a><a href="product-kinetra.html#hcp">HCP</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="neurology stability" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Paxlumen<small class="pc-generic">paxlumen complex</small></h3><span class="pc-class">Stress-flare control therapy</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">For patients in whom panic, pain or trauma triggers uncontrolled glow or activation.</p>
-            <div class="pc-actions"><a href="medicines.html#paxlumen">Patient</a><a href="medicines.html#paxlumen">HCP</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="derm stability" data-access="otc rx" data-aud="patient"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Dermalux<small class="pc-generic">dermalux topical</small></h3><span class="pc-class">Pigment-associated dermatology</span></div><div class="badge-row"><span class="badge badge--otc">Pharmacy</span></div></div>
-            <p class="pc-desc">Topical therapy for irritation and photosensitivity following frequent glow expression.</p>
-            <div class="pc-actions"><a href="medicines.html#dermalux">Patient</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="stability" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Oculite-P<small class="pc-generic">oculite ophthalmic</small></h3><span class="pc-class">Ophthalmic pigment exposure therapy</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">Ophthalmic relief after light flashes, optical overload or accidental activation.</p>
-            <div class="pc-actions"><a href="medicines.html#oculite">Patient</a><a href="medicines.html#oculite">HCP</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="neurology" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Neurocalm<small class="pc-generic">neuromodulating compound</small></h3><span class="pc-class">Anxiolytic neuromodulator</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">For chronic anxiety and stress states, including stress-driven somatic reactions.</p>
-            <div class="pc-actions"><a href="product-neurocalm.html">Patient</a><a href="product-neurocalm.html#hcp">HCP</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="neurology" data-access="rx specialist" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Somnara<small class="pc-generic">somnara complex</small></h3><span class="pc-class">Sleep rhythm stabilizer</span></div><div class="badge-row"><span class="badge badge--rx">Specialist</span></div></div>
-            <p class="pc-desc">For sleep disturbance, nocturnal hyperactivation and circadian disruption.</p>
-            <div class="pc-actions"><a href="medicines.html#somnara">Patient</a><a href="medicines.html#somnara">HCP</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="pain" data-access="otc rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Dolvenor<small class="pc-generic">dolvenor compound</small></h3><span class="pc-class">Anti-inflammatory analgesic</span></div><div class="badge-row"><span class="badge badge--otc">Pharmacy</span></div></div>
-            <p class="pc-desc">For pain, inflammation, sport injury and muscular overload.</p>
-            <div class="pc-actions"><a href="medicines.html#dolvenor">Patient</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="neurology" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Myosteady<small class="pc-generic">myosteady formulation</small></h3><span class="pc-class">Muscle tone regulator</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">For tremor, spasm and muscular instability following nervous overload.</p>
-            <div class="pc-actions"><a href="medicines.html#myosteady">Patient</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="cardio" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Cardevia<small class="pc-generic">cardevia compound</small></h3><span class="pc-class">Cardiovascular stabilizer</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">Blood-pressure control and cardiovascular prevention, including stress-induced load.</p>
-            <div class="pc-actions"><a href="medicines.html#cardevia">Patient</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="cardio" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Glycora<small class="pc-generic">glycora compound</small></h3><span class="pc-class">Metabolic therapy</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">For metabolic disturbances and insulin resistance.</p>
-            <div class="pc-actions"><a href="medicines.html#glycora">Patient</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="resp" data-access="rx" data-aud="patient hcp"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Respivar<small class="pc-generic">respivar inhalable</small></h3><span class="pc-class">Respiratory anti-inflammatory</span></div><div class="badge-row"><span class="badge badge--rx">Rx</span></div></div>
-            <p class="pc-desc">Chronic airway inflammation, asthma and post-exposure irritation.</p>
-            <div class="pc-actions"><a href="medicines.html#respivar">Patient</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="derm" data-access="otc rx" data-aud="patient"><span class="Rx">℞</span>
-            <div class="pc-head"><div><h3 class="pc-name">Dermavax<small class="pc-generic">dermavax barrier formula</small></h3><span class="pc-class">Dermatological barrier therapy</span></div><div class="badge-row"><span class="badge badge--otc">Pharmacy</span></div></div>
-            <p class="pc-desc">Skin damage, irritation, photosensitivity and contact dermatitis.</p>
-            <div class="pc-actions"><a href="medicines.html#dermavax">Patient</a></div>
-          </article>
-
-          <!-- B. Hospital / Acute Care -->
-          <article class="product-card" data-product-card data-area="acute" data-access="hospital" data-aud="hcp institution">
-            <div class="pc-head"><div><h3 class="pc-name">Hemovance<small class="pc-generic">hemovance hemostatic</small></h3><span class="pc-class">Acute hemostatic support</span></div><div class="badge-row"><span class="badge badge--hospital">Hospital only</span></div></div>
-            <p class="pc-desc">Surgical hemorrhage control and trauma medicine. Supplied to hospital pharmacies under contract.</p>
-            <div class="pc-actions"><a href="medicines.html#hemovance">Hospital information</a><a href="medical-information.html">Inquiry</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="neurology acute" data-access="hospital" data-aud="hcp">
-            <div class="pc-head"><div><h3 class="pc-name">Seizuril<small class="pc-generic">seizuril injection</small></h3><span class="pc-class">Acute neurostabilizer</span></div><div class="badge-row"><span class="badge badge--hospital">Hospital</span></div></div>
-            <p class="pc-desc">Seizure control and acute neurological hyperactivation in emergency settings.</p>
-            <div class="pc-actions"><a href="medicines.html#seizuril">Hospital information</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="acute pain" data-access="hospital" data-aud="hcp">
-            <div class="pc-head"><div><h3 class="pc-name">Traumexin<small class="pc-generic">traumexin compound</small></h3><span class="pc-class">Trauma inflammation modulator</span></div><div class="badge-row"><span class="badge badge--hospital">Hospital</span></div></div>
-            <p class="pc-desc">Severe trauma, multi-organ inflammation, post-surgical complications.</p>
-            <div class="pc-actions"><a href="medicines.html#traumexin">Hospital information</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="acute pain" data-access="hospital" data-aud="hcp">
-            <div class="pc-head"><div><h3 class="pc-name">Nocirel<small class="pc-generic">nocirel adjunct</small></h3><span class="pc-class">Procedural pain control</span></div><div class="badge-row"><span class="badge badge--hospital">Hospital</span></div></div>
-            <p class="pc-desc">Adjunct pain management for surgical and procedural settings.</p>
-            <div class="pc-actions"><a href="medicines.html#nocirel">Hospital information</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="acute derm" data-access="hospital specialist" data-aud="hcp">
-            <div class="pc-head"><div><h3 class="pc-name">Burnaxis<small class="pc-generic">burnaxis tissue support</small></h3><span class="pc-class">Tissue repair support</span></div><div class="badge-row"><span class="badge badge--hospital">Hospital</span></div></div>
-            <p class="pc-desc">Burns, thermal injury and tissue damage following extreme physical load.</p>
-            <div class="pc-actions"><a href="medicines.html#burnaxis">Hospital information</a></div>
-          </article>
-
-          <!-- D. Restricted / Military -->
-          <article class="product-card is-restricted" data-product-card data-area="modulation" data-access="military restricted" data-aud="institution">
-            <div class="pc-head"><div><h3 class="pc-name">Saturine<small class="pc-generic">restricted coordinate modifier</small></h3><span class="pc-class">Coordinate modifier</span></div><div class="badge-row"><span class="badge badge--restricted">Restricted</span></div></div>
-            <p class="pc-desc">Public information limited. Access restricted to authorized institutional users.</p>
-            <div class="pc-actions"><a href="product-saturine.html">Public page</a><a href="institutional.html" data-restricted-inquiry>Institutional access</a></div>
-          </article>
-
-          <article class="product-card is-military" data-product-card data-area="neurology modulation" data-access="military restricted" data-aud="institution">
-            <div class="pc-head"><div><h3 class="pc-name">Chromafinil<small class="pc-generic">restricted neurostimulant</small></h3><span class="pc-class">Operational endurance</span></div><div class="badge-row"><span class="badge badge--military">Military</span></div></div>
-            <p class="pc-desc">Restricted neurostimulant. Authorized military medical programs only.</p>
-            <div class="pc-actions"><a href="institutional.html" data-restricted-inquiry>Institutional access</a></div>
-          </article>
-
-          <article class="product-card is-restricted" data-product-card data-area="suppression modulation" data-access="restricted" data-aud="institution">
-            <div class="pc-head"><div><h3 class="pc-name">Pallidex<small class="pc-generic">emergency deactivation agent</small></h3><span class="pc-class">Emergency pigment deactivation</span></div><div class="badge-row"><span class="badge badge--restricted">Restricted</span></div></div>
-            <p class="pc-desc">Crisis deactivation of dangerous, uncontrolled activation. Authorized emergency response only.</p>
-            <div class="pc-actions"><a href="institutional.html" data-restricted-inquiry>Institutional access</a></div>
-          </article>
-
-          <article class="product-card is-restricted" data-product-card data-area="modulation" data-access="restricted" data-aud="institution hcp">
-            <div class="pc-head"><div><h3 class="pc-name">Calibrant-6<small class="pc-generic">axis calibration adjunct</small></h3><span class="pc-class">Axis calibration</span></div><div class="badge-row"><span class="badge badge--restricted">Restricted</span></div></div>
-            <p class="pc-desc">Short-term axis stabilization during controlled testing or supervised rehabilitation.</p>
-            <div class="pc-actions"><a href="institutional.html" data-restricted-inquiry>Institutional access</a></div>
-          </article>
-
-          <article class="product-card is-restricted" data-product-card data-area="suppression modulation" data-access="restricted" data-aud="institution">
-            <div class="pc-head"><div><h3 class="pc-name">Nullcord<small class="pc-generic">containment-support blocker</small></h3><span class="pc-class">Containment-support blocker</span></div><div class="badge-row"><span class="badge badge--restricted">Restricted</span></div></div>
-            <p class="pc-desc">Supervised use in forensic, custodial and government containment medical protocols.</p>
-            <div class="pc-actions"><a href="institutional.html" data-restricted-inquiry>Institutional access</a></div>
-          </article>
-
-          <article class="product-card is-military" data-product-card data-area="modulation pain" data-access="military restricted" data-aud="institution">
-            <div class="pc-head"><div><h3 class="pc-name">Redline-C<small class="pc-generic">redline-c protective</small></h3><span class="pc-class">Red-axis exertion protection</span></div><div class="badge-row"><span class="badge badge--military">Military</span></div></div>
-            <p class="pc-desc">Reduces neuromuscular sequelae following operational red-axis use.</p>
-            <div class="pc-actions"><a href="institutional.html" data-restricted-inquiry>Institutional access</a></div>
-          </article>
-
-          <!-- E. Diagnostics -->
-          <article class="product-card" data-product-card data-area="diagnostics" data-access="hospital specialist" data-aud="hcp regulator institution">
-            <div class="pc-head"><div><h3 class="pc-name">AxisMap Dx<small class="pc-generic">axismap diagnostic panel</small></h3><span class="pc-class">Coordinate diagnostic panel</span></div><div class="badge-row"><span class="badge badge--diagnostic">Diagnostic</span></div></div>
-            <p class="pc-desc">Profiling of pigment coordinates, axis deviation and involuntary activation risk.</p>
-            <div class="pc-actions"><a href="medicines.html#axismap">Information</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="diagnostics" data-access="hospital specialist" data-aud="hcp">
-            <div class="pc-head"><div><h3 class="pc-name">LumenTrace<small class="pc-generic">wearable monitoring system</small></h3><span class="pc-class">Wearable monitoring</span></div><div class="badge-row"><span class="badge badge--diagnostic">Diagnostic</span></div></div>
-            <p class="pc-desc">Continuous monitoring of glow frequency, stress flare episodes and therapy response.</p>
-            <div class="pc-actions"><a href="medicines.html#lumentrace">Information</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="diagnostics" data-access="hospital" data-aud="hcp">
-            <div class="pc-head"><div><h3 class="pc-name">ChromoPanel-7<small class="pc-generic">chromopanel-7 lab panel</small></h3><span class="pc-class">Laboratory biomarker panel</span></div><div class="badge-row"><span class="badge badge--diagnostic">Diagnostic</span></div></div>
-            <p class="pc-desc">Seven-domain biomarker panel covering inflammation, neural load and post-activation exhaustion.</p>
-            <div class="pc-actions"><a href="medicines.html#chromopanel">Information</a></div>
-          </article>
-
-          <article class="product-card" data-product-card data-area="diagnostics" data-access="hospital specialist" data-aud="hcp regulator institution">
-            <div class="pc-head"><div><h3 class="pc-name">IncidentLink<small class="pc-generic">incidentlink reporting platform</small></h3><span class="pc-class">Adverse activation reporting platform</span></div><div class="badge-row"><span class="badge badge--diagnostic">Platform</span></div></div>
-            <p class="pc-desc">Pharmacovigilance platform for accidental activation, failure to suppress and product incidents.</p>
-            <div class="pc-actions"><a href="safety.html">Reporting</a></div>
-          </article>
-
-        </div>
-      </div>
-
+    <div data-product-grid>
+      <noscript><p>Catalog requires JavaScript. <a href="medical-information.html">Contact medical information</a> for the printable catalog.</p></noscript>
     </div>
   </div>
 </section>
 
 </main>
 
-<div class="disclaimer"><div class="container"><strong>Important</strong>Information on this site is provided for general educational purposes and is subject to local regulation. Approval, indication and access pathways may differ between countries.</div></div>
+<div class="disclaimer">
+  <div class="container"><strong>Important</strong>Information on this site is provided for general educational purposes and is subject to local regulation.</div>
+</div>
 
-<footer class="site-footer"><div class="container">
-  <div class="footer-grid">
-    <div class="footer-brand"><div class="brand-name">Ordinate Therapeutics</div><p>A pharmaceutical company developing medicines for the regulated coordinates of human physiology.</p></div>
-    <div><h5>Products</h5><ul><li><a href="medicines.html">All medicines</a></li><li><a href="pigment-medicine.html">Pigment medicine</a></li><li><a href="pipeline.html">Research pipeline</a></li></ul></div>
-    <div><h5>Patients &amp; HCPs</h5><ul><li><a href="medical-information.html">Medical information</a></li><li><a href="access.html">Access programs</a></li><li><a href="safety.html">Adverse event</a></li></ul></div>
-    <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h5>Legal</h5><ul><li><a href="institutional.html">Institutional access</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><h3>Ordinate Therapeutics</h3><p>A pharmaceutical company developing medicines for the regulated coordinates of human physiology.</p></div>
+      <div><h4>Medicines</h4><ul><li><a href="medicines.html">All medicines</a></li><li><a href="pigment-medicine.html">Pigment medicine</a></li><li><a href="pipeline.html">Pipeline</a></li></ul></div>
+      <div><h4>Safety</h4><ul><li><a href="report-adverse-event.html">Adverse event</a></li><li><a href="product-quality-complaint.html">Quality complaint</a></li><li><a href="recalls.html">Recalls</a></li><li><a href="hcp-letters.html">HCP letters</a></li></ul></div>
+      <div><h4>Patients &amp; HCPs</h4><ul><li><a href="medical-information.html">Medical information</a></li><li><a href="access-programs.html">Access programs</a></li></ul></div>
+      <div><h4>Governance</h4><ul><li><a href="about.html">About</a></li><li><a href="transparency-report.html">Transparency</a></li><li><a href="restricted-access.html">Institutional access</a></li></ul></div>
+    </div>
+    <div class="fine-print">
+      <p>© 2007–2026 Ordinate Therapeutics N.V.</p>
+      <p><a href="#" data-gate-open>Change region / audience</a></p>
+    </div>
   </div>
-  <div class="footer-meta"><span>© 2007–2026 Ordinate Therapeutics N.V.</span><span><a href="#" data-gate-open>Change region / audience</a></span></div>
-</div></footer>
+</footer>
 
-<div id="toast" class="toast" hidden></div>
-<script src="ordinate.js"></script>
 </body>
 </html>

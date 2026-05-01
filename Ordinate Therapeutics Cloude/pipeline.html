@@ -1,244 +1,145 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research &amp; Pipeline — Ordinate Therapeutics</title>
-<meta name="description" content="Ordinate's R&D pipeline across pigment stability, suppression, neural recovery, pediatric pigment medicine and restricted programs." />
-<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="ordinate.css" />
+<meta name="description" content="Ordinate's R&amp;D pipeline across pigment stability, suppression, neural recovery, pediatric pigment medicine and restricted programs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ordinate.css">
+<script defer src="ordinate.js"></script>
 </head>
 <body data-page="pipeline">
 
-<div id="gate-overlay" class="gate-overlay" hidden>
-  <div class="gate-modal" role="dialog" aria-modal="true">
-    <span class="eyebrow">Ordinate Therapeutics</span><h2>Select your audience and region</h2>
-    <div class="opts">
-      <button class="opt" data-aud="patient"><div><strong>Patient or caregiver</strong><small>Public information</small></div></button>
-      <button class="opt" data-aud="hcp"><div><strong>Healthcare professional</strong><small>HCP technical content</small></div></button>
-      <button class="opt" data-aud="hospital"><div><strong>Hospital or clinic</strong><small>Acute care</small></div></button>
-      <button class="opt" data-aud="regulator"><div><strong>Regulator</strong><small>Pharmacovigilance</small></div></button>
-      <button class="opt" data-aud="institution"><div><strong>Authorized institution</strong><small>Restricted programs</small></div></button>
-      <button class="opt" data-aud="media"><div><strong>Media</strong><small>Corporate</small></div></button>
+<header class="site-header">
+  <div class="nav-shell">
+    <a class="brand" href="index.html"><div class="brand-mark">Ot</div><div><div class="brand-name">Ordinate Therapeutics</div><div class="brand-tag">Coordinate medicine · est. 2007</div></div></a>
+    <button class="mobile-nav-button" type="button" data-nav-toggle>Menu</button>
+    <nav class="primary-nav" aria-label="Primary">
+      <a data-nav="medicines" href="medicines.html">Medicines</a>
+      <a data-nav="pigment" href="pigment-medicine.html">Pigment Medicine</a>
+      <a data-nav="pipeline" href="pipeline.html">Research &amp; Pipeline</a>
+      <a data-nav="safety" href="safety.html">Safety</a>
+      <a data-nav="medinfo" href="medical-information.html">Medical Information</a>
+      <a data-nav="access" href="access-programs.html">Access Programs</a>
+      <a data-nav="about" href="about.html">About</a>
+      <a data-nav="news" href="news.html">News</a>
+    </nav>
+    <div class="utility-nav">
+      <a class="report-link" href="report-adverse-event.html">Report Adverse Event</a>
+      <a class="restricted-link" href="restricted-access.html">Restricted Access</a>
     </div>
-    <label class="form-field"><span>Region</span><select data-region-select><option value="">Select region</option><option value="global">Global</option><option value="eu">EU</option><option value="uk">UK</option><option value="us">US</option><option value="jp">JP</option><option value="ua">UA</option><option value="restricted">Restricted</option></select></label>
-    <div class="gate-actions"><span class="legal">By continuing you confirm role and jurisdiction.</span><button class="btn btn-primary" data-gate-confirm>Continue</button></div>
   </div>
-</div>
-
-<div class="utility-strip"><div class="container">
-  <ul><li><a href="#" data-gate-open>Region: <span data-gate-reg>Global</span></a></li><li><a href="#" data-gate-open>Audience: <span data-gate-aud>Select</span></a></li></ul>
-  <ul><li><a href="medical-information.html">Medical information</a></li><li><a href="institutional.html">Restricted access</a></li><li><a href="safety.html" class="ae-link">Report adverse event</a></li></ul>
-</div></div>
-
-<header class="site-header"><div class="container"><div class="main-nav">
-  <a class="brand-lock" href="index.html"><div class="brand-mark">Ot</div><div><div class="brand-name">Ordinate Therapeutics</div><div class="brand-tag">Coordinate medicine · est. 2007</div></div></a>
-  <ul>
-    <li><a href="medicines.html" data-nav="medicines">Medicines</a></li>
-    <li><a href="pigment-medicine.html" data-nav="pigment">Pigment Medicine</a></li>
-    <li><a href="pipeline.html" data-nav="pipeline">Research &amp; Pipeline</a></li>
-    <li><a href="safety.html" data-nav="safety">Safety</a></li>
-    <li><a href="medical-information.html" data-nav="medinfo">Medical Information</a></li>
-    <li><a href="access.html" data-nav="access">Access Programs</a></li>
-    <li><a href="about.html" data-nav="about">About</a></li>
-    <li><a href="news.html" data-nav="news">News</a></li>
-  </ul>
-  <div class="nav-cta"><a class="btn btn-warn" href="safety.html">Report event</a></div>
-</div></div></header>
+</header>
 
 <main>
 
-<section class="page-header">
+<section class="page-title">
   <div class="container">
-    <div class="crumbs"><a href="index.html">Ordinate</a><span>/</span> Research &amp; Pipeline</div>
+    <div class="crumbs"><a href="index.html">Ordinate</a><span>/</span> Research &amp; pipeline</div>
+    <span class="eyebrow">Research</span>
     <h1>Research &amp; pipeline</h1>
+    <figure class="page-visual document-visual" style="margin-top:24px; margin-bottom:18px">
+      <img src="assets/images/pipeline-document-table.jpg" alt="Pipeline governance table with research documents" loading="lazy">
+      <figcaption>Pipeline governance documents - public and restricted programs</figcaption>
+    </figure>
     <p>Ordinate's active development programs span discovery, preclinical and Phase I–III studies across neurology, acute care, pigment stability, coordinate modulation, suppression, recovery and diagnostics. Pipeline status is updated quarterly. Restricted programs are listed only to the extent permitted by company policy and applicable regulation.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div class="catalog">
 
-      <aside class="filter-rail" data-filter-rail>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;">
-          <span class="text-mono"><span data-filter-count>11 / 11</span> programs</span>
-          <a href="#" class="text-mono" data-filter-clear>Clear all</a>
-        </div>
-        <div class="filter-group">
+    <div class="controls">
+      <div class="results-meta" style="margin: 0 0 18px;">
+        <span data-pipeline-count>11 / 11 programs</span>
+        <a href="#" data-filter-clear>Reset filters</a>
+      </div>
+      <div data-pipeline-filters>
+        <div class="chip-group">
           <h4>Phase</h4>
-          <button class="chip" data-filter-key="phase" data-filter-val="discovery">Discovery</button>
-          <button class="chip" data-filter-key="phase" data-filter-val="pre">Preclinical</button>
-          <button class="chip" data-filter-key="phase" data-filter-val="p1">Phase I</button>
-          <button class="chip" data-filter-key="phase" data-filter-val="p2">Phase II</button>
-          <button class="chip" data-filter-key="phase" data-filter-val="p3">Phase III</button>
-          <button class="chip" data-filter-key="phase" data-filter-val="reg">Registration</button>
-          <button class="chip" data-filter-key="phase" data-filter-val="approved">Approved</button>
-          <button class="chip" data-filter-key="phase" data-filter-val="discontinued">Discontinued</button>
+          <div class="chip-rail">
+            <button class="chip" data-filter-key="phase" data-filter-val="discovery">Discovery</button>
+            <button class="chip" data-filter-key="phase" data-filter-val="pre">Preclinical</button>
+            <button class="chip" data-filter-key="phase" data-filter-val="p1">Phase I</button>
+            <button class="chip" data-filter-key="phase" data-filter-val="p2">Phase II</button>
+            <button class="chip" data-filter-key="phase" data-filter-val="p3">Phase III</button>
+            <button class="chip" data-filter-key="phase" data-filter-val="reg">Registration</button>
+            <button class="chip" data-filter-key="phase" data-filter-val="approved">Approved</button>
+            <button class="chip" data-filter-key="phase" data-filter-val="discontinued">Discontinued</button>
+            <button class="chip" data-filter-key="phase" data-filter-val="restricted">Restricted</button>
+          </div>
         </div>
-        <div class="filter-group">
+        <div class="chip-group">
           <h4>Therapeutic area</h4>
-          <button class="chip" data-filter-key="area" data-filter-val="neurology">Neurology</button>
-          <button class="chip" data-filter-key="area" data-filter-val="acute">Acute care</button>
-          <button class="chip" data-filter-key="area" data-filter-val="stability">Pigment stability</button>
-          <button class="chip" data-filter-key="area" data-filter-val="modulation">Coordinate modulation</button>
-          <button class="chip" data-filter-key="area" data-filter-val="suppression">Suppression</button>
-          <button class="chip" data-filter-key="area" data-filter-val="recovery">Recovery</button>
-          <button class="chip" data-filter-key="area" data-filter-val="diagnostics">Diagnostics</button>
+          <div class="chip-rail">
+            <button class="chip" data-filter-key="area" data-filter-val="neurology">Neurology</button>
+            <button class="chip" data-filter-key="area" data-filter-val="acute">Acute care</button>
+            <button class="chip" data-filter-key="area" data-filter-val="stability">Pigment stability</button>
+            <button class="chip" data-filter-key="area" data-filter-val="modulation">Coordinate modulation</button>
+            <button class="chip" data-filter-key="area" data-filter-val="suppression">Suppression</button>
+            <button class="chip" data-filter-key="area" data-filter-val="recovery">Recovery</button>
+            <button class="chip" data-filter-key="area" data-filter-val="diagnostics">Diagnostics</button>
+          </div>
         </div>
-        <div class="filter-group">
+        <div class="chip-group">
           <h4>Access</h4>
-          <button class="chip" data-filter-key="access" data-filter-val="public">Public</button>
-          <button class="chip" data-filter-key="access" data-filter-val="hcp">HCP</button>
-          <button class="chip" data-filter-key="access" data-filter-val="restricted">Restricted</button>
-          <button class="chip" data-filter-key="access" data-filter-val="military">Military</button>
+          <div class="chip-rail">
+            <button class="chip" data-filter-key="access" data-filter-val="public">Public</button>
+            <button class="chip" data-filter-key="access" data-filter-val="hcp">HCP</button>
+            <button class="chip" data-filter-key="access" data-filter-val="restricted">Restricted</button>
+            <button class="chip" data-filter-key="access" data-filter-val="military">Military</button>
+          </div>
         </div>
-      </aside>
-
-      <div data-product-grid>
-        <table class="reg-table">
-          <thead>
-            <tr>
-              <th>Compound</th>
-              <th>Internal name &amp; goal</th>
-              <th>Therapeutic area</th>
-              <th>Phase</th>
-              <th>Access</th>
-              <th>Status note</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr data-product-card data-phase="p2" data-area="stability" data-access="public">
-              <td class="compound">ACR-204</td>
-              <td class="name-cell">Achromavir next-generation formulation<em>lower breakthrough activation during pain shock</em></td>
-              <td>Pigment stability</td>
-              <td><span class="phase phase--p2">Phase II</span></td>
-              <td><span class="badge badge--rx">Public</span></td>
-              <td>On track for filing Q3 2027</td>
-            </tr>
-            <tr data-product-card data-phase="p1 p2" data-area="suppression" data-access="hcp">
-              <td class="compound">LKS-310</td>
-              <td class="name-cell">Long-acting Leukostat<em>supervised longer blockade for surgical and institutional use</em></td>
-              <td>Pigment suppression</td>
-              <td><span class="phase phase--p1">Phase I/II</span></td>
-              <td><span class="badge badge--hcp">HCP</span></td>
-              <td>Open-label safety lead-in ongoing</td>
-            </tr>
-            <tr data-product-card data-phase="p2" data-area="neurology recovery" data-access="public">
-              <td class="compound">SYN-P7</td>
-              <td class="name-cell">Synaptide-P<em>post-activation neural recovery therapy</em></td>
-              <td>Neurology / pigment recovery</td>
-              <td><span class="phase phase--p2">Phase II</span></td>
-              <td><span class="badge badge--rx">Public</span></td>
-              <td>Phase II readout 2026</td>
-            </tr>
-            <tr data-product-card data-phase="pre" data-area="stability" data-access="public">
-              <td class="compound">AXM-06</td>
-              <td class="name-cell">Axis-specific pediatric stabilizer<em>reduce unstable adolescent activation without full suppression</em></td>
-              <td>Pediatric pigment medicine</td>
-              <td><span class="phase phase--pre">Preclinical</span></td>
-              <td><span class="badge badge--rx">Public</span></td>
-              <td>Pediatric design under regulator dialog</td>
-            </tr>
-            <tr data-product-card data-phase="discontinued" data-area="neurology" data-access="restricted">
-              <td class="compound">CRF-12</td>
-              <td class="name-cell">Chromafinil civilian derivative<em>development halted by safety committee — unacceptable misuse potential</em></td>
-              <td>Focus / pigment endurance</td>
-              <td><span class="phase phase--discontinued">Discontinued</span></td>
-              <td><span class="badge badge--restricted">Restricted review</span></td>
-              <td>Program closed; data archived under regulator review</td>
-            </tr>
-            <tr data-product-card data-phase="discovery" data-area="modulation" data-access="restricted military">
-              <td class="compound">RDL-C</td>
-              <td class="name-cell">Red-axis injury mitigation therapy<em>reduce neuromuscular sequelae after operational red-axis use</em></td>
-              <td>Restricted / military medicine</td>
-              <td><span class="phase phase--restricted">Restricted development</span></td>
-              <td><span class="badge badge--military">Military</span></td>
-              <td>Public details limited</td>
-            </tr>
-            <tr data-product-card data-phase="p3" data-area="stability" data-access="public">
-              <td class="compound">PXL-220</td>
-              <td class="name-cell">Paxlumen extended-release<em>once-weekly stress-flare prophylaxis</em></td>
-              <td>Pigment stability</td>
-              <td><span class="phase phase--p3">Phase III</span></td>
-              <td><span class="badge badge--rx">Public</span></td>
-              <td>Recruiting in 12 countries</td>
-            </tr>
-            <tr data-product-card data-phase="p2" data-area="diagnostics" data-access="hcp">
-              <td class="compound">AXD-410</td>
-              <td class="name-cell">AxisMap Dx generation 2<em>expanded coordinate panel with pediatric reference</em></td>
-              <td>Diagnostics</td>
-              <td><span class="phase phase--p2">Phase II</span></td>
-              <td><span class="badge badge--hcp">HCP</span></td>
-              <td>Validation cohort recruiting</td>
-            </tr>
-            <tr data-product-card data-phase="reg" data-area="acute" data-access="hcp">
-              <td class="compound">HMV-080</td>
-              <td class="name-cell">Hemovance pediatric formulation<em>extended hemostatic adjunct for pediatric trauma</em></td>
-              <td>Acute care</td>
-              <td><span class="phase phase--reg">Registration</span></td>
-              <td><span class="badge badge--hospital">Hospital</span></td>
-              <td>Filed in EU and UK 2025</td>
-            </tr>
-            <tr data-product-card data-phase="p2" data-area="recovery" data-access="public">
-              <td class="compound">KIN-150</td>
-              <td class="name-cell">Kinetra second-generation<em>shorter recovery window in elite sport</em></td>
-              <td>Recovery</td>
-              <td><span class="phase phase--p2">Phase II</span></td>
-              <td><span class="badge badge--rx">Public</span></td>
-              <td>Sport-regulator dialog ongoing</td>
-            </tr>
-            <tr data-product-card data-phase="discovery" data-area="suppression" data-access="public">
-              <td class="compound">ACR-301</td>
-              <td class="name-cell">Selective domain suppressor<em>domain-specific encapsulation without global suppression</em></td>
-              <td>Pigment stability</td>
-              <td><span class="phase phase--disc">Discovery</span></td>
-              <td><span class="badge badge--rx">Public</span></td>
-              <td>Lead optimization</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="text-mono" style="margin-top:18px">Last updated 2026-04-01 · next quarterly update 2026-07-01</p>
       </div>
-
     </div>
+
+    <div data-pipeline-grid>
+      <noscript><p>Pipeline table requires JavaScript. <a href="medical-information.html">Request the printable pipeline summary</a>.</p></noscript>
+    </div>
+    <p class="text-mono" style="margin-top:18px">Last updated 2026-04-01 · next quarterly update 2026-07-01</p>
   </div>
 </section>
 
-<section class="section alt">
-  <div class="container">
-    <div class="grid cols-2">
-      <div>
-        <span class="eyebrow">Discontinued programs</span>
-        <h2>Why we publish what we have stopped.</h2>
-        <p>Ordinate publishes the status of discontinued programs as part of our research integrity policy. Discontinuation typically reflects safety, ethical or commercial considerations. CRF-12, our halted Chromafinil civilian derivative, was discontinued by the Ordinate Safety Committee on the grounds of unacceptable misuse potential.</p>
-      </div>
-      <div>
-        <span class="eyebrow">Clinical trial transparency</span>
-        <h2>Trial registries and posted results.</h2>
-        <p>All Ordinate-sponsored interventional trials are registered with the appropriate national registry and results are posted within twelve months of database lock, in line with applicable transparency policies.</p>
-        <a class="btn btn-ghost" href="about.html#transparency">Transparency report →</a>
-      </div>
+<section class="section alt"><div class="container">
+  <div class="grid cols-2">
+    <div>
+      <span class="eyebrow">Discontinued programs</span>
+      <h2>Why we publish what we have stopped.</h2>
+      <p>Ordinate publishes the status of discontinued programs as part of our research integrity policy. Discontinuation typically reflects safety, ethical or commercial considerations. CRF-12, our halted Chromafinil civilian derivative, was discontinued by the Ordinate Safety Committee on the grounds of unacceptable misuse potential.</p>
+    </div>
+    <div>
+      <span class="eyebrow">Clinical trial transparency</span>
+      <h2>Trial registries and posted results.</h2>
+      <p>All Ordinate-sponsored interventional trials are registered with the appropriate national registry and results are posted within twelve months of database lock, in line with applicable transparency policies.</p>
+      <a class="btn ghost" href="transparency-report.html">Transparency report →</a>
     </div>
   </div>
-</section>
+</div></section>
 
 </main>
 
-<div class="disclaimer"><div class="container"><strong>Important</strong>Investigational compounds have not been demonstrated to be safe and effective for the conditions described and are not available outside authorized clinical trials.</div></div>
+<div class="disclaimer">
+  <div class="container"><strong>Important</strong>Investigational compounds have not been demonstrated to be safe and effective for the conditions described and are not available outside authorized clinical trials.</div>
+</div>
 
-<footer class="site-footer"><div class="container">
-  <div class="footer-grid">
-    <div class="footer-brand"><div class="brand-name">Ordinate Therapeutics</div><p>A pharmaceutical company developing medicines for the regulated coordinates of human physiology.</p></div>
-    <div><h5>Products</h5><ul><li><a href="medicines.html">All medicines</a></li><li><a href="pigment-medicine.html">Pigment medicine</a></li><li><a href="pipeline.html">Research pipeline</a></li></ul></div>
-    <div><h5>Patients &amp; HCPs</h5><ul><li><a href="medical-information.html">Medical information</a></li><li><a href="access.html">Access programs</a></li><li><a href="safety.html">Adverse event</a></li></ul></div>
-    <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="news.html">News</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h5>Legal</h5><ul><li><a href="institutional.html">Institutional access</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><h3>Ordinate Therapeutics</h3><p>A pharmaceutical company developing medicines for the regulated coordinates of human physiology.</p></div>
+      <div><h4>Medicines</h4><ul><li><a href="medicines.html">All medicines</a></li><li><a href="pigment-medicine.html">Pigment medicine</a></li><li><a href="pipeline.html">Pipeline</a></li></ul></div>
+      <div><h4>Safety</h4><ul><li><a href="report-adverse-event.html">Adverse event</a></li><li><a href="recalls.html">Recalls</a></li><li><a href="hcp-letters.html">HCP letters</a></li></ul></div>
+      <div><h4>Patients &amp; HCPs</h4><ul><li><a href="medical-information.html">Medical information</a></li><li><a href="access-programs.html">Access programs</a></li></ul></div>
+      <div><h4>Governance</h4><ul><li><a href="about.html">About</a></li><li><a href="transparency-report.html">Transparency</a></li><li><a href="restricted-access.html">Institutional access</a></li></ul></div>
+    </div>
+    <div class="fine-print">
+      <p>© 2007–2026 Ordinate Therapeutics N.V.</p>
+      <p><a href="#" data-gate-open>Change region / audience</a></p>
+    </div>
   </div>
-  <div class="footer-meta"><span>© 2007–2026 Ordinate Therapeutics N.V.</span><span><a href="#" data-gate-open>Change region / audience</a></span></div>
-</div></footer>
+</footer>
 
-<div id="toast" class="toast" hidden></div>
-<script src="ordinate.js"></script>
 </body>
 </html>
